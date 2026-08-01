@@ -8,14 +8,15 @@ that upstream deliberately left out — a host-side **relay**, so join-authored
 state reaches the *other* joins and not just the host — plus the per-owner
 bookkeeping that a third player requires.
 
-> ## ⚠️ Not playable yet
+> ## ⚠️ Builds, but not play-tested yet
 >
-> **This code has never been compiled or run.** There is no working
-> three-player DLL in this repository. Read **[STATUS.md](STATUS.md)** for
-> exactly what is done, what isn't, and what it takes to finish.
+> `KenshiCoop.dll` compiles clean and packages into an installable kit. **No
+> three-player session has been run against it**, so nothing about actually
+> playing is proven. See **[STATUS.md](STATUS.md)**.
 >
 > Upstream's own status is "expect desyncs and crashes" *for two players*. A
-> third multiplies what can diverge.
+> third multiplies what can diverge. Save often, and test with two players
+> first — if duo misbehaves, the trio changes aren't the cause.
 
 **Start here:**
 
