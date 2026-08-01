@@ -25,6 +25,7 @@
 #include <cstdio>
 #include <string>
 #include <deque>
+#include <set>                      // protocol 46 (trio): live peer roster
 
 #include "CoopLog.h"
 #include "core/Config.h"
@@ -138,6 +139,13 @@ DWORD&       g_gameStartTick   = g_session.gameStartTick;
 bool&        g_autoLoadDone    = g_session.autoLoadDone;
 DWORD&       g_titleFirstTick  = g_session.titleFirstTick;
 bool&        g_peerPresent     = g_session.peerPresent;
+
+// Protocol 46 (trio): the live peer roster. g_peerPresent is a bool - "am I alone
+// or not" - which was a complete answer with one join but cannot express "one of
+// my two partners left". Every teardown decision below keys off this set instead,
+// and g_peerPresent is kept as its non-empty summary so the existing readers
+// (save suppression, UI, load gating) keep working unchanged.
+std::set<coop::u32> g_peerIds;
 std::string& g_savePending     = g_session.savePending;
 coop::u32&   g_saveReqId       = g_session.saveReqId;
 bool&        g_bootstrapArmed  = g_session.bootstrapArmed;
@@ -277,6 +285,7 @@ void processNetEvents(GameWorld* gw) {
         // per-channel safety resends (or never minting a pre-connect build).
         if (g_cfg.latejoinSync) g_repl.onPeerConnected(g_net, g_net.localId());
         else coopLog("[latejoin] connect edge seen, resync OFF (gate)");
+        g_peerIds.insert(*it);
         g_peerPresent = true;
         // Coordinated save (protocol 31): while connected under save-sync,
         // the JOIN never writes a save locally - the host's save is
@@ -301,11 +310,14 @@ void processNetEvents(GameWorld* gw) {
         // the departed peer's stream will never author its drop/exit edges -
         // release any carry or occupancy its driven copies still hold.
         if (gw && (g_cfg.carrySync || g_cfg.furnSync)) g_repl.sweepCarries(gw);
-        g_peerPresent = false;
-        // Coordinated save: disconnected = solo again; local saves must work.
-        if (!g_cfg.isHost && g_cfg.saveSync) {
+        g_peerIds.erase(*it);
+        g_peerPresent = !g_peerIds.empty();
+        // Coordinated save: only truly solo once the LAST peer is gone. Lifting
+        // the join's save suppression while another player is still connected
+        // would let two clients write divergent saves of the same world.
+        if (!g_cfg.isHost && g_cfg.saveSync && !g_peerPresent) {
             coop::engine::setSaveSuppress(false);
-            coopLog("[save] JOIN save suppression OFF (peer left)");
+            coopLog("[save] JOIN save suppression OFF (last peer left)");
         }
     }
     // Phase 2 crash hardening: a peer drop leaves this side's minted proxies
@@ -313,10 +325,21 @@ void processNetEvents(GameWorld* gw) {
     // (the engine will eventually reap them, and the next drive touches a freed
     // pointer - the "join crash -> host follow-on crash" chain). Despawn the
     // minted proxies and clear the peer maps, mirroring coopUiDisconnect(). Runs
-    // once per leave batch (we support a single peer).
+    // Protocol 46 (trio): scope the teardown. Upstream ran the FULL reset on any
+    // leave, which was correct when the only peer leaving was the only peer there
+    // is. With three players that despawned the surviving partner's squad and
+    // reset the shared session maps mid-session - the departing player takes the
+    // other two down with them. Sweep per departed owner, and only fall back to
+    // the full reset once nobody is left.
     if (!leaves.empty()) {
-        g_repl.clearPeerReplicationState(gw);
-        g_inbound.flushWorldState();
+        if (g_peerIds.empty()) {
+            g_repl.clearPeerReplicationState(gw);
+            g_inbound.flushWorldState();
+        } else {
+            for (std::deque<coop::u32>::iterator it = leaves.begin();
+                 it != leaves.end(); ++it)
+                g_repl.clearPeerReplicationStateFor(gw, *it);
+        }
     }
 }
 
@@ -471,14 +494,22 @@ void driveSaveSync() {
         g_inbound.drainSaveAcks(acks);
         for (std::deque<coop::InboundSaveAck>::iterator it = acks.begin();
              it != acks.end(); ++it) {
-            char b[144];
+            coop::savexfer::noteAck(it->ownerId, it->pkt.xferId, it->pkt.ok ? 1 : 0);
+            // Protocol 46 (trio): report progress as "n of N joins", so a
+            // partially-synced session is visible in the log instead of looking
+            // complete after the first ACK.
+            char b[192];
             _snprintf(b, sizeof(b) - 1,
-                      "[save] XFER-ACK id=%u ok=%u files=%u bytes=%I64u",
-                      it->pkt.xferId, (unsigned)it->pkt.ok,
-                      (unsigned)it->pkt.files, it->pkt.bytes);
+                      "[save] XFER-ACK owner=%u id=%u ok=%u files=%u bytes=%I64u "
+                      "(%u/%u joins)",
+                      (unsigned)it->ownerId, it->pkt.xferId, (unsigned)it->pkt.ok,
+                      (unsigned)it->pkt.files, it->pkt.bytes,
+                      coop::savexfer::ackCount(it->pkt.xferId),
+                      (unsigned)g_peerIds.size());
             b[sizeof(b) - 1] = '\0';
             if (it->pkt.ok) coopLog(b); else coopErr(b);
-            coop::savexfer::noteAck(it->pkt.xferId, it->pkt.ok ? 1 : 0);
+            if (coop::savexfer::allAcked(it->pkt.xferId, (unsigned)g_peerIds.size()))
+                coopLog("[save] all joins hold this save - world is shared");
         }
     } else {
         // Receiver half: stage, verify, commit, acknowledge (shared pump).

@@ -129,9 +129,18 @@ u16              recvFileCount();
 // HOST: the join's commit acknowledgement (Plugin.cpp feeds noteAck on the
 // PKT_SAVE_ACK drain). lastAckXferId 0 = none yet; lastAckOk 1 = the join
 // verified + committed - the load_sync scenario's "join holds my copy" gate.
-void noteAck(u32 xferId, int ok);
+// Protocol 46 (trio): ACKs are now tracked per join. lastAckOk() keeps its old
+// meaning for existing single-value readers but is CONSERVATIVE - it latches 0 if
+// any join failed. Use allAcked() for the real "everyone holds this save" gate.
+void noteAck(u32 ownerId, u32 xferId, int ok);
 u32  lastAckXferId();
 int  lastAckOk();
+// Number of distinct joins that have acknowledged 'xferId' (0 if it is not the
+// transfer currently being tracked).
+unsigned int ackCount(u32 xferId);
+// True only when 'expect' joins have all acknowledged 'xferId' SUCCESSFULLY. The
+// host gates "the world is shared" on this rather than on the first ACK back.
+bool allAcked(u32 xferId, unsigned int expect);
 
 // Protocol 32: a coordinated LOAD supersedes any in-flight save coordination -
 // disarm the quiescence watch and abort an active send (the join drops the

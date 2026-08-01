@@ -1745,7 +1745,14 @@ void Replicator::syncSpeed(GameWorld* gw, Inbound& in, NetLink& net, u32 ownerId
     // Phase 5 spike: expose the combat-cap state so the speed-setter
     // diagnostics (KENSHICOOP_DEBUG_SPEED) can distinguish an engine-forced
     // combat cap from a user click by context.
-    engine::setSpeedCombatHint(speedMyCombat_ || speedPeerCombat_);
+    {
+        bool anyCombat = speedMyCombat_;
+        for (std::map<u32, bool>::const_iterator cit = speedPeerCombat_.begin();
+             !anyCombat && cit != speedPeerCombat_.end(); ++cit) {
+            if (cit->second) anyCombat = true;
+        }
+        engine::setSpeedCombatHint(anyCombat);
+    }
 
     // Local vote capture: the engine-setter hooks (setGameSpeed / userPause /
     // togglePause) record every REAL user action - UI clicks, keyboard pause,
@@ -1785,22 +1792,30 @@ void Replicator::syncSpeed(GameWorld* gw, Inbound& in, NetLink& net, u32 ownerId
     in.drainSpeed(got);
     for (std::deque<InboundSpeed>::iterator it = got.begin(); it != got.end(); ++it) {
         const SpeedPacket& p = it->pkt;
-        if (p.seq != 0 && speedSeqSeen_ != 0 && (long)(p.seq - speedSeqSeen_) <= 0)
-            continue;
-        speedSeqSeen_ = p.seq;
+        // Protocol 46 (trio): stale-seq guard scoped to the SENDER.
+        {
+            std::map<u32, u32>::iterator sit = speedSeqSeen_.find(it->ownerId);
+            if (p.seq != 0 && sit != speedSeqSeen_.end() && sit->second != 0 &&
+                (long)(p.seq - sit->second) <= 0)
+                continue;
+            speedSeqSeen_[it->ownerId] = p.seq;
+        }
         bool pkPaused = (p.flags & SPEED_PAUSED) != 0 || p.speed <= EPS;
         if (p.type == (u8)PKT_SPEED_REQ && isHost) {
             float req = pkPaused ? 0.0f : p.speed;
             bool  cmb = (p.flags & SPEED_IN_COMBAT) != 0;
-            if (speedPeerReq_ < 0.0f || fabs(req - speedPeerReq_) > EPS ||
-                cmb != speedPeerCombat_) {
+            std::map<u32, float>::iterator pit = speedPeerReq_.find(it->ownerId);
+            std::map<u32, bool>::iterator  cit = speedPeerCombat_.find(it->ownerId);
+            bool known = (pit != speedPeerReq_.end());
+            if (!known || fabs(req - pit->second) > EPS ||
+                cit == speedPeerCombat_.end() || cmb != cit->second) {
                 char b[112]; _snprintf(b, sizeof(b) - 1,
                     "[speed] REQ RECV owner=%u mult=%.2f paused=%d combat=%d",
                     (unsigned)it->ownerId, req, pkPaused ? 1 : 0, cmb ? 1 : 0);
                 b[sizeof(b) - 1] = '\0'; coop::logLine(b);
             }
-            speedPeerReq_    = req;
-            speedPeerCombat_ = cmb;
+            speedPeerReq_[it->ownerId]    = req;
+            speedPeerCombat_[it->ownerId] = cmb;
         } else if (p.type == (u8)PKT_SPEED_SET && !isHost) {
             // QUIET apply: drives the sim to the arbitrated effective without
             // touching the UI buttons - they keep showing this player's VOTE.
@@ -1823,12 +1838,24 @@ void Replicator::syncSpeed(GameWorld* gw, Inbound& in, NetLink& net, u32 ownerId
     }
 
     if (isHost) {
-        // Arbitrate: effective = min(my request, peer request), capped at 1x
-        // while either player squad fights. The cap never force-unpauses -
-        // pause (0) is already below 1, so min semantics preserve it.
+        // Arbitrate: effective = min(my request, EVERY join's request), capped at
+        // 1x while ANY player squad fights. The cap never force-unpauses - pause
+        // (0) is already below 1, so min semantics preserve it.
+        //
+        // Protocol 46 (trio): min/any now fold over the whole roster rather than a
+        // single peer. The consensus rule players actually rely on - "anyone can
+        // pause, everyone must agree to speed up" - only holds if every vote is
+        // counted, which is exactly what the scalar broke.
         float eff = (speedMyReq_ >= 0.0f) ? speedMyReq_ : 1.0f;
-        if (speedPeerReq_ >= 0.0f && speedPeerReq_ < eff) eff = speedPeerReq_;
-        bool combat = speedMyCombat_ || speedPeerCombat_;
+        for (std::map<u32, float>::const_iterator pit = speedPeerReq_.begin();
+             pit != speedPeerReq_.end(); ++pit) {
+            if (pit->second >= 0.0f && pit->second < eff) eff = pit->second;
+        }
+        bool combat = speedMyCombat_;
+        for (std::map<u32, bool>::const_iterator cit = speedPeerCombat_.begin();
+             !combat && cit != speedPeerCombat_.end(); ++cit) {
+            if (cit->second) combat = true;
+        }
         if (combat && eff > 1.0f) eff = 1.0f;
         bool changed = (speedLastSet_ < 0.0f || fabs(eff - speedLastSet_) > EPS);
         // userActed with an UNCHANGED effective = a denied raise (consensus
@@ -1852,10 +1879,22 @@ void Replicator::syncSpeed(GameWorld* gw, Inbound& in, NetLink& net, u32 ownerId
             speedLastSet_    = eff;
             speedLastSendMs_ = now;
             if (changed) {
-                char b[128]; _snprintf(b, sizeof(b) - 1,
-                    "[speed] SET mult=%.2f paused=%d combat=%d (my=%.2f peer=%.2f)",
+                // Protocol 46: log the whole vote set - with 3 players "which
+                // player is holding us at 1x" is the first question you ask.
+                char votes[64]; votes[0] = '\0';
+                for (std::map<u32, float>::const_iterator pit = speedPeerReq_.begin();
+                     pit != speedPeerReq_.end(); ++pit) {
+                    char one[24];
+                    _snprintf(one, sizeof(one) - 1, " p%u=%.2f",
+                              (unsigned)pit->first, pit->second);
+                    one[sizeof(one) - 1] = '\0';
+                    if (strlen(votes) + strlen(one) < sizeof(votes) - 1)
+                        strcat(votes, one);
+                }
+                char b[160]; _snprintf(b, sizeof(b) - 1,
+                    "[speed] SET mult=%.2f paused=%d combat=%d (my=%.2f%s)",
                     eff, effPaused ? 1 : 0, combat ? 1 : 0,
-                    speedMyReq_, speedPeerReq_);
+                    speedMyReq_, votes);
                 b[sizeof(b) - 1] = '\0'; coop::logLine(b);
             }
         }

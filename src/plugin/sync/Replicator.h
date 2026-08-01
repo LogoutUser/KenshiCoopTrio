@@ -562,6 +562,14 @@ public:
     // session re-censuses and re-mints from scratch.
     void clearPeerReplicationState(GameWorld* gw);
 
+    // Protocol 46 (trio): tear down ONE departed peer, leaving the others intact.
+    // Despawns just that owner's minted proxies and world-item proxies and drops
+    // its per-owner channel state; the shared session maps survive because the
+    // remaining players still depend on them. Plugin.cpp calls this when a peer
+    // leaves and others remain, and falls back to the full
+    // clearPeerReplicationState() only when the LAST peer is gone.
+    void clearPeerReplicationStateFor(GameWorld* gw, u32 ownerId);
+
     // AFTER engine: sample + apply the interpolated pose for every tracked entity.
     void applyTargets(GameWorld* gw);
 
@@ -665,6 +673,14 @@ private:
         Key k; k.t = e.hType; k.c = e.hContainer; k.cs = e.hContainerSerial;
         k.i = e.hIndex; k.s = e.hSerial; return k;
     }
+
+    // Protocol 46 (trio): which peer authored each driven key. Key is the engine
+    // hand and carries no owner, which was fine while "not mine" implied "the
+    // other player's". With two joins, a leave must despawn only the DEPARTING
+    // player's proxies - without this index the survivor's squad gets swept too
+    // (upstream cleared everything on any leave). Written on ingest, read only by
+    // the scoped teardown.
+    std::map<Key, u32> keyOwner_;
 
     struct Driven {
         EntityInterp interp;
@@ -1590,12 +1606,20 @@ private:
     // can pause, both must raise"). -1 = not yet known.
     float         speedLastApplied_;   // what WE last wrote (own-write vs user-click detector)
     float         speedMyReq_;         // this client's current request
-    float         speedPeerReq_;       // host only: the join's latest request (-1 = none yet)
+    // Protocol 46 (trio): PER-OWNER votes. Upstream held one join's request in a
+    // scalar; with two joins the second REQ overwrote the first and the min()
+    // consensus silently dropped a player's pause. Keyed by ownerId, so
+    // arbitration is min() over the whole roster and a departing player's vote is
+    // erased (not left pinning the session at pause forever).
+    std::map<u32, float> speedPeerReq_;    // host only: latest request per join (-1 = none)
     bool          speedMyCombat_;      // own-squad in-combat flag (~1 Hz sample)
-    bool          speedPeerCombat_;    // host only: the join's reported combat bit
+    std::map<u32, bool>  speedPeerCombat_; // host only: reported combat bit per join
     float         speedLastSet_;       // host: last broadcast effective; join: last received
     u32           speedSeqOut_;        // per-sender monotonic seq for REQ/SET we send
-    u32           speedSeqSeen_;       // newest seq accepted from the peer (stale guard)
+    // Protocol 46 (trio): the stale-seq guard must be PER SENDER. Each client runs
+    // its own monotonic seq counter, so a shared scalar let join B's lower seq
+    // suppress join A's newer packets (and vice versa) at random.
+    std::map<u32, u32>   speedSeqSeen_;    // newest seq accepted, per ownerId
     unsigned long speedLastSendMs_;    // last REQ (join) / SET (host) send, safety resend
     unsigned long speedCombatSampleMs_;// last own-combat sample time
     unsigned long speedCombatHoldMs_;  // last time own-squad combat read TRUE (cap hysteresis)

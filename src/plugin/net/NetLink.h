@@ -201,6 +201,29 @@ private:
     void deliverEntity(u32 ownerId, u32 sendMs, const EntityState& e);
     void flushDelayed();
 
+    // Net-thread-only (protocol 46, trio). HOST ONLY: re-broadcast a packet a join
+    // just sent to every OTHER connected join, byte-for-byte. This is the single
+    // change that makes 3+ players coherent - see packetRelayClass() in Wire.h for
+    // which types are eligible and why.
+    //
+    // 'from' is the sending peer (excluded). 'data'/'len' is the ORIGINAL wire
+    // payload: relaying verbatim preserves the author's ownerId, so a receiver
+    // cannot tell a relayed packet from a direct one and needs no new code path.
+    // Called from inside the receive ladder while ev.packet is still alive; a
+    // fresh ENetPacket is created per send because ENet takes ownership on send.
+    void relayToOthers(ENetPeer* from, const void* data, unsigned int len,
+                       enet_uint8 channel, bool reliable);
+
+    // Net-thread-only (protocol 46). HOST ONLY: announce a roster change to every
+    // connected join except 'skip' (pass 0 to reach all). Lets each join learn who
+    // else is in the session so it can scope its per-owner teardown on a LEAVE.
+    void announceRoster(u8 type, u32 playerId, ENetPeer* skip);
+
+    // Net-thread-only (protocol 46). HOST ONLY: number of peers currently in the
+    // CONNECTED state, used for the MAX_PLAYERS admission check and the roster
+    // count field.
+    unsigned int connectedPeerCount() const;
+
     // Net-thread-only (protocol 44): gate an incoming entity batch by its session
     // epoch. Returns false (drop) if 'epoch' is older than the newest accepted
     // from 'ownerId'; otherwise records it and returns true. epochSeen_ is reset

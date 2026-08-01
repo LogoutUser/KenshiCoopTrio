@@ -298,6 +298,56 @@ bool NetLink::acceptEpoch(u32 ownerId, u32 epoch) {
     return true;
 }
 
+// ---- Host relay (protocol 46, trio) ----------------------------------------
+// See packetRelayClass() in Wire.h for the rationale. Net thread only.
+
+unsigned int NetLink::connectedPeerCount() const {
+    if (!enetHost_) return 0;
+    unsigned int n = 0;
+    for (size_t i = 0; i < enetHost_->peerCount; ++i) {
+        const ENetPeer* p = &enetHost_->peers[i];
+        if (p->state == ENET_PEER_STATE_CONNECTED) ++n;
+    }
+    return n;
+}
+
+void NetLink::relayToOthers(ENetPeer* from, const void* data, unsigned int len,
+                            enet_uint8 channel, bool reliable) {
+    if (!isHost_ || !enetHost_ || !data || len == 0) return;
+    for (size_t i = 0; i < enetHost_->peerCount; ++i) {
+        ENetPeer* p = &enetHost_->peers[i];
+        if (p == from) continue;                            // never echo the author
+        if (p->state != ENET_PEER_STATE_CONNECTED) continue;
+        // One packet per recipient: enet_peer_send takes ownership of the
+        // ENetPacket, so a shared one cannot be reused across sends here the way
+        // enet_host_broadcast manages internally.
+        ENetPacket* out = enet_packet_create(
+            data, len, reliable ? ENET_PACKET_FLAG_RELIABLE : 0);
+        if (!out) continue;
+        if (enet_peer_send(p, channel, out) < 0) enet_packet_destroy(out);
+    }
+}
+
+void NetLink::announceRoster(u8 type, u32 playerId, ENetPeer* skip) {
+    if (!isHost_ || !enetHost_) return;
+    PeerRosterPacket r;
+    std::memset(&r, 0, sizeof(r));
+    r.type     = type;
+    r.playerId = playerId;
+    // Roster size including the host. Computed at send time so a LEAVE announced
+    // from the disconnect handler reports the post-drop count.
+    unsigned int n = connectedPeerCount() + 1;
+    r.count = (u8)(n > 255 ? 255 : n);
+    for (size_t i = 0; i < enetHost_->peerCount; ++i) {
+        ENetPeer* p = &enetHost_->peers[i];
+        if (p == skip) continue;
+        if (p->state != ENET_PEER_STATE_CONNECTED) continue;
+        ENetPacket* out = enet_packet_create(&r, sizeof(r), ENET_PACKET_FLAG_RELIABLE);
+        if (!out) continue;
+        if (enet_peer_send(p, CH_RELIABLE, out) < 0) enet_packet_destroy(out);
+    }
+}
+
 void NetLink::deliverEntity(u32 ownerId, u32 sendMs, const EntityState& e) {
     if (simDelayMs_ == 0 && simJitterMs_ == 0 && simLossPct_ == 0) {
         if (inbound_) inbound_->pushEntity(ownerId, sendMs, e);
@@ -378,7 +428,8 @@ void NetLink::threadLoop() {
         if (serverPeer_) serverPeer_->mtu = 1200;
     }
 
-    u32   nextId = 1;
+    // (protocol 46: ids are now allocated lowest-free in the HELLO handler, so
+    // there is no monotonic counter to keep here.)
     DWORD lastConnectAttempt = GetTickCount();
 
     // Wall-clock time-sync state (client only). The join pings every ~2 s; each
@@ -444,6 +495,18 @@ void NetLink::threadLoop() {
                 }
                 case ENET_EVENT_TYPE_RECEIVE: {
                     const u8 type = packetType(ev.packet->data, (unsigned)ev.packet->dataLength);
+                    // Protocol 46 (trio): the host relay. Fan a join-authored packet
+                    // out to the other joins BEFORE consuming it locally, so a slow
+                    // local apply never delays the peers. Verbatim + same channel, so
+                    // the original reliability and ordering guarantees carry over.
+                    // Runs first and unconditionally: every RELAY_OTHERS type is
+                    // handled somewhere in the ladder below, and this is the one
+                    // place that sees all of them.
+                    if (isHost_ && packetRelayClass(type) == RELAY_OTHERS) {
+                        relayToOthers(ev.peer, ev.packet->data,
+                                      (unsigned)ev.packet->dataLength,
+                                      ev.channelID, ev.channelID == CH_RELIABLE);
+                    }
                     if (isHost_ && type == PKT_HELLO) {
                         HelloPacket h;
                         if (readPacket(ev.packet->data, (unsigned)ev.packet->dataLength, &h)) {
@@ -456,16 +519,39 @@ void NetLink::threadLoop() {
                                 netErr(b);
                                 enet_peer_disconnect(ev.peer, 0);
                             } else {
-                                u32 id = nextId++;
-                                // TWO-PLAYER ASSUMPTION (step-6 guard): the sync model
-                                // is host + ONE join. Join-authored events/inventory/
-                                // conservation intents reach only the host and are NOT
-                                // relayed to other joins, and OWNER_ID_ALL sweeps assume
-                                // a single peer. A third player connects at the wire
-                                // level but will silently desync - fail loudly instead.
-                                if (id >= 2) {
-                                    netErr("3+ players unsupported: join-authored state is "
-                                           "not relayed peer-to-peer; expect desync");
+                                // Protocol 46 (trio): allocate the LOWEST FREE id
+                                // rather than a monotonic counter. ownerId doubles
+                                // as the squad-tab rank, so ids must stay inside
+                                // [1, MAX_PLAYERS-1] across reconnects - a player
+                                // who drops and comes back must reclaim their own
+                                // squad, not be handed rank 3 of a 3-tab start.
+                                u32 id = 0;
+                                for (u32 cand = 1; cand < MAX_PLAYERS; ++cand) {
+                                    bool taken = false;
+                                    for (size_t pi = 0; pi < enetHost_->peerCount; ++pi) {
+                                        ENetPeer* q = &enetHost_->peers[pi];
+                                        if (q == ev.peer) continue;
+                                        if (q->state != ENET_PEER_STATE_CONNECTED) continue;
+                                        if ((u32)(size_t)q->data == cand) { taken = true; break; }
+                                    }
+                                    if (!taken) { id = cand; break; }
+                                }
+                                if (id == 0) {
+                                    // Session full: refuse cleanly instead of admitting
+                                    // a player with no squad tab to own.
+                                    char b[128];
+                                    _snprintf(b, sizeof(b) - 1,
+                                              "session full (%u/%u players); rejecting peer",
+                                              (unsigned)(connectedPeerCount() + 1),
+                                              (unsigned)MAX_PLAYERS);
+                                    b[sizeof(b) - 1] = '\0';
+                                    netErr(b);
+                                    enet_peer_disconnect(ev.peer, 0);
+                                    // The single enet_packet_destroy for this case
+                                    // lives at the bottom of the ladder; release the
+                                    // packet here since we are leaving early.
+                                    enet_packet_destroy(ev.packet);
+                                    break;
                                 }
                                 ev.peer->data = (void*)(size_t)id;
                                 WelcomePacket w;
@@ -473,10 +559,31 @@ void NetLink::threadLoop() {
                                 ENetPacket* out =
                                     enet_packet_create(&w, sizeof(w), ENET_PACKET_FLAG_RELIABLE);
                                 enet_peer_send(ev.peer, CH_RELIABLE, out);
+                                // Roster sync (protocol 46): tell the newcomer about the
+                                // joins already present, then tell them about the
+                                // newcomer. Without this a join only ever knows the host,
+                                // and cannot scope a teardown when a SIBLING drops.
+                                for (size_t pi = 0; pi < enetHost_->peerCount; ++pi) {
+                                    ENetPeer* q = &enetHost_->peers[pi];
+                                    if (q == ev.peer) continue;
+                                    if (q->state != ENET_PEER_STATE_CONNECTED) continue;
+                                    PeerRosterPacket r;
+                                    std::memset(&r, 0, sizeof(r));
+                                    r.type     = (u8)PKT_PEER_JOIN;
+                                    r.playerId = (u32)(size_t)q->data;
+                                    r.count    = (u8)(connectedPeerCount() + 1);
+                                    ENetPacket* rp = enet_packet_create(&r, sizeof(r),
+                                                                        ENET_PACKET_FLAG_RELIABLE);
+                                    if (rp && enet_peer_send(ev.peer, CH_RELIABLE, rp) < 0)
+                                        enet_packet_destroy(rp);
+                                }
+                                announceRoster((u8)PKT_PEER_JOIN, id, ev.peer);
                                 char b[96];
                                 _snprintf(b, sizeof(b) - 1,
-                                          "peer connected id=%u (proto v%u)",
-                                          (unsigned)id, (unsigned)PROTOCOL_VERSION);
+                                          "peer connected id=%u (proto v%u) [%u/%u players]",
+                                          (unsigned)id, (unsigned)PROTOCOL_VERSION,
+                                          (unsigned)(connectedPeerCount() + 1),
+                                          (unsigned)MAX_PLAYERS);
                                 b[sizeof(b) - 1] = '\0';
                                 netLog(b);
                                 if (inbound_) inbound_->pushConnect(id);
@@ -502,6 +609,25 @@ void NetLink::threadLoop() {
                                 netLog(b);
                                 if (inbound_) inbound_->pushConnect(0); // host id = 0
                             }
+                        }
+                    } else if (!isHost_ && (type == PKT_PEER_JOIN || type == PKT_PEER_LEAVE)) {
+                        // Protocol 46 (trio): sibling roster change. A LEAVE is the
+                        // only signal a join gets that ANOTHER join dropped - without
+                        // it that player's squad would stand frozen on our screen for
+                        // the rest of the session, still owned by an absent authority.
+                        PeerRosterPacket r;
+                        if (readPacket(ev.packet->data, (unsigned)ev.packet->dataLength, &r)) {
+                            if (type == PKT_PEER_LEAVE) {
+                                if (inbound_) inbound_->pushLeave(r.playerId);
+                            } else {
+                                if (inbound_) inbound_->pushConnect(r.playerId);
+                            }
+                            char b[96];
+                            _snprintf(b, sizeof(b) - 1, "roster %s id=%u [%u players]",
+                                      type == PKT_PEER_JOIN ? "JOIN" : "LEAVE",
+                                      (unsigned)r.playerId, (unsigned)r.count);
+                            b[sizeof(b) - 1] = '\0';
+                            netLog(b);
                         }
                     } else if (type == PKT_ENTITY_BATCH) {
                         const unsigned len = (unsigned)ev.packet->dataLength;
@@ -891,16 +1017,26 @@ void NetLink::threadLoop() {
                     break;
                 }
                 case ENET_EVENT_TYPE_DISCONNECT: {
-                    epochSeen_.clear(); // peer gone; its epoch sequence ends (v44)
                     if (isHost_) {
                         u32 id = (u32)(size_t)ev.peer->data;
                         ev.peer->data = 0;
+                        // Protocol 46 (trio): forget only the DEPARTING peer's epoch.
+                        // Upstream cleared the whole map, which was harmless with one
+                        // join but would make a surviving join's in-flight batches look
+                        // like a fresh session and reset its epoch gate.
+                        epochSeen_.erase(id);
                         if (inbound_) inbound_->pushLeave(id);
-                        char b[64];
-                        _snprintf(b, sizeof(b) - 1, "peer disconnected id=%u", (unsigned)id);
+                        // Tell the remaining joins, so they sweep this owner's driven
+                        // bodies instead of puppeting a departed player's squad.
+                        announceRoster((u8)PKT_PEER_LEAVE, id, ev.peer);
+                        char b[96];
+                        _snprintf(b, sizeof(b) - 1,
+                                  "peer disconnected id=%u [%u/%u players]", (unsigned)id,
+                                  (unsigned)(connectedPeerCount() + 1), (unsigned)MAX_PLAYERS);
                         b[sizeof(b) - 1] = '\0';
                         netLog(b);
                     } else {
+                        epochSeen_.clear(); // host gone; the whole session ends (v44)
                         serverPeer_ = 0;
                         if (inbound_) inbound_->pushLeave(OWNER_ID_ALL);
                         netLog("disconnected from host");

@@ -12,6 +12,8 @@
 
 #include "ReplicatorUtil.h"
 
+#include <vector> // protocol 46 (trio): scoped per-owner teardown key list
+
 namespace coop {
 
 Replicator::Replicator()
@@ -50,9 +52,9 @@ Replicator::Replicator()
       midCursor_(0), midSliceMs_(0),
       censusParkDist_(0.0f), censusParks_(0), censusFreezeAi_(true),
       auditRows_(false), jailProbe_(false), jailObserve_(false),
-      speedLastApplied_(-1.0f), speedMyReq_(-1.0f), speedPeerReq_(-1.0f),
-      speedMyCombat_(false), speedPeerCombat_(false), speedLastSet_(-1.0f),
-      speedSeqOut_(1), speedSeqSeen_(0),
+      speedLastApplied_(-1.0f), speedMyReq_(-1.0f),
+      speedMyCombat_(false), speedLastSet_(-1.0f),
+      speedSeqOut_(1),
       speedLastSendMs_(0), speedCombatSampleMs_(0), speedCombatHoldMs_(0),
       spawnSync_(false), spawnPosLogMs_(0),
       spawnMintRadius_(0.0f), censusScanMs_(0),
@@ -161,6 +163,7 @@ void Replicator::resetSession() {
     canonicalOf_.clear();      // capture-translation reverse map (same pointers)
     jailObs_.clear();          // jail-observe spike per-captive last sample
     proxyByKey_.clear();
+    keyOwner_.clear();   // protocol 46 (trio): per-key author index
     suppressed_.clear();
     midBand_.clear();          // host mid-band round-robin (rebuilt by next census)
     midCursor_ = 0; midSliceMs_ = 0;
@@ -245,11 +248,11 @@ void Replicator::resetSession() {
     // save's speed becomes the new baseline; the join's slew re-measures).
     speedLastApplied_ = -1.0f;
     speedMyReq_       = -1.0f;
-    speedPeerReq_     = -1.0f;
+    speedPeerReq_.clear();     // protocol 46: per-owner vote sets
     speedMyCombat_    = false;
-    speedPeerCombat_  = false;
+    speedPeerCombat_.clear();
     speedLastSet_     = -1.0f;
-    speedSeqSeen_     = 0;
+    speedSeqSeen_.clear();
     speedLastSendMs_  = 0;
     speedCombatSampleMs_ = 0;
     speedCombatHoldMs_ = 0;
@@ -304,6 +307,59 @@ void Replicator::clearPeerReplicationState(GameWorld* gw) {
     resetSession();
 }
 
+void Replicator::clearPeerReplicationStateFor(GameWorld* gw, u32 ownerId) {
+    // Protocol 46 (trio): scoped mirror of clearPeerReplicationState. Same
+    // ordering contract - despawn the engine bodies BEFORE dropping the maps that
+    // own the pointers - but filtered to one author, so a survivor's squad is not
+    // swept along with the departed player's.
+    // Collect this owner's keys first: erasing from keyOwner_ while walking it and
+    // the two maps it indexes is easy to get subtly wrong, and a mistake here
+    // corrupts a LIVE player's squad rather than the departed one's.
+    std::vector<Key> mine;
+    unsigned int skipped = 0;
+    for (std::map<Key, u32>::const_iterator ko = keyOwner_.begin();
+         ko != keyOwner_.end(); ++ko) {
+        if (ko->second == ownerId) mine.push_back(ko->first);
+        else ++skipped;
+    }
+    unsigned int cleared = 0;
+    for (size_t mi = 0; mi < mine.size(); ++mi) {
+        const Key& k = mine[mi];
+        std::map<Key, Character*>::iterator px = proxyByKey_.find(k);
+        if (px != proxyByKey_.end()) {
+            if (gw && px->second && engine::despawnProxyNpc(gw, px->second)) ++cleared;
+            proxyByKey_.erase(px);
+        }
+        // Drop the drive entry even when there was no minted proxy: the departed
+        // player also drove NATIVE bodies (their own squad in a shared save), and
+        // leaving those in targets_ keeps interpolating a stream that will never
+        // get another sample.
+        targets_.erase(k);
+        keyOwner_.erase(k);
+    }
+    // World-item proxies are keyed by (ownerId, netId), so the filter is exact.
+    unsigned int wcleared = 0;
+    for (std::map<std::pair<u32, u32>, WorldProxy>::iterator wi = worldProxies_.begin();
+         wi != worldProxies_.end(); ) {
+        if (wi->first.first != ownerId) { ++wi; continue; }
+        if (gw && wi->second.obj && engine::removeWorldItemProxy(gw, wi->second.obj))
+            ++wcleared;
+        worldProxies_.erase(wi++);
+    }
+    // Per-owner channel state. The speed vote matters most: a departed player's
+    // pause would otherwise stay in the min() forever and freeze the survivors.
+    speedPeerReq_.erase(ownerId);
+    speedPeerCombat_.erase(ownerId);
+    speedSeqSeen_.erase(ownerId);
+    peerClock_.erase(ownerId);
+    char b[128];
+    _snprintf(b, sizeof(b) - 1,
+              "[leave] owner=%u scoped sweep: proxies=%u worldProxies=%u kept=%u",
+              (unsigned)ownerId, cleared, wcleared, skipped);
+    b[sizeof(b) - 1] = '\0';
+    coop::logLine(b);
+}
+
 void Replicator::ingest(Inbound& in) {
     std::deque<InboundEntity> got;
     in.drainEntities(got);
@@ -333,7 +389,12 @@ void Replicator::ingest(Inbound& in) {
             t = (unsigned long)((long)it->sendMs + pc.offsetMs);
             if ((long)(t - now) > 0) t = now;
         }
-        Driven& d = targets_[keyOf(it->e)];
+        Key ek = keyOf(it->e);
+        // Protocol 46 (trio): remember who authored this key, so a leave sweeps
+        // only that player's bodies. Cheap (one map write per streamed entity)
+        // and it is the only place ownerId and Key are both in hand.
+        keyOwner_[ek] = it->ownerId;
+        Driven& d = targets_[ek];
         d.interp.push(it->e, t, now);
         d.lastSeenMs = now;
     }

@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <vector>
+#include <map>   // protocol 46 (trio): per-join ACK ledger
 
 namespace coop {
 namespace savexfer {
@@ -540,9 +541,39 @@ u16              recvFileCount()  { return g_recvFileCount; }
 
 static u32 g_lastAckXferId = 0;
 static int g_lastAckOk     = -1;
-void noteAck(u32 xferId, int ok) { g_lastAckXferId = xferId; g_lastAckOk = ok; }
+// Protocol 46 (trio): per-join ACK ledger for the CURRENT transfer. With one
+// join a scalar was the whole answer; with two, B's ACK overwrote A's and the
+// host concluded "the save landed" when only one copy had actually committed -
+// the other player then resumed from a stale world. Keyed by ownerId and reset
+// whenever a new xferId starts.
+static std::map<u32, int> g_ackByOwner;
+static u32                g_ackXferId = 0;
+
+void noteAck(u32 ownerId, u32 xferId, int ok) {
+    if (xferId != g_ackXferId) { g_ackByOwner.clear(); g_ackXferId = xferId; }
+    g_ackByOwner[ownerId] = ok;
+    g_lastAckXferId = xferId;
+    // The legacy scalar keeps "worst result wins" semantics: any failed ACK marks
+    // the transfer bad, so existing single-value readers stay conservative.
+    if (g_lastAckOk != 0) g_lastAckOk = ok;
+}
 u32  lastAckXferId() { return g_lastAckXferId; }
 int  lastAckOk()     { return g_lastAckOk; }
+
+unsigned int ackCount(u32 xferId) {
+    if (xferId != g_ackXferId) return 0;
+    return (unsigned int)g_ackByOwner.size();
+}
+bool allAcked(u32 xferId, unsigned int expect) {
+    if (expect == 0) return true;
+    if (xferId != g_ackXferId) return false;
+    if (g_ackByOwner.size() < expect) return false;
+    for (std::map<u32, int>::const_iterator it = g_ackByOwner.begin();
+         it != g_ackByOwner.end(); ++it) {
+        if (it->second != 1) return false; // a failed commit is not a completed sync
+    }
+    return true;
+}
 
 #ifndef KENSHICOOP_PROTOTEST
 void abortAll() {

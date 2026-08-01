@@ -24,7 +24,19 @@ typedef double         f64;
 // this header stays a definition file. When you bump PROTOCOL_VERSION, add the
 // matching entry at the bottom of that doc. The version is checked at handshake
 // and a mismatch is rejected (no back-compat).
-const u16 PROTOCOL_VERSION = 45;
+const u16 PROTOCOL_VERSION = 46;
+
+// ---- Player cap (trio fork) -------------------------------------------------
+// Upstream KenshiCoop is host + ONE join. This fork lifts that to host + N-1
+// joins by adding a host-side RELAY (see packetRelayClass below): join-authored
+// state is re-broadcast verbatim to every OTHER join, so each client sees a
+// complete owner-tagged world instead of only the host's half.
+//
+// MAX_PLAYERS counts the host. 3 = the trio target. The wire, the ENet host
+// (8 peer slots) and every owner-keyed map already generalise; raising this
+// further is a testing question, not a protocol one. Squad partition assigns
+// squad tab rank == ownerId, so the game start must provide MAX_PLAYERS tabs.
+const u32 MAX_PLAYERS = 3;
 
 // Packet type tags (first byte of every packet).
 enum PacketType {
@@ -69,8 +81,76 @@ enum PacketType {
     PKT_INV_XFER         = 39,// RELIABLE cross-owner transfer intent (protocol 37); InvXferPacket
     PKT_RESEARCH         = 40,// RELIABLE host-authoritative known-research row (protocol 38); ResearchPacket
     PKT_CAM_HINT         = 41,// UNRELIABLE join camera center hint (protocol 43, join -> host); CamHintPacket
-    PKT_COMBAT_HIT       = 42 // RELIABLE join-dealt authoritative damage report (join -> host, protocol 45); CombatHitPacket
+    PKT_COMBAT_HIT       = 42,// RELIABLE join-dealt authoritative damage report (join -> host, protocol 45); CombatHitPacket
+    PKT_PEER_JOIN        = 43,// RELIABLE roster add (host -> joins, protocol 46); PeerRosterPacket
+    PKT_PEER_LEAVE       = 44 // RELIABLE roster drop (host -> joins, protocol 46); PeerRosterPacket
 };
+
+// ---- Host-side relay classification (protocol 46, trio) ---------------------
+// In a star topology the host is the only peer everyone can reach. Upstream
+// consumed join-authored packets and stopped; with 3+ players that silently
+// desyncs join A against join B (A's squad, drops, trades and vitals never
+// reach B). The fix is a verbatim re-broadcast on the host.
+//
+// Verbatim is the important word: every join-authored packet already carries
+// the AUTHOR's ownerId, so a relayed copy needs no rewriting - join B applies
+// exactly the authority rule it would have applied had A been the host's
+// partner. That is what makes this a transport change rather than a sync
+// rewrite, and why the ~30 owner-keyed channels need no per-channel work.
+enum RelayClass {
+    RELAY_NONE = 0,   // never relayed: session/transport handshake, or host-authored
+                      // (host packets already go out via enet_host_broadcast)
+    RELAY_OTHERS = 1, // re-broadcast verbatim to every connected join EXCEPT the sender
+    RELAY_HOSTONLY = 2// host consumes and arbitrates; a derived host-authored packet
+                      // carries the result onward (speed votes, save/load orchestration)
+};
+
+// Classify a packet type for the host relay. Called on the NET thread for every
+// packet a join sends, so it stays a pure switch (no allocation, no lock).
+inline RelayClass packetRelayClass(u8 type) {
+    switch (type) {
+        // -- Transport / session handshake: strictly point-to-point.
+        case PKT_HELLO: case PKT_WELCOME: case PKT_LEAVE:
+        case PKT_TIME_PING: case PKT_TIME_PONG:
+        case PKT_PEER_JOIN: case PKT_PEER_LEAVE:
+            return RELAY_NONE;
+
+        // -- Host arbitrates, then authors its own packet with the verdict.
+        // Relaying the raw vote would let joins apply each other's unarbitrated
+        // requests and fight the host's SET.
+        case PKT_SPEED_REQ:  case PKT_SPEED_SET:
+        case PKT_SAVE_REQ:   case PKT_SAVE_BEGIN: case PKT_SAVE_FILE:
+        case PKT_SAVE_DONE:  case PKT_SAVE_ACK:
+        case PKT_LOAD_GO:    case PKT_LOAD_REQ:   case PKT_LOAD_NACK:
+        case PKT_SPAWN_REQ:  case PKT_SPAWN_INFO:
+        case PKT_CAM_HINT:
+            return RELAY_HOSTONLY;
+
+        // -- Owner-authoritative state. The author is the authority regardless
+        // of who is host, so every other client needs it byte-for-byte.
+        case PKT_ENTITY_BATCH:                       // 20 Hz squad transforms
+        case PKT_EVENT:                              // KO / death / revive / recruit / squad move
+        case PKT_INV_SNAPSHOT:                       // container contents
+        case PKT_WORLD_ITEM: case PKT_WORLD_ITEM_REMOVE:
+        case PKT_WORLD_DROP: case PKT_WORLD_PICKUP:  // conservation intents
+        case PKT_INV_XFER:                           // cross-owner trade
+        case PKT_MEDICAL:   case PKT_TREATMENT:      // vitals + first aid
+        case PKT_COMBAT_HIT:                         // join-dealt damage report
+        case PKT_STATS:     case PKT_MONEY:
+        case PKT_BUILD_PLACE: case PKT_BUILD_STATE:
+        case PKT_BUILD_DOOR:  case PKT_BUILD_REMOVE:
+            return RELAY_OTHERS;
+
+        // -- Host-authored world truth. Already broadcast by the host; a join
+        // never authors these, so a received copy is not forwarded.
+        case PKT_STEALTH: case PKT_FACTION: case PKT_TIME: case PKT_DOOR:
+        case PKT_PROD:    case PKT_NPC_CENSUS: case PKT_RESEARCH:
+            return RELAY_NONE;
+
+        default:
+            return RELAY_NONE; // unknown/newer type: never blind-forward
+    }
+}
 
 // One-shot transition events carried on the RELIABLE channel. Continuous state
 // (EntityState.bodyState) self-heals at 20 Hz over the unreliable channel, but a
@@ -134,6 +214,22 @@ struct WelcomePacket {
     u8  type;     // = PKT_WELCOME
     u16 version;  // host's PROTOCOL_VERSION (client re-checks)
     u32 playerId; // id the host assigned to this client
+};
+
+// Roster change (protocol 46, host -> joins). With only two players a join never
+// needed to know who else existed - the host was the whole rest of the world. In
+// a trio, join B must learn that join A exists (so it accepts A's owner-tagged
+// state) and, more importantly, that A has LEFT: otherwise B keeps driving A's
+// abandoned bodies forever, because upstream's only teardown signal is the local
+// "host connection lost" sweep.
+//
+// The host sends PKT_PEER_JOIN for each already-present join to a newcomer, then
+// announces the newcomer to the others; PKT_PEER_LEAVE on disconnect. Receivers
+// map a LEAVE onto the same per-owner sweep the host runs, scoped to that owner.
+struct PeerRosterPacket {
+    u8  type;     // = PKT_PEER_JOIN or PKT_PEER_LEAVE
+    u32 playerId; // the peer being added / removed
+    u8  count;    // roster size AFTER this change (host included); diagnostics
 };
 
 // A reliable one-shot transition. 'subject' is the hand the event happened TO; the

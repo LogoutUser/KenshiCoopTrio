@@ -1,10 +1,38 @@
-# KenshiCoop
+# KenshiCoopTrio
 
-Setup + Demo: [https://www.youtube.com/watch?v=OqwVRRZEYGM](https://www.youtube.com/watch?v=OqwVRRZEYGM)
+A fork of **[nhoral/KenshiCoop](https://github.com/nhoral/KenshiCoop)** that
+extends its two-player co-op to **three players**.
+
+All of the hard work here is nhoral's. This fork adds one architectural piece
+that upstream deliberately left out — a host-side **relay**, so join-authored
+state reaches the *other* joins and not just the host — plus the per-owner
+bookkeeping that a third player requires.
+
+> ## ⚠️ Not playable yet
+>
+> **This code has never been compiled or run.** There is no working
+> three-player DLL in this repository. Read **[STATUS.md](STATUS.md)** for
+> exactly what is done, what isn't, and what it takes to finish.
+>
+> Upstream's own status is "expect desyncs and crashes" *for two players*. A
+> third multiplies what can diverge.
+
+**Start here:**
+
+- **[STATUS.md](STATUS.md)** — what's real, what isn't, toolchain, next steps
+- **[docs/TRIO_ARCHITECTURE.md](docs/TRIO_ARCHITECTURE.md)** — how duo works,
+  every place "two" is welded in, and what this fork changes
+
+---
+
+## Upstream description
 
 Experimental **co-op multiplayer for [Kenshi](https://lofigames.com/)**, built as an
 [RE_Kenshi](https://github.com/BFrizzleFoShizzle/RE_Kenshi) /
 [KenshiLib](https://github.com/BFrizzleFoShizzle/KenshiLib) plugin.
+
+Setup + Demo (two-player, upstream):
+[https://www.youtube.com/watch?v=OqwVRRZEYGM](https://www.youtube.com/watch?v=OqwVRRZEYGM)
 
 One player hosts their world; a friend connects (LAN, direct UDP, or Steam P2P)
 and plays their own squad inside it. The plugin replicates squads, NPCs, combat,
@@ -13,9 +41,10 @@ dropped on the ground (both directions), base building and container contents,
 money, game speed, and more - and saves are coordinated: any save either player
 makes becomes one shared save, streamed to both machines automatically.
 
-> **Status: work in progress.** This is a hobby project under active
-> development. Expect rough edges, desyncs, and crashes. Two players is the
-> current design target.
+Everything below this line describes the upstream two-player mod and applies to
+this fork except where the trio docs say otherwise. Note that the wire protocol
+here is **v46**, which is not compatible with upstream v45 — all players must
+run the same build.
 
 ## How it works
 
