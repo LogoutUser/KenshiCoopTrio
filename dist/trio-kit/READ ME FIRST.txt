@@ -1,0 +1,89 @@
+KenshiCoopTrio - three-player co-op for Kenshi
+==============================================
+
+EASIEST WAY
+-----------
+  Double-click INSTALL.cmd. It finds Kenshi, copies the mod in, and asks
+  for the Steam IDs. That's it.
+
+  (No admin needed. It only writes into Kenshi's own mods folder.)
+
+
+IF YOU'D RATHER DO IT BY HAND
+-----------------------------
+  Drag the "KenshiCoop" folder into your Kenshi "mods" folder, so you get:
+
+    <Kenshi>\mods\KenshiCoop\KenshiCoop.dll
+
+  Default location:
+    C:\Program Files (x86)\Steam\steamapps\common\Kenshi\mods\
+
+
+BEFORE IT WILL WORK - ALL THREE OF YOU
+--------------------------------------
+  1. RE_Kenshi installed (free - it's what loads the co-op plugin):
+       https://github.com/BFrizzleFoShizzle/RE_Kenshi/releases/latest
+
+  2. Kenshi in WINDOWED mode:
+       Options > Video > uncheck Full Screen
+
+  3. Steam running and ONLINE (not offline mode).
+
+  4. Enable "KenshiCoop" in Kenshi's Mods menu.
+
+  5. Everyone runs the SAME build. Different builds = "protocol mismatch".
+
+
+THE STEAM ID SWAP (this is the part people get wrong)
+-----------------------------------------------------
+  Press F2 in game, click "Copy my Steam ID", send it to the others.
+
+    HOST  needs BOTH joins' IDs.
+    JOINS need ONLY the host's ID.
+
+  The joins do NOT need each other's IDs - the host passes everything
+  between them. That relay is the whole reason this fork exists.
+
+  INSTALL.cmd writes this for you. To edit it later, open:
+    <Kenshi>\mods\KenshiCoop\coop_config.json
+
+    {
+      "transport":  "steam",
+      "steamPeer":  "76561198000000001",   <- join 1 (host only)
+      "steamPeer2": "76561198000000002"    <- join 2 (host only)
+    }
+
+  Joins leave out "steamPeer2" entirely.
+
+
+PLAYING
+-------
+  HOST : load a save, split your units into THREE squad tabs, press F2,
+         Role = HOST, Connection = ONLINE.
+  JOINS: from the MAIN MENU (no save needed), press F2,
+         Role = JOIN, Connection = ONLINE.
+
+  The host streams its world to you automatically.
+  You each control your own squad - tab 1 = host, tab 2 and 3 = joins.
+
+
+IF SOMETHING'S WRONG
+--------------------
+  Logs are at:  <Kenshi>\KenshiCoop_*.log
+
+  "co-op plugin has not started"   RE_Kenshi didn't load it. Reinstall it.
+  "protocol mismatch"              someone has a different build.
+  third player never connects      host's config is missing "steamPeer2".
+                                   The host log should say "2 tunnel peer(s)".
+  "dropping packets from
+   unexpected peer"                that Steam ID isn't in the host's config.
+
+
+HEADS UP
+--------
+  This is experimental. The two-player mod it's built on says to expect
+  desyncs and crashes; a third player adds more of both. Save often.
+
+  Source: https://github.com/LogoutUser/KenshiCoopTrio
+  Built on nhoral/KenshiCoop. AGPL-3.0 - if you pass this on, pass the
+  source link on with it.
