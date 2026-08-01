@@ -23,6 +23,12 @@ bookkeeping that a third player requires.
 - **[docs/TRIO_ARCHITECTURE.md](docs/TRIO_ARCHITECTURE.md)** — how duo works,
   every place "two" is welded in, and what this fork changes
 
+**Licensing:** upstream is **AGPL-3.0**, and this fork inherits it. That is
+stricter than plain GPL: if you distribute a modified build — including handing
+a compiled `KenshiCoop.dll` to friends — you must make the corresponding source
+available to them. Keeping this repository public satisfies that. Do not ship a
+private build without the source.
+
 ---
 
 ## Upstream description
