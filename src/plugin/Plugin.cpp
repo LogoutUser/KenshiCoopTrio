@@ -1656,8 +1656,25 @@ void startNetworking() {
             coopErr("[steam] init failed (Steam not running / offline?); falling back to UDP");
         } else {
             coop::steamp2p::setPeer(g_cfg.steamPeer);
+            // Protocol 46 (trio): a HOST tunnels to every join, so add the second
+            // one here. A join leaves steamPeer2 unset - it only ever talks to
+            // the host, and the host relays the rest.
+            if (g_cfg.isHost && g_cfg.steamPeer2 != 0) {
+                if (g_cfg.steamPeer2 == g_cfg.steamPeer)
+                    coopErr("[steam] steamPeer2 duplicates steamPeer; ignoring the second entry");
+                else
+                    coop::steamp2p::addPeer(g_cfg.steamPeer2);
+            } else if (!g_cfg.isHost && g_cfg.steamPeer2 != 0) {
+                coopLog("[steam] steamPeer2 is host-only; ignoring it on a join");
+            }
             g_net.setSteamTransport(g_cfg.steamPeer);
-            coopLog("[steam] transport=steam armed (connect by SteamID; no port forwarding)");
+            char sb[128];
+            _snprintf(sb, sizeof(sb) - 1,
+                      "[steam] transport=steam armed, %u tunnel peer(s) "
+                      "(connect by SteamID; no port forwarding)",
+                      coop::steamp2p::peerCount());
+            sb[sizeof(sb) - 1] = '\0';
+            coopLog(sb);
         }
     }
 

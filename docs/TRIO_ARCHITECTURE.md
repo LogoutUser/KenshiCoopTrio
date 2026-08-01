@@ -155,7 +155,25 @@ end of a 3-tab game start. Under duo the `id >= 2` guard masked this.
 for *all* owners, so a surviving join's in-flight batches look like a fresh
 session.
 
-### B6 — Two-squad game start
+### B6 — Steam tunnel is single-peer *(critical)*
+
+Found on a second pass, and it would have made every fix above useless over the
+default transport. `SteamP2P` tunnels ENet datagrams over Steam P2P by SteamID
+and holds **one** peer:
+
+```cpp
+SteamId g_peer = 0; // tunnel peer (channel 0)
+...
+(void)address; // single peer: the fake address is ignored
+```
+
+`hookSend` ignored the destination address entirely and sent every datagram to
+that one SteamID; `hookReceive` dropped anything from anyone else and stamped
+every packet with the same fake address `1.0.0.1`. So over Steam — the transport
+the mod actually ships with, precisely because it avoids port forwarding —
+a third player could not be reached at all, no matter what the sync layer did.
+
+### B7 — Two-squad game start
 
 The bundled "Multiplayer (Wanderer x2)" start creates two squads. A trio needs
 three. This is game data authored in the Forgotten Construction Set, not code.
@@ -219,6 +237,22 @@ and a departing player's vote is erased so their pause cannot freeze the
 survivors forever. The save-ACK ledger becomes per-owner with a real
 `allAcked(xferId, expect)` gate.
 
+### Multi-peer Steam tunnel (fixes B6)
+
+The tunnel now keeps a small peer table, and each peer gets its own fake
+address: slot 0 → `1.0.0.1`, slot 1 → `1.0.0.2`, and so on. `hookSend` routes by
+destination address instead of ignoring it; `hookReceive` looks the sender up
+and stamps *its* fake address, so ENet's ordinary address-based peer routing
+works unchanged over an addressless pipe.
+
+Slot 0 is byte-identical to the old `FAKE_HOST`, so a two-player session is
+unchanged on the wire. The peer table doubles as the allowlist — an unlisted
+SteamID that sends to you is still dropped.
+
+Configuration becomes a three-way code exchange: the host lists both joins
+(`steamPeer` + new `steamPeer2`), each join lists only the host. Absent
+`steamPeer2` means a two-player session, so existing config files keep working.
+
 ### Roster protocol (fixes B2, B5)
 
 New `PKT_PEER_JOIN` / `PKT_PEER_LEAVE`. A join previously had no way to learn
@@ -231,7 +265,7 @@ erased per-owner instead of wholesale (fixes B5).
 
 ## 4. What is NOT done
 
-**The three-squad game start (B6).** Not written. It is authored in the
+**The three-squad game start (B7).** Not written. It is authored in the
 Forgotten Construction Set (`forgotten construction set.exe`, ships with
 Kenshi) — a GUI tool, not a scriptable format. Workaround: use any save and
 split your units into three squad tabs in-game before going online.

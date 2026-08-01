@@ -12,9 +12,16 @@
 // via enet_set_socket_hooks() (patch 0002), so every ENet datagram rides one
 // unreliable Steam P2P packet on channel 0. UDP stays the default transport.
 //
-// Two-player assumption (mirrors NetLink): ONE tunnel peer, configured up front
-// with the other player's steamid64 (two-code exchange; sending to a SteamID
-// implicitly accepts its inbound session, so no Steam callback plumbing needed).
+// Protocol 46 (trio): MULTI-PEER tunnel. Upstream carried a single tunnel peer,
+// which capped Steam sessions at two players no matter what the sync layer could
+// do. The tunnel now keeps a small peer table; each peer is assigned a distinct
+// fake address (1.0.0.1, 1.0.0.2, ...) so ENet's ordinary address-based routing
+// works unchanged over the tunnel. Sends route by destination address, receives
+// stamp the sender's fake address.
+//
+// Peers are still configured UP FRONT by steamid64 (an N-way code exchange: the
+// host lists every join, each join lists the host). Only known SteamIDs are
+// accepted, so an unlisted stranger who sends to you is still dropped.
 //
 // Threading: init()/setPeer()/setPingPeer() are called on the main thread before
 // the net thread launches; the ENet hooks and tick() run on the net thread. The
@@ -35,9 +42,23 @@ bool init();
 bool ready();
 SteamId selfId();
 
-// Configure the single tunnel peer. Proactively accepts its inbound session
-// and allows Valve-relay fallback. Call before the net thread starts.
+// Configure the tunnel peer set, replacing anything already there. Proactively
+// accepts the inbound session and allows Valve-relay fallback. Call before the
+// net thread starts. A JOIN uses this with the host's id (one peer).
 void setPeer(SteamId id);
+
+// Protocol 46 (trio): add another tunnel peer, keeping existing ones. A HOST
+// calls this once per join. Returns the assigned slot (0-based; slot n maps to
+// fake address 1.0.0.<n+1>) or -1 if the table is full or the id is invalid.
+// Re-adding an existing id returns its current slot instead of duplicating.
+int addPeer(SteamId id);
+
+// Number of configured tunnel peers.
+unsigned int peerCount();
+
+// Largest number of tunnel peers the fake-address scheme supports. The limit is
+// the single octet the slot is encoded into, not anything about Kenshi.
+const unsigned int MAX_TUNNEL_PEERS = 8;
 
 // Accept an inbound P2P session from a specific SteamID. Used by the Steam
 // invite layer's P2PSessionRequest_t callback so a session opens even if the

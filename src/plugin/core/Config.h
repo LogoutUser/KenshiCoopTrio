@@ -472,6 +472,13 @@ struct Config {
     // a SteamID implicitly accepts its session - no Steam callback plumbing).
     unsigned long long steamPeer;
 
+    // Protocol 46 (trio): the SECOND join's steamid64, host side only
+    // (KENSHICOOP_STEAM_PEER2 / "steamPeer2"). The code exchange becomes
+    // three-way: the host lists BOTH joins (steamPeer + steamPeer2), while each
+    // join still lists only the host in steamPeer. 0 = unused (two-player
+    // session), which keeps every existing config file working untouched.
+    unsigned long long steamPeer2;
+
     // Steam reachability spike (KENSHICOOP_STEAM_PING=<steamid64>): ping/echo
     // that peer on P2P channel 1 every 2 s and log RTT + punch-vs-relay,
     // independent of the transport in use. 0 = off.

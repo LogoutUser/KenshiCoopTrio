@@ -247,6 +247,9 @@ void loadConfig(Config& c) {
     c.transport = envOr("KENSHICOOP_TRANSPORT", fileOr(f, "transport", "udp").c_str());
     c.steamPeer = (unsigned long long)_strtoui64(
         envOr("KENSHICOOP_STEAM_PEER", fileOr(f, "steamPeer", "0").c_str()).c_str(), 0, 10);
+    // Protocol 46 (trio): the host's second join. Absent = two-player session.
+    c.steamPeer2 = (unsigned long long)_strtoui64(
+        envOr("KENSHICOOP_STEAM_PEER2", fileOr(f, "steamPeer2", "0").c_str()).c_str(), 0, 10);
     c.steamPing = (unsigned long long)_strtoui64(envOr("KENSHICOOP_STEAM_PING", "0").c_str(), 0, 10);
 
     // In-game panel session control: opt-in legacy auto-start. Default OFF so a
@@ -409,6 +412,9 @@ void reloadPeerFromFile(Config& c) {
     it = f.find("steamPeer");
     if (it != f.end() && !it->second.empty())
         c.steamPeer = (unsigned long long)_strtoui64(it->second.c_str(), 0, 10);
+    it = f.find("steamPeer2"); // protocol 46 (trio): host's second join
+    if (it != f.end() && !it->second.empty())
+        c.steamPeer2 = (unsigned long long)_strtoui64(it->second.c_str(), 0, 10);
     it = f.find("ip");
     if (it != f.end() && !it->second.empty()) c.ip = it->second;
     it = f.find("port");

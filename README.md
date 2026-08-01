@@ -19,7 +19,8 @@ bookkeeping that a third player requires.
 
 **Start here:**
 
-- **[STATUS.md](STATUS.md)** — what's real, what isn't, toolchain, next steps
+- **[SETUP.md](SETUP.md)** — step-by-step: toolchain, build, three-way Steam ID swap, test order
+- **[STATUS.md](STATUS.md)** — what is real, what is not, and why
 - **[docs/TRIO_ARCHITECTURE.md](docs/TRIO_ARCHITECTURE.md)** — how duo works,
   every place "two" is welded in, and what this fork changes
 
