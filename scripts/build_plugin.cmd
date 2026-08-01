@@ -54,6 +54,33 @@ where cl.exe
 
 REM UseEnv=true: use the INCLUDE/LIB/PATH above instead of registry-derived paths.
 REM TrackFileAccess=false: avoid Tracker.exe TRK0002 under redirected shells.
-"%MSBUILD%" "%REPO%\src\plugin\KenshiCoop.vcxproj" /p:Configuration=%CONFIG% /p:Platform=x64 /p:UseEnv=true /p:TrackFileAccess=false /nologo /v:minimal
+REM VCTargetsPath: the project declares ToolsVersion 16.0, so a modern MSBuild
+REM resolves $(VCTargetsPath) to its own VC\v170 folder - which only exists if
+REM the "Desktop development with C++" workload was installed. We do not need
+REM that workload (the compiler comes from SDK 7.1 + KB2519277), only the C++
+REM BUILD TARGETS, and the v100-era ones sit in the shared MSBuild folder. Point
+REM MSBuild there when the modern set is absent, so a Build Tools install
+REM without the C++ workload still builds. See setup_toolchain.ps1.
+REM NOTE: single-line IFs on purpose. The path contains "(x86)", and inside a
+REM parenthesised IF block cmd treats that ")" as the block terminator.
+REM The trailing "\\" is deliberate: MSBuild needs VCTargetsPath to END in a
+REM separator (some imports concatenate without one), but a single backslash
+REM before the closing quote would escape it and swallow the rest of the command
+REM line. "\\" passes one literal backslash and closes the quote.
+set "CPPTARGETS=%ProgramFiles(x86)%\MSBuild\Microsoft.Cpp\v4.0"
+set VCTP=
+if exist "%CPPTARGETS%\Microsoft.Cpp.Default.props" set VCTP=/p:VCTargetsPath="%CPPTARGETS%\\"
+if defined VCTP echo Using v100-era C++ targets: %CPPTARGETS%
+
+REM _TargetFrameworkDirectories / _FullFrameworkReferenceAssemblyPaths: the
+REM v100-era targets default TargetFrameworkVersion to v4.0, so modern MSBuild
+REM runs GetReferenceAssemblyPaths and fails with MSB3644 unless a .NET 4.0
+REM targeting pack is installed. This is a NATIVE C++ DLL - it references no
+REM managed assemblies at all - so the lookup is pure ceremony. Giving both
+REM properties a dummy non-empty value satisfies the check without installing a
+REM ~100 MB developer pack for something we never use.
+set "NOREFASM=/p:_TargetFrameworkDirectories=none /p:_FullFrameworkReferenceAssemblyPaths=none"
+
+"%MSBUILD%" "%REPO%\src\plugin\KenshiCoop.vcxproj" /p:Configuration=%CONFIG% /p:Platform=x64 /p:UseEnv=true /p:TrackFileAccess=false %VCTP% %NOREFASM% /nologo /v:minimal
 
 endlocal
