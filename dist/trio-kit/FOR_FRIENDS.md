@@ -85,7 +85,8 @@ This is experimental. **Save often.**
 
 ## Want your own Claude helping you?
 
-Paste **`FRIEND_BRIEFING.md`** (repo root) into Claude as your first message.
+See **[PROMPTS.md](PROMPTS.md)** for exact copy-paste prompts, or paste
+**`FRIEND_BRIEFING.md`** into Claude as your first message.
 It carries the architecture, what every log line means, and every trap hit so
 far, so it starts where we are instead of from scratch.
 
