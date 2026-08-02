@@ -1,10 +1,10 @@
 ﻿KenshiCoopTrio build provenance
 ===============================
-built      : 2026-08-02 14:20:12
+built      : 2026-08-02 17:25:59
 config     : Release
-commit     : 641eb95
+commit     : f3f7823
 protocol   : 46  (NOT compatible with upstream KenshiCoop v45)
-dll sha256 : C891147535263A1A2330A34A9E5B71F37F9D84693658DC830A7DCDA4F7F90CE4
+dll sha256 : 0A66DFBCF1084DEA5A7788B3FF1414055A2869E6C7DEEF39FFAC6352586EFC78
 
 All three players must have the SAME sha256 above. If they differ, someone
 is on a stale build and the session will refuse to connect.

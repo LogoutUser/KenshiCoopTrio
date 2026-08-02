@@ -217,7 +217,22 @@ void loadConfig(Config& c) {
     // just the chain kind (beds/cages keep working).
     c.chainSync = envOr("KENSHICOOP_CHAIN_SYNC", "1") != "0";
     c.stealthSync = envOr("KENSHICOOP_STEALTH_SYNC", "1") != "0";
-    c.moneySync   = envOr("KENSHICOOP_MONEY_SYNC", "1") != "0";
+    // Wallet sync: DEFAULT OFF as of 2026-08-02.
+    //
+    // The channel writes one tab's wallet value onto the other clients
+    // (writeWalletByHand). walletOf() resolves Character -> ActivePlatoon ->
+    // Platoon -> ownerships, and upstream assumed each squad tab therefore owns
+    // a separate wallet. In play it behaves as a SHARED pool: a host publishing
+    // "rank=0 money=14650" made every join's balance snap to 14650, wiping what
+    // they had earned or spent. Reported symptom: "their money resets to my
+    // currency".
+    //
+    // Turning it off REMOVES a write path rather than adding one, so it cannot
+    // introduce a new failure. Whatever the engine does with wallets natively is
+    // what now happens - and if platoon wallets are genuinely distinct, that is
+    // precisely the per-player money we want, reached by not interfering.
+    // KENSHICOOP_MONEY_SYNC=1 restores the old behaviour.
+    c.moneySync   = envOr("KENSHICOOP_MONEY_SYNC", "0") == "1";
     c.spawnSync   = envOr("KENSHICOOP_SPAWN_SYNC", "1") != "0";
     c.recruitSync = envOr("KENSHICOOP_RECRUIT_SYNC", "1") != "0";
     c.factionSync = envOr("KENSHICOOP_FACTION_SYNC", "1") != "0";
