@@ -61,6 +61,8 @@ void Replicator::applyTargets(GameWorld* gw) {
         Character* pcs[64];
         unsigned int np = engine::listPlayerChars(gw, pcs, 64);
         for (unsigned int i = 0; i < np; ++i) engine::addReportAttacker(pcs[i]);
+        hitAttackers_ = np;   // 0 here = nothing is registered as able to deal reportable damage
+        hitDriven_ = 0;       // recounted below over this tick's drive loop
     }
     // Driven-body pointer set rebuilds per tick too: enforceHostAuthority uses it
     // to recognise a streamed body whose LOCAL hand key changed (combat detach
@@ -280,11 +282,17 @@ void Replicator::applyTargets(GameWorld* gw) {
         // World NPCs only - a squad copy is a peer PC (PvP, out of scope), but we
         // still drain it so the engine-side accumulator stays bounded.
         if (reportCombat_) {
+            ++hitDriven_;
             float rf = 0.0f, rb = 0.0f;
-            if (engine::takeReportedDamage(c, &rf, &rb) && !isSquad &&
-                (rf > 0.0f || rb > 0.0f)) {
-                PendingHit& ph = pendingHits_[it->first];
-                ph.flesh += rf; ph.blood += rb;
+            if (engine::takeReportedDamage(c, &rf, &rb)) {
+                ++hitDrained_;
+                if (isSquad)                              ++hitSkipSquad_;
+                else if (rf <= 0.0f && rb <= 0.0f)        ++hitZero_;
+                else {
+                    PendingHit& ph = pendingHits_[it->first];
+                    ph.flesh += rf; ph.blood += rb;
+                    ++hitStaged_;
+                }
             }
         }
 

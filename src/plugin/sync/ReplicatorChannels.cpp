@@ -367,7 +367,32 @@ void Replicator::applyTreatments(GameWorld* gw, Inbound& in) {
 // by which the join PC actually wounds the host's authoritative NPC. Sent as it
 // accumulates; the map is cleared each publish (unsent-on-drop is acceptable - the
 // next swing re-accumulates, and RELIABLE delivery covers a queued send).
+// Join-dealt damage diagnostics (2026-08-02). Prints ~5 s on the JOIN so a
+// session log says WHICH stage drops the damage instead of leaving the host's
+// silent "zero HIT RECV" to be guessed at:
+//   attackers=0            -> nothing armed as a reportable attacker
+//   driven=0               -> the join is driving no bodies (nothing to hit)
+//   drained=0              -> the engine accumulator never saw our swings
+//   skipSquad / zero       -> captured, but discarded before staging
+//   staged>0 sent=0        -> staged and then never transmitted
+void Replicator::logHitDiag(u32 ownerId) {
+    unsigned long now = nowMs();
+    if (!reportCombat_) return;
+    if (hitDbgMs_ != 0 && (now - hitDbgMs_) < 5000) return;
+    hitDbgMs_ = now;
+    char b[192];
+    _snprintf(b, sizeof(b) - 1,
+              "[hitdbg] owner=%u attackers=%u driven=%u drained=%u skipSquad=%u "
+              "zero=%u staged=%u sent=%u pending=%u",
+              (unsigned)ownerId, hitAttackers_, hitDriven_, hitDrained_,
+              hitSkipSquad_, hitZero_, hitStaged_, hitSent_,
+              (unsigned)pendingHits_.size());
+    b[sizeof(b) - 1] = '\0';
+    coop::logLine(b);
+}
+
 void Replicator::publishCombatHits(GameWorld* gw, NetLink& net, u32 ownerId) {
+    logHitDiag(ownerId);
     (void)gw;
     if (pendingHits_.empty()) return;
     for (std::map<Key, PendingHit>::iterator it = pendingHits_.begin();
@@ -384,6 +409,7 @@ void Replicator::publishCombatHits(GameWorld* gw, NetLink& net, u32 ownerId) {
         chp.sIndex = k.i; chp.sSerial = k.s;
         chp.flesh = ph.flesh; chp.blood = ph.blood;
         net.queueCombatHit(chp);
+        ++hitSent_;
         char b[160]; _snprintf(b, sizeof(b) - 1,
             "[combat] HIT SEND id=%u hand=%u,%u flesh=%.1f blood=%.1f",
             chp.hitId, k.i, k.s, ph.flesh, ph.blood);

@@ -279,6 +279,8 @@ public:
     // as reliable CombatHitPackets. The join's local swing is guarded (cosmetic),
     // so this is the only path by which the join PC actually wounds the host's NPC.
     void publishCombatHits(GameWorld* gw, NetLink& net, u32 ownerId);
+    // Join-side stage counters for the join-dealt damage path (see [hitdbg]).
+    void logHitDiag(u32 ownerId);
 
     // HOST only (protocol 45): drain received join-dealt damage reports and apply
     // them AUTHORITATIVELY to the world NPC the host owns (blood loss + a frontal
@@ -1265,6 +1267,19 @@ private:
     // for log correlation.
     struct PendingHit { float flesh; float blood; PendingHit() : flesh(0.0f), blood(0.0f) {} };
     bool                 reportCombat_;
+    // Join-dealt damage diagnostics (2026-08-02). Three sessions have now shown
+    // zero '[combat] HIT RECV' on the host while joins swing at world NPCs, and
+    // the host log cannot distinguish "join never captured the damage" from
+    // "join captured it but never sent". These counters localise it to a single
+    // stage; [hitdbg] prints them ~5 s on the JOIN only.
+    unsigned int         hitAttackers_;   // player chars armed as attackers this tick
+    unsigned int         hitDriven_;      // driven bodies examined for reported damage
+    unsigned int         hitDrained_;     // takeReportedDamage() returned true
+    unsigned int         hitSkipSquad_;   // drained, but the victim was a squad copy
+    unsigned int         hitZero_;        // drained, but flesh+blood were both 0
+    unsigned int         hitStaged_;      // staged into pendingHits_
+    unsigned int         hitSent_;        // queueCombatHit() calls
+    unsigned long        hitDbgMs_;
     std::map<Key, PendingHit> pendingHits_;
     unsigned int         nextHitId_;
 

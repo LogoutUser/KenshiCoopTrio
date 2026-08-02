@@ -42,6 +42,8 @@ Replicator::Replicator()
       xferScanMs_(0), nextTreatId_(1),
       quietRelapse_(0), sitOrders_(0), detachUses_(0), noDetach_(false),
       dmgGuard_(false), reportCombat_(false), nextHitId_(1),
+      hitAttackers_(0), hitDriven_(0), hitDrained_(0), hitSkipSquad_(0),
+      hitZero_(0), hitStaged_(0), hitSent_(0), hitDbgMs_(0),
       carrySync_(true), furnSync_(true), chainSync_(true),
       stealthSync_(true),
       gateAuthority_(false), trustLogTick_(0),
