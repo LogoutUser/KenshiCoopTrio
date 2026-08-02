@@ -38,6 +38,13 @@ const u16 PROTOCOL_VERSION = 46;
 // squad tab rank == ownerId, so the game start must provide MAX_PLAYERS tabs.
 const u32 MAX_PLAYERS = 3;
 
+// Far-mint distance cap, as a multiple of the census radius (protocol 46).
+// Upstream used 1.25x, which assumed the census was centred near this client.
+// The census is now a union over every player's anchors, so a join can sit a
+// whole map away from an NPC that is legitimately censused. 4x covers three
+// players spread across the census span; isZoneLoadedAt remains the real guard.
+const float COOP_FAR_MINT_SPAN = 4.0f;
+
 // Packet type tags (first byte of every packet).
 enum PacketType {
     PKT_HELLO            = 1, // client -> host on connect: version + name

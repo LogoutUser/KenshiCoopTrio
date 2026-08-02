@@ -280,7 +280,24 @@ void Replicator::syncSpawns(GameWorld* gw, Inbound& in, NetLink& net, u32 ownerI
             bool farOk = rq.fromCensus && mintDist >= 0.0f &&
                          rq.firstMissMs != 0 &&
                          (now - rq.firstMissMs) >= FAR_MINT_ARM_MS &&
-                         (censusRadius_ <= 0.0f || mintDist <= censusRadius_ * 1.25f) &&
+                         // Distance cap. The 1.25x of the census radius assumed
+                         // the census was centred on roughly where THIS client
+                         // is - true with two players standing together, false
+                         // now: protocol 46 makes the census a UNION over every
+                         // player's interest anchors, so an NPC standing next to
+                         // the host is legitimately in the census while being far
+                         // from a join on the other side of the map. That join
+                         // then refused to mint it, and the NPC stayed invisible.
+                         //
+                         // Measured on a live trio session: 137 STUCK hands, one
+                         // unresolved for 394s, every deferral logging dist of
+                         // 2555-3001 against a 2500 cap - all of them just over
+                         // the line. The real safety check is isZoneLoadedAt
+                         // below (never mint into unloaded terrain); this cap is
+                         // secondary, so widen it to cover players being spread
+                         // out rather than gate on one client's viewpoint.
+                         (censusRadius_ <= 0.0f ||
+                          mintDist <= censusRadius_ * COOP_FAR_MINT_SPAN) &&
                          engine::isZoneLoadedAt(gw, p.x, p.y, p.z);
             if (!farOk) {
                 rq.farMs = now;
