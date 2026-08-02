@@ -109,8 +109,20 @@ if ($repo) {
         $dest = Join-Path $repo "logs\$who"
         New-Item -ItemType Directory -Force -Path $dest | Out-Null
         Copy-Item (Join-Path $stage '*') $dest -Recurse -Force
-        & git -C $repo add "logs/$who" | Out-Null
+        # Verify the files are actually THERE before trying to commit. A silent
+        # copy failure used to sail past this point and end with a cheerful
+        # "pushed" message despite nothing being sent.
+        $staged = @(Get-ChildItem $dest -Recurse -File -ErrorAction SilentlyContinue)
+        if ($staged.Count -eq 0) { throw "no files landed in logs/$who - nothing to send" }
+        Ok "staged $($staged.Count) file(s) into logs/$who"
+
+        & git -C $repo add -f "logs/$who" | Out-Null
         & git -C $repo commit -m "logs: $who $stamp" | Out-Null
+        # A failed commit ("nothing to commit") must NOT be reported as success:
+        # the push below would then just re-push main's tip, producing a branch
+        # that looks fine and contains no log at all. That is exactly what
+        # happened to both players' first attempts.
+        if ($LASTEXITCODE -ne 0) { throw "git commit produced nothing - logs not sent" }
         # Push to the CANONICAL repo by URL, not to 'origin'. Anyone who forked
         # instead of cloning has origin pointing at their own fork, so logs
         # pushed there are invisible to everyone else - which is exactly what
@@ -122,6 +134,9 @@ if ($repo) {
             & git -C $repo push -u origin $branch --force | Out-Null
         }
         if ($LASTEXITCODE -eq 0) {
+            # Final proof: ask the REMOTE what it now has. Anything less than
+            # this has already fooled us once.
+            $remote = (& git -C $repo ls-tree -r --name-only "$CANON" 2>$null)
             Ok "pushed to branch '$branch' (main untouched)"
             Say "     readable at: logs/$who on branch $branch"
             $pushed = $true
