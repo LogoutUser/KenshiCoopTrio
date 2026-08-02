@@ -131,6 +131,22 @@ inline RelayClass packetRelayClass(u8 type) {
         // cosmetic driven copy, double-counting it until the host's stream
         // corrected it. (Reclassified from RELAY_OTHERS, 2026-08-01.)
         case PKT_COMBAT_HIT:
+        // Conservation intents (drop / pickup) are join -> HOST only. Relaying
+        // them FEEDS BACK: the relayed intent is applied on the second join,
+        // that join's own drop/pickup detector sees the resulting inventory
+        // change, and publishes a FRESH intent - which relays onward again. Each
+        // round trip manufactures another copy of the item, and every copy is
+        // another engine object that can be freed while still listed, which is
+        // the use-after-free both crash dumps show.
+        //
+        // Measured 2026-08-02: one [wd] DROP produced 57 [wd] PICKUP-APPLY, the
+        // same item six times over with six DISTINCT intent ids - so these were
+        // newly minted intents, not retries.
+        //
+        // The host applies the intent to the real item and its authoritative
+        // world-item stream (PKT_WORLD_ITEM) carries the result to every join,
+        // so nothing is lost by not relaying the raw intent.
+        case PKT_WORLD_DROP: case PKT_WORLD_PICKUP:
             return RELAY_HOSTONLY;
 
         // -- Owner-authoritative state. The author is the authority regardless
@@ -139,7 +155,6 @@ inline RelayClass packetRelayClass(u8 type) {
         case PKT_EVENT:                              // KO / death / revive / recruit / squad move
         case PKT_INV_SNAPSHOT:                       // container contents
         case PKT_WORLD_ITEM: case PKT_WORLD_ITEM_REMOVE:
-        case PKT_WORLD_DROP: case PKT_WORLD_PICKUP:  // conservation intents
         case PKT_INV_XFER:                           // cross-owner trade
         case PKT_MEDICAL:   case PKT_TREATMENT:      // vitals + first aid
         case PKT_STATS:     case PKT_MONEY:
