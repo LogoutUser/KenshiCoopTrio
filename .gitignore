@@ -57,5 +57,3 @@ nul
 # build outputs (make_trio_kit.ps1 regenerates both). The kit SOURCES
 # (INSTALL.cmd, Install.ps1, READ ME FIRST.txt, .mod, RE_Kenshi.json) stay tracked.
 dist/KenshiCoopTrio-kit.zip
-dist/trio-kit/KenshiCoop/KenshiCoop.dll
-dist/trio-kit/PROVENANCE.txt
