@@ -83,16 +83,31 @@ while ($repo -and -not (Test-Path (Join-Path $repo '.git'))) {
     $repo = $parent
 }
 
+# Logs go to a PER-PLAYER BRANCH, never to main. main is Marsh's - it is the
+# single authority for what the build actually is, and nothing lands there
+# without going through him. A log branch keeps your evidence out of that path
+# entirely, so sharing a log can never disturb the shipped build.
 $pushed = $false
 if ($repo) {
     try {
+        $branch = "logs-$who"
+        $orig = (git -C $repo rev-parse --abbrev-ref HEAD 2>$null)
+        git -C $repo fetch origin 2>&1 | Out-Null
+        # Fresh branch off origin/main each time: no merge conflicts, no history
+        # to reconcile, and it cannot accidentally carry local code edits along.
+        git -C $repo checkout -B $branch origin/main 2>&1 | Out-Null
         $dest = Join-Path $repo "logs\$who"
         New-Item -ItemType Directory -Force -Path $dest | Out-Null
         Copy-Item (Join-Path $stage '*') $dest -Recurse -Force
         git -C $repo add "logs/$who" 2>&1 | Out-Null
         git -C $repo commit -m "logs: $who $stamp" 2>&1 | Out-Null
-        git -C $repo push 2>&1 | Out-Null
-        if ($LASTEXITCODE -eq 0) { Ok "pushed to the repo under logs/$who"; $pushed = $true }
+        git -C $repo push -u origin $branch --force 2>&1 | Out-Null
+        if ($LASTEXITCODE -eq 0) {
+            Ok "pushed to branch '$branch' (main untouched)"
+            Say "     Marsh's side can read it at: logs/$who on branch $branch"
+            $pushed = $true
+        }
+        if ($orig) { git -C $repo checkout $orig 2>&1 | Out-Null }
     } catch { }
     if (-not $pushed) { Warn "couldn't push (no access / not signed in) - falling back to a zip" }
 }
