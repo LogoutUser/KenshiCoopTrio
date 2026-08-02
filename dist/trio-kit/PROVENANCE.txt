@@ -1,8 +1,8 @@
 ﻿KenshiCoopTrio build provenance
 ===============================
-built      : 2026-08-02 00:15:21
+built      : 2026-08-02 00:42:27
 config     : Release
-commit     : dd8272f
+commit     : 35cc037
 protocol   : 46  (NOT compatible with upstream KenshiCoop v45)
 dll sha256 : 6819BE2BF9CED3CD8D25E73EFE8D8F3CFF555A15E4DCB3CCBF85D3846B589E83
 
