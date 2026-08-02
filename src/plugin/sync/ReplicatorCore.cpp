@@ -323,20 +323,48 @@ void Replicator::clearPeerReplicationStateFor(GameWorld* gw, u32 ownerId) {
         if (ko->second == ownerId) mine.push_back(ko->first);
         else ++skipped;
     }
+    // Every Character* we are about to invalidate. Despawning a body is not the
+    // end of the job: several maps are keyed BY POINTER, and one left behind is a
+    // dangling pointer the next drive tick will follow. That is the crash this
+    // sweep originally caused (game died ~8 s after a peer left, which is however
+    // long it took the next tick to touch one). resetSession() clears these for
+    // the full teardown; a scoped teardown has to do it by hand.
+    std::set<Character*> dead;
     unsigned int cleared = 0;
     for (size_t mi = 0; mi < mine.size(); ++mi) {
         const Key& k = mine[mi];
         std::map<Key, Character*>::iterator px = proxyByKey_.find(k);
         if (px != proxyByKey_.end()) {
+            if (px->second) dead.insert(px->second);
             if (gw && px->second && engine::despawnProxyNpc(gw, px->second)) ++cleared;
             proxyByKey_.erase(px);
         }
+        // A body we DROVE but never minted (the departed player's own squad in a
+        // shared save) is still referenced by the pointer maps, so collect it too.
+        std::map<Key, Character*>::iterator sp = suppressed_.find(k);
+        if (sp != suppressed_.end()) {
+            if (sp->second) dead.insert(sp->second);
+            suppressed_.erase(sp);
+        }
         // Drop the drive entry even when there was no minted proxy: the departed
-        // player also drove NATIVE bodies (their own squad in a shared save), and
-        // leaving those in targets_ keeps interpolating a stream that will never
-        // get another sample.
+        // player also drove NATIVE bodies, and leaving those in targets_ keeps
+        // interpolating a stream that will never get another sample.
         targets_.erase(k);
         keyOwner_.erase(k);
+        hostBody_.erase(k);
+        combatCapMs_.erase(k);
+        authCount_.erase(k);
+        life_.erase(k);
+        censusPos_.erase(k);
+        parkMs_.erase(k);
+        censusFrozen_.erase(k);
+    }
+    // Purge the pointer-keyed maps of everything we just invalidated.
+    for (std::set<Character*>::const_iterator dp = dead.begin(); dp != dead.end(); ++dp) {
+        drivenChars_.erase(*dp);
+        drivenSeen_.erase(*dp);
+        canonicalOf_.erase(*dp);
+        debugMarkers_.erase(*dp);
     }
     // World-item proxies are keyed by (ownerId, netId), so the filter is exact.
     unsigned int wcleared = 0;
