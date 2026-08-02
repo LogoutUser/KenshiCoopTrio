@@ -279,6 +279,29 @@ void processNetEvents(GameWorld* gw) {
                   (unsigned)*it, (unsigned)g_net.localId());
         b[sizeof(b) - 1] = '\0';
         coopLog(b);
+        // Protocol 46 (trio): a JOIN's squad-tab rank is its ASSIGNED ownerId,
+        // not a hardcoded 1. resolveOwnRanks() predates the third player and
+        // gives every join rank {1}, so with two joins BOTH would claim squad
+        // tab 2 and nobody would own tab 3. The id only exists once WELCOME has
+        // landed, which is here - so re-resolve on the connect edge. An explicit
+        // KENSHICOOP_OWN_SQUAD override still wins.
+        if (!g_cfg.isHost && !g_cfg.ownRanksFromEnv) {
+            coop::u32 me = g_net.localId();
+            if (me != 0) {
+                std::set<unsigned int> r;
+                r.insert((unsigned int)me);
+                if (r != g_cfg.ownRanks) {
+                    g_cfg.ownRanks = r;
+                    g_repl.setOwnRanks(g_cfg.ownRanks);
+                    char rb[96];
+                    _snprintf(rb, sizeof(rb) - 1,
+                              "[coop-ui] join ownRanks re-resolved to {%u} from assigned id",
+                              (unsigned)me);
+                    rb[sizeof(rb) - 1] = '\0';
+                    coopLog(rb);
+                }
+            }
+        }
         // Connect-edge resync (protocol 30): re-announce placed buildings and
         // force an immediate resend pass across all change-gated channels, so
         // a late joiner / reconnector converges now instead of waiting out
