@@ -1,14 +1,44 @@
 # Status
 
-**It builds.** `KenshiCoop.dll` compiles clean with the VC++ 2010 (v100) x64
-toolset and packages into a kit. **It has not yet been play-tested** — no
-three-player session has been run.
+**It works.** Three players connected on 2026-08-01 with zero errors in the
+session log.
 
 | | |
 |---|---|
 | Compiles | yes — Release\|x64, PE32+, zero errors |
 | Packaged | yes — `dist/KenshiCoopTrio-kit.zip` |
-| Play-tested | **no** |
+| 3-player session | **yes** — `[3/3 players]`, protocol v46 |
+| Sustained play | not yet — first session was ~1 minute |
+
+### What the first session proved
+
+```
+[steam] tunnel peer=…175 slot=0 addr=1.0.0.1
+[steam] tunnel peer=…332 slot=1 addr=1.0.0.2
+[steam] transport=steam armed, 2 tunnel peer(s)
+[net] peer connected id=1 (proto v46) [2/3 players]
+[net] peer connected id=2 (proto v46) [3/3 players]
+[event] RECV id=5 ev=6 owner=2 …
+[speed] SET mult=1.00 (my=1.00 p2=1.00)   ← id=1 gone, p2 retained
+[speed] SET mult=1.00 (my=1.00)           ← id=2 gone, clean
+```
+
+- **Multi-peer Steam tunnel** — two peers, distinct fake addresses. Without
+  this a third player is unreachable over the default transport.
+- **Lowest-free id allocation** and the `[n/3 players]` roster counter.
+- **Per-owner speed votes** — `p2=1.00` is a second join's vote surviving
+  alongside the first, which a scalar could not represent.
+- **Scoped teardown** — each departure erased only that owner's vote. Upstream
+  wiped all peer state on any disconnect.
+
+### Still unproven
+
+- **join ↔ join relay.** The host log proves host↔join both ways, but the relay
+  forwards on the net thread without logging. Confirming it needs a *join's*
+  log showing `owner=` traffic from the OTHER join. This is the fork's whole
+  reason to exist, so it is the next thing worth checking.
+- Sustained play: combat, trading, base building, saving across three clients.
+- Disconnect mid-gameplay (the first session's disconnects were at the end).
 
 ## What's done
 
