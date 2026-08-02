@@ -1,342 +1,682 @@
-[02:48:31.826] [HOST] INFO: log opened
-[02:48:31.826] [HOST] INFO: KenshiCoop loaded! (clean rebuild)
-[02:48:31.826] [HOST] INFO: KenshiCoop: build Aug  2 2026 02:08:15
-[02:48:31.826] [HOST] INFO: KenshiCoop: role=HOST proto=v46 port=27800 save=''
-[02:48:31.826] [HOST] INFO: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,money,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
-[02:48:31.866] [HOST] INFO: [engine] CAPS saveload=1 savepath=1 hand_resolve=1 npc_stream=1 limb=1 stats=1 carry=1 furniture=1 chain=1 shackle=1 slave=1 stealth=1 camera=1 speed=1 quiet_speed=1 door=1 build=1 machine=1 time=1 wallet=1 faction=1 combat_escalate=1
-[02:48:31.866] [HOST] INFO: KenshiCoop: ownership ranks = {0} (bidirectional presence)
-[02:48:31.866] [HOST] INFO: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
-[02:48:31.906] [HOST] INFO: [ai] periodicUpdate detour installed; AI-suspend ON (default)
-[02:48:31.946] [HOST] INFO: [dmg] hitByMeleeAttack detour installed; damage guard ON (host, driven peer-squad bodies)
-[02:48:31.987] [HOST] INFO: [shop] buyItem detour installed; purchase logging ON
-[02:48:32.027] [HOST] INFO: [wi] dropItem detour installed; query-free drop capture ON
-[02:48:32.068] [HOST] INFO: [recruit] recruit detour installed; recruitment sync ON
-[02:48:32.110] [HOST] INFO: [build] placeFinalPreviewBuilding detour installed; placement logging ON
-[02:48:32.151] [HOST] INFO: [build] dismantle detour installed; removal logging ON
-[02:48:32.231] [HOST] INFO: [fac] affectRelations detours installed; relation logging ON
-[02:48:32.272] [HOST] INFO: [save] save detour installed; coordinated save ON
-[02:48:32.353] [HOST] INFO: [load] load detour installed; coordinated load ON
-[02:48:32.393] [HOST] INFO: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
-[02:48:32.393] [HOST] INFO: [steam] id=76561199417484463 loggedOn=1 iface=SteamNetworking005
-[02:48:32.394] [HOST] INFO: [invite] ready: mm=SteamMatchMaking009 friends=SteamFriends015 (in-panel friend picker armed)
-[02:48:32.394] [HOST] INFO: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
-[02:48:33.878] [HOST] INFO: [boot] title-tick running=0 host=1 started=0 saveEmpty=1
-[02:48:33.883] [HOST] INFO: [coop-ui] gui ptr=00007FF68C4F2750
-[02:48:36.017] [HOST] INFO: [load] LOCAL-LOAD name='current save' suppressed=0 bypass=0 via=menu
-[02:48:39.500] [HOST] INFO: [steam] accepted inbound session from 76561198346257175
-[02:48:43.499] [HOST] INFO: KenshiCoop: gameplay started
-[02:48:43.499] [HOST] INFO: [load] 1 pre-gameplay load edge(s) discarded (title-screen auto-load)
-[02:48:43.649] [HOST] INFO: [speed] intent hooks installed (setGameSpeed/userPause/togglePause)
-[02:48:43.649] [HOST] INFO: [squad] LATCH cont=33,1114624000 rank=2
-[02:48:43.649] [HOST] INFO: [event] SEND id=1 ev=1 hand=1,1,912109376,5,1438354432 actor=0,0 bs 0->3
-[02:48:43.650] [HOST] INFO: [wi] BASELINE seeded=16 (save-native, never-stream)
-[02:48:43.650] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=95.6 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
-[02:48:43.650] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.4,59.6 bd=0.0,0.0,33.6,40.4 flags=1 nparts=7 pmin=33.2 smin=0.0 ls=0,0,0,0
-[02:48:43.650] [HOST] INFO: [stats] SEND hand=1,1051391616 str=27.5 dex=14.7 tough=33.3 stealth=2.2 athl=49.8 xp=0 fap=0
-[02:48:43.650] [HOST] INFO: [stats] SEND hand=5,1438354432 str=20.6 dex=11.9 tough=33.1 stealth=1.0 athl=41.1 xp=0 fap=0
-[02:48:43.650] [HOST] INFO: [money] SEND rank=0 cats=0
-[02:48:43.673] [HOST] INFO: [r401] lever scan isKnown=00007ff68abee430 can=00007ff68abf20d0 start=00007ff68abf3680
-[02:48:43.673] [HOST] INFO: [r401] levers located by prologue scan
-[02:48:43.673] [HOST] INFO: [research] SEND sid='46044-rebirth.mod' seq=1
-[02:48:43.673] [HOST] INFO: [research] SEND sid='46043-rebirth.mod' seq=2
-[02:48:43.673] [HOST] INFO: [research] SEND sid='1892-gamedata.base' seq=3
-[02:48:43.673] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
-[02:48:43.673] [HOST] INFO: [speed] SET mult=1.00 paused=0 combat=0 (my=1.00)
-[02:48:43.676] [HOST] INFO: [ai] suspended=0 driven=0
-[02:48:43.676] [HOST] INFO: [taskkey] key=22 desc='Patrolling' repro=0 subject=0
-[02:48:43.676] [HOST] INFO: [census] sent n=56 radius=2000 mid=26
-[02:48:43.676] [HOST] INFO: [cam] center=-31542.5,1736.1,10696.2
-[02:48:43.735] [HOST] INFO: [taskkey] key=98 desc='Sleeping' repro=1 subject=1
-[02:48:43.735] [HOST] INFO: [seatres] HOST task=98 npc=3,3564331008 subj=2137,1300659200 ok=1 npcpos=-31575.7,10854.8 subjpos=-31571.9,10866.7 d=12.4
-[02:48:43.735] [HOST] INFO: [taskkey] key=1 desc='Moving' repro=0 subject=1
-[02:48:43.735] [HOST] INFO: [taskkey] key=87 desc='Operating machine' repro=1 subject=1
-[02:48:43.735] [HOST] INFO: [seatres] HOST task=87 npc=1,2059936512 subj=2073,2053344768 ok=1 npcpos=-31549.5,10813.0 subjpos=-31549.5,10813.0 d=0.0
-[02:48:43.735] [HOST] INFO: [taskkey] key=146 desc='Turret gunner' repro=0 subject=1
-[02:48:43.745] [HOST] INFO: [seatres] HOST task=98 npc=1,2086303744 subj=2135,1980102528 ok=1 npcpos=-31669.2,10775.7 subjpos=-31656.1,10773.5 d=13.3
-[02:48:43.763] [HOST] INFO: [seatres] HOST task=87 npc=1,2412353536 subj=2098,2329467648 ok=1 npcpos=-31653.9,10719.6 subjpos=-31653.9,10719.6 d=0.0
-[02:48:43.763] [HOST] INFO: [seatres] HOST task=87 npc=1,2032714880 subj=2067,2089599616 ok=1 npcpos=-31561.1,10742.2 subjpos=-31561.1,10742.2 d=0.0
-[02:48:43.773] [HOST] INFO: [taskkey] key=141 desc='Following leader' repro=0 subject=1
-[02:48:43.781] [HOST] INFO: [taskkey] key=51 desc='Stand at node' repro=0 subject=1
-[02:48:43.815] [HOST] INFO: [fac] AFFECT-EV me='200-gamedata.base' whom='1305-gamedata.base' event=1 mult=0.025 after=-63.00 skipped=0
-[02:48:43.819] [HOST] INFO: [seatres] HOST task=87 npc=1,1150512640 subj=2063,3539550720 ok=1 npcpos=-31505.0,10763.6 subjpos=-31505.0,10763.6 d=0.0
-[02:48:43.880] [HOST] INFO: [taskkey] key=208 desc='Getting out of bed!' repro=0 subject=0
-[02:48:43.892] [HOST] INFO: [fac] AFFECT-EV me='1305-gamedata.base' whom='200-gamedata.base' event=0 mult=0.025 after=-43.89 skipped=0
-[02:48:43.895] [HOST] INFO: [taskkey] key=53 desc='Travelling' repro=0 subject=0
-[02:48:44.000] [HOST] INFO: [inv] SEND hand=0,2202,11111,2161,1860961920 kind=0 key=0,2202,11111,2161,1860961920 items=1 hash=1659125619
-[02:48:44.000] [HOST] INFO: [inv] SEND hand=0,2202,11111,2167,530395520 kind=0 key=0,2202,11111,2167,530395520 items=18 hash=594565562
-[02:48:44.000] [HOST] INFO: [inv] SEND hand=0,2202,11111,2168,802856448 kind=0 key=0,2202,11111,2168,802856448 items=0 hash=0
-[02:48:44.000] [HOST] INFO: [inv] SEND hand=0,2202,11111,2179,3048217856 kind=0 key=0,2202,11111,2179,3048217856 items=1 hash=2018655135
-[02:48:44.000] [HOST] INFO: [inv] SEND hand=0,2202,11111,2180,227783200 kind=0 key=0,2202,11111,2180,227783200 items=0 hash=0
-[02:48:44.000] [HOST] INFO: [inv] SEND hand=0,2202,11111,2181,3168212992 kind=0 key=0,2202,11111,2181,3168212992 items=0 hash=0
-[02:48:44.000] [HOST] INFO: [inv] SEND hand=1,1,912109376,1,1051391616 kind=0 key=1,1,912109376,1,1051391616 items=20 hash=3367723878
-[02:48:44.000] [HOST] INFO: [inv] SEND hand=1,1,912109376,5,1438354432 kind=0 key=1,1,912109376,5,1438354432 items=8 hash=3154182877
-[02:48:44.384] [HOST] INFO: [seatres] HOST task=87 npc=3,3645873920 subj=2096,2364013568 ok=1 npcpos=-31693.2,10719.7 subjpos=-31687.9,10725.1 d=7.6
-[02:48:45.391] [HOST] INFO: [seatres] HOST task=87 npc=2,300048832 subj=2074,3046753024 ok=1 npcpos=-31537.8,10806.5 subjpos=-31536.0,10797.8 d=8.9
-[02:48:45.409] [HOST] INFO: [seatres] HOST task=87 npc=4,3386108416 subj=2070,3902710016 ok=1 npcpos=-31564.6,10782.4 subjpos=-31555.8,10778.8 d=9.6
-[02:48:45.696] [HOST] INFO: [seatres] HOST task=98 npc=2,427978528 subj=2138,1218505856 ok=1 npcpos=-31624.6,10861.1 subjpos=-31638.4,10859.6 d=13.9
-[02:48:46.183] [HOST] INFO: [seatres] HOST task=87 npc=3,1395874048 subj=2071,107543944 ok=1 npcpos=-31573.6,10806.6 subjpos=-31575.4,10798.3 d=8.5
-[02:48:46.680] [HOST] INFO: [ai] suspended=0 driven=0
-[02:48:46.847] [HOST] INFO: [seatres] HOST task=87 npc=1,2659057664 subj=2072,1984375040 ok=1 npcpos=-31575.4,10802.1 subjpos=-31573.7,10810.1 d=8.2
-[02:48:48.678] [HOST] INFO: [cam] center=-31666.3,1738.5,10741.6
-[02:48:49.683] [HOST] INFO: [ai] suspended=0 driven=0
-[02:48:51.569] [HOST] INFO: [seatres] HOST task=87 npc=5,3295898 subj=2097,3683715840 ok=1 npcpos=-31670.7,10737.1 subjpos=-31677.3,10730.3 d=9.5
-[02:48:51.586] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.5,59.7 bd=0.0,0.0,33.5,40.3 flags=1 nparts=7 pmin=33.3 smin=0.0 ls=0,0,0,0
-[02:48:51.988] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.5,59.7 bd=0.0,0.0,33.5,40.3 flags=1 nparts=7 pmin=33.3 smin=0.0 ls=0,0,0,0
-[02:48:51.988] [HOST] INFO: [speed] REQ mult=0.00 paused=1 combat=0
-[02:48:51.988] [HOST] INFO: [speed] SET mult=0.00 paused=1 combat=0 (my=0.00)
-[02:48:52.684] [HOST] INFO: [ai] suspended=0 driven=0
-[02:48:53.673] [HOST] INFO: [cam] center=-31633.5,1737.8,10764.8
-[02:48:53.715] [HOST] INFO: [census] sent n=56 radius=2000 mid=26
-[02:48:55.691] [HOST] INFO: [ai] suspended=0 driven=0
-[02:48:58.673] [HOST] INFO: [cam] center=-31633.5,1737.8,10764.8
-[02:48:58.699] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:01.077] [HOST] INFO: [load] LOCAL-LOAD name='current save' suppressed=0 bypass=0 via=menu
-[02:49:01.102] [HOST] INFO: [load] GO->join id=1 name='current save' fp=a3f93b5d
-[02:49:01.421] [HOST] INFO: [load] WORLD-SWAP begin (gameplay went non-live)
-[02:49:03.958] [HOST] INFO: [load] WORLD-RELOAD swapMs=2531 hookTicksDuringSwap=283
-[02:49:03.958] [HOST] INFO: [load] session reset: pointer caches, session maps, change gates cleared
-[02:49:03.958] [HOST] INFO: [load] inbound world-state queues flushed
-[02:49:03.958] [HOST] INFO: [squad] LATCH cont=33,1114624000 rank=2
-[02:49:03.958] [HOST] INFO: [event] SEND id=2 ev=1 hand=1,1,912109376,5,1438354432 actor=0,0 bs 0->1
-[02:49:03.958] [HOST] INFO: [wi] BASELINE seeded=16 (save-native, never-stream)
-[02:49:03.958] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=95.6 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
-[02:49:03.958] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.4,59.6 bd=0.0,0.0,33.6,40.4 flags=1 nparts=7 pmin=33.2 smin=0.0 ls=0,0,0,0
-[02:49:03.958] [HOST] INFO: [stats] SEND hand=1,1051391616 str=27.5 dex=14.7 tough=33.3 stealth=2.2 athl=49.8 xp=0 fap=0
-[02:49:03.958] [HOST] INFO: [stats] SEND hand=5,1438354432 str=20.6 dex=11.9 tough=33.1 stealth=1.0 athl=41.1 xp=0 fap=0
-[02:49:03.958] [HOST] INFO: [money] SEND rank=0 cats=0
-[02:49:03.958] [HOST] INFO: [research] SEND sid='46044-rebirth.mod' seq=7
-[02:49:03.958] [HOST] INFO: [research] SEND sid='46043-rebirth.mod' seq=8
-[02:49:03.958] [HOST] INFO: [research] SEND sid='1892-gamedata.base' seq=9
-[02:49:03.958] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
-[02:49:03.958] [HOST] INFO: [speed] SET mult=1.00 paused=0 combat=0 (my=1.00)
-[02:49:03.963] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:03.963] [HOST] INFO: [census] sent n=56 radius=2000 mid=26
-[02:49:03.963] [HOST] INFO: [cam] center=-31515.4,1734.5,11321.4
-[02:49:04.009] [HOST] INFO: [seatres] HOST task=87 npc=2,1272094720 subj=2097,3683715840 ok=1 npcpos=-31677.3,10730.3 subjpos=-31677.3,10730.3 d=0.0
-[02:49:04.026] [HOST] INFO: [taskkey] key=67 desc='Running' repro=0 subject=1
-[02:49:04.026] [HOST] INFO: [taskkey] key=25 desc='First aid' repro=1 subject=1
-[02:49:04.026] [HOST] INFO: [seatres] HOST task=25 npc=11,3685302784 subj=13,1821899392 ok=1 npcpos=-30781.4,9630.2 subjpos=-30755.4,9663.3 d=42.1
-[02:49:04.051] [HOST] INFO: [fac] AFFECT-EV me='200-gamedata.base' whom='1305-gamedata.base' event=0 mult=0.025 after=-63.00 skipped=2
-[02:49:04.094] [HOST] INFO: [fac] AFFECT-EV me='1305-gamedata.base' whom='200-gamedata.base' event=0 mult=0.025 after=-43.89 skipped=12
-[02:49:04.206] [HOST] INFO: [taskkey] key=62 desc='Standing still' repro=0 subject=0
-[02:49:04.338] [HOST] INFO: [inv] SEND hand=0,2202,11111,2161,1860961920 kind=0 key=0,2202,11111,2161,1860961920 items=1 hash=1659125619
-[02:49:04.339] [HOST] INFO: [inv] SEND hand=0,2202,11111,2167,530395520 kind=0 key=0,2202,11111,2167,530395520 items=18 hash=594565562
-[02:49:04.339] [HOST] INFO: [inv] SEND hand=0,2202,11111,2168,802856448 kind=0 key=0,2202,11111,2168,802856448 items=0 hash=0
-[02:49:04.339] [HOST] INFO: [inv] SEND hand=0,2202,11111,2179,3048217856 kind=0 key=0,2202,11111,2179,3048217856 items=1 hash=2018655135
-[02:49:04.339] [HOST] INFO: [inv] SEND hand=0,2202,11111,2180,227783200 kind=0 key=0,2202,11111,2180,227783200 items=0 hash=0
-[02:49:04.339] [HOST] INFO: [inv] SEND hand=0,2202,11111,2181,3168212992 kind=0 key=0,2202,11111,2181,3168212992 items=0 hash=0
-[02:49:04.339] [HOST] INFO: [inv] SEND hand=1,1,912109376,1,1051391616 kind=0 key=1,1,912109376,1,1051391616 items=20 hash=3367723878
-[02:49:04.339] [HOST] INFO: [inv] SEND hand=1,1,912109376,5,1438354432 kind=0 key=1,1,912109376,5,1438354432 items=8 hash=3154182877
-[02:49:06.965] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:07.332] [HOST] INFO: [inv] SEND hand=0,2202,11111,162,1678588928 kind=0 key=0,2202,11111,162,1678588928 items=0 hash=0
-[02:49:08.954] [HOST] INFO: [cam] center=-31704.1,1735.9,10993.1
-[02:49:09.590] [HOST] INFO: [speed] REQ mult=0.00 paused=1 combat=0
-[02:49:09.590] [HOST] INFO: [speed] SET mult=0.00 paused=1 combat=0 (my=0.00)
-[02:49:09.969] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:10.842] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
-[02:49:10.842] [HOST] INFO: [speed] SET mult=1.00 paused=0 combat=0 (my=1.00)
-[02:49:11.144] [HOST] INFO: [fac] AFFECT-EV me='1305-gamedata.base' whom='200-gamedata.base' event=0 mult=0.025 after=-43.89 skipped=7
-[02:49:11.331] [HOST] INFO: [fac] AFFECT-EV me='200-gamedata.base' whom='1305-gamedata.base' event=1 mult=0.025 after=-63.00 skipped=15
-[02:49:11.809] [HOST] INFO: [seatres] HOST task=98 npc=1,2086303744 subj=2142,1099731456 ok=1 npcpos=-31702.3,10689.6 subjpos=-31709.9,10677.3 d=14.5
-[02:49:12.972] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:13.372] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.5,59.7 bd=0.0,0.0,33.5,40.3 flags=1 nparts=7 pmin=33.3 smin=0.0 ls=0,0,0,0
-[02:49:13.957] [HOST] INFO: [cam] center=-31708.0,1735.7,10904.0
-[02:49:13.991] [HOST] INFO: [census] sent n=55 radius=2000 mid=25
-[02:49:14.218] [HOST] INFO: [speed] REQ mult=0.00 paused=1 combat=0
-[02:49:14.218] [HOST] INFO: [speed] SET mult=0.00 paused=1 combat=0 (my=0.00)
-[02:49:15.975] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:18.659] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
-[02:49:18.659] [HOST] INFO: [speed] SET mult=1.00 paused=0 combat=0 (my=1.00)
-[02:49:18.953] [HOST] INFO: [cam] center=-31708.0,1735.7,10904.0
-[02:49:18.981] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:19.444] [HOST] INFO: [fac] AFFECT-EV me='1305-gamedata.base' whom='200-gamedata.base' event=0 mult=0.025 after=-43.89 skipped=7
-[02:49:19.837] [HOST] INFO: [seatres] HOST task=87 npc=3,3645873920 subj=2069,745971648 ok=1 npcpos=-31592.9,10744.0 subjpos=-31584.7,10738.7 d=9.7
-[02:49:20.818] [HOST] INFO: [fac] AFFECT-EV me='200-gamedata.base' whom='1305-gamedata.base' event=1 mult=0.025 after=-63.00 skipped=7
-[02:49:21.989] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:23.953] [HOST] INFO: [cam] center=-31645.2,1736.5,10888.2
-[02:49:24.015] [HOST] INFO: [census] sent n=55 radius=2000 mid=25
-[02:49:24.889] [HOST] INFO: [seatres] HOST task=87 npc=4,3229492224 subj=2099,477050784 ok=1 npcpos=-31683.0,10694.4 subjpos=-31688.2,10702.2 d=9.3
-[02:49:24.992] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:25.155] [HOST] INFO: [seatres] HOST task=98 npc=3,3564331008 subj=2141,3965209856 ok=1 npcpos=-31688.8,10656.5 subjpos=-31694.9,10643.5 d=14.3
-[02:49:25.957] [HOST] INFO: [seatres] HOST task=98 npc=2,427978528 subj=2141,3965209856 ok=1 npcpos=-31688.6,10657.0 subjpos=-31694.9,10643.5 d=14.9
-[02:49:26.161] [HOST] INFO: [seatres] HOST task=87 npc=1,2350097664 subj=2068,3292724736 ok=1 npcpos=-31573.7,10760.2 subjpos=-31564.4,10759.5 d=9.3
-[02:49:26.266] [HOST] INFO: [fac] AFFECT-EV me='1305-gamedata.base' whom='200-gamedata.base' event=0 mult=0.025 after=-43.89 skipped=8
-[02:49:26.482] [HOST] INFO: [fac] AFFECT-EV me='200-gamedata.base' whom='1305-gamedata.base' event=1 mult=0.025 after=-63.00 skipped=8
-[02:49:27.879] [HOST] INFO: [seatres] HOST task=87 npc=1,1598388608 subj=2116,3116088832 ok=1 npcpos=-31616.7,10666.9 subjpos=-31605.3,10668.7 d=11.5
-[02:49:28.000] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:28.271] [HOST] INFO: [seatres] HOST task=87 npc=6,1053222656 subj=2096,2364013568 ok=1 npcpos=-31693.1,10717.0 subjpos=-31687.9,10725.1 d=9.6
-[02:49:28.538] [HOST] INFO: [steam] accepted inbound session from 76561199025713332
-[02:49:28.958] [HOST] INFO: [cam] center=-31617.5,1737.7,10764.2
-[02:49:29.200] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.7,59.9 bd=0.0,0.0,33.3,40.1 flags=1 nparts=7 pmin=33.5 smin=0.0 ls=0,0,0,0
-[02:49:30.500] [HOST] INFO: [taskkey] key=29 desc='Move order' repro=0 subject=0
-[02:49:31.004] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:32.037] [HOST] INFO: [fac] AFFECT-EV me='200-gamedata.base' whom='1305-gamedata.base' event=1 mult=0.025 after=-63.00 skipped=2
-[02:49:32.106] [HOST] INFO: [fac] AFFECT-EV me='1305-gamedata.base' whom='200-gamedata.base' event=0 mult=0.025 after=-43.89 skipped=7
-[02:49:33.959] [HOST] INFO: [cam] center=-31776.3,1701.8,11682.4
-[02:49:34.009] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:34.048] [HOST] INFO: [census] sent n=55 radius=2000 mid=25
-[02:49:35.132] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.8,60.0 bd=0.0,0.0,33.2,40.0 flags=1 nparts=7 pmin=33.6 smin=0.0 ls=0,0,0,0
-[02:49:35.540] [HOST] INFO: [seatres] HOST task=87 npc=5,3295898 subj=2119,414916992 ok=1 npcpos=-31610.2,10688.4 subjpos=-31603.9,10691.0 d=6.7
-[02:49:35.639] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.8,60.0 bd=0.0,0.0,33.2,40.0 flags=1 nparts=7 pmin=33.6 smin=0.0 ls=0,0,0,0
-[02:49:37.015] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:37.456] [HOST] INFO: [fac] AFFECT-EV me='200-gamedata.base' whom='1305-gamedata.base' event=1 mult=0.025 after=-63.00 skipped=7
-[02:49:38.957] [HOST] INFO: [cam] center=-31357.3,1618.1,11035.8
-[02:49:40.019] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:40.126] [HOST] INFO: [fac] AFFECT-EV me='1305-gamedata.base' whom='200-gamedata.base' event=0 mult=0.025 after=-43.89 skipped=3
-[02:49:40.889] [HOST] INFO: [stats] SEND hand=1,1051391616 str=27.5 dex=14.7 tough=33.3 stealth=2.2 athl=49.9 xp=0 fap=0
-[02:49:41.313] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.9,60.1 bd=0.0,0.0,33.1,39.9 flags=1 nparts=7 pmin=33.7 smin=0.0 ls=0,0,0,0
-[02:49:41.833] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,66.9,60.1 bd=0.0,0.0,33.1,39.9 flags=1 nparts=7 pmin=33.7 smin=0.0 ls=0,0,0,0
-[02:49:43.020] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:43.850] [HOST] INFO: [fac] AFFECT-EV me='200-gamedata.base' whom='1305-gamedata.base' event=1 mult=0.025 after=-63.00 skipped=8
-[02:49:43.953] [HOST] INFO: [cam] center=-31357.3,1618.1,11035.8
-[02:49:44.072] [HOST] INFO: [census] sent n=55 radius=2000 mid=25
-[02:49:45.272] [HOST] INFO: [fac] AFFECT-EV me='1305-gamedata.base' whom='200-gamedata.base' event=0 mult=0.025 after=-43.89 skipped=4
-[02:49:46.023] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:48.959] [HOST] INFO: [cam] center=-31357.3,1618.1,11035.8
-[02:49:49.028] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:50.618] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.0,60.2 bd=0.0,0.0,33.0,39.8 flags=1 nparts=7 pmin=33.8 smin=0.0 ls=0,0,0,0
-[02:49:51.018] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.0,60.2 bd=0.0,0.0,33.0,39.8 flags=1 nparts=7 pmin=33.8 smin=0.0 ls=0,0,0,0
-[02:49:52.038] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:52.820] [HOST] INFO: [stats] SEND hand=1,1051391616 str=27.6 dex=14.7 tough=33.3 stealth=2.2 athl=50.0 xp=0 fap=0
-[02:49:53.989] [HOST] INFO: [cam] center=-31357.3,1600.1,11035.8
-[02:49:54.107] [HOST] INFO: [census] sent n=55 radius=2000 mid=25
-[02:49:55.039] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:58.050] [HOST] INFO: [ai] suspended=0 driven=0
-[02:49:59.000] [HOST] INFO: [cam] center=-31357.3,1600.1,11035.8
-[02:50:01.097] [HOST] INFO: [ai] suspended=0 driven=0
-[02:50:03.535] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.2,60.4 bd=0.0,0.0,32.8,39.6 flags=1 nparts=7 pmin=34.0 smin=0.0 ls=0,0,0,0
-[02:50:04.003] [HOST] INFO: [cam] center=-31217.0,1517.4,10879.2
-[02:50:04.101] [HOST] INFO: [ai] suspended=0 driven=0
-[02:50:04.401] [HOST] INFO: [census] sent n=56 radius=2000 mid=26
-[02:50:04.937] [HOST] INFO: [taskkey] key=68 desc='Lifting' repro=0 subject=1
-[02:50:05.433] [HOST] INFO: [carry] SEND PICKUP id=3 carrier=1,1051391616 carried=5,1438354432
-[02:50:07.108] [HOST] INFO: [ai] suspended=0 driven=0
-[02:50:09.000] [HOST] INFO: [cam] center=-32259.5,1552.4,12360.4
-[02:50:09.357] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.3,60.5 bd=0.0,0.0,32.7,39.5 flags=1 nparts=7 pmin=34.1 smin=0.0 ls=0,0,0,0
-[02:50:09.814] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.3,60.5 bd=0.0,0.0,32.7,39.5 flags=1 nparts=7 pmin=34.1 smin=0.0 ls=0,0,0,0
-[02:50:09.889] [HOST] INFO: [stats] SEND hand=1,1051391616 str=27.6 dex=14.7 tough=33.3 stealth=2.2 athl=50.1 xp=0 fap=0
-[02:50:10.115] [HOST] INFO: [ai] suspended=0 driven=0
-[02:50:11.838] [HOST] INFO: [coop-ui] panel opened
-[02:50:11.849] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
-[02:50:13.058] [HOST] INFO: [coop-ui] connection -> ONLINE
-[02:50:13.065] [HOST] INFO: [coop-ui] CONNECT role=HOST transport=steam
-[02:50:13.065] [HOST] INFO: [leave] cleared proxies=0
-[02:50:13.065] [HOST] INFO: [leave] cleared worldProxies=0 (cleanup=0)
-[02:50:13.065] [HOST] INFO: [load] session reset: pointer caches, session maps, change gates cleared
-[02:50:13.065] [HOST] INFO: [dmg] role re-armed: HOST (own swings land natively)
-[02:50:13.065] [HOST] INFO: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
-[02:50:13.065] [HOST] INFO: [steam] tunnel peer=76561198346257175 slot=0 addr=1.0.0.1 (session pre-accepted)
-[02:50:13.079] [HOST] INFO: [steam] tunnel peer=76561199025713332 slot=1 addr=1.0.0.2 (session pre-accepted)
-[02:50:13.079] [HOST] INFO: [steam] transport=steam armed, 2 tunnel peer(s) (connect by SteamID; no port forwarding)
-[02:50:13.079] [HOST] INFO: KenshiCoop: starting as HOST
-[02:50:13.079] [HOST] INFO: [squad] LATCH cont=33,1114624000 rank=2
-[02:50:13.079] [HOST] INFO: [carry] SEND PICKUP id=4 carrier=1,1051391616 carried=5,1438354432
-[02:50:13.079] [HOST] INFO: [event] SEND id=5 ev=1 hand=1,1,912109376,5,1438354432 actor=0,0 bs 0->19
-[02:50:13.079] [HOST] INFO: [steam] ENet socket hooks installed (tunnel on P2P channel 0)
-[02:50:13.079] [HOST] INFO: [wi] BASELINE seeded=0 (save-native, never-stream)
-[02:50:13.079] [HOST] INFO: [net] transport=steam (ENet tunnelled over Steam P2P)
-[02:50:13.079] [HOST] INFO: [net] hosting
-[02:50:13.079] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=95.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
-[02:50:13.079] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.3,60.6 bd=0.0,0.0,32.7,39.4 flags=1 nparts=7 pmin=34.1 smin=0.0 ls=0,0,0,0
-[02:50:13.079] [HOST] INFO: [stats] SEND hand=1,1051391616 str=27.6 dex=14.7 tough=33.3 stealth=2.2 athl=50.1 xp=0 fap=0
-[02:50:13.079] [HOST] INFO: [stats] SEND hand=5,1438354432 str=20.6 dex=11.9 tough=33.1 stealth=1.0 athl=41.1 xp=0 fap=0
-[02:50:13.079] [HOST] INFO: [money] SEND rank=0 cats=0
-[02:50:13.079] [HOST] INFO: [steam] session peer=76561198346257175 active=1 connecting=0 relay=0 err=0
-[02:50:13.079] [HOST] INFO: [research] SEND sid='46044-rebirth.mod' seq=22
-[02:50:13.079] [HOST] INFO: [research] SEND sid='46043-rebirth.mod' seq=23
-[02:50:13.079] [HOST] INFO: [research] SEND sid='1892-gamedata.base' seq=24
-[02:50:13.079] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
-[02:50:13.079] [HOST] INFO: [speed] SET mult=1.00 paused=0 combat=0 (my=1.00)
-[02:50:13.079] [HOST] INFO: [steam] first tunnel packet received from peer
-[02:50:13.121] [HOST] INFO: [ai] suspended=0 driven=0
-[02:50:13.126] [HOST] INFO: [net] peer connecting (awaiting HELLO)
-[02:50:13.126] [HOST] INFO: [net] peer connected id=1 (proto v46) [2/3 players]
-[02:50:13.129] [HOST] INFO: handshake: peer present id=1 (local id=0)
-[02:50:13.129] [HOST] INFO: [latejoin] RESYNC place=0 remove=0 fac=0 door=0 bdoor=0 med=2 stats=2 money=1 inv=0 world=0 prod=0
-[02:50:13.129] [HOST] INFO: [boot] baking save 'current save' to push to join on connect
-[02:50:13.129] [HOST] INFO: [save] LOCAL-SAVE name='current save' autosave=0 suppressed=0
-[02:50:13.129] [HOST] INFO: [save] WATCH armed folder='C:\Users\marsh\AppData\Local\kenshi\save\current save' baseFiles=56 baseBytes=5391678
-[02:50:13.367] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
-[02:50:13.434] [HOST] INFO: [inv] SEND hand=0,2202,11111,2161,1860961920 kind=0 key=0,2202,11111,2161,1860961920 items=1 hash=1659125619
-[02:50:13.434] [HOST] INFO: [inv] SEND hand=0,2202,11111,2167,530395520 kind=0 key=0,2202,11111,2167,530395520 items=18 hash=594565562
-[02:50:13.434] [HOST] INFO: [inv] SEND hand=0,2202,11111,2168,802856448 kind=0 key=0,2202,11111,2168,802856448 items=0 hash=0
-[02:50:13.434] [HOST] INFO: [inv] SEND hand=0,2202,11111,2179,3048217856 kind=0 key=0,2202,11111,2179,3048217856 items=1 hash=2018655135
-[02:50:13.434] [HOST] INFO: [inv] SEND hand=0,2202,11111,2180,227783200 kind=0 key=0,2202,11111,2180,227783200 items=0 hash=0
-[02:50:13.434] [HOST] INFO: [inv] SEND hand=0,2202,11111,2181,3168212992 kind=0 key=0,2202,11111,2181,3168212992 items=0 hash=0
-[02:50:13.434] [HOST] INFO: [inv] SEND hand=1,1,912109376,1,1051391616 kind=0 key=1,1,912109376,1,1051391616 items=20 hash=3367723878
-[02:50:13.434] [HOST] INFO: [inv] SEND hand=1,1,912109376,5,1438354432 kind=0 key=1,1,912109376,5,1438354432 items=8 hash=3154182877
-[02:50:14.007] [HOST] INFO: [cam] center=-32312.6,1424.8,11139.8
-[02:50:15.085] [HOST] INFO: [census] sent n=56 radius=2000 mid=26
-[02:50:15.132] [HOST] INFO: [save] QUIESCED kind=settled name='current save' files=56 bytes=5321114 waitMs=2000
-[02:50:15.302] [HOST] INFO: [boot] GO->join id=2 name='current save' fp=62e5cda2 (push on connect)
-[02:50:15.596] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.4,60.6 bd=0.0,0.0,32.6,39.4 flags=1 nparts=7 pmin=34.2 smin=0.0 ls=0,0,0,0
-[02:50:16.098] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.4,60.6 bd=0.0,0.0,32.6,39.4 flags=1 nparts=7 pmin=34.2 smin=0.0 ls=0,0,0,0
-[02:50:16.124] [HOST] INFO: [ai] suspended=0 driven=0
-[02:50:19.006] [HOST] INFO: [cam] center=-31411.3,1696.9,11193.7
-[02:50:19.126] [HOST] INFO: [ai] suspended=0 driven=0
-[02:50:21.349] [HOST] INFO: [stats] RECV hand=1,2796875008 ok=1 str=35.4 dex=30.6 tough=30.9 stealth=1.0 athl=48.8 xp=0
-[02:50:21.349] [HOST] INFO: [stats] RECV hand=2,3921874944 ok=1 str=34.2 dex=24.2 tough=27.0 stealth=1.0 athl=41.2 xp=0
-[02:50:21.349] [HOST] INFO: [speed] REQ RECV owner=1 mult=1.00 paused=0 combat=0
-[02:50:21.349] [HOST] INFO: [load] NACK id=2 name='current save' joinFp=a3f93b5d -> transfer after reload
-[02:50:21.349] [HOST] INFO: [load] starting fallback transfer name='current save'
-[02:50:21.349] [HOST] INFO: [save] XFER-BEGIN id=1 name='current save' files=56 bytes=5321114
-[02:50:21.351] [HOST] INFO: [life] hand=1,32,1617431680,1,2796875008 from=UNKNOWN to=HI reason=drive
-[02:50:21.351] [HOST] INFO: [life] hand=1,32,1617431680,2,3921874944 from=UNKNOWN to=HI reason=drive
-[02:50:21.351] [HOST] INFO: [interp] lerp=0 extrap=0 clamp=0 seg=0 single=2 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=0 restFlip=0 delay=50 jit=0.0 starve=0 snapMid=0 restFlipMid=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=1 sid='1020-gamedata.base' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=2 sid='2156-gamedata.base' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=3 sid='2203-gamedata.base' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=4 sid='2306-clothes_v1.mod' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=5 sid='52297-rebirth.mod' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=6 sid='5346-armor_otto.mod' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=7 sid='1020-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=8 sid='2156-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=9 sid='2203-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=10 sid='5346-armor_otto.mod' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [wd] PICKUP-APPLY id=11 sid='549-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:21.351] [HOST] INFO: [cam] hints recv n=1 p1=-31543,10696
-[02:50:21.428] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2161,1860961920 items=1
-[02:50:21.428] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2167,530395520 items=18
-[02:50:21.428] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2168,802856448 items=0
-[02:50:21.428] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2179,3048217856 items=1
-[02:50:21.428] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2180,227783200 items=0
-[02:50:21.428] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2181,3168212992 items=0
-[02:50:21.428] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,1,2796875008 items=7
-[02:50:21.428] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,2,3921874944 items=12
-[02:50:22.133] [HOST] INFO: [ai] suspended=2 driven=2
-[02:50:23.910] [HOST] INFO: [save] XFER-SENT id=1 files=56 bytes=5321114 ms=2562
-[02:50:24.007] [HOST] INFO: [cam] center=-31407.9,1694.4,11270.3
-[02:50:24.134] [HOST] INFO: [stats] SEND hand=1,1051391616 str=27.7 dex=14.7 tough=33.3 stealth=2.2 athl=50.1 xp=0 fap=0
-[02:50:24.824] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.5,60.7 bd=0.0,0.0,32.5,39.3 flags=1 nparts=7 pmin=34.3 smin=0.0 ls=0,0,0,0
-[02:50:25.112] [HOST] INFO: [census] sent n=55 radius=2000 mid=25
-[02:50:25.136] [HOST] INFO: [ai] suspended=2 driven=2
-[02:50:25.228] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=90.5 bleed=0.00 fl=100.0,100.0,67.5,60.7 bd=0.0,0.0,32.5,39.3 flags=1 nparts=7 pmin=34.3 smin=0.0 ls=0,0,0,0
-[02:50:25.498] [HOST] INFO: [save] XFER-ACK owner=1 id=1 ok=1 files=56 bytes=5321114 (1/1 joins)
-[02:50:25.498] [HOST] INFO: [save] all joins hold this save - world is shared
-[02:50:26.358] [HOST] INFO: [interp] lerp=80 extrap=654 clamp=0 seg=0 single=20 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=0 restFlip=0 delay=200 jit=67.0 starve=0 snapMid=0 restFlipMid=0
-[02:50:28.142] [HOST] INFO: [ai] suspended=2 driven=2
-[02:50:29.005] [HOST] INFO: [cam] center=-31406.3,1684.8,11307.0
-[02:50:29.095] [HOST] INFO: [stats] RECV hand=1,2796875008 ok=1 str=35.4 dex=30.6 tough=30.9 stealth=1.0 athl=48.8 xp=0
-[02:50:29.095] [HOST] INFO: [stats] RECV hand=2,3921874944 ok=1 str=34.2 dex=24.2 tough=27.0 stealth=1.0 athl=41.2 xp=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=12 sid='1020-gamedata.base' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=13 sid='2156-gamedata.base' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=14 sid='2203-gamedata.base' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=15 sid='2306-clothes_v1.mod' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=16 sid='52297-rebirth.mod' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=17 sid='5346-armor_otto.mod' owner=1,32,1617431680,1,2796875008 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=18 sid='1020-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=19 sid='2156-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=20 sid='2203-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=21 sid='5346-armor_otto.mod' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [wd] PICKUP-APPLY id=22 sid='549-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
-[02:50:29.096] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2161,1860961920 items=1
-[02:50:29.096] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2167,530395520 items=18
-[02:50:29.096] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2168,802856448 items=0
-[02:50:29.096] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2179,3048217856 items=1
-[02:50:29.096] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2180,227783200 items=0
-[02:50:29.096] [HOST] INFO: [inv] APPLY hand=0,2202,11111,2181,3168212992 items=0
-[02:50:29.096] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,1,2796875008 items=7
-[02:50:29.096] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,2,3921874944 items=12
-[02:50:29.096] [HOST] INFO: [cam] hints recv n=1 p1=-32313,11140
-[02:50:31.144] [HOST] INFO: [ai] suspended=2 driven=2
-[02:50:31.367] [HOST] INFO: [interp] lerp=312 extrap=1314 clamp=0 seg=0 single=20 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=0 restFlip=0 delay=200 jit=106.7 starve=0 snapMid=0 restFlipMid=0
+[13:42:48.231] [HOST] INFO: log opened
+[13:42:48.231] [HOST] INFO: KenshiCoop loaded! (clean rebuild)
+[13:42:48.231] [HOST] INFO: KenshiCoop: build Aug  2 2026 03:01:17
+[13:42:48.231] [HOST] INFO: KenshiCoop: role=HOST proto=v46 port=27800 save=''
+[13:42:48.231] [HOST] INFO: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,money,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
+[13:42:48.270] [HOST] INFO: [engine] CAPS saveload=1 savepath=1 hand_resolve=1 npc_stream=1 limb=1 stats=1 carry=1 furniture=1 chain=1 shackle=1 slave=1 stealth=1 camera=1 speed=1 quiet_speed=1 door=1 build=1 machine=1 time=1 wallet=1 faction=1 combat_escalate=1
+[13:42:48.270] [HOST] INFO: KenshiCoop: ownership ranks = {0} (bidirectional presence)
+[13:42:48.270] [HOST] INFO: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
+[13:42:48.310] [HOST] INFO: [ai] periodicUpdate detour installed; AI-suspend ON (default)
+[13:42:48.350] [HOST] INFO: [dmg] hitByMeleeAttack detour installed; damage guard ON (host, driven peer-squad bodies)
+[13:42:48.388] [HOST] INFO: [shop] buyItem detour installed; purchase logging ON
+[13:42:48.430] [HOST] INFO: [wi] dropItem detour installed; query-free drop capture ON
+[13:42:48.469] [HOST] INFO: [recruit] recruit detour installed; recruitment sync ON
+[13:42:48.509] [HOST] INFO: [build] placeFinalPreviewBuilding detour installed; placement logging ON
+[13:42:48.548] [HOST] INFO: [build] dismantle detour installed; removal logging ON
+[13:42:48.627] [HOST] INFO: [fac] affectRelations detours installed; relation logging ON
+[13:42:48.666] [HOST] INFO: [save] save detour installed; coordinated save ON
+[13:42:48.759] [HOST] INFO: [load] load detour installed; coordinated load ON
+[13:42:48.798] [HOST] INFO: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
+[13:42:48.799] [HOST] INFO: [steam] id=76561199417484463 loggedOn=1 iface=SteamNetworking005
+[13:42:48.799] [HOST] INFO: [invite] ready: mm=SteamMatchMaking009 friends=SteamFriends015 (in-panel friend picker armed)
+[13:42:48.799] [HOST] INFO: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
+[13:42:50.279] [HOST] INFO: [boot] title-tick running=0 host=1 started=0 saveEmpty=1
+[13:42:50.285] [HOST] INFO: [coop-ui] gui ptr=00007FF68C4F2750
+[13:42:57.880] [HOST] INFO: [load] LOCAL-LOAD name='trio scum save' suppressed=0 bypass=0 via=menu
+[13:43:05.148] [HOST] INFO: KenshiCoop: gameplay started
+[13:43:05.148] [HOST] INFO: [load] 1 pre-gameplay load edge(s) discarded (title-screen auto-load)
+[13:43:05.301] [HOST] INFO: [speed] intent hooks installed (setGameSpeed/userPause/togglePause)
+[13:43:05.301] [HOST] INFO: [squad] LATCH cont=33,1114624000 rank=2
+[13:43:05.301] [HOST] INFO: [taskkey] key=1 desc='Moving' repro=0 subject=1
+[13:43:05.301] [HOST] INFO: [wi] BASELINE seeded=0 (save-native, never-stream)
+[13:43:05.301] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=46.0 smin=0.0 ls=0,0,0,0
+[13:43:05.301] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,56.8,100.0 bd=0.0,0.0,43.2,0.0 flags=0 nparts=7 pmin=22.5 smin=0.0 ls=0,0,0,0
+[13:43:05.301] [HOST] INFO: [stats] SEND hand=1,1051391616 str=39.2 dex=20.5 tough=38.7 stealth=22.4 athl=60.1 xp=0 fap=0
+[13:43:05.301] [HOST] INFO: [stats] SEND hand=5,1438354432 str=24.6 dex=18.3 tough=36.1 stealth=5.8 athl=58.2 xp=0 fap=0
+[13:43:05.301] [HOST] INFO: [money] SEND rank=0 cats=0
+[13:43:05.301] [HOST] INFO: [prod] SEND key=0.2724.11111.1086.279418944 kind=0 class=4 pwr=1 state=2 out='42164-gamedata.base' outAmt=0.000 in0=0.000 in1=-1.000 grown=-1.000 first=1 seq=1
+[13:43:05.302] [HOST] INFO: [prod] SEND key=0.2724.11111.1088.1444946304 kind=0 class=6 pwr=1 state=3 out='43395-changes_otto.mod' outAmt=-1.000 in0=0.000 in1=0.000 grown=-1.000 first=1 seq=2
+[13:43:05.324] [HOST] INFO: [r401] lever scan isKnown=00007ff68abee430 can=00007ff68abf20d0 start=00007ff68abf3680
+[13:43:05.324] [HOST] INFO: [r401] levers located by prologue scan
+[13:43:05.324] [HOST] INFO: [research] SEND sid='46044-rebirth.mod' seq=1
+[13:43:05.324] [HOST] INFO: [research] SEND sid='46043-rebirth.mod' seq=2
+[13:43:05.324] [HOST] INFO: [research] SEND sid='1892-gamedata.base' seq=3
+[13:43:05.324] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[13:43:05.324] [HOST] INFO: [speed] SET mult=1.00 paused=0 combat=0 (my=1.00)
+[13:43:05.327] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:05.327] [HOST] INFO: [taskkey] key=98 desc='Sleeping' repro=1 subject=1
+[13:43:05.327] [HOST] INFO: [seatres] HOST task=98 npc=7,44311524 subj=1255,3353881856 ok=1 npcpos=17794.3,47982.4 subjpos=17794.3,47982.4 d=0.0
+[13:43:05.327] [HOST] INFO: [seatres] HOST task=98 npc=4,921630848 subj=1258,497314464 ok=1 npcpos=17810.1,48048.3 subjpos=17810.1,48048.3 d=0.0
+[13:43:05.327] [HOST] INFO: [seatres] HOST task=98 npc=5,3680664064 subj=1256,370971680 ok=1 npcpos=17846.3,48024.4 subjpos=17846.3,48024.4 d=0.0
+[13:43:05.327] [HOST] INFO: [seatres] HOST task=98 npc=6,884887680 subj=1257,2711547904 ok=1 npcpos=17827.4,48037.1 subjpos=17827.4,48037.1 d=0.0
+[13:43:05.327] [HOST] INFO: [seatres] HOST task=98 npc=5,3817993216 subj=1147,3926635776 ok=1 npcpos=18205.6,48857.2 subjpos=18205.6,48857.2 d=0.0
+[13:43:05.327] [HOST] INFO: [seatres] HOST task=98 npc=6,1655883776 subj=1149,808593728 ok=1 npcpos=18163.4,48886.1 subjpos=18163.4,48886.1 d=0.0
+[13:43:05.327] [HOST] INFO: [seatres] HOST task=98 npc=7,1403198208 subj=1148,3010864384 ok=1 npcpos=18189.5,48867.2 subjpos=18189.5,48867.2 d=0.0
+[13:43:05.327] [HOST] INFO: [taskkey] key=146 desc='Turret gunner' repro=0 subject=1
+[13:43:05.327] [HOST] INFO: [census] sent n=50 radius=2000 mid=43
+[13:43:05.327] [HOST] INFO: [cam] center=18400.0,401.0,48689.6
+[13:43:05.359] [HOST] INFO: [taskkey] key=87 desc='Operating machine' repro=1 subject=1
+[13:43:05.359] [HOST] INFO: [seatres] HOST task=87 npc=4,2755615232 subj=1127,2032348672 ok=1 npcpos=18207.4,48815.1 subjpos=18207.4,48815.1 d=0.0
+[13:43:05.388] [HOST] INFO: [taskkey] key=141 desc='Following leader' repro=0 subject=1
+[13:43:05.396] [HOST] INFO: [taskkey] key=22 desc='Patrolling' repro=0 subject=0
+[13:43:05.421] [HOST] INFO: [taskkey] key=12 desc='Talking' repro=0 subject=1
+[13:43:05.446] [HOST] INFO: [taskkey] key=51 desc='Stand at node' repro=0 subject=1
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1005,2747192320 kind=0 key=0,2724,11111,1005,2747192320 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1006,1642944384 kind=0 key=0,2724,11111,1006,1642944384 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1007,507568352 kind=0 key=0,2724,11111,1007,507568352 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1009,2182617088 kind=0 key=0,2724,11111,1009,2182617088 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1020,933959936 kind=0 key=0,2724,11111,1020,933959936 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1021,3994384640 kind=0 key=0,2724,11111,1021,3994384640 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1057,3750121984 kind=0 key=0,2724,11111,1057,3750121984 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1086,279418944 kind=0 key=0,2724,11111,1086,279418944 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=0,2724,11111,1088,1444946304 kind=0 key=0,2724,11111,1088,1444946304 items=0 hash=0
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=1,1,912109376,1,1051391616 kind=0 key=1,1,912109376,1,1051391616 items=19 hash=3381129641
+[13:43:05.651] [HOST] INFO: [inv] SEND hand=1,1,912109376,5,1438354432 kind=0 key=1,1,912109376,5,1438354432 items=8 hash=3038086389
+[13:43:05.818] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=46.0 smin=0.0 ls=0,0,0,0
+[13:43:06.305] [HOST] INFO: [prod] SEND key=0.2724.11111.1150.1394409216 kind=0 class=4 pwr=1 state=2 out='' outAmt=-1.000 in0=-1.000 in1=-1.000 grown=-1.000 first=1 seq=3
+[13:43:06.305] [HOST] INFO: [prod] SEND key=0.2724.11111.1153.3821288960 kind=0 class=4 pwr=1 state=2 out='' outAmt=-1.000 in0=-1.000 in1=-1.000 grown=-1.000 first=1 seq=4
+[13:43:06.305] [HOST] INFO: [prod] SEND key=0.2724.11111.1154.318237312 kind=0 class=4 pwr=1 state=2 out='' outAmt=-1.000 in0=-1.000 in1=-1.000 grown=-1.000 first=1 seq=5
+[13:43:06.305] [HOST] INFO: [prod] SEND key=0.2724.11111.1155.3578735360 kind=0 class=4 pwr=1 state=2 out='' outAmt=-1.000 in0=-1.000 in1=-1.000 grown=-1.000 first=1 seq=6
+[13:43:06.305] [HOST] INFO: [prod] SEND key=0.2724.11111.1156.355224608 kind=0 class=4 pwr=1 state=2 out='' outAmt=-1.000 in0=-1.000 in1=-1.000 grown=-1.000 first=1 seq=7
+[13:43:06.305] [HOST] INFO: [prod] SEND key=0.2725.11111.308.2036987264 kind=0 class=6 pwr=1 state=3 out='684-gamedata.base' outAmt=-1.000 in0=0.000 in1=0.000 grown=-1.000 first=1 seq=8
+[13:43:06.588] [HOST] INFO: [seatres] HOST task=87 npc=1,1689697280 subj=1126,996215808 ok=1 npcpos=18185.3,48817.0 subjpos=18195.0,48814.8 d=9.9
+[13:43:06.656] [HOST] INFO: [inv] SEND hand=0,2724,11111,1002,108886720 kind=0 key=0,2724,11111,1002,108886720 items=0 hash=0
+[13:43:06.656] [HOST] INFO: [inv] SEND hand=0,2725,11111,308,2036987264 kind=0 key=0,2725,11111,308,2036987264 items=0 hash=0
+[13:43:06.656] [HOST] INFO: [inv] SEND hand=0,2725,11111,317,2511474688 kind=0 key=0,2725,11111,317,2511474688 items=0 hash=0
+[13:43:07.420] [HOST] INFO: [seatres] HOST task=87 npc=3,1292480512 subj=1128,18920898 ok=1 npcpos=18198.6,48833.3 subjpos=18205.1,48840.0 d=9.3
+[13:43:07.665] [HOST] INFO: [inv] SEND hand=0,2725,11111,315,3689941504 kind=0 key=0,2725,11111,315,3689941504 items=0 hash=0
+[13:43:07.665] [HOST] INFO: [inv] SEND hand=0,2725,11111,316,2568969728 kind=0 key=0,2725,11111,316,2568969728 items=0 hash=0
+[13:43:07.798] [HOST] INFO: [seatres] HOST task=87 npc=2,3450073344 subj=1124,1875000064 ok=1 npcpos=18170.4,48826.3 subjpos=18170.4,48826.3 d=0.0
+[13:43:08.308] [HOST] INFO: [prod] SEND key=0.2725.11111.300.2966552832 kind=0 class=4 pwr=1 state=2 out='2288-gamedata.base' outAmt=0.000 in0=0.000 in1=-1.000 grown=-1.000 first=1 seq=9
+[13:43:08.332] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:08.665] [HOST] INFO: [inv] SEND hand=0,2725,11111,300,2966552832 kind=0 key=0,2725,11111,300,2966552832 items=0 hash=0
+[13:43:08.665] [HOST] INFO: [inv] SEND hand=0,2725,11111,301,3390502912 kind=0 key=0,2725,11111,301,3390502912 items=0 hash=0
+[13:43:08.899] [HOST] INFO: [steam] accepted inbound session from 76561198346257175
+[13:43:10.332] [HOST] INFO: [cam] center=18421.4,401.0,48443.1
+[13:43:10.352] [HOST] INFO: [taskkey] key=180 desc='Gate guard' repro=0 subject=1
+[13:43:10.614] [HOST] INFO: [seatres] HOST task=87 npc=1,3583374080 subj=1215,2269653248 ok=1 npcpos=17807.2,48148.1 subjpos=17807.9,48154.6 d=6.5
+[13:43:10.756] [HOST] INFO: [taskkey] key=29 desc='Move order' repro=0 subject=0
+[13:43:11.334] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:12.209] [HOST] INFO: [seatres] HOST task=87 npc=3,3446167040 subj=1121,3136474624 ok=1 npcpos=18212.1,48860.4 subjpos=18207.2,48867.6 d=8.6
+[13:43:13.623] [HOST] INFO: [seatres] HOST task=87 npc=4,2169677824 subj=1125,3410644480 ok=1 npcpos=18162.3,48861.2 subjpos=18160.0,48853.1 d=8.5
+[13:43:14.342] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:14.570] [HOST] INFO: [seatres] HOST task=87 npc=6,2284423936 subj=1123,1062011712 ok=1 npcpos=18190.0,48843.0 subjpos=18182.1,48840.5 d=8.3
+[13:43:15.327] [HOST] INFO: [cam] center=18398.3,401.0,48434.7
+[13:43:15.366] [HOST] INFO: [census] sent n=64 radius=2000 mid=48
+[13:43:17.347] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:18.570] [HOST] INFO: [event] SEND id=1 ev=1 hand=1,22,392211904,3,329589856 actor=0,0 bs 0->3
+[13:43:18.571] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.1 bleed=0.00 fl=241.2,-76.1,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:18.699] [HOST] INFO: [inv] SEND hand=0,2724,11111,48,1182495104 kind=0 key=0,2724,11111,48,1182495104 items=0 hash=0
+[13:43:18.968] [HOST] INFO: [seatres] HOST task=87 npc=5,1322631808 subj=1133,971069312 ok=1 npcpos=18226.4,48864.0 subjpos=18235.8,48867.4 d=10.0
+[13:43:19.689] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.1 bleed=0.00 fl=241.2,-76.2,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:19.813] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,57.0,100.0 bd=0.0,0.0,43.0,0.0 flags=0 nparts=7 pmin=22.8 smin=0.0 ls=0,0,0,0
+[13:43:20.214] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,57.0,100.0 bd=0.0,0.0,43.0,0.0 flags=0 nparts=7 pmin=22.8 smin=0.0 ls=0,0,0,0
+[13:43:20.233] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=46.2 smin=0.0 ls=0,0,0,0
+[13:43:20.332] [HOST] INFO: [cam] center=18061.4,421.8,47785.5
+[13:43:20.353] [HOST] INFO: [prod] SEND key=0.2724.11111.46.2862915072 kind=0 class=4 pwr=1 state=2 out='' outAmt=-1.000 in0=-1.000 in1=-1.000 grown=-1.000 first=1 seq=12
+[13:43:20.354] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:20.711] [HOST] INFO: [inv] SEND hand=0,2724,11111,942,1488525440 kind=0 key=0,2724,11111,942,1488525440 items=0 hash=0
+[13:43:20.711] [HOST] INFO: [inv] SEND hand=0,2724,11111,943,422363296 kind=0 key=0,2724,11111,943,422363296 items=4 hash=1012094056
+[13:43:20.774] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.2 bleed=0.00 fl=241.2,-76.2,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:21.778] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.2 bleed=0.00 fl=241.2,-76.3,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:22.368] [HOST] INFO: [event] SEND id=2 ev=1 hand=1,22,392211904,2,1692871040 actor=0,0 bs 0->3
+[13:43:22.368] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=154.9 bleed=0.00 fl=81.6,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.4 smin=0.0 ls=0,0,0,0
+[13:43:22.496] [HOST] INFO: [event] SEND id=3 ev=1 hand=1,22,392211904,1,3969726464 actor=0,0 bs 0->3
+[13:43:22.497] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=135.7 bleed=0.00 fl=-62.5,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:22.506] [HOST] INFO: [event] SEND id=4 ev=1 hand=1,160,388305664,3,370483392 actor=0,0 bs 0->3
+[13:43:22.507] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=286.5 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.5 smin=0.0 ls=0,0,0,0
+[13:43:22.787] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.3 bleed=0.00 fl=241.2,-76.3,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:23.356] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:23.431] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.0 bleed=0.00 fl=81.6,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.4 smin=0.0 ls=0,0,0,0
+[13:43:23.503] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=135.8 bleed=0.00 fl=-62.6,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:23.645] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=286.6 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.5 smin=0.0 ls=0,0,0,0
+[13:43:23.915] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.4 bleed=0.00 fl=241.2,-76.4,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:24.439] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.1 bleed=0.00 fl=81.6,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.4 smin=0.0 ls=0,0,0,0
+[13:43:24.591] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=135.9 bleed=0.00 fl=-62.6,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:24.648] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=286.7 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.5 smin=0.0 ls=0,0,0,0
+[13:43:24.917] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.5 bleed=0.00 fl=241.2,-76.4,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:25.326] [HOST] INFO: [cam] center=18988.9,163.9,47803.7
+[13:43:25.409] [HOST] INFO: [census] sent n=64 radius=2000 mid=48
+[13:43:25.518] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.2 bleed=0.00 fl=81.6,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.4 smin=0.0 ls=0,0,0,0
+[13:43:25.592] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=135.9 bleed=0.00 fl=-62.7,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:25.647] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=286.8 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.4 smin=0.0 ls=0,0,0,0
+[13:43:25.919] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.5 bleed=0.00 fl=241.2,-76.5,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:26.358] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:26.522] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.2 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.4 smin=0.0 ls=0,0,0,0
+[13:43:26.596] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.0 bleed=0.00 fl=-62.7,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:26.651] [HOST] INFO: [event] SEND id=5 ev=1 hand=1,160,388305664,2,3199462912 actor=0,0 bs 0->3
+[13:43:26.651] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.3 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:26.689] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=286.8 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.4 smin=0.0 ls=0,0,0,0
+[13:43:26.921] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.6 bleed=0.00 fl=241.2,-76.5,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:27.595] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.1 bleed=0.00 fl=-62.7,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:27.624] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.3 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.4 smin=0.0 ls=0,0,0,0
+[13:43:27.654] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.3 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:27.693] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=286.9 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.4 smin=0.0 ls=0,0,0,0
+[13:43:27.931] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.7 bleed=0.00 fl=241.2,-76.6,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:28.595] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.2 bleed=0.00 fl=-62.8,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:28.625] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.4 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:28.655] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.4 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:28.698] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.0 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.4 smin=0.0 ls=0,0,0,0
+[13:43:28.938] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.7 bleed=0.00 fl=241.2,-76.6,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:29.241] [HOST] INFO: [stats] SEND hand=5,1438354432 str=24.6 dex=18.3 tough=36.1 stealth=5.8 athl=58.2 xp=0 fap=0
+[13:43:29.360] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:29.603] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.2 bleed=0.00 fl=-62.8,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:29.643] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.5 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:29.663] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.5 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:29.702] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.1 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.4 smin=0.0 ls=0,0,0,0
+[13:43:29.789] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,57.2,100.0 bd=0.0,0.0,42.9,0.0 flags=0 nparts=7 pmin=22.9 smin=0.0 ls=0,0,0,0
+[13:43:29.955] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.8 bleed=0.00 fl=241.2,-76.7,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:30.323] [HOST] INFO: [cam] center=18966.5,162.7,47880.4
+[13:43:30.650] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.5 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:30.667] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.5 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:30.701] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.3 bleed=0.00 fl=-62.9,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:30.824] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.1 bleed=0.00 fl=168.0,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.4 smin=0.0 ls=0,0,0,0
+[13:43:30.964] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=114.9 bleed=0.00 fl=241.2,-76.7,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:31.675] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.6 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:31.693] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.6 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:31.702] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.4 bleed=0.00 fl=-62.9,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:31.928] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.2 bleed=0.00 fl=167.9,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.4 smin=0.0 ls=0,0,0,0
+[13:43:31.969] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.0 bleed=0.00 fl=241.2,-76.8,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:32.361] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:32.678] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.7 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:32.726] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.5 bleed=0.00 fl=-63.0,171.4,171.7,240.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:32.735] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.7 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:32.936] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.3 bleed=0.00 fl=167.9,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.3 smin=0.0 ls=0,0,0,0
+[13:43:32.976] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.0 bleed=0.00 fl=241.2,-76.8,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:33.501] [HOST] INFO: [taskkey] key=6 desc='Equipping weapon' repro=0 subject=1
+[13:43:33.611] [HOST] INFO: [taskkey] key=65 desc='Getting up' repro=0 subject=0
+[13:43:33.619] [HOST] INFO: [event] SEND id=6 ev=3 hand=1,22,392211904,1,3969726464 actor=0,0 bs 2->0
+[13:43:33.661] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=112.8 smin=0.0 ls=0,0,0,0
+[13:43:33.661] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.4,100.0,100.0 bd=0.0,23.6,0.0,0.0 flags=0 nparts=7 pmin=70.2 smin=0.0 ls=0,0,0,0
+[13:43:33.678] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.7 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:33.678] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:33.694] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:33.734] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.5 bleed=0.00 fl=-63.0,171.4,171.7,240.6 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:33.741] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.7 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:33.855] [HOST] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='1233-gamedata.base' event=0 mult=0.000 after=0.00 skipped=0
+[13:43:33.938] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.4 bleed=0.00 fl=167.9,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.3 smin=0.0 ls=0,0,0,0
+[13:43:33.977] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.1 bleed=0.00 fl=241.2,-76.9,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:34.523] [HOST] INFO: [fac] AFFECT-EV me='1214-gamedata.base' whom='56128-rebirth.mod' event=0 mult=1.000 after=-1.45 skipped=0
+[13:43:34.529] [HOST] INFO: [taskkey] key=227 desc='Attacking' repro=0 subject=1
+[13:43:34.529] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:34.554] [HOST] INFO: [stats] SEND hand=1,1051391616 str=39.2 dex=20.5 tough=38.7 stealth=22.4 athl=60.2 xp=0 fap=0
+[13:43:34.566] [HOST] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='1214-gamedata.base' event=0 mult=0.000 after=0.00 skipped=0
+[13:43:34.572] [HOST] INFO: [taskkey] key=4 desc='Attacking' repro=0 subject=1
+[13:43:34.683] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.8 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:34.699] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=112.9 smin=0.0 ls=0,0,0,0
+[13:43:34.699] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.5,100.0,100.0 bd=0.0,23.5,0.0,0.0 flags=0 nparts=7 pmin=70.2 smin=0.0 ls=0,0,0,0
+[13:43:34.707] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:34.723] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:34.766] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.6 bleed=0.00 fl=-63.0,171.4,171.7,240.6 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=171.4 smin=0.0 ls=0,0,0,0
+[13:43:34.776] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.8 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:34.944] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.4 bleed=0.00 fl=167.9,169.2,167.6,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.3 smin=0.0 ls=0,0,0,0
+[13:43:35.016] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.2 bleed=0.00 fl=241.2,-76.9,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:35.163] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.2 bleed=0.00 fl=125.0,95.8,82.1,19.2 bd=0.0,29.2,42.9,105.8 flags=0 nparts=7 pmin=19.2 smin=0.0 ls=0,0,0,0
+[13:43:35.325] [HOST] INFO: [cam] center=18971.2,158.1,47829.1
+[13:43:35.365] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:35.453] [HOST] INFO: [census] sent n=64 radius=2000 mid=47
+[13:43:35.534] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:35.653] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=46.5 smin=0.0 ls=0,0,0,0
+[13:43:35.684] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=155.9 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:35.717] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,57.2,100.0 bd=0.0,0.0,42.8,0.0 flags=0 nparts=7 pmin=23.0 smin=0.0 ls=0,0,0,0
+[13:43:35.733] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=112.9 smin=0.0 ls=0,0,0,0
+[13:43:35.733] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.5,100.0,100.0 bd=0.0,23.5,0.0,0.0 flags=0 nparts=7 pmin=70.2 smin=0.0 ls=0,0,0,0
+[13:43:35.741] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:35.756] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:35.772] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.7 bleed=0.00 fl=-63.0,171.5,171.7,240.6 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:43:35.804] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.9 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:35.948] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.5 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.3 smin=0.0 ls=0,0,0,0
+[13:43:36.029] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.2 bleed=0.00 fl=241.2,-76.9,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:36.181] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.3 bleed=0.00 fl=125.0,95.8,82.1,19.2 bd=0.0,29.2,42.9,105.8 flags=0 nparts=7 pmin=19.2 smin=0.0 ls=0,0,0,0
+[13:43:36.541] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:36.719] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.0 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:36.776] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.8 bleed=0.00 fl=-63.0,171.5,171.7,240.6 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:43:36.776] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=112.9 smin=0.0 ls=0,0,0,0
+[13:43:36.776] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.5,100.0,100.0 bd=0.0,23.5,0.0,0.0 flags=0 nparts=7 pmin=70.3 smin=0.0 ls=0,0,0,0
+[13:43:36.784] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:36.801] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:36.849] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=253.9 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:36.954] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.6 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.3 smin=0.0 ls=0,0,0,0
+[13:43:37.073] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.3 bleed=0.00 fl=241.2,-77.0,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:37.210] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.3 bleed=0.00 fl=125.0,95.8,82.1,19.2 bd=0.0,29.2,42.9,105.8 flags=0 nparts=7 pmin=19.2 smin=0.0 ls=0,0,0,0
+[13:43:37.553] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:37.724] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.0 bleed=0.00 fl=81.5,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.3 smin=0.0 ls=0,0,0,0
+[13:43:37.779] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.8 bleed=0.00 fl=-62.9,171.5,171.7,240.6 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:43:37.779] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.5,100.0,100.0 bd=0.0,23.5,0.0,0.0 flags=0 nparts=7 pmin=70.3 smin=0.0 ls=0,0,0,0
+[13:43:37.796] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=112.9 smin=0.0 ls=0,0,0,0
+[13:43:37.804] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:37.819] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:37.853] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=254.0 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:37.979] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.7 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.3 smin=0.0 ls=0,0,0,0
+[13:43:38.076] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.4 bleed=0.00 fl=241.2,-77.0,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:38.249] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.4 bleed=0.00 fl=125.0,95.8,82.1,19.2 bd=0.0,29.2,42.9,105.8 flags=0 nparts=7 pmin=19.2 smin=0.0 ls=0,0,0,0
+[13:43:38.371] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:38.603] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:38.729] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.1 bleed=0.00 fl=81.4,193.2,233.5,114.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:38.779] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=136.9 bleed=0.00 fl=-62.9,171.5,171.8,240.7 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:43:38.779] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.5,100.0,100.0 bd=0.0,23.5,0.0,0.0 flags=0 nparts=7 pmin=70.3 smin=0.0 ls=0,0,0,0
+[13:43:38.861] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=254.1 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:38.869] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=112.9 smin=0.0 ls=0,0,0,0
+[13:43:38.878] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:38.896] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:39.065] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.7 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.3 smin=0.0 ls=0,0,0,0
+[13:43:39.082] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.4 bleed=0.00 fl=241.2,-77.1,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:39.247] [HOST] INFO: [event] SEND id=7 ev=1 hand=1,22,392211904,1,3969726464 actor=2,3703979520 bs 0->1
+[13:43:39.338] [HOST] INFO: [taskkey] key=7 desc='Sheathing weapon' repro=0 subject=1
+[13:43:39.338] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.4 bleed=0.00 fl=125.0,95.8,82.1,19.2 bd=0.0,29.2,42.9,105.8 flags=0 nparts=7 pmin=19.2 smin=0.0 ls=0,0,0,0
+[13:43:39.609] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:39.781] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=131.9 bleed=0.01 fl=-62.9,171.5,171.8,240.7 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:43:39.782] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.2 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:39.839] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.5,100.0,100.0 bd=0.0,23.5,0.0,0.0 flags=0 nparts=7 pmin=70.3 smin=0.0 ls=0,0,0,0
+[13:43:39.917] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=254.1 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:39.964] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=112.9 smin=0.0 ls=0,0,0,0
+[13:43:39.972] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:39.990] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:40.144] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.8 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.2 smin=0.0 ls=0,0,0,0
+[13:43:40.153] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.5 bleed=0.00 fl=241.2,-77.1,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:40.325] [HOST] INFO: [cam] center=18971.2,158.1,47829.1
+[13:43:40.341] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.5 bleed=0.00 fl=125.0,95.8,82.2,19.2 bd=0.0,29.2,42.8,105.8 flags=0 nparts=7 pmin=19.2 smin=0.0 ls=0,0,0,0
+[13:43:40.513] [HOST] INFO: [taskkey] key=26 desc='Looting' repro=0 subject=1
+[13:43:40.666] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:40.788] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=131.9 bleed=0.01 fl=-63.0,171.5,171.8,240.7 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:43:40.853] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.3 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:40.909] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.6,100.0,100.0 bd=0.0,23.4,0.0,0.0 flags=0 nparts=7 pmin=70.3 smin=0.0 ls=0,0,0,0
+[13:43:40.986] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=254.2 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:41.035] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=112.9 smin=0.0 ls=0,0,0,0
+[13:43:41.045] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:41.063] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:41.153] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=115.5 bleed=0.00 fl=241.2,-77.2,241.2,241.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:43:41.228] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=287.9 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.2 smin=0.0 ls=0,0,0,0
+[13:43:41.343] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.5 bleed=0.00 fl=125.0,95.9,82.2,19.3 bd=0.0,29.1,42.8,105.7 flags=0 nparts=7 pmin=19.3 smin=0.0 ls=0,0,0,0
+[13:43:41.372] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:41.743] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:41.822] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=131.8 bleed=0.01 fl=-63.1,171.5,171.8,240.7 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:43:41.925] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.3 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:41.982] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.6,100.0,100.0 bd=0.0,23.4,0.0,0.0 flags=0 nparts=7 pmin=70.3 smin=0.0 ls=0,0,0,0
+[13:43:42.053] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=254.3 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:42.093] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=113.0 smin=0.0 ls=0,0,0,0
+[13:43:42.101] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:42.116] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:42.267] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.0 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.2 smin=0.0 ls=0,0,0,0
+[13:43:42.348] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.6 bleed=0.00 fl=125.0,95.9,82.2,19.3 bd=0.0,29.1,42.8,105.7 flags=0 nparts=7 pmin=19.3 smin=0.0 ls=0,0,0,0
+[13:43:42.463] [HOST] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='1214-gamedata.base' event=5 mult=0.000 after=0.00 skipped=218
+[13:43:42.469] [HOST] INFO: [event] SEND id=8 ev=2 hand=1,22,392211904,1,3969726464 actor=0,0 bs 3->7
+[13:43:42.755] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:42.826] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=131.8 bleed=0.01 fl=-63.1,171.5,171.8,240.7 bd=0.0,0.0,0.0,0.0 flags=3 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:43:42.937] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.4 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:42.996] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.6,100.0,100.0 bd=0.0,23.4,0.0,0.0 flags=0 nparts=7 pmin=70.4 smin=0.0 ls=0,0,0,0
+[13:43:43.068] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=254.3 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:43:43.108] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=113.0 smin=0.0 ls=0,0,0,0
+[13:43:43.116] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:43.133] [HOST] INFO: [med] SEND hand=4,3291381760 npc=1 blood=92.7 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:43.269] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.0 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.2 smin=0.0 ls=0,0,0,0
+[13:43:43.349] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.6 bleed=0.00 fl=125.0,95.9,82.2,19.3 bd=0.0,29.1,42.8,105.7 flags=0 nparts=7 pmin=19.3 smin=0.0 ls=0,0,0,0
+[13:43:43.785] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:43.943] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.5 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:44.049] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.6,100.0,100.0 bd=0.0,23.4,0.0,0.0 flags=0 nparts=7 pmin=70.4 smin=0.0 ls=0,0,0,0
+[13:43:44.163] [HOST] INFO: [med] SEND hand=2,3314453248 npc=1 blood=102.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=113.0 smin=0.0 ls=0,0,0,0
+[13:43:44.174] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:44.275] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.1 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.2 smin=0.0 ls=0,0,0,0
+[13:43:44.377] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:44.392] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.7 bleed=0.00 fl=125.0,95.9,82.2,19.3 bd=0.0,29.1,42.8,105.7 flags=0 nparts=7 pmin=19.3 smin=0.0 ls=0,0,0,0
+[13:43:44.852] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:44.943] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.6 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:45.102] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.6,100.0,100.0 bd=0.0,23.4,0.0,0.0 flags=0 nparts=7 pmin=70.4 smin=0.0 ls=0,0,0,0
+[13:43:45.229] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:45.289] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.2 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.2 smin=0.0 ls=0,0,0,0
+[13:43:45.327] [HOST] INFO: [cam] center=18971.2,158.1,47829.1
+[13:43:45.393] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.7 bleed=0.00 fl=125.0,95.9,82.2,19.3 bd=0.0,29.1,42.8,105.7 flags=0 nparts=7 pmin=19.3 smin=0.0 ls=0,0,0,0
+[13:43:45.485] [HOST] INFO: [census] sent n=64 radius=2000 mid=48
+[13:43:45.916] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:45.988] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.6 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:46.162] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.6,100.0,100.0 bd=0.0,23.4,0.0,0.0 flags=0 nparts=7 pmin=70.4 smin=0.0 ls=0,0,0,0
+[13:43:46.283] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:46.338] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.3 bleed=0.00 fl=167.9,169.2,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.2 smin=0.0 ls=0,0,0,0
+[13:43:46.402] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.7 bleed=0.00 fl=125.0,96.0,82.3,19.3 bd=0.0,29.0,42.7,105.7 flags=0 nparts=7 pmin=19.3 smin=0.0 ls=0,0,0,0
+[13:43:46.994] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:47.069] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.7 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:47.244] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.6,100.0,100.0 bd=0.0,23.4,0.0,0.0 flags=0 nparts=7 pmin=70.4 smin=0.0 ls=0,0,0,0
+[13:43:47.384] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:47.385] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:47.442] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.3 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.1 smin=0.0 ls=0,0,0,0
+[13:43:47.476] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.8 bleed=0.00 fl=125.0,96.0,82.3,19.4 bd=0.0,29.0,42.7,105.6 flags=0 nparts=7 pmin=19.4 smin=0.0 ls=0,0,0,0
+[13:43:48.098] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:48.173] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.8 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.2 smin=0.0 ls=0,0,0,0
+[13:43:48.348] [HOST] INFO: [med] SEND hand=3,3359496960 npc=1 blood=98.1 bleed=0.00 fl=100.0,76.7,100.0,100.0 bd=0.0,23.3,0.0,0.0 flags=0 nparts=7 pmin=70.4 smin=0.0 ls=0,0,0,0
+[13:43:48.473] [HOST] INFO: [med] SEND hand=2,556640640 npc=1 blood=94.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:48.532] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.4 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.1 smin=0.0 ls=0,0,0,0
+[13:43:48.566] [HOST] INFO: [med] SEND hand=2,3703979520 npc=1 blood=52.8 bleed=0.00 fl=125.0,96.0,82.3,19.4 bd=0.0,29.0,42.7,105.6 flags=0 nparts=7 pmin=19.4 smin=0.0 ls=0,0,0,0
+[13:43:49.181] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:49.255] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.9 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.1 smin=0.0 ls=0,0,0,0
+[13:43:49.630] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.5 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.1 smin=0.0 ls=0,0,0,0
+[13:43:50.206] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:50.275] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=156.9 bleed=0.00 fl=81.4,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.1 smin=0.0 ls=0,0,0,0
+[13:43:50.328] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=46.7 smin=0.0 ls=0,0,0,0
+[13:43:50.329] [HOST] INFO: [cam] center=18904.3,145.2,47791.9
+[13:43:50.391] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:50.633] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.5 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.1 smin=0.0 ls=0,0,0,0
+[13:43:50.734] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=46.8 smin=0.0 ls=0,0,0,0
+[13:43:51.141] [HOST] INFO: [stats] SEND hand=1,1051391616 str=39.2 dex=20.5 tough=38.7 stealth=22.4 athl=60.2 xp=0 fap=0
+[13:43:51.268] [HOST] INFO: [med] SEND hand=1,581787136 npc=1 blood=107.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:43:51.276] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=157.0 bleed=0.00 fl=81.3,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.1 smin=0.0 ls=0,0,0,0
+[13:43:51.717] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.6 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.1 smin=0.0 ls=0,0,0,0
+[13:43:52.295] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=157.1 bleed=0.00 fl=81.3,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=59.1 smin=0.0 ls=0,0,0,0
+[13:43:52.321] [HOST] INFO: [event] SEND id=9 ev=2 hand=1,22,392211904,2,1692871040 actor=0,0 bs 3->7
+[13:43:52.720] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.7 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.1 smin=0.0 ls=0,0,0,0
+[13:43:52.941] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,57.5,100.0 bd=0.0,0.0,42.5,0.0 flags=0 nparts=7 pmin=23.3 smin=0.0 ls=0,0,0,0
+[13:43:53.297] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=157.1 bleed=0.00 fl=81.3,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=3 nparts=7 pmin=59.1 smin=0.0 ls=0,0,0,0
+[13:43:53.348] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,57.5,100.0 bd=0.0,0.0,42.5,0.0 flags=0 nparts=7 pmin=23.3 smin=0.0 ls=0,0,0,0
+[13:43:53.398] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:53.723] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.8 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.1 smin=0.0 ls=0,0,0,0
+[13:43:54.178] [HOST] INFO: [wd] DROP id=1 sid='2159-gamedata.base' owner=1,1,912109376,1,1051391616 pos=18877.34,145.39,47776.61 tracked=1
+[13:43:54.279] [HOST] INFO: [wd] DROP id=2 sid='2148-gamedata.base' owner=1,1,912109376,1,1051391616 pos=18877.34,145.39,47776.61 tracked=1
+[13:43:54.399] [HOST] INFO: [wd] DROP id=3 sid='18917-gamedata.base' owner=1,1,912109376,1,1051391616 pos=18877.34,145.39,47776.61 tracked=1
+[13:43:54.653] [HOST] INFO: [wd] DROP id=4 sid='2200-gamedata.base' owner=1,1,912109376,1,1051391616 pos=18877.34,145.39,47776.61 tracked=1
+[13:43:54.726] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.8 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.1 smin=0.0 ls=0,0,0,0
+[13:43:54.773] [HOST] INFO: [wd] DROP id=5 sid='549-gamedata.base' owner=1,1,912109376,1,1051391616 pos=18877.34,145.39,47776.61 tracked=1
+[13:43:55.004] [HOST] INFO: [inv] SEND hand=1,1,912109376,1,1051391616 kind=0 key=1,1,912109376,1,1051391616 items=20 hash=3492825601
+[13:43:55.331] [HOST] INFO: [cam] center=18894.1,145.1,47770.9
+[13:43:55.514] [HOST] INFO: [census] sent n=64 radius=2000 mid=48
+[13:43:55.731] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=288.9 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.0 smin=0.0 ls=0,0,0,0
+[13:43:56.401] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:56.731] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=289.0 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.0 smin=0.0 ls=0,0,0,0
+[13:43:57.736] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=289.1 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.0 smin=0.0 ls=0,0,0,0
+[13:43:58.741] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=289.1 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.0 smin=0.0 ls=0,0,0,0
+[13:43:59.408] [HOST] INFO: [ai] suspended=0 driven=0
+[13:43:59.743] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=289.2 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.0 smin=0.0 ls=0,0,0,0
+[13:44:00.328] [HOST] INFO: [cam] center=18994.4,145.1,47722.5
+[13:44:00.749] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=289.3 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.0 smin=0.0 ls=0,0,0,0
+[13:44:01.753] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=289.4 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=17.0 smin=0.0 ls=0,0,0,0
+[13:44:02.299] [HOST] INFO: [event] SEND id=10 ev=2 hand=1,160,388305664,3,370483392 actor=0,0 bs 3->7
+[13:44:02.413] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:02.754] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=289.4 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=3 nparts=7 pmin=16.9 smin=0.0 ls=0,0,0,0
+[13:44:02.762] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,57.7,100.0 bd=0.0,0.0,42.4,0.0 flags=0 nparts=7 pmin=23.4 smin=0.0 ls=0,0,0,0
+[13:44:03.365] [HOST] INFO: [seatres] HOST task=87 npc=3,765502912 subj=1190,76904296 ok=1 npcpos=17773.0,48031.8 subjpos=17764.1,48031.3 d=8.9
+[13:44:04.434] [HOST] INFO: [seatres] HOST task=87 npc=2,1432128896 subj=1189,3359252992 ok=1 npcpos=17765.9,48040.4 subjpos=17759.2,48042.1 d=7.0
+[13:44:04.997] [HOST] INFO: [seatres] HOST task=87 npc=1,1234497024 subj=1188,797119168 ok=1 npcpos=17739.8,48049.9 subjpos=17732.1,48047.9 d=8.0
+[13:44:05.329] [HOST] INFO: [cam] center=18994.4,145.1,47722.5
+[13:44:05.414] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:05.533] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=47.0 smin=0.0 ls=0,0,0,0
+[13:44:05.551] [HOST] INFO: [census] sent n=64 radius=2000 mid=48
+[13:44:05.979] [HOST] INFO: [inv] SEND hand=1,1,912109376,5,1438354432 kind=0 key=1,1,912109376,5,1438354432 items=12 hash=2978083061
+[13:44:06.421] [HOST] INFO: [seatres] HOST task=87 npc=1,3006713856 subj=1191,1479980416 ok=1 npcpos=17752.6,48017.3 subjpos=17745.4,48015.7 d=7.4
+[13:44:07.501] [HOST] INFO: [seatres] HOST task=87 npc=4,362060544 subj=1192,3088989184 ok=1 npcpos=17724.7,48029.3 subjpos=17725.8,48021.2 d=8.1
+[13:44:08.420] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:08.665] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,57.7,100.0 bd=0.0,0.0,42.3,0.0 flags=0 nparts=7 pmin=23.5 smin=0.0 ls=0,0,0,0
+[13:44:10.326] [HOST] INFO: [cam] center=18984.8,145.1,47679.9
+[13:44:11.428] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:14.429] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:15.325] [HOST] INFO: [cam] center=18984.8,145.1,47679.9
+[13:44:15.587] [HOST] INFO: [census] sent n=64 radius=2000 mid=48
+[13:44:17.436] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:19.816] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=47.2 smin=0.0 ls=0,0,0,0
+[13:44:20.323] [HOST] INFO: [cam] center=18984.8,145.1,47679.9
+[13:44:20.437] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:21.606] [HOST] INFO: [fac] AFFECT-EV me='1233-gamedata.base' whom='56128-rebirth.mod' event=1 mult=0.050 after=-1.03 skipped=0
+[13:44:21.627] [HOST] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='1233-gamedata.base' event=0 mult=0.000 after=0.00 skipped=3
+[13:44:21.749] [HOST] INFO: [med] SEND hand=5,3048339968 npc=1 blood=114.2 bleed=0.00 fl=100.0,100.0,61.7,100.0 bd=0.0,0.0,38.3,0.0 flags=0 nparts=7 pmin=50.7 smin=0.0 ls=0,0,0,0
+[13:44:22.069] [HOST] INFO: [event] SEND id=11 ev=3 hand=1,22,392211904,3,329589856 actor=5,3048339968 bs 3->0
+[13:44:22.069] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=118.2 bleed=0.00 fl=241.3,-78.8,241.3,241.3 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:22.087] [HOST] INFO: [med] SEND hand=1,3290527232 npc=1 blood=130.1 bleed=0.00 fl=100.0,90.4,98.0,96.4 bd=0.0,9.6,2.0,3.6 flags=0 nparts=7 pmin=68.8 smin=0.0 ls=0,0,0,0
+[13:44:22.597] [HOST] INFO: [med] SEND hand=7,1073730496 npc=1 blood=116.4 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=78.4 smin=0.0 ls=0,0,0,0
+[13:44:22.670] [HOST] INFO: [med] SEND hand=6,3146850560 npc=1 blood=135.4 bleed=0.00 fl=125.0,125.0,107.4,108.7 bd=0.0,0.0,17.6,16.3 flags=0 nparts=7 pmin=107.4 smin=0.0 ls=0,0,0,0
+[13:44:22.680] [HOST] INFO: [med] SEND hand=2,3560668928 npc=1 blood=105.8 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:44:22.718] [HOST] INFO: [med] SEND hand=3,3209350656 npc=1 blood=114.0 bleed=0.00 fl=100.0,100.0,70.5,100.0 bd=0.0,0.0,29.5,0.0 flags=0 nparts=7 pmin=70.5 smin=0.0 ls=0,0,0,0
+[13:44:22.757] [HOST] INFO: [med] SEND hand=5,3048339968 npc=1 blood=114.2 bleed=0.00 fl=100.0,100.0,61.7,100.0 bd=0.0,0.0,38.3,0.0 flags=0 nparts=7 pmin=50.7 smin=0.0 ls=0,0,0,0
+[13:44:22.908] [HOST] INFO: [med] SEND hand=2,1864990208 npc=1 blood=98.1 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=125.0 smin=0.0 ls=0,0,0,0
+[13:44:23.166] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=118.2 bleed=0.00 fl=241.3,-78.8,241.3,241.3 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:23.184] [HOST] INFO: [med] SEND hand=1,3290527232 npc=1 blood=130.1 bleed=0.00 fl=100.0,90.4,98.1,96.4 bd=0.0,9.6,1.9,3.6 flags=0 nparts=7 pmin=68.8 smin=0.0 ls=0,0,0,0
+[13:44:23.443] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:23.597] [HOST] INFO: [med] SEND hand=7,1073730496 npc=1 blood=116.5 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=78.4 smin=0.0 ls=0,0,0,0
+[13:44:23.679] [HOST] INFO: [med] SEND hand=6,3146850560 npc=1 blood=135.4 bleed=0.00 fl=125.0,125.0,107.5,108.7 bd=0.0,0.0,17.5,16.3 flags=0 nparts=7 pmin=107.5 smin=0.0 ls=0,0,0,0
+[13:44:23.688] [HOST] INFO: [med] SEND hand=2,3560668928 npc=1 blood=105.8 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:44:23.724] [HOST] INFO: [med] SEND hand=3,3209350656 npc=1 blood=114.0 bleed=0.00 fl=100.0,100.0,70.5,100.0 bd=0.0,0.0,29.5,0.0 flags=0 nparts=7 pmin=70.5 smin=0.0 ls=0,0,0,0
+[13:44:23.732] [HOST] INFO: [taskkey] key=147 desc='Stumbling' repro=0 subject=0
+[13:44:23.759] [HOST] INFO: [med] SEND hand=5,3048339968 npc=1 blood=114.3 bleed=0.00 fl=100.0,100.0,61.7,100.0 bd=0.0,0.0,38.3,0.0 flags=0 nparts=7 pmin=50.8 smin=0.0 ls=0,0,0,0
+[13:44:24.024] [HOST] INFO: [med] SEND hand=2,1864990208 npc=1 blood=98.1 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=125.0 smin=0.0 ls=0,0,0,0
+[13:44:24.042] [HOST] INFO: [taskkey] key=121 desc='Moving to gate' repro=0 subject=1
+[13:44:24.108] [HOST] INFO: [taskkey] key=67 desc='Running' repro=0 subject=1
+[13:44:24.173] [HOST] INFO: [taskkey] key=25 desc='First aid' repro=1 subject=1
+[13:44:24.173] [HOST] INFO: [seatres] HOST task=25 npc=7,1073730496 subj=7,1073730496 ok=1 npcpos=18429.2,48101.9 subjpos=18429.2,48101.9 d=0.0
+[13:44:24.173] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.6 bleed=0.03 fl=241.3,-78.7,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:24.249] [HOST] INFO: [med] SEND hand=1,3290527232 npc=1 blood=130.2 bleed=0.00 fl=100.0,90.4,98.1,96.4 bd=0.0,9.6,1.9,3.6 flags=0 nparts=7 pmin=68.9 smin=0.0 ls=0,0,0,0
+[13:44:24.395] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,58.0,100.0 bd=0.0,0.0,42.0,0.0 flags=0 nparts=7 pmin=23.7 smin=0.0 ls=0,0,0,0
+[13:44:24.598] [HOST] INFO: [med] SEND hand=7,1073730496 npc=1 blood=114.8 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=78.4 smin=0.0 ls=0,0,0,0
+[13:44:24.696] [HOST] INFO: [med] SEND hand=2,3560668928 npc=1 blood=105.8 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:44:24.720] [HOST] INFO: [med] SEND hand=6,3146850560 npc=1 blood=135.4 bleed=0.00 fl=125.0,125.0,107.5,108.7 bd=0.0,0.0,17.5,16.3 flags=0 nparts=7 pmin=107.5 smin=0.0 ls=0,0,0,0
+[13:44:24.730] [HOST] INFO: [med] SEND hand=3,3209350656 npc=1 blood=114.0 bleed=0.00 fl=100.0,100.0,70.5,100.0 bd=0.0,0.0,29.5,0.0 flags=0 nparts=7 pmin=70.5 smin=0.0 ls=0,0,0,0
+[13:44:24.797] [HOST] INFO: [med] SEND hand=5,3048339968 npc=1 blood=114.3 bleed=0.00 fl=100.0,100.0,61.8,100.0 bd=0.0,0.0,38.2,0.0 flags=0 nparts=7 pmin=50.8 smin=0.0 ls=0,0,0,0
+[13:44:25.034] [HOST] INFO: [med] SEND hand=2,1864990208 npc=1 blood=98.1 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=125.0 smin=0.0 ls=0,0,0,0
+[13:44:25.179] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.6 bleed=0.03 fl=241.3,-78.8,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:25.249] [HOST] INFO: [med] SEND hand=1,3290527232 npc=1 blood=130.2 bleed=0.00 fl=100.0,90.4,98.1,96.4 bd=0.0,9.6,1.9,3.6 flags=0 nparts=7 pmin=68.9 smin=0.0 ls=0,0,0,0
+[13:44:25.329] [HOST] INFO: [cam] center=18973.2,145.1,47728.4
+[13:44:25.360] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,58.0,100.0 bd=0.0,0.0,42.0,0.0 flags=0 nparts=7 pmin=23.8 smin=0.0 ls=0,0,0,0
+[13:44:25.643] [HOST] INFO: [census] sent n=58 radius=2000 mid=46
+[13:44:25.719] [HOST] INFO: [med] SEND hand=7,1073730496 npc=1 blood=114.9 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=78.4 smin=0.0 ls=0,0,0,0
+[13:44:25.727] [HOST] INFO: [med] SEND hand=6,3146850560 npc=1 blood=135.4 bleed=0.00 fl=125.0,125.0,107.5,108.7 bd=0.0,0.0,17.5,16.3 flags=0 nparts=7 pmin=107.5 smin=0.0 ls=0,0,0,0
+[13:44:25.761] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,58.0,100.0 bd=0.0,0.0,42.0,0.0 flags=0 nparts=7 pmin=23.8 smin=0.0 ls=0,0,0,0
+[13:44:25.788] [HOST] INFO: [med] SEND hand=2,3560668928 npc=1 blood=105.8 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:44:25.799] [HOST] INFO: [med] SEND hand=5,3048339968 npc=1 blood=114.3 bleed=0.00 fl=100.0,100.0,61.8,100.0 bd=0.0,0.0,38.2,0.0 flags=0 nparts=7 pmin=50.8 smin=0.0 ls=0,0,0,0
+[13:44:25.824] [HOST] INFO: [med] SEND hand=3,3209350656 npc=1 blood=114.0 bleed=0.00 fl=100.0,100.0,70.5,100.0 bd=0.0,0.0,29.5,0.0 flags=0 nparts=7 pmin=70.5 smin=0.0 ls=0,0,0,0
+[13:44:26.037] [HOST] INFO: [med] SEND hand=2,1864990208 npc=1 blood=98.1 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=125.0 smin=0.0 ls=0,0,0,0
+[13:44:26.184] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.5 bleed=0.03 fl=241.3,-78.9,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:26.254] [HOST] INFO: [med] SEND hand=1,3290527232 npc=1 blood=130.3 bleed=0.00 fl=100.0,90.4,98.1,96.4 bd=0.0,9.6,1.9,3.6 flags=0 nparts=7 pmin=68.9 smin=0.0 ls=0,0,0,0
+[13:44:26.445] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:26.500] [HOST] INFO: [coop-ui] panel opened
+[13:44:26.519] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[13:44:26.724] [HOST] INFO: [med] SEND hand=7,1073730496 npc=1 blood=114.9 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=78.4 smin=0.0 ls=0,0,0,0
+[13:44:26.733] [HOST] INFO: [med] SEND hand=6,3146850560 npc=1 blood=135.4 bleed=0.00 fl=125.0,125.0,107.5,108.7 bd=0.0,0.0,17.5,16.3 flags=0 nparts=7 pmin=107.5 smin=0.0 ls=0,0,0,0
+[13:44:26.796] [HOST] INFO: [med] SEND hand=2,3560668928 npc=1 blood=105.8 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[13:44:26.804] [HOST] INFO: [med] SEND hand=5,3048339968 npc=1 blood=114.4 bleed=0.00 fl=100.0,100.0,61.8,100.0 bd=0.0,0.0,38.2,0.0 flags=0 nparts=7 pmin=50.8 smin=0.0 ls=0,0,0,0
+[13:44:26.831] [HOST] INFO: [med] SEND hand=3,3209350656 npc=1 blood=114.0 bleed=0.00 fl=100.0,100.0,70.5,100.0 bd=0.0,0.0,29.5,0.0 flags=0 nparts=7 pmin=70.5 smin=0.0 ls=0,0,0,0
+[13:44:27.043] [HOST] INFO: [med] SEND hand=2,1864990208 npc=1 blood=98.1 bleed=0.00 fl=125.0,125.0,125.0,125.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=125.0 smin=0.0 ls=0,0,0,0
+[13:44:27.192] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.5 bleed=0.03 fl=241.3,-78.9,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:27.256] [HOST] INFO: [med] SEND hand=1,3290527232 npc=1 blood=130.3 bleed=0.00 fl=100.0,90.5,98.1,96.4 bd=0.0,9.5,1.9,3.6 flags=0 nparts=7 pmin=68.9 smin=0.0 ls=0,0,0,0
+[13:44:27.375] [HOST] INFO: [coop-ui] connection -> ONLINE
+[13:44:27.381] [HOST] INFO: [coop-ui] CONNECT role=HOST transport=steam
+[13:44:27.381] [HOST] INFO: [leave] cleared proxies=0
+[13:44:27.381] [HOST] INFO: [leave] cleared worldProxies=0 (cleanup=0)
+[13:44:27.381] [HOST] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[13:44:27.383] [HOST] INFO: [dmg] role re-armed: HOST (own swings land natively)
+[13:44:27.383] [HOST] INFO: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+[13:44:27.383] [HOST] INFO: [steam] tunnel peer=76561198346257175 slot=0 addr=1.0.0.1 (session pre-accepted)
+[13:44:27.383] [HOST] INFO: [steam] tunnel peer=76561199025713332 slot=1 addr=1.0.0.2 (session pre-accepted)
+[13:44:27.383] [HOST] INFO: [steam] transport=steam armed, 2 tunnel peer(s) (connect by SteamID; no port forwarding)
+[13:44:27.383] [HOST] INFO: KenshiCoop: starting as HOST
+[13:44:27.383] [HOST] INFO: [squad] LATCH cont=33,1114624000 rank=2
+[13:44:27.383] [HOST] INFO: [event] SEND id=12 ev=2 hand=1,160,388305664,3,370483392 actor=0,0 bs 0->7
+[13:44:27.383] [HOST] INFO: [event] SEND id=13 ev=2 hand=1,22,392211904,1,3969726464 actor=0,0 bs 0->7
+[13:44:27.383] [HOST] INFO: [event] SEND id=14 ev=2 hand=1,22,392211904,2,1692871040 actor=0,0 bs 0->7
+[13:44:27.383] [HOST] INFO: [wi] BASELINE seeded=0 (save-native, never-stream)
+[13:44:27.383] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=47.4 smin=0.0 ls=0,0,0,0
+[13:44:27.383] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,58.0,100.0 bd=0.0,0.0,42.0,0.0 flags=0 nparts=7 pmin=23.8 smin=0.0 ls=0,0,0,0
+[13:44:27.383] [HOST] INFO: [med] SEND hand=1,3969726464 npc=1 blood=131.8 bleed=0.01 fl=-63.1,171.5,171.8,240.7 bd=0.0,0.0,0.0,0.0 flags=3 nparts=7 pmin=171.5 smin=0.0 ls=0,0,0,0
+[13:44:27.383] [HOST] INFO: [med] SEND hand=2,1692871040 npc=1 blood=157.1 bleed=0.00 fl=81.3,193.2,233.5,114.2 bd=0.0,0.0,0.0,0.0 flags=3 nparts=7 pmin=59.1 smin=0.0 ls=0,0,0,0
+[13:44:27.383] [HOST] INFO: [med] SEND hand=3,370483392 npc=1 blood=289.4 bleed=0.00 fl=167.9,169.1,167.5,235.3 bd=0.0,0.0,0.0,0.0 flags=3 nparts=7 pmin=16.9 smin=0.0 ls=0,0,0,0
+[13:44:27.383] [HOST] INFO: [stats] SEND hand=1,1051391616 str=39.2 dex=20.5 tough=38.7 stealth=22.4 athl=60.2 xp=0 fap=0
+[13:44:27.383] [HOST] INFO: [steam] ENet socket hooks installed (tunnel on P2P channel 0)
+[13:44:27.383] [HOST] INFO: [stats] SEND hand=5,1438354432 str=24.7 dex=18.3 tough=36.1 stealth=5.8 athl=58.3 xp=0 fap=0
+[13:44:27.383] [HOST] INFO: [money] SEND rank=0 cats=0
+[13:44:27.383] [HOST] INFO: [net] transport=steam (ENet tunnelled over Steam P2P)
+[13:44:27.383] [HOST] INFO: [net] hosting
+[13:44:27.383] [HOST] INFO: [prod] SEND key=0.2724.11111.1086.279418944 kind=0 class=4 pwr=1 state=2 out='42164-gamedata.base' outAmt=0.000 in0=0.000 in1=-1.000 grown=-1.000 first=1 seq=27
+[13:44:27.383] [HOST] INFO: [prod] SEND key=0.2724.11111.1088.1444946304 kind=0 class=6 pwr=1 state=3 out='43395-changes_otto.mod' outAmt=-1.000 in0=0.000 in1=0.000 grown=-1.000 first=1 seq=28
+[13:44:27.383] [HOST] INFO: [steam] session peer=76561198346257175 active=1 connecting=0 relay=0 err=0
+[13:44:27.383] [HOST] INFO: [research] SEND sid='46044-rebirth.mod' seq=19
+[13:44:27.383] [HOST] INFO: [research] SEND sid='46043-rebirth.mod' seq=20
+[13:44:27.383] [HOST] INFO: [research] SEND sid='1892-gamedata.base' seq=21
+[13:44:27.383] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[13:44:27.383] [HOST] INFO: [speed] SET mult=1.00 paused=0 combat=0 (my=1.00)
+[13:44:27.383] [HOST] INFO: [steam] first tunnel packet received from peer
+[13:44:27.526] [HOST] INFO: [net] peer connecting (awaiting HELLO)
+[13:44:27.526] [HOST] INFO: [net] peer connected id=1 (proto v46) [2/3 players]
+[13:44:27.534] [HOST] INFO: handshake: peer present id=1 (local id=0)
+[13:44:27.534] [HOST] INFO: [latejoin] RESYNC place=0 remove=0 fac=0 door=0 bdoor=0 med=5 stats=2 money=1 inv=0 world=0 prod=2
+[13:44:27.534] [HOST] INFO: [boot] baking save 'trio scum save' to push to join on connect
+[13:44:27.534] [HOST] INFO: [save] LOCAL-SAVE name='trio scum save' autosave=0 suppressed=0
+[13:44:27.535] [HOST] INFO: [save] WATCH armed folder='C:\Users\marsh\AppData\Local\kenshi\save\trio scum save' baseFiles=109 baseBytes=7729053
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1002,108886720 kind=0 key=0,2724,11111,1002,108886720 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1005,2747192320 kind=0 key=0,2724,11111,1005,2747192320 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1006,1642944384 kind=0 key=0,2724,11111,1006,1642944384 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1009,2182617088 kind=0 key=0,2724,11111,1009,2182617088 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1020,933959936 kind=0 key=0,2724,11111,1020,933959936 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1021,3994384640 kind=0 key=0,2724,11111,1021,3994384640 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1057,3750121984 kind=0 key=0,2724,11111,1057,3750121984 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1086,279418944 kind=0 key=0,2724,11111,1086,279418944 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=0,2724,11111,1088,1444946304 kind=0 key=0,2724,11111,1088,1444946304 items=0 hash=0
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=1,1,912109376,1,1051391616 kind=0 key=1,1,912109376,1,1051391616 items=20 hash=3492825601
+[13:44:27.763] [HOST] INFO: [inv] SEND hand=1,1,912109376,5,1438354432 kind=0 key=1,1,912109376,5,1438354432 items=12 hash=2978083061
+[13:44:27.763] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[13:44:28.541] [HOST] INFO: [stats] SEND hand=5,1438354432 str=24.7 dex=18.3 tough=36.1 stealth=5.8 athl=58.3 xp=0 fap=0
+[13:44:29.451] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:29.529] [HOST] INFO: [save] QUIESCED kind=settled name='trio scum save' files=109 bytes=7741546 waitMs=2000
+[13:44:29.689] [HOST] INFO: [boot] GO->join id=1 name='trio scum save' fp=e9f8c0cb (push on connect)
+[13:44:30.320] [HOST] INFO: [load] NACK id=1 name='trio scum save' joinFp=1e289633 -> transfer after reload
+[13:44:30.320] [HOST] INFO: [load] starting fallback transfer name='trio scum save'
+[13:44:30.320] [HOST] INFO: [save] XFER-BEGIN id=1 name='trio scum save' files=109 bytes=7741546
+[13:44:30.333] [HOST] INFO: [cam] center=18999.7,145.1,47715.6
+[13:44:32.460] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:34.081] [HOST] INFO: [save] XFER-SENT id=1 files=109 bytes=7741546 ms=3765
+[13:44:35.132] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=47.5 smin=0.0 ls=0,0,0,0
+[13:44:35.325] [HOST] INFO: [cam] center=18999.7,145.1,47715.6
+[13:44:35.350] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,58.2,100.0 bd=0.0,0.0,41.9,0.0 flags=0 nparts=7 pmin=23.9 smin=0.0 ls=0,0,0,0
+[13:44:35.374] [HOST] INFO: [seatres] HOST task=87 npc=1,581787136 subj=1120,2858764544 ok=1 npcpos=18231.4,48869.9 subjpos=18227.1,48875.3 d=7.0
+[13:44:35.466] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:36.419] [HOST] INFO: [census] sent n=58 radius=2000 mid=47
+[13:44:36.450] [HOST] INFO: [save] XFER-ACK owner=1 id=1 ok=1 files=109 bytes=7741546 (1/1 joins)
+[13:44:36.450] [HOST] INFO: [save] all joins hold this save - world is shared
+[13:44:37.696] [HOST] INFO: [seatres] HOST task=87 npc=2,3703979520 subj=1122,3398071296 ok=1 npcpos=18187.4,48878.0 subjpos=18190.8,48884.6 d=7.4
+[13:44:37.719] [HOST] INFO: [stats] SEND hand=5,1438354432 str=24.7 dex=18.3 tough=36.1 stealth=5.8 athl=58.3 xp=0 fap=0
+[13:44:38.469] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:39.936] [HOST] INFO: [event] SEND id=15 ev=1 hand=1,22,392211904,3,329589856 actor=0,0 bs 0->3
+[13:44:39.937] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.2 bleed=0.02 fl=241.3,-79.6,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:40.330] [HOST] INFO: [cam] center=18324.1,401.0,48181.7
+[13:44:40.792] [HOST] INFO: [inv] SEND hand=0,2724,11111,48,1182495104 kind=0 key=0,2724,11111,48,1182495104 items=0 hash=0
+[13:44:41.066] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.02 fl=241.3,-79.6,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:41.237] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,58.2,100.0 bd=0.0,0.0,41.8,0.0 flags=0 nparts=7 pmin=24.0 smin=0.0 ls=0,0,0,0
+[13:44:41.470] [HOST] INFO: [ai] suspended=0 driven=0
+[13:44:41.642] [HOST] INFO: [med] SEND hand=5,1438354432 npc=0 blood=93.5 bleed=0.00 fl=100.0,100.0,58.2,100.0 bd=0.0,0.0,41.8,0.0 flags=0 nparts=7 pmin=24.0 smin=0.0 ls=0,0,0,0
+[13:44:41.793] [HOST] INFO: [inv] SEND hand=0,2724,11111,1010,1761596672 kind=0 key=0,2724,11111,1010,1761596672 items=0 hash=0
+[13:44:42.097] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.02 fl=241.3,-79.7,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:43.140] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.01 fl=241.3,-79.7,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:43.590] [HOST] INFO: [net] peer connecting (awaiting HELLO)
+[13:44:43.590] [HOST] INFO: [net] peer connected id=2 (proto v46) [3/3 players]
+[13:44:43.598] [HOST] INFO: handshake: peer present id=2 (local id=0)
+[13:44:43.598] [HOST] INFO: [latejoin] RESYNC place=0 remove=0 fac=0 door=0 bdoor=0 med=6 stats=2 money=1 inv=13 world=0 prod=2
+[13:44:43.598] [HOST] INFO: [boot] baking save 'trio scum save' to push to join on connect
+[13:44:43.598] [HOST] INFO: [save] LOCAL-SAVE name='trio scum save' autosave=0 suppressed=0
+[13:44:43.598] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.01 fl=241.3,-79.8,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:43.599] [HOST] INFO: [save] WATCH armed folder='C:\Users\marsh\AppData\Local\kenshi\save\trio scum save' baseFiles=109 baseBytes=7741546
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=1 sid='1020-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=2 sid='2148-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=3 sid='2159-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=4 sid='2200-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=5 sid='2212-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=6 sid='556-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=7 sid='903-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=8 sid='2148-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=9 sid='2159-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=10 sid='2203-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=11 sid='2212-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=12 sid='2306-clothes_v1.mod' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=13 sid='903-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [wd] PICKUP-APPLY id=14 sid='924-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:43.823] [HOST] INFO: [cam] hints recv n=1 p1=19000,47716
+[13:44:43.833] [HOST] INFO: [carry] RECV PICKUP id=1 carrier=2,3921874944 carried=3,1569213824 ok=1
+[13:44:43.833] [HOST] INFO: [event] RECV id=1 ev=6 owner=1 hand=1,32,1617431680,3,1569213824 actor=2,3921874944
+[13:44:43.833] [HOST] INFO: [event] RECV id=2 ev=1 owner=1 hand=1,32,1617431680,3,1569213824 actor=0,0
+[13:44:43.834] [HOST] INFO: [stats] RECV hand=2,3921874944 ok=1 str=42.3 dex=40.9 tough=41.3 stealth=11.1 athl=58.8 xp=0
+[13:44:43.834] [HOST] INFO: [stats] RECV hand=3,1569213824 ok=1 str=36.8 dex=36.6 tough=38.3 stealth=12.2 athl=62.8 xp=0
+[13:44:43.834] [HOST] INFO: [stats] RECV hand=2,3921874944 ok=1 str=42.3 dex=40.9 tough=41.3 stealth=11.1 athl=58.8 xp=0
+[13:44:43.834] [HOST] INFO: [stats] RECV hand=3,1569213824 ok=1 str=36.8 dex=36.6 tough=38.3 stealth=12.2 athl=62.8 xp=0
+[13:44:43.834] [HOST] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[13:44:43.834] [HOST] INFO: [speed] REQ RECV owner=1 mult=1.00 paused=0 combat=0
+[13:44:43.860] [HOST] INFO: [life] hand=1,32,1617431680,2,3921874944 from=UNKNOWN to=HI reason=drive
+[13:44:43.861] [HOST] INFO: [interp] lerp=0 extrap=0 clamp=0 seg=0 single=2 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=0 restFlip=0 delay=50 jit=0.0 starve=0 snapMid=0 restFlipMid=0
+[13:44:43.869] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,2,3921874944 items=8
+[13:44:43.869] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,3,1569213824 items=10
+[13:44:44.479] [HOST] INFO: [ai] suspended=1 driven=2
+[13:44:44.602] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.01 fl=241.3,-79.8,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:45.332] [HOST] INFO: [cam] center=18259.7,401.0,48479.0
+[13:44:45.359] [HOST] INFO: [save] QUIESCED kind=settled name='trio scum save' files=109 bytes=7741690 waitMs=1765
+[13:44:45.509] [HOST] INFO: [boot] GO->join id=2 name='trio scum save' fp=a0bba089 (push on connect)
+[13:44:45.605] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.01 fl=241.3,-79.8,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.3 smin=0.0 ls=0,0,0,0
+[13:44:45.663] [HOST] INFO: [load] NACK id=2 name='trio scum save' joinFp=e9f8c0cb -> transfer after reload
+[13:44:45.663] [HOST] INFO: [load] NACK id=2 name='trio scum save' joinFp=1e289633 -> transfer after reload
+[13:44:45.663] [HOST] INFO: [load] starting fallback transfer name='trio scum save'
+[13:44:45.664] [HOST] INFO: [save] XFER-BEGIN id=2 name='trio scum save' files=109 bytes=7741690
+[13:44:46.515] [HOST] INFO: [census] sent n=58 radius=2000 mid=45
+[13:44:46.639] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.01 fl=241.3,-79.9,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.2 smin=0.0 ls=0,0,0,0
+[13:44:47.482] [HOST] INFO: [ai] suspended=1 driven=2
+[13:44:47.653] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.01 fl=241.3,-80.0,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.2 smin=0.0 ls=0,0,0,0
+[13:44:48.660] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.1 bleed=0.01 fl=241.3,-80.0,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.2 smin=0.0 ls=0,0,0,0
+[13:44:48.863] [HOST] INFO: [interp] lerp=378 extrap=444 clamp=4 seg=0 single=2 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=0 restFlip=0 delay=0 jit=0.0 starve=2 snapMid=0 restFlipMid=0
+[13:44:49.419] [HOST] INFO: [save] XFER-SENT id=2 files=109 bytes=7741690 ms=3766
+[13:44:49.667] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.0 bleed=0.01 fl=241.3,-80.1,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.2 smin=0.0 ls=0,0,0,0
+[13:44:50.012] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=47.7 smin=0.0 ls=0,0,0,0
+[13:44:50.327] [HOST] INFO: [cam] center=18327.2,401.0,48527.4
+[13:44:50.418] [HOST] INFO: [med] SEND hand=1,1051391616 npc=0 blood=104.4 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=47.8 smin=0.0 ls=0,0,0,0
+[13:44:50.489] [HOST] INFO: [ai] suspended=2 driven=2
+[13:44:51.576] [HOST] INFO: [stats] RECV hand=2,3921874944 ok=1 str=42.3 dex=40.9 tough=41.3 stealth=11.1 athl=58.8 xp=0
+[13:44:51.576] [HOST] INFO: [stats] RECV hand=3,1569213824 ok=1 str=36.8 dex=36.6 tough=38.3 stealth=12.2 athl=62.8 xp=0
+[13:44:51.576] [HOST] INFO: [save] XFER-ACK owner=2 id=2 ok=1 files=109 bytes=7741690 (1/2 joins)
+[13:44:51.576] [HOST] INFO: [save] XFER-ACK owner=1 id=2 ok=1 files=109 bytes=7741690 (2/2 joins)
+[13:44:51.576] [HOST] INFO: [save] all joins hold this save - world is shared
+[13:44:51.577] [HOST] INFO: [snap] squad hand=2,3921874944 name='Osafi' gap=25.3 gate=10.9 srcVel=4.4 cSpeed=23.1 mult=1.00 slew=1.00 dest=0 skipped=0
+[13:44:51.577] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,2,3921874944 items=8
+[13:44:51.577] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,3,1569213824 items=10
+[13:44:51.577] [HOST] INFO: [cam] hints recv n=1 p1=17860,48331
+[13:44:51.618] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=1 map=1
+[13:44:51.869] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=2 map=1
+[13:44:52.264] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=2 map=1
+[13:44:52.520] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:52.777] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=15 sid='1020-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=16 sid='2148-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=17 sid='2159-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=18 sid='2200-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=19 sid='2212-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=20 sid='556-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=21 sid='903-gamedata.base' owner=1,32,1617431680,2,3921874944 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=22 sid='2148-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=23 sid='2159-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=24 sid='2203-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=25 sid='2212-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=26 sid='2306-clothes_v1.mod' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=27 sid='903-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.787] [HOST] INFO: [wd] PICKUP-APPLY id=28 sid='924-gamedata.base' owner=1,32,1617431680,3,1569213824 ref=0/0 moved=0 trackedLeft=0
+[13:44:52.794] [HOST] INFO: [carry] RECV PICKUP id=3 carrier=2,3921874944 carried=3,1569213824 ok=1
+[13:44:52.794] [HOST] INFO: [event] RECV id=3 ev=6 owner=1 hand=1,32,1617431680,3,1569213824 actor=2,3921874944
+[13:44:52.794] [HOST] INFO: [event] RECV id=4 ev=1 owner=1 hand=1,32,1617431680,3,1569213824 actor=0,0
+[13:44:52.794] [HOST] INFO: [stats] RECV hand=2,3921874944 ok=1 str=42.3 dex=40.9 tough=41.3 stealth=11.1 athl=58.8 xp=0
+[13:44:52.794] [HOST] INFO: [stats] RECV hand=3,1569213824 ok=1 str=36.8 dex=36.6 tough=38.3 stealth=12.2 athl=62.8 xp=0
+[13:44:52.889] [HOST] INFO: [inv] SEND hand=0,2724,11111,1008,721191424 kind=0 key=0,2724,11111,1008,721191424 items=5 hash=3146160255
+[13:44:52.889] [HOST] INFO: [inv] SEND hand=0,2724,11111,1058,1372314496 kind=0 key=0,2724,11111,1058,1372314496 items=0 hash=0
+[13:44:53.029] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:53.105] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,2,3921874944 items=8
+[13:44:53.105] [HOST] INFO: [inv] APPLY hand=1,32,1617431680,3,1569213824 items=10
+[13:44:53.282] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:53.496] [HOST] INFO: [ai] suspended=1 driven=2
+[13:44:53.533] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:53.791] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:53.865] [HOST] INFO: [interp] lerp=692 extrap=708 clamp=4 seg=0 single=2 snapSq=1 snapNpc=0 reissueSq=2 reissueNpc=0 restFlip=0 delay=200 jit=57.7 starve=0 snapMid=0 restFlipMid=0
+[13:44:53.865] [HOST] INFO: [interp] worstZero hand=2,3921874944 zero=87 active=148 seg=115
+[13:44:54.044] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:54.295] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:54.553] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:54.649] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.0 bleed=0.00 fl=241.3,-80.3,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.2 smin=0.0 ls=0,0,0,0
+[13:44:54.807] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:54.970] [HOST] INFO: [event] SEND id=16 ev=1 hand=1,160,388305664,2,3199462912 actor=0,0 bs 0->3
+[13:44:54.970] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=258.9 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:44:55.062] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:55.319] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:55.329] [HOST] INFO: [cam] center=18410.9,401.0,48273.6
+[13:44:55.575] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:55.653] [HOST] INFO: [med] SEND hand=3,329589856 npc=1 blood=106.0 bleed=0.00 fl=241.3,-80.4,241.3,213.5 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=169.2 smin=0.0 ls=0,0,0,0
+[13:44:55.828] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:55.977] [HOST] INFO: [med] SEND hand=2,3199462912 npc=1 blood=259.0 bleed=0.00 fl=193.4,172.0,165.4,192.0 bd=0.0,0.0,0.0,0.0 flags=1 nparts=7 pmin=165.4 smin=0.0 ls=0,0,0,0
+[13:44:56.086] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:56.339] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1
+[13:44:56.500] [HOST] INFO: [ai] suspended=1 driven=2
+[13:44:56.559] [HOST] INFO: [census] sent n=58 radius=2000 mid=39
+[13:44:56.597] [HOST] INFO: [sneak] DETECT SEND hand=2,3921874944 seers=1 unseen=0 map=1

@@ -66,9 +66,22 @@ void logInit(const char* path, const char* modeTag) {
     }
 
     if (path && path[0]) {
+        // Preserve the PREVIOUS run before truncating. Opening "w" wipes it, so
+        // any crash's log was destroyed by the very next launch - which is how
+        // three separate crash investigations lost their evidence, including two
+        // where the dump was captured but the matching log was already gone.
+        // Keeps one generation as "<path>.prev"; that is enough, because the run
+        // you want is always the one immediately before the relaunch.
+        {
+            char prev[512];
+            _snprintf(prev, sizeof(prev) - 1, "%s.prev", path);
+            prev[sizeof(prev) - 1] = '\0';
+            std::remove(prev);
+            std::rename(path, prev); // no-op on a first run
+        }
         g_fp = std::fopen(path, "w"); // fresh file each run
     }
-    writeLine("INFO", "log opened");
+    writeLine("INFO", "log opened (previous run preserved as *.log.prev)");
 }
 
 void logLine(const char* msg)    { writeLine("INFO",  msg); }
