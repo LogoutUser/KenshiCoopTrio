@@ -99,3 +99,32 @@ refuse to connect or silently diverge, which is much worse.
   something" all destroy state. Capture first.
 - **The logs are unusually informative.** Most questions here are answerable
   from a log line rather than from inference.
+
+---
+
+## 6. Sending your log to Marsh
+
+The most useful thing you can do after a bad session. Ask for this **before**
+relaunching:
+
+```
+We just played a Kenshi co-op session and I need to send my log to Marsh.
+Do NOT let me restart Kenshi first — the game wipes its logs on launch.
+
+Run: dist\trio-kit\SHARE_LOG.cmd
+
+It'll ask my name (evan or zach). It pushes to a logs-<name> branch on
+GitHub, or drops a zip on my Desktop if the push doesn't go through.
+
+Then read my KenshiCoop_join.log and tell me what you see — especially any
+line starting with [hitdbg]. FRIEND_BRIEFING.md explains what they mean.
+```
+
+**Let the script do the git work.** It pushes to a per-player branch and never
+touches `main`, and it restores whatever branch you were on afterwards. An
+assistant improvising `git` commands here can strand you on a logs-* branch,
+which makes your next `git pull` look broken for reasons you'd never connect
+back to this.
+
+If the push is rejected, that just means the repo invite hasn't been accepted —
+the Desktop zip it falls back to is equally good, send it over Discord.
