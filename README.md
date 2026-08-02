@@ -10,8 +10,9 @@ bookkeeping that a third player requires.
 
 > ## ✅ Three players confirmed working
 >
-> A three-player session connected successfully on 2026-08-01 with zero errors.
-> Sustained play (combat, trading, saving) is still lightly tested.
+> Three players confirmed working, and the host-side relay is proven: a join
+> logged 88 events from the OTHER join, which is only reachable through it.
+> Join-dealt damage is still broken, and a ~24 min session ended in a crash.
 > See **[STATUS.md](STATUS.md)**.
 >
 > Upstream's own status is "expect desyncs and crashes" *for two players*. A

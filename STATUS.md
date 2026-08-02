@@ -31,14 +31,34 @@ session log.
 - **Scoped teardown** — each departure erased only that owner's vote. Upstream
   wiped all peer state on any disconnect.
 
-### Still unproven
+### The relay is proven (2026-08-02)
 
-- **join ↔ join relay.** The host log proves host↔join both ways, but the relay
-  forwards on the net thread without logging. Confirming it needs a *join's*
-  log showing `owner=` traffic from the OTHER join. This is the fork's whole
-  reason to exist, so it is the next thing worth checking.
-- Sustained play: combat, trading, base building, saving across three clients.
-- Disconnect mid-gameplay (the first session's disconnects were at the end).
+**The fork's central claim now has direct evidence.** Zach (id=2) reported
+**88 events tagged `owner=1`** in his join log — Evan's state arriving on his
+machine. Neither join can reach the other directly; the only path between them
+is the host-side relay. Upstream would have shown zero.
+
+Also confirmed in a ~24 minute three-player session:
+
+- **N-way save ACK gate** — a 4.7 MB / 48 file save transfer acknowledged by
+  both joins, gated correctly:
+  `XFER-ACK owner=2 (1/2 joins)` → `owner=1 (2/2 joins)` → `all joins hold this
+  save`. Upstream's scalar would have declared success after the first, leaving
+  one player on a stale world silently.
+- **Per-join interest anchors** — `[cam] hints recv n=2 p1=… p2=…`
+- **Per-owner speed votes** — `(my=5.00 p1=5.00 p2=5.00)`, and votes correctly
+  erased as each player left.
+
+### Still unproven / broken
+
+- **Join-dealt damage does not reach the host.** Three sessions, zero
+  `[combat] HIT RECV`. Not caused by the visibility bug (fixed, and it did not
+  help). `[hitdbg]` instrumentation was added to localise which of five stages
+  drops it; needs one join-side log to settle.
+- **Crash ~24 min into a heavy three-way fight** (build `6819BE2B`, which
+  predates the dangling-pointer fix in `F9F6C637`). Unattributed — the log has
+  not been read yet.
+- Sustained play beyond ~25 minutes.
 
 ## What's done
 
