@@ -124,6 +124,13 @@ inline RelayClass packetRelayClass(u8 type) {
         case PKT_LOAD_GO:    case PKT_LOAD_REQ:   case PKT_LOAD_NACK:
         case PKT_SPAWN_REQ:  case PKT_SPAWN_INFO:
         case PKT_CAM_HINT:
+        // COMBAT_HIT is join -> HOST only. The host owns world NPCs, so it applies
+        // the reported damage to the real body and the result reaches the other
+        // joins through its own authoritative medical/NPC stream. Relaying the raw
+        // report as well would make a second join apply the same damage to its
+        // cosmetic driven copy, double-counting it until the host's stream
+        // corrected it. (Reclassified from RELAY_OTHERS, 2026-08-01.)
+        case PKT_COMBAT_HIT:
             return RELAY_HOSTONLY;
 
         // -- Owner-authoritative state. The author is the authority regardless
@@ -135,7 +142,6 @@ inline RelayClass packetRelayClass(u8 type) {
         case PKT_WORLD_DROP: case PKT_WORLD_PICKUP:  // conservation intents
         case PKT_INV_XFER:                           // cross-owner trade
         case PKT_MEDICAL:   case PKT_TREATMENT:      // vitals + first aid
-        case PKT_COMBAT_HIT:                         // join-dealt damage report
         case PKT_STATS:     case PKT_MONEY:
         case PKT_BUILD_PLACE: case PKT_BUILD_STATE:
         case PKT_BUILD_DOOR:  case PKT_BUILD_REMOVE:
