@@ -654,7 +654,7 @@ void Replicator::publishNpcCensus(GameWorld* gw, NetLink& net, u32 ownerId) {
     // uses, so a camera-watched far NPC gets a mid-band drive slot too.
     {
         const float MID_NEAR_EDGE = 260.0f; // captureNpcs' NPC_CAPTURE_KEEP
-        float anchors[12];
+        float anchors[COOP_MAX_INTEREST * 3]; // protocol 46 (trio): 3 tab leaders + local cam + 2 peer cams
         unsigned int nAnchor = engine::interestAnchors(gw, anchors);
         midBand_.clear();
         for (unsigned int i = 0; i < n; ++i) {
@@ -765,23 +765,46 @@ void Replicator::syncCamHint(GameWorld* gw, Inbound& in, NetLink& net, u32 owner
     // stamp, and publish a FRESH hint to the engine's interest layer. A
     // stale hint (silent join > 3 s: alt-tabbed, loading, disconnecting)
     // drops out of the anchor set rather than pinning interest forever.
+    // Protocol 46 (trio): keep a hint PER JOIN. Upstream took got.back() only, so
+    // with two joins the single anchor ping-ponged between them and whichever
+    // reported last kept its surroundings streamed - the other player's fight
+    // went unstreamed ("we can't see each other's mobs").
     std::deque<InboundCamHint> got;
     in.drainCamHints(got);
+    for (std::deque<InboundCamHint>::iterator it = got.begin(); it != got.end(); ++it) {
+        const CamHintPacket& p = it->pkt;
+        PeerCam& pc = peerCam_[it->ownerId];
+        pc.x = p.x; pc.y = p.y; pc.z = p.z; pc.ms = now;
+    }
     if (!got.empty()) {
-        const CamHintPacket& p = got.back().pkt;
-        peerCam_[0] = p.x; peerCam_[1] = p.y; peerCam_[2] = p.z;
-        peerCamMs_ = now;
         static unsigned long logTick = 0; // main-thread only
         if (logTick == 0 || (now - logTick) >= 5000) {
             logTick = now;
-            char b[96];
-            _snprintf(b, sizeof(b) - 1, "[cam] hint recv=%.1f,%.1f,%.1f",
-                      p.x, p.y, p.z);
-            b[sizeof(b) - 1] = '\0'; coop::logLine(b);
+            char b[160]; b[0] = '\0';
+            for (std::map<u32, PeerCam>::const_iterator it = peerCam_.begin();
+                 it != peerCam_.end(); ++it) {
+                char one[64];
+                _snprintf(one, sizeof(one) - 1, " p%u=%.0f,%.0f",
+                          (unsigned)it->first, it->second.x, it->second.z);
+                one[sizeof(one) - 1] = '\0';
+                if (strlen(b) + strlen(one) < sizeof(b) - 1) strcat(b, one);
+            }
+            char line[192];
+            _snprintf(line, sizeof(line) - 1, "[cam] hints recv n=%u%s",
+                      (unsigned)peerCam_.size(), b);
+            line[sizeof(line) - 1] = '\0'; coop::logLine(line);
         }
     }
-    bool fresh = (peerCamMs_ != 0) && (now - peerCamMs_) <= 3000;
-    engine::setPeerCamHint(fresh, peerCam_[0], peerCam_[1], peerCam_[2]);
+    // Publish one engine anchor slot per join. ownerId 1 -> slot 0, 2 -> slot 1.
+    // A join silent > 3 s (alt-tabbed, loading, dropping) clears its own slot
+    // only, so one idle player cannot unstream another's fight.
+    for (unsigned int slot = 0; slot < COOP_MAX_PEER_CAMS; ++slot) {
+        std::map<u32, PeerCam>::const_iterator it = peerCam_.find(slot + 1);
+        bool fresh = (it != peerCam_.end()) && it->second.ms != 0 &&
+                     (now - it->second.ms) <= 3000;
+        if (fresh) engine::setPeerCamHint(slot, true, it->second.x, it->second.y, it->second.z);
+        else       engine::setPeerCamHint(slot, false, 0.0f, 0.0f, 0.0f);
+    }
 }
 
 

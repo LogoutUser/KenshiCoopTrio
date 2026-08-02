@@ -650,8 +650,13 @@ bool cameraCenter(GameWorld* gw, float out[3]) {
 static bool  s_camInterest    = true;  // KENSHICOOP_CAM_INTEREST master enable
 static bool  s_localCamValid  = false;
 static float s_localCam[3]    = { 0.0f, 0.0f, 0.0f };
-static bool  s_peerCamValid   = false;
-static float s_peerCam[3]     = { 0.0f, 0.0f, 0.0f };
+// Protocol 46 (trio): ONE camera hint per join, not one in total. A single slot
+// meant the host's interest anchor ping-ponged between the two joins, so
+// whichever reported last kept its surroundings streamed and the other player's
+// fight went unstreamed - "we can't see each other's mobs".
+static bool  s_peerCamValid[COOP_MAX_PEER_CAMS] = { false, false };
+static float s_peerCam[COOP_MAX_PEER_CAMS][3]   = { { 0.0f, 0.0f, 0.0f },
+                                                    { 0.0f, 0.0f, 0.0f } };
 
 void setCamInterest(bool on) { s_camInterest = on; }
 
@@ -660,9 +665,12 @@ void setLocalCamAnchor(bool valid, float x, float y, float z) {
     if (valid) { s_localCam[0] = x; s_localCam[1] = y; s_localCam[2] = z; }
 }
 
-void setPeerCamHint(bool valid, float x, float y, float z) {
-    s_peerCamValid = valid;
-    if (valid) { s_peerCam[0] = x; s_peerCam[1] = y; s_peerCam[2] = z; }
+void setPeerCamHint(unsigned int slot, bool valid, float x, float y, float z) {
+    if (slot >= COOP_MAX_PEER_CAMS) return;
+    s_peerCamValid[slot] = valid;
+    if (valid) {
+        s_peerCam[slot][0] = x; s_peerCam[slot][1] = y; s_peerCam[slot][2] = z;
+    }
 }
 
 // DUAL-INTEREST centers (step 5): one interest sphere per squad TAB leader, up
@@ -679,13 +687,16 @@ void setPeerCamHint(bool valid, float x, float y, float z) {
 // Camera anchors within ~100u of an existing anchor are dropped (the common
 // camera-follows-leader case adds no reach, only query cost). Writes up to
 // four centers; returns the count. Caller holds the SEH frame.
-unsigned int interestCenters(GameWorld* gw, Ogre::Vector3 outC[4]) {
+unsigned int interestCenters(GameWorld* gw, Ogre::Vector3 outC[COOP_MAX_INTEREST]) {
     PlayerInterface* pl = gw->player;
     if (!pl || pl->playerCharacters.size() == 0) return 0;
-    unsigned int pairs[2][2];
+    unsigned int pairs[COOP_MAX_TAB_LEADERS][2];
     unsigned int nc = 0;
     unsigned int total = pl->playerCharacters.size();
-    for (unsigned int i = 0; i < total && nc < 2; ++i) {
+    // Protocol 46 (trio): up to THREE tab leaders. At two, the third player's
+    // squad had no interest sphere of its own, so NPCs around them were never
+    // streamed once the group split up.
+    for (unsigned int i = 0; i < total && nc < COOP_MAX_TAB_LEADERS; ++i) {
         Character* m = pl->playerCharacters[i];
         if (!m) continue;
         unsigned int h[5];
@@ -703,9 +714,11 @@ unsigned int interestCenters(GameWorld* gw, Ogre::Vector3 outC[4]) {
     // against everything already in the set. nc==0 stays 0: no players in
     // gameplay means no streaming at all (the camera alone must not stream).
     const float DEDUPE_DIST_SQ = 100.0f * 100.0f;
-    const float* cams[2] = { s_localCamValid ? s_localCam : 0,
-                             s_peerCamValid  ? s_peerCam  : 0 };
-    for (unsigned int ci = 0; ci < 2 && nc < 4; ++ci) {
+    const float* cams[1 + COOP_MAX_PEER_CAMS];
+    cams[0] = s_localCamValid ? s_localCam : 0;
+    for (unsigned int pi = 0; pi < COOP_MAX_PEER_CAMS; ++pi)
+        cams[1 + pi] = s_peerCamValid[pi] ? s_peerCam[pi] : 0;
+    for (unsigned int ci = 0; ci < 1 + COOP_MAX_PEER_CAMS && nc < COOP_MAX_INTEREST; ++ci) {
         if (!cams[ci]) continue;
         bool dup = false;
         for (unsigned int k = 0; k < nc && !dup; ++k) {
@@ -723,11 +736,11 @@ unsigned int interestCenters(GameWorld* gw, Ogre::Vector3 outC[4]) {
 
 // SEH wrapper over interestCenters for callers outside the engine layer
 // (interestCenters itself relies on the caller's SEH frame).
-unsigned int interestAnchors(GameWorld* gw, float out[12]) {
+unsigned int interestAnchors(GameWorld* gw, float out[COOP_MAX_INTEREST * 3]) {
     if (!gw || !out) return 0;
     unsigned int nc = 0;
     __try {
-        Ogre::Vector3 centers[4];
+        Ogre::Vector3 centers[COOP_MAX_INTEREST];
         nc = interestCenters(gw, centers);
         for (unsigned int i = 0; i < nc; ++i) {
             out[i * 3 + 0] = centers[i].x;
@@ -760,7 +773,7 @@ unsigned int captureNpcs(GameWorld* gw, EntityState* out, unsigned int maxOut) {
     __try {
         // Interest: one sphere per squad-tab leader (dual-interest, step 5). The
         // query radii approximate a town-block footprint (~200u far) per sphere.
-        Ogre::Vector3 centers[4];
+        Ogre::Vector3 centers[COOP_MAX_INTEREST];
         unsigned int nc = interestCenters(gw, centers);
         if (nc == 0) { prevN = 0; return 0; }
 
@@ -883,7 +896,7 @@ unsigned int listNpcs(GameWorld* gw, Character** outChars, EntityState* outState
     __try {
         // Same dual-interest spheres as captureNpcs, so the join's suppression
         // view matches what the host is willing to stream.
-        Ogre::Vector3 centers[4];
+        Ogre::Vector3 centers[COOP_MAX_INTEREST];
         unsigned int nc = interestCenters(gw, centers);
         if (nc == 0) return 0;
         for (unsigned int ci = 0; ci < nc; ++ci) {
@@ -917,7 +930,7 @@ unsigned int listNpcsWide(GameWorld* gw, float radius, Character** outChars,
         // Same dual-interest centers as the stream bubble, but the query
         // reaches the census radius (uniform in all axes, like the proven
         // findNearbyNonPlayerFaction whole-block scan) with wide limits.
-        Ogre::Vector3 centers[4];
+        Ogre::Vector3 centers[COOP_MAX_INTEREST];
         unsigned int nc = interestCenters(gw, centers);
         if (nc == 0) return 0;
         for (unsigned int ci = 0; ci < nc; ++ci) {

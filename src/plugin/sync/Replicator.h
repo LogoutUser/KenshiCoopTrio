@@ -596,7 +596,7 @@ public:
     // Camera hint channel (protocol 43, camera-anchored interest):
     //  * join: read the local camera center (engine::cameraCenter) and send
     //    it to the host at ~1 Hz (PKT_CAM_HINT, unreliable latest-wins);
-    //  * host: drain received hints into peerCam_/peerCamMs_ and publish the
+    //  * host: drain received hints into peerCam_ (one per join) and publish the
     //    fresh hint to the engine layer (engine::setPeerCamHint) so
     //    interestCenters can anchor an extra sphere on it. Both sides also
     //    publish their LOCAL camera as an anchor (never crosses the wire).
@@ -928,8 +928,11 @@ private:
     // ~1 Hz; the host keeps the latest hint + arrival stamp (stale hints are
     // dropped from the anchor set rather than pinning interest forever).
     unsigned long             camHintSendMs_; // join: last hint send
-    float                     peerCam_[3];    // host: latest peer camera center
-    unsigned long             peerCamMs_;     // host: its arrival time (0 = none)
+    // Protocol 46 (trio): host keeps one camera anchor PER JOIN, keyed by
+    // ownerId. A single slot let the two joins overwrite each other, so only the
+    // most recent reporter's surroundings stayed streamed.
+    struct PeerCam { float x, y, z; unsigned long ms; };
+    std::map<u32, PeerCam>    peerCam_;
     std::set<Key>             censusHands_;   // join: latest existence set
     unsigned long             censusCulls_;   // join: wide-radius suppress count
     // Phase 2 mid-band streaming tier (HOST): census-walk NPCs OUTSIDE the

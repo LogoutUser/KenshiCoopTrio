@@ -188,8 +188,18 @@ bool cameraCenter(GameWorld* gw, float out[3]);
 // tick; interestCenters folds them in as extra anchors, deduped against the
 // squad-tab leader spheres. valid=false clears the anchor (camera not up /
 // hint stale). Main-thread only.
+// Protocol 46 (trio): interest-anchor budget. Three squad-tab leaders (one per
+// player) + the local camera + one camera hint PER join. Upstream allowed two
+// tab leaders and one peer hint, which silently starved the third player's
+// surroundings of streamed NPCs.
+#define COOP_MAX_PEER_CAMS      2
+#define COOP_MAX_TAB_LEADERS    3
+#define COOP_MAX_INTEREST      (COOP_MAX_TAB_LEADERS + 1 + COOP_MAX_PEER_CAMS) // 6
+
 void setLocalCamAnchor(bool valid, float x, float y, float z);
-void setPeerCamHint(bool valid, float x, float y, float z);
+// 'slot' is the join's ownerId minus 1 (join id 1 -> slot 0, id 2 -> slot 1);
+// out-of-range slots are ignored. valid=false clears just that join's anchor.
+void setPeerCamHint(unsigned int slot, bool valid, float x, float y, float z);
 // KENSHICOOP_CAM_INTEREST master enable: when off, interestCenters ignores
 // the camera anchors (squad-tab leaders only - the pre-43 behavior).
 void setCamInterest(bool on);
@@ -198,7 +208,7 @@ void setCamInterest(bool on);
 // into out[12]) to the sync layer - the mid-band nearest-first ordering
 // prioritizes by distance to the closest ANCHOR (tab leaders + cameras), so
 // camera-watched NPCs get mid-band drive slots too. Returns the anchor count.
-unsigned int interestAnchors(GameWorld* gw, float out[12]);
+unsigned int interestAnchors(GameWorld* gw, float out[COOP_MAX_INTEREST * 3]);
 
 // ---- Stage 4 NPC replication primitives ------------------------------------
 
