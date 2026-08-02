@@ -111,7 +111,16 @@ if ($repo) {
         Copy-Item (Join-Path $stage '*') $dest -Recurse -Force
         & git -C $repo add "logs/$who" | Out-Null
         & git -C $repo commit -m "logs: $who $stamp" | Out-Null
-        & git -C $repo push -u origin $branch --force | Out-Null
+        # Push to the CANONICAL repo by URL, not to 'origin'. Anyone who forked
+        # instead of cloning has origin pointing at their own fork, so logs
+        # pushed there are invisible to everyone else - which is exactly what
+        # happened. An explicit URL is unambiguous either way.
+        $CANON = 'https://github.com/LogoutUser/KenshiCoopTrio.git'
+        & git -C $repo push $CANON "HEAD:refs/heads/$branch" --force | Out-Null
+        if ($LASTEXITCODE -ne 0) {
+            Warn "canonical push failed, trying origin"
+            & git -C $repo push -u origin $branch --force | Out-Null
+        }
         if ($LASTEXITCODE -eq 0) {
             Ok "pushed to branch '$branch' (main untouched)"
             Say "     readable at: logs/$who on branch $branch"

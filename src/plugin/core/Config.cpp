@@ -250,6 +250,8 @@ void loadConfig(Config& c) {
     // Protocol 46 (trio): the host's second join. Absent = two-player session.
     c.steamPeer2 = (unsigned long long)_strtoui64(
         envOr("KENSHICOOP_STEAM_PEER2", fileOr(f, "steamPeer2", "0").c_str()).c_str(), 0, 10);
+    // Ground-item proxy teardown on peer drop. Default OFF - see Config.h.
+    c.worldProxyCleanup = envOr("KENSHICOOP_WORLD_PROXY_CLEANUP", "0") == "1";
     c.steamPing = (unsigned long long)_strtoui64(envOr("KENSHICOOP_STEAM_PING", "0").c_str(), 0, 10);
 
     // In-game panel session control: opt-in legacy auto-start. Default OFF so a

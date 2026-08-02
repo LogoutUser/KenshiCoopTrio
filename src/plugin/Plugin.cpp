@@ -146,6 +146,10 @@ bool&        g_peerPresent     = g_session.peerPresent;
 // and g_peerPresent is kept as its non-empty summary so the existing readers
 // (save suppression, UI, load gating) keep working unchanged.
 std::set<coop::u32> g_peerIds;
+
+// Did the melee detour install? coopUiConnect needs to know, because the
+// combat-report ROLE has to be re-armed whenever the panel changes role.
+bool g_damageGuardArmed = false;
 std::string& g_savePending     = g_session.savePending;
 coop::u32&   g_saveReqId       = g_session.saveReqId;
 bool&        g_bootstrapArmed  = g_session.bootstrapArmed;
@@ -1734,6 +1738,22 @@ void coopUiConnect(bool isHost, bool useSteam, unsigned long long peerId) {
     // editing. peerId is 0 when nothing was pasted, so the config value stands.
     if (peerId != 0) g_cfg.steamPeer = peerId;
     g_repl.setStreamNpcs(isHost);            // host streams world NPCs; join drives
+    // Join-dealt damage report (protocol 45). This was armed ONCE at plugin load
+    // from the boot-time role and never re-armed here - so a client that booted
+    // as HOST (which every install does, because coop_config.json carries no
+    // "role" key) and then picked JOIN in this panel kept reportCombat_ = false
+    // for the whole session. Its melee was guarded (suppressed) but never
+    // captured or forwarded, so joins could not damage anything, ever.
+    //
+    // Diagnosed 2026-08-02 from two independent join logs: zero [hitdbg] lines
+    // in 12 minutes, and the boot [dmg] line reading "(host, driven peer-squad
+    // bodies)" on a machine that was playing as a join.
+    if (g_damageGuardArmed) {
+        g_repl.setReportCombat(!isHost);
+        coopLog(isHost
+                ? "[dmg] role re-armed: HOST (own swings land natively)"
+                : "[dmg] role re-armed: JOIN (combat-hit report ON)");
+    }
     // Ownership ranks must follow the role chosen in the panel. Only an explicit
     // KENSHICOOP_OWN_SQUAD override is preserved; otherwise recompute the default
     // (host owns {0}, join owns {1}). Without this, a session launched as HOST
@@ -2000,6 +2020,7 @@ void installEngineDetours() {
     // join's guarded copies stayed at 0). KENSHICOOP_DAMAGE_GUARD=0 disables.
     if (g_cfg.damageGuard) {
         if (coop::engine::installDamageGuardHook()) {
+            g_damageGuardArmed = true; // so coopUiConnect can re-arm the ROLE
             g_repl.setDamageGuard(true);
             // Join-dealt authoritative damage report (protocol 45): only the JOIN
             // reports (the HOST owns + simulates world NPCs, so its own swings land
@@ -2007,6 +2028,7 @@ void installEngineDetours() {
             // the damage its player-squad melee WOULD have dealt to driven world-NPC
             // copies; publishCombatHits forwards it and the host wounds the real body.
             g_repl.setReportCombat(!g_cfg.isHost);
+            g_repl.setWorldProxyCleanup(g_cfg.worldProxyCleanup);
             coopLog(g_cfg.isHost
                 ? "[dmg] hitByMeleeAttack detour installed; damage guard ON (host, driven peer-squad bodies)"
                 : "[dmg] hitByMeleeAttack detour installed; damage guard ON + combat-hit report ON (join)");

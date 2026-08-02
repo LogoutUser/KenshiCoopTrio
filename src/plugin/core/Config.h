@@ -479,6 +479,21 @@ struct Config {
     // session), which keeps every existing config file working untouched.
     unsigned long long steamPeer2;
 
+    // Destroy minted ground-item proxies when a peer drops
+    // (KENSHICOOP_WORLD_PROXY_CLEANUP, default OFF as of 2026-08-02).
+    //
+    // Upstream destroys them so they cannot linger as duplicates or bake into
+    // the next save. But a crash dump from a three-player session put the fault
+    // inside Kenshi's OWN main loop, calling a virtual through a corrupted
+    // vtable, ~9 s after a teardown whose only casualties were six of these
+    // proxies ("[leave] cleared worldProxies=6"; character proxies were zero).
+    // The engine evidently still holds a reference to a removed ground item.
+    //
+    // Leaving a few items on the ground is a far better failure than crashing
+    // every client, so this defaults OFF. Set it to 1 to restore upstream
+    // behaviour once the engine-side reference is understood.
+    bool          worldProxyCleanup;
+
     // Steam reachability spike (KENSHICOOP_STEAM_PING=<steamid64>): ping/echo
     // that peer on P2P channel 1 every 2 s and log RTT + punch-vs-relay,
     // independent of the transport in use. 0 = off.

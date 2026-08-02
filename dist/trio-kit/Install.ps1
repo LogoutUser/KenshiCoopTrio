@@ -123,7 +123,11 @@ if ($role -eq '1') {
     if (-not $p1) { $p1 = $DEFAULT_P1 }
     $p2 = (Read-Host "  Friend #2 SteamID64 [$DEFAULT_P2] (or '-' for 2-player)").Trim()
     if (-not $p2) { $p2 = $DEFAULT_P2 }
-    $conf = [ordered]@{ transport = 'steam'; steamPeer = $p1 }
+    # 'role' matters beyond convenience: the plugin arms the combat-report role
+    # and picks its log filename from this at LOAD. Without it every client boots
+    # as host, and a join that only picks JOIN in the F2 panel used to stay
+    # combat-disabled all session (and write KenshiCoop_host.log).
+    $conf = [ordered]@{ role = 'host'; transport = 'steam'; steamPeer = $p1 }
     if ($p2 -and $p2 -ne '-') { $conf.steamPeer2 = $p2 }
 } else {
     Say ""
@@ -131,7 +135,9 @@ if ($role -eq '1') {
     $h = (Read-Host "  HOST's SteamID64 [$DEFAULT_HOST]").Trim()
     if (-not $h) { $h = $DEFAULT_HOST }
     # A join talks ONLY to the host; the host relays the other join's state.
-    $conf = [ordered]@{ transport = 'steam'; steamPeer = $h }
+    # role=join also makes the plugin arm combat reporting and write
+    # KenshiCoop_join.log instead of masquerading as a host - see the host branch.
+    $conf = [ordered]@{ role = 'join'; transport = 'steam'; steamPeer = $h }
 }
 ($conf | ConvertTo-Json) | Out-File -FilePath $confPath -Encoding utf8 -Force
 Ok "Wrote $confPath"

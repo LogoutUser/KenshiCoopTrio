@@ -290,6 +290,11 @@ public:
 
     // Enable join-dealt damage reporting (join only; see publishCombatHits).
     void setReportCombat(bool v) { reportCombat_ = v; }
+    // 2026-08-02: destroying minted ground-item proxies on a peer drop left the
+    // ENGINE holding a reference (crash dump: virtual call through a corrupted
+    // vtable inside Kenshi's own main loop, ~9s after "cleared worldProxies=6").
+    // Default OFF - see Config.h.
+    void setWorldProxyCleanup(bool v) { worldProxyCleanup_ = v; }
 
     // AFTER publishOwned (protocol 17, both clients): stream each OWNED
     // player-squad member's CharStats (attributes/skills/xp) on the RELIABLE
@@ -1267,6 +1272,7 @@ private:
     // for log correlation.
     struct PendingHit { float flesh; float blood; PendingHit() : flesh(0.0f), blood(0.0f) {} };
     bool                 reportCombat_;
+    bool                 worldProxyCleanup_;
     // Join-dealt damage diagnostics (2026-08-02). Three sessions have now shown
     // zero '[combat] HIT RECV' on the host while joins swing at world NPCs, and
     // the host log cannot distinguish "join never captured the damage" from

@@ -41,7 +41,7 @@ Replicator::Replicator()
       nextDropId_(1), nextPickupId_(1), nextXferId_(1),
       xferScanMs_(0), nextTreatId_(1),
       quietRelapse_(0), sitOrders_(0), detachUses_(0), noDetach_(false),
-      dmgGuard_(false), reportCombat_(false), nextHitId_(1),
+      dmgGuard_(false), reportCombat_(false), worldProxyCleanup_(false), nextHitId_(1),
       hitAttackers_(0), hitDriven_(0), hitDrained_(0), hitSkipSquad_(0),
       hitZero_(0), hitStaged_(0), hitSent_(0), hitDbgMs_(0),
       carrySync_(true), furnSync_(true), chainSync_(true),
@@ -295,13 +295,22 @@ void Replicator::clearPeerReplicationState(GameWorld* gw) {
     // otherwise they linger as duplicate items and, worse, get baked into the save
     // on the next write (becoming natives that re-stream on reload). resetSession()
     // below only clears the map, not the bodies, so despawn first.
+    // 2026-08-02: gated OFF by default. A crash dump from a three-player session
+    // faulted inside Kenshi's OWN main loop on a virtual call through a corrupted
+    // vtable, ~9 s after a teardown whose only casualties were six of these
+    // ("[leave] cleared worldProxies=6"; character proxies were zero). The engine
+    // still holds a reference to a removed ground item. Leaving a few items on
+    // the ground beats crashing every client. KENSHICOOP_WORLD_PROXY_CLEANUP=1
+    // restores the old behaviour.
     unsigned int wcleared = 0;
     for (std::map<std::pair<u32, u32>, WorldProxy>::iterator wi = worldProxies_.begin();
          wi != worldProxies_.end(); ++wi) {
-        if (gw && wi->second.obj && engine::removeWorldItemProxy(gw, wi->second.obj))
+        if (worldProxyCleanup_ && gw && wi->second.obj &&
+            engine::removeWorldItemProxy(gw, wi->second.obj))
             ++wcleared;
     }
-    _snprintf(b, sizeof(b) - 1, "[leave] cleared worldProxies=%u", wcleared);
+    _snprintf(b, sizeof(b) - 1, "[leave] cleared worldProxies=%u (cleanup=%d)",
+              wcleared, worldProxyCleanup_ ? 1 : 0);
     b[sizeof(b) - 1] = '\0';
     coop::logLine(b);
     // Now drop every map (proxyByKey_ included) back to freshly-launched state.
@@ -371,7 +380,8 @@ void Replicator::clearPeerReplicationStateFor(GameWorld* gw, u32 ownerId) {
     for (std::map<std::pair<u32, u32>, WorldProxy>::iterator wi = worldProxies_.begin();
          wi != worldProxies_.end(); ) {
         if (wi->first.first != ownerId) { ++wi; continue; }
-        if (gw && wi->second.obj && engine::removeWorldItemProxy(gw, wi->second.obj))
+        if (worldProxyCleanup_ && gw && wi->second.obj &&
+            engine::removeWorldItemProxy(gw, wi->second.obj))
             ++wcleared;
         worldProxies_.erase(wi++);
     }
