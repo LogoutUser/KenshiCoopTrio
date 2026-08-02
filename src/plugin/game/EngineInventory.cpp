@@ -1112,6 +1112,15 @@ void updateWorldItemProxy(RootObject* proxy, float x, float y, float z) {
 
 bool removeWorldItemProxy(GameWorld* gw, RootObject* proxy) {
     if (!gw || !proxy || !g_destroyObjFn) return false;
+    // See the note in despawnProxyNpc: every engine-object destruction is logged
+    // with its pointer so a crash dump's faulting address can be matched to the
+    // exact call site that freed it.
+    {
+        char b[96];
+        _snprintf(b, sizeof(b) - 1, "[destroy] item ptr=%p", (void*)proxy);
+        b[sizeof(b) - 1] = '\0';
+        coop::logLine(b);
+    }
     __try {
         return g_destroyObjFn(gw, proxy, /*justUnloaded*/false, "coop-worlditem-cull");
     } __except (EXCEPTION_EXECUTE_HANDLER) {

@@ -180,6 +180,18 @@ Character* spawnProxyNpc(GameWorld* gw, const char* charSid, const char* facSid,
 
 bool despawnProxyNpc(GameWorld* gw, Character* proxy) {
     if (!gw || !proxy || !g_destroyObjFn) return false;
+    // 2026-08-02 crash hunt: two dumps fault inside Kenshi's OWN main loop on a
+    // virtual call through freed memory (!address reports State=0, uncommitted),
+    // and the leave teardown was provably NOT the destroyer - it reported
+    // "cleared proxies=0 worldProxies=0". Something else frees an object the
+    // engine still lists. Log every destruction with its POINTER so the next
+    // dump's faulting address can simply be looked up here instead of guessed at.
+    {
+        char b[96];
+        _snprintf(b, sizeof(b) - 1, "[destroy] npc  ptr=%p", (void*)proxy);
+        b[sizeof(b) - 1] = '\0';
+        coop::logLine(b);
+    }
     __try {
         return g_destroyObjFn(gw, static_cast<RootObject*>(proxy),
                               /*justUnloaded*/false, "coop-proxy-dupe-heal");
