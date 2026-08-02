@@ -109,14 +109,28 @@ Say "    1) HOST  (you need BOTH friends' Steam IDs)"
 Say "    2) JOIN  (you need only the HOST's Steam ID)"
 $role = Read-Host "  Choose 1 or 2"
 
+# Pre-filled for THIS group so nobody has to retype a 17-digit number. Press
+# Enter to accept, or paste a different ID to override.
+$DEFAULT_HOST = '76561199417484463'   # Marsh (host)
+$DEFAULT_P1   = '76561198346257175'   # join 1
+$DEFAULT_P2   = '76561199025713332'   # join 2
+
 $confPath = Join-Path $dest 'coop_config.json'
 if ($role -eq '1') {
-    $p1 = (Read-Host "  Friend #1 SteamID64 (17 digits)").Trim()
-    $p2 = (Read-Host "  Friend #2 SteamID64 (blank for a 2-player game)").Trim()
+    Say ""
+    Say "  Press Enter to accept the pre-filled ID, or paste a different one."
+    $p1 = (Read-Host "  Friend #1 SteamID64 [$DEFAULT_P1]").Trim()
+    if (-not $p1) { $p1 = $DEFAULT_P1 }
+    $p2 = (Read-Host "  Friend #2 SteamID64 [$DEFAULT_P2] (or '-' for 2-player)").Trim()
+    if (-not $p2) { $p2 = $DEFAULT_P2 }
     $conf = [ordered]@{ transport = 'steam'; steamPeer = $p1 }
-    if ($p2) { $conf.steamPeer2 = $p2 }
+    if ($p2 -and $p2 -ne '-') { $conf.steamPeer2 = $p2 }
 } else {
-    $h = (Read-Host "  HOST's SteamID64 (17 digits)").Trim()
+    Say ""
+    Say "  Press Enter to accept the host's ID below, or paste a different one."
+    $h = (Read-Host "  HOST's SteamID64 [$DEFAULT_HOST]").Trim()
+    if (-not $h) { $h = $DEFAULT_HOST }
+    # A join talks ONLY to the host; the host relays the other join's state.
     $conf = [ordered]@{ transport = 'steam'; steamPeer = $h }
 }
 ($conf | ConvertTo-Json) | Out-File -FilePath $confPath -Encoding utf8 -Force
