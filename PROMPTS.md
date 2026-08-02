@@ -128,3 +128,29 @@ back to this.
 
 If the push is rejected, that just means the repo invite hasn't been accepted —
 the Desktop zip it falls back to is equally good, send it over Discord.
+
+---
+
+## 7. "My pulls do nothing / my logs never arrive"
+
+Almost always the same cause: you cloned your **fork** instead of the real repo,
+so `origin` points at your own stale copy. Pulls fetch nothing new, your kit DLL
+stays frozen at whatever commit you forked, and `SHARE_LOG.cmd` pushes logs
+somewhere nobody looks — all of it silently.
+
+```
+My git remote may be pointing at my own fork instead of Marsh's repo. Please:
+
+1. Run `git remote -v` and tell me what it says
+2. If it names MY account rather than LogoutUser, fix it:
+     git remote set-url origin https://github.com/LogoutUser/KenshiCoopTrio.git
+     git fetch origin && git reset --hard origin/main
+3. Re-run dist\trio-kit\INSTALL.cmd
+4. Compare the SHA-256 in dist\trio-kit\PROVENANCE.txt against the DLL now in
+   <Kenshi>\mods\KenshiCoop\ and confirm they match
+```
+
+Step 4 is the one worth insisting on. Every build is protocol v46, so a stale
+client connects **without any mismatch warning** and just behaves oddly —
+invisible NPCs, damage not landing, items duplicating. Check the hash before
+believing any theory about a bug.

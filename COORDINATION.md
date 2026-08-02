@@ -52,6 +52,51 @@ per-player log branch precisely so sharing evidence can never disturb the build.
 
 ---
 
+## Clone. Do not fork.
+
+**This is the one setup mistake that costs the most and shows the fewest
+symptoms**, so it gets its own section.
+
+If you fork the repo and clone the fork, your `origin` points at *your* copy.
+Nobody updates it. From then on:
+
+- `git pull` gets you **nothing** — you are pulling your own stale fork
+- your kit DLL stays frozen at whatever commit you forked, because the built
+  DLL is committed to the repo
+- `SHARE_LOG.cmd` pushes your logs to your fork, where nobody can see them
+- every one of those looks like it worked
+
+It happened here. A fork sat 16 hours and ~8 builds behind while its owner ran
+`git pull` and `INSTALL.cmd` faithfully. The visible symptoms were "invisible
+mobs" and "my logs aren't arriving" — neither of which points anywhere near the
+actual cause, and both of which were misdiagnosed for a while as a result.
+
+Check which repo you are actually on:
+
+```bash
+git remote -v
+```
+
+It must say `LogoutUser/KenshiCoopTrio`. If it names your own account, fix it:
+
+```bash
+git remote set-url origin https://github.com/LogoutUser/KenshiCoopTrio.git
+git fetch origin && git reset --hard origin/main
+```
+
+Then re-run `dist\trio-kit\INSTALL.cmd`.
+
+Forking is still the right move for a code change you intend to PR. Just do not
+run your day-to-day install and log-sharing out of the fork.
+
+**Verify the build you end up with.** `dist/trio-kit/PROVENANCE.txt` carries the
+DLL's SHA-256; compare it against the file you installed. Every build so far has
+been protocol v46, so a stale client connects **silently** with no mismatch
+warning and simply misbehaves. If something is wrong, check the hash before
+theorising.
+
+---
+
 ## What a spoke instance should do
 
 **Diagnose locally, escalate with evidence.** The logs are rich enough to answer
