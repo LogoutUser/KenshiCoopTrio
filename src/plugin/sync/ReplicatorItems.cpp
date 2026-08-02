@@ -509,7 +509,22 @@ void Replicator::applyWorldItems(GameWorld* gw, Inbound& in) {
             std::map<std::pair<u32, u32>, WorldProxy>::iterator pit =
                 worldProxies_.find(std::make_pair(b->ownerId, *id));
             if (pit == worldProxies_.end()) continue;
-            engine::removeWorldItemProxy(gw, pit->second.obj);
+            // 2026-08-02: gated behind worldProxyCleanup_ (default OFF). Four
+            // crash dumps all fault in the SAME engine function, and the fourth
+            // symbolised it: Ogre::OldNode::setParent -> OldBone::needUpdate ->
+            // OldNode::needUpdate. That is the skeleton/scene node graph being
+            // re-parented, walking a link to a node that no longer exists.
+            //
+            // This cull path destroyed 185 world-item proxies in the 12-minute
+            // session that produced that dump - every one of them a scene node.
+            // Destroying them evidently leaves dangling parent/child links behind.
+            //
+            // I had already gated the two TEARDOWN call sites and the crash
+            // continued, because this one - the ordinary per-item cull - is where
+            // essentially all the destruction actually happens. Dropping the
+            // mapping without destroying the object leaves a stale ground item
+            // rather than a corrupt node graph.
+            if (worldProxyCleanup_) engine::removeWorldItemProxy(gw, pit->second.obj);
             worldProxies_.erase(pit);
             if (dumpWi) { char b2[128]; _snprintf(b2, sizeof(b2) - 1,
                 "[wi] CULL owner=%u netId=%u", b->ownerId, *id);

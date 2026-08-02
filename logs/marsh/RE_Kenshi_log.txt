@@ -1,98 +1,135 @@
 0.000 RE_Kenshi: RE_Kenshi 0.3.4
 0.000 RE_Kenshi: --norestart
 0.000 RE_Kenshi: UEF registered successfully
-0.001 RE_Kenshi: Loading settings file...
-0.001 RE_Kenshi: Saving settings...
-0.002 KenshiLib: KenshiLib 0.4.0
-0.002 RE_Kenshi: Checking latest version...
-0.002 KenshiLib: RVAs loaded
-0.085 RE_Kenshi: VirtualAlloc2 found.
-0.210 RE_Kenshi: Latest public release: v0.3.4
-0.210 RE_Kenshi: We are up to date.
-0.330 RE_Kenshi: Shader cache load start
-0.335 RE_Kenshi: Shader cache loaded successfully, 196 cached shaders
-1.064 RE_Kenshi: Finished synchronous init stage
-1.064 RE_Kenshi: Waiting for mod setup.
-1.485 RE_Kenshi: Loading preload plugins...
-2.970 RE_Kenshi: First shader compile request
-3.272 RE_Kenshi: Queueing Boot_Up_Game event
-3.667 RE_Kenshi: Load mod hook
-3.667 RE_Kenshi: Loading post-load plugins...
-3.667 RE_Kenshi: KenshiCoop -> KenshiCoop.dll
-3.669 KenshiCoop: KenshiCoop loaded! (clean rebuild)
-3.669 KenshiCoop: KenshiCoop: build Aug  2 2026 03:01:17
-3.669 KenshiCoop: KenshiCoop: role=HOST proto=v46 port=27800 save=''
-3.669 KenshiCoop: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,money,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
-3.708 KenshiCoop: KenshiCoop: ownership ranks = {0} (bidirectional presence)
-3.708 KenshiCoop: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
-3.749 KenshiCoop: [ai] periodicUpdate detour installed; AI-suspend ON (default)
-3.789 KenshiCoop: [dmg] hitByMeleeAttack detour installed; damage guard ON (host, driven peer-squad bodies)
-3.827 KenshiCoop: [shop] buyItem detour installed; purchase logging ON
-3.869 KenshiCoop: [wi] dropItem detour installed; query-free drop capture ON
-3.908 KenshiCoop: [recruit] recruit detour installed; recruitment sync ON
-3.947 KenshiCoop: [build] placeFinalPreviewBuilding detour installed; placement logging ON
-3.987 KenshiCoop: [build] dismantle detour installed; removal logging ON
-4.065 KenshiCoop: [fac] affectRelations detours installed; relation logging ON
-4.106 KenshiCoop: [save] save detour installed; coordinated save ON
-4.197 KenshiCoop: [load] load detour installed; coordinated load ON
-4.237 KenshiCoop: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
-4.238 KenshiCoop: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
-4.238 RE_Kenshi: KenshiRotate -> KenshiRotate.dll
-4.240 KenshiRotate: [KenshiRotate] Starting plugin...
-4.240 KenshiRotate: [KenshiRotate] Detected language: en_GB
-4.240 KenshiRotate: [KenshiRotate] No config file, using defaults
-4.240 KenshiRotate: [KenshiRotate] Rotation key: Middle Mouse
-4.240 KenshiRotate: [KenshiRotate] Secondary key: None
-4.279 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::_NV_update OK
-4.319 KenshiRotate: [KenshiRotate] Hooked InventoryIcon::_CONSTRUCTOR OK
-4.358 KenshiRotate: [KenshiRotate] Hooked InventorySectionGUI::getBestPositionSlot OK
-4.396 KenshiRotate: [KenshiRotate] Hooked Item::serialiseInInventory OK
-4.436 KenshiRotate: [KenshiRotate] Hooked Item::loadFromSerialiseInInventory OK
-4.475 KenshiRotate: [KenshiRotate] Hooked OptionsWindow::_NV_update OK
-4.515 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::placeItemFromMouse OK
-4.554 KenshiRotate: [KenshiRotate] Hooked InventoryItemBase::canStackWith OK
-4.593 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::takeCertainAmountFrom OK
-4.631 KenshiRotate: [KenshiRotate] Hooked InventoryItemBase::addQuantity OK
-4.670 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::sectionMouseButtonReleased OK
-4.670 KenshiRotate: [KenshiRotate] Plugin started successfully
-4.671 RE_Kenshi: Registering LoadingListener
-4.671 RE_Kenshi: Loading mod overrides from "KenshiCoop"...
-4.671 RE_Kenshi: Loading mod overrides from "KenshiRotate"...
-4.671 RE_Kenshi: Loading init bank Init.bnk 1
-4.698 RE_Kenshi: Force triggering Boot_Up_Game
-5.464 RE_Kenshi: Heightmap hooks installed...
-5.464 RE_Kenshi: Opening fast heightmap...
-5.474 RE_Kenshi: Fast heightmap mapped!
-5.707 RE_Kenshi: Main menu loaded.
-5.707 RE_Kenshi: Kenshi version: 1.0.65
-5.707 RE_Kenshi: Kenshi platform: Steam
-5.707 RE_Kenshi: Version supported.
-5.707 RE_Kenshi: Kenshi 1.0.65 - x64 (Newland)
-5.718 KenshiCoop: [boot] title-tick running=0 host=1 started=0 saveEmpty=1
-14.981 RE_Kenshi: In-game.
-20.587 KenshiCoop: KenshiCoop: gameplay started
-20.587 KenshiCoop: [load] 1 pre-gameplay load edge(s) discarded (title-screen auto-load)
-20.739 KenshiCoop: [speed] intent hooks installed (setGameSpeed/userPause/togglePause)
-30.309 KenshiRotate: [KenshiRotate] Found MouseInventory singleton
-102.822 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
-102.822 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
-102.822 KenshiCoop: [steam] transport=steam armed, 2 tunnel peer(s) (connect by SteamID; no port forwarding)
-102.822 KenshiCoop: KenshiCoop: starting as HOST
-102.972 KenshiCoop: handshake: peer present id=1 (local id=0)
-102.972 KenshiCoop: [boot] baking save 'trio scum save' to push to join on connect
-104.968 KenshiCoop: [save] QUIESCED kind=settled name='trio scum save' files=109 bytes=7741546 waitMs=2000
-105.127 KenshiCoop: [boot] GO->join id=1 name='trio scum save' fp=e9f8c0cb (push on connect)
-105.759 KenshiCoop: [load] NACK id=1 name='trio scum save' joinFp=1e289633 -> transfer after reload
-105.759 KenshiCoop: [load] starting fallback transfer name='trio scum save'
-111.889 KenshiCoop: [save] XFER-ACK owner=1 id=1 ok=1 files=109 bytes=7741546 (1/1 joins)
-111.889 KenshiCoop: [save] all joins hold this save - world is shared
-119.037 KenshiCoop: handshake: peer present id=2 (local id=0)
-119.037 KenshiCoop: [boot] baking save 'trio scum save' to push to join on connect
-120.798 KenshiCoop: [save] QUIESCED kind=settled name='trio scum save' files=109 bytes=7741690 waitMs=1765
-120.948 KenshiCoop: [boot] GO->join id=2 name='trio scum save' fp=a0bba089 (push on connect)
-121.101 KenshiCoop: [load] NACK id=2 name='trio scum save' joinFp=e9f8c0cb -> transfer after reload
-121.101 KenshiCoop: [load] NACK id=2 name='trio scum save' joinFp=1e289633 -> transfer after reload
-121.101 KenshiCoop: [load] starting fallback transfer name='trio scum save'
-127.015 KenshiCoop: [save] XFER-ACK owner=2 id=2 ok=1 files=109 bytes=7741690 (1/2 joins)
-127.015 KenshiCoop: [save] XFER-ACK owner=1 id=2 ok=1 files=109 bytes=7741690 (2/2 joins)
-127.015 KenshiCoop: [save] all joins hold this save - world is shared
+0.035 RE_Kenshi: Loading settings file...
+0.035 RE_Kenshi: Saving settings...
+0.036 KenshiLib: KenshiLib 0.4.0
+0.036 RE_Kenshi: Checking latest version...
+0.036 KenshiLib: RVAs loaded
+0.120 RE_Kenshi: VirtualAlloc2 found.
+0.212 RE_Kenshi: Latest public release: v0.3.4
+0.212 RE_Kenshi: We are up to date.
+0.352 RE_Kenshi: Shader cache load start
+0.358 RE_Kenshi: Shader cache loaded successfully, 196 cached shaders
+1.268 RE_Kenshi: Finished synchronous init stage
+1.268 RE_Kenshi: Waiting for mod setup.
+1.679 RE_Kenshi: Loading preload plugins...
+3.709 RE_Kenshi: First shader compile request
+4.007 RE_Kenshi: Queueing Boot_Up_Game event
+4.401 RE_Kenshi: Load mod hook
+4.401 RE_Kenshi: Loading post-load plugins...
+4.401 RE_Kenshi: KenshiCoop -> KenshiCoop.dll
+4.403 KenshiCoop: KenshiCoop loaded! (clean rebuild)
+4.403 KenshiCoop: KenshiCoop: build Aug  2 2026 03:01:17
+4.403 KenshiCoop: KenshiCoop: role=HOST proto=v46 port=27800 save=''
+4.403 KenshiCoop: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,money,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
+4.444 KenshiCoop: KenshiCoop: ownership ranks = {0} (bidirectional presence)
+4.444 KenshiCoop: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
+4.484 KenshiCoop: [ai] periodicUpdate detour installed; AI-suspend ON (default)
+4.526 KenshiCoop: [dmg] hitByMeleeAttack detour installed; damage guard ON (host, driven peer-squad bodies)
+4.567 KenshiCoop: [shop] buyItem detour installed; purchase logging ON
+4.607 KenshiCoop: [wi] dropItem detour installed; query-free drop capture ON
+4.650 KenshiCoop: [recruit] recruit detour installed; recruitment sync ON
+4.690 KenshiCoop: [build] placeFinalPreviewBuilding detour installed; placement logging ON
+4.730 KenshiCoop: [build] dismantle detour installed; removal logging ON
+4.810 KenshiCoop: [fac] affectRelations detours installed; relation logging ON
+4.852 KenshiCoop: [save] save detour installed; coordinated save ON
+4.932 KenshiCoop: [load] load detour installed; coordinated load ON
+4.973 KenshiCoop: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
+4.973 KenshiCoop: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
+4.974 RE_Kenshi: KenshiRotate -> KenshiRotate.dll
+4.975 KenshiRotate: [KenshiRotate] Starting plugin...
+4.975 KenshiRotate: [KenshiRotate] Detected language: en_GB
+4.975 KenshiRotate: [KenshiRotate] No config file, using defaults
+4.975 KenshiRotate: [KenshiRotate] Rotation key: Middle Mouse
+4.975 KenshiRotate: [KenshiRotate] Secondary key: None
+5.014 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::_NV_update OK
+5.054 KenshiRotate: [KenshiRotate] Hooked InventoryIcon::_CONSTRUCTOR OK
+5.095 KenshiRotate: [KenshiRotate] Hooked InventorySectionGUI::getBestPositionSlot OK
+5.136 KenshiRotate: [KenshiRotate] Hooked Item::serialiseInInventory OK
+5.175 KenshiRotate: [KenshiRotate] Hooked Item::loadFromSerialiseInInventory OK
+5.217 KenshiRotate: [KenshiRotate] Hooked OptionsWindow::_NV_update OK
+5.257 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::placeItemFromMouse OK
+5.298 KenshiRotate: [KenshiRotate] Hooked InventoryItemBase::canStackWith OK
+5.338 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::takeCertainAmountFrom OK
+5.379 KenshiRotate: [KenshiRotate] Hooked InventoryItemBase::addQuantity OK
+5.419 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::sectionMouseButtonReleased OK
+5.419 KenshiRotate: [KenshiRotate] Plugin started successfully
+5.420 RE_Kenshi: Registering LoadingListener
+5.420 RE_Kenshi: Loading mod overrides from "KenshiCoop"...
+5.420 RE_Kenshi: Loading mod overrides from "KenshiRotate"...
+5.420 RE_Kenshi: Loading init bank Init.bnk 1
+5.465 RE_Kenshi: Force triggering Boot_Up_Game
+6.214 RE_Kenshi: Heightmap hooks installed...
+6.214 RE_Kenshi: Opening fast heightmap...
+6.227 RE_Kenshi: Fast heightmap mapped!
+6.447 RE_Kenshi: Main menu loaded.
+6.447 RE_Kenshi: Kenshi version: 1.0.65
+6.447 RE_Kenshi: Kenshi platform: Steam
+6.447 RE_Kenshi: Version supported.
+6.447 RE_Kenshi: Kenshi 1.0.65 - x64 (Newland)
+6.458 KenshiCoop: [boot] title-tick running=0 host=1 started=0 saveEmpty=1
+10.063 RE_Kenshi: In-game.
+15.754 KenshiCoop: KenshiCoop: gameplay started
+15.754 KenshiCoop: [load] 1 pre-gameplay load edge(s) discarded (title-screen auto-load)
+15.905 KenshiCoop: [speed] intent hooks installed (setGameSpeed/userPause/togglePause)
+32.227 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+32.227 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+32.228 KenshiCoop: [steam] transport=steam armed, 2 tunnel peer(s) (connect by SteamID; no port forwarding)
+32.228 KenshiCoop: KenshiCoop: starting as HOST
+32.284 KenshiCoop: handshake: peer present id=1 (local id=0)
+32.284 KenshiCoop: [boot] baking save 'autosave1' to push to join on connect
+34.034 KenshiCoop: [save] QUIESCED kind=settled name='autosave1' files=110 bytes=7963152 waitMs=1750
+34.190 KenshiCoop: [boot] GO->join id=1 name='autosave1' fp=918292be (push on connect)
+34.349 KenshiCoop: [load] NACK id=1 name='autosave1' joinFp=fc41b03e -> transfer after reload
+34.349 KenshiCoop: [load] starting fallback transfer name='autosave1'
+37.458 KenshiCoop: handshake: peer present id=2 (local id=0)
+37.458 KenshiCoop: [boot] baking save 'autosave1' to push to join on connect
+39.457 KenshiCoop: [save] QUIESCED kind=settled name='autosave1' files=110 bytes=7963352 waitMs=2000
+39.594 KenshiCoop: [boot] GO->join id=2 name='autosave1' fp=cf6a1f55 (push on connect)
+40.219 KenshiCoop: [save] XFER-ACK owner=1 id=1 ok=1 files=110 bytes=7963152 (1/2 joins)
+40.219 KenshiCoop: [load] NACK id=2 name='autosave1' joinFp=ebd4601b -> transfer after reload
+40.219 KenshiCoop: [load] starting fallback transfer name='autosave1'
+46.205 KenshiCoop: [save] XFER-ACK owner=1 id=2 ok=1 files=110 bytes=7963352 (1/2 joins)
+47.531 KenshiCoop: handshake: peer left id=2
+55.536 KenshiCoop: handshake: peer present id=2 (local id=0)
+55.536 KenshiCoop: [boot] baking save 'autosave1' to push to join on connect
+57.324 KenshiCoop: [save] QUIESCED kind=settled name='autosave1' files=110 bytes=7967329 waitMs=1782
+57.475 KenshiCoop: [boot] GO->join id=3 name='autosave1' fp=c9e597f8 (push on connect)
+57.601 KenshiCoop: [load] NACK id=3 name='autosave1' joinFp=cf6a1f55 -> transfer after reload
+57.601 KenshiCoop: [load] starting fallback transfer name='autosave1'
+63.436 KenshiCoop: [save] XFER-ACK owner=1 id=3 ok=1 files=110 bytes=7967329 (1/2 joins)
+63.600 KenshiCoop: [save] XFER-ACK owner=2 id=3 ok=1 files=110 bytes=7967329 (2/2 joins)
+63.600 KenshiCoop: [save] all joins hold this save - world is shared
+63.600 KenshiCoop: [load] NACK id=3 name='autosave1' joinFp=fc41b03e -> transfer after reload
+63.600 KenshiCoop: [load] starting fallback transfer name='autosave1'
+69.587 KenshiCoop: [save] XFER-ACK owner=1 id=4 ok=1 files=110 bytes=7967329 (1/2 joins)
+69.747 KenshiCoop: [save] XFER-ACK owner=2 id=4 ok=1 files=110 bytes=7967329 (2/2 joins)
+69.747 KenshiCoop: [save] all joins hold this save - world is shared
+86.204 KenshiRotate: [KenshiRotate] Found MouseInventory singleton
+368.245 RE_Kenshi: In-game.
+368.350 RE_Kenshi: In-game.
+368.445 RE_Kenshi: In-game.
+368.540 RE_Kenshi: In-game.
+369.498 RE_Kenshi: In-game.
+369.594 RE_Kenshi: In-game.
+369.695 RE_Kenshi: In-game.
+369.799 RE_Kenshi: In-game.
+371.618 RE_Kenshi: In-game.
+663.384 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=112 bytes=8319732 waitMs=2016
+670.026 KenshiCoop: [save] XFER-ACK owner=1 id=5 ok=1 files=112 bytes=8319732 (1/2 joins)
+670.854 KenshiCoop: [save] QUIESCED kind=settled name='trio new save' files=111 bytes=8292577 waitMs=2016
+677.303 KenshiCoop: [save] XFER-ACK owner=1 id=6 ok=1 files=111 bytes=8292577 (1/2 joins)
+678.176 KenshiCoop: [save] XFER-ACK owner=2 id=5 ok=1 files=112 bytes=8319732 (1/2 joins)
+678.176 KenshiCoop: [save] XFER-ACK owner=2 id=6 ok=1 files=111 bytes=8292577 (1/2 joins)
+723.911 KenshiCoop: handshake: peer left id=2
+739.317 KenshiCoop: handshake: peer present id=2 (local id=0)
+739.317 KenshiCoop: [boot] baking save 'trio new save' to push to join on connect
+741.069 KenshiCoop: [save] QUIESCED kind=settled name='trio new save' files=108 bytes=7862253 waitMs=1750
+741.204 KenshiCoop: [boot] GO->join id=4 name='trio new save' fp=1f57e2d0 (push on connect)
+741.335 KenshiCoop: [load] NACK id=4 name='trio new save' joinFp=80cec8ad -> transfer after reload
+741.335 KenshiCoop: [load] NACK id=4 name='trio new save' joinFp=80cec8ad -> transfer after reload
+741.335 KenshiCoop: [load] starting fallback transfer name='trio new save'
+744.064 RE_Kenshi: Log manager destructor, probably crashing
+Error 744.149 RE_Kenshi: Crash detected
+749.876 RE_Kenshi: Unhandled Exception Filter called
