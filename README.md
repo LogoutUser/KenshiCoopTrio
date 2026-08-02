@@ -99,7 +99,7 @@ panel, so there's no config file to edit and no launcher scripts to run. (A tiny
 Grab `KenshiCoop-kit.zip` from the
 [latest release](https://github.com/nhoral/KenshiCoop/releases/latest) and
 unzip it anywhere (both players). You do not need to clone this repository -
-but if you did, the same kit is in [dist/mod-kit](dist/mod-kit).
+but if you did, the same kit is in [dist/trio-kit](dist/trio-kit).
 
 The zip contains a single **`KenshiCoop`** folder. Copy that folder into your
 Kenshi `mods` directory so you end up with
