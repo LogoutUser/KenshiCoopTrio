@@ -87,29 +87,48 @@ while ($repo -and -not (Test-Path (Join-Path $repo '.git'))) {
 # single authority for what the build actually is, and nothing lands there
 # without going through him. A log branch keeps your evidence out of that path
 # entirely, so sharing a log can never disturb the shipped build.
+# NOTE ON THE GIT CALLS BELOW: no '2>&1', and $ErrorActionPreference is relaxed
+# for this block. PowerShell wraps a native command's stderr in an ErrorRecord,
+# which under 'Stop' becomes a TERMINATING error - so a routine git progress
+# message on stderr aborted the whole block, the catch swallowed it, and the
+# branch was never restored. That is exactly how an earlier version left a repo
+# sitting on a logs-* branch while reporting only "couldn't push".
 $pushed = $false
 if ($repo) {
+    $prevEAP = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    $orig = $null
     try {
         $branch = "logs-$who"
-        $orig = (git -C $repo rev-parse --abbrev-ref HEAD 2>$null)
-        git -C $repo fetch origin 2>&1 | Out-Null
+        $orig = (& git -C $repo rev-parse --abbrev-ref HEAD)
+        & git -C $repo fetch origin | Out-Null
         # Fresh branch off origin/main each time: no merge conflicts, no history
-        # to reconcile, and it cannot accidentally carry local code edits along.
-        git -C $repo checkout -B $branch origin/main 2>&1 | Out-Null
+        # to reconcile, and it cannot carry local code edits along.
+        & git -C $repo checkout -B $branch origin/main | Out-Null
+        if ($LASTEXITCODE -ne 0) { throw "checkout failed (uncommitted changes?)" }
         $dest = Join-Path $repo "logs\$who"
         New-Item -ItemType Directory -Force -Path $dest | Out-Null
         Copy-Item (Join-Path $stage '*') $dest -Recurse -Force
-        git -C $repo add "logs/$who" 2>&1 | Out-Null
-        git -C $repo commit -m "logs: $who $stamp" 2>&1 | Out-Null
-        git -C $repo push -u origin $branch --force 2>&1 | Out-Null
+        & git -C $repo add "logs/$who" | Out-Null
+        & git -C $repo commit -m "logs: $who $stamp" | Out-Null
+        & git -C $repo push -u origin $branch --force | Out-Null
         if ($LASTEXITCODE -eq 0) {
             Ok "pushed to branch '$branch' (main untouched)"
-            Say "     Marsh's side can read it at: logs/$who on branch $branch"
+            Say "     readable at: logs/$who on branch $branch"
             $pushed = $true
+        } else {
+            Warn "push rejected - you may not have accepted the repo invite yet"
         }
-        if ($orig) { git -C $repo checkout $orig 2>&1 | Out-Null }
-    } catch { }
-    if (-not $pushed) { Warn "couldn't push (no access / not signed in) - falling back to a zip" }
+    } catch {
+        Warn "git step failed: $($_.Exception.Message)"
+    } finally {
+        # ALWAYS go back to the branch they were on, even if anything above blew
+        # up. Leaving someone on a logs-* branch silently is worse than not
+        # pushing at all - their next 'git pull' would look broken.
+        if ($orig) { & git -C $repo checkout $orig 2>$null | Out-Null }
+        $ErrorActionPreference = $prevEAP
+    }
+    if (-not $pushed) { Warn "falling back to a zip you can send over Discord" }
 }
 
 if (-not $pushed) {
