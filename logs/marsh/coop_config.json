@@ -1,0 +1,7 @@
+{
+    "role": "host",
+    "transport": "steam",
+    "steamPeer": "76561198346257175",
+    "steamPeer2": "76561199025713332",
+    "port": 27800
+}
