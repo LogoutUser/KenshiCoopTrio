@@ -171,6 +171,26 @@ static bool loadDetourEdge(const char* nm, const char* via) {
     return !suppress;
 }
 
+// SaveManager::load does NOT refresh currentGame (see setCurrentGameName's
+// note). loadSave() compensates for ITS OWN path, but the in-game load menu
+// takes the SaveInfo overload and never funnels through it - so currentGame
+// kept whatever name the previous session left there, and every later save
+// that targets currentGame (quicksave, the coordinated save, and the 10-minute
+// AUTOSAVE TIMER) wrote the freshly-loaded world into that stale folder.
+// Field evidence 2026-08-02: a host loaded the trio world from the menu while
+// currentGame still read an unrelated solo save; the autosave timer then
+// rewrote that solo save's folder with the trio world and the transfer pushed
+// it to both joins under the wrong name. Nobody chose to overwrite anything.
+// Refresh it on EVERY load path so getCurrentGame()/saveInfo() stay truthful.
+bool setCurrentGameName(const std::string& name); // defined further down this TU
+// No __try here: constructing the std::string requires object unwinding, which
+// SEH forbids in the same function (C2712). setCurrentGameName is itself
+// SEH-guarded and returns false on fault, so the guard is already covered.
+static void refreshCurrentGame(const char* nm) {
+    if (!nm || !nm[0]) return;
+    setCurrentGameName(std::string(nm));
+}
+
 void __fastcall saveMgrLoad_hook(SaveManager* self, const std::string* name) {
     if (g_inLoadDetour) { g_loadHookOrig(self, name); return; }
     char nm[48];
@@ -185,6 +205,7 @@ void __fastcall saveMgrLoad_hook(SaveManager* self, const std::string* name) {
         g_inLoadDetour = true;
         g_loadHookOrig(self, name);
         g_inLoadDetour = false;
+        refreshCurrentGame(nm);
     }
 }
 
@@ -204,6 +225,8 @@ void __fastcall saveMgrLoadInfo_hook(SaveManager* self, const SaveInfo* info,
         g_inLoadDetour = true;
         g_loadInfoHookOrig(self, info, resetPos);
         g_inLoadDetour = false;
+        // THE fix: the menu path is the one that was leaving currentGame stale.
+        refreshCurrentGame(nm);
     }
 }
 
