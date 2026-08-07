@@ -34,6 +34,21 @@ namespace savexfer {
 // %LOCALAPPDATA%\kenshi\save\<name> convention every harness script assumes.
 std::string saveFolderFor(const std::string& name);
 
+// Save root itself (the folder saveFolderFor() hangs names off).
+std::string saveRoot();
+
+// Scratch folder for an in-flight transfer. Deliberately a SIBLING of save/,
+// never inside it: Kenshi enumerates every folder under save/ as a save game,
+// and a partial one truncates the Load Game list, removes Continue, and can
+// hang the dialog. See the definition for the field evidence.
+std::string stagingFolderFor(const std::string& name);
+
+// Remove transfer debris ("*__incoming", "*__old") from the staging root AND -
+// for anyone upgrading from a build that staged inside save/ - from the save
+// root itself, where it silently breaks Kenshi's load list. Call once at
+// startup. Returns how many folders were removed.
+unsigned int purgeStaleStaging();
+
 #ifdef KENSHICOOP_PROTOTEST
 // Prototest-only seam: pin the save-root to a caller-owned temp dir so the
 // receiver round-trip test (main.cpp testSaveXferRoundTrip) stages/commits

@@ -238,7 +238,7 @@ static std::string g_testSaveRoot;
 void setSaveRootForTest(const std::string& root) { g_testSaveRoot = root; }
 #endif
 
-std::string saveFolderFor(const std::string& name) {
+std::string saveRoot() {
     std::string root;
 #ifdef KENSHICOOP_PROTOTEST
     if (!g_testSaveRoot.empty()) {
@@ -257,7 +257,90 @@ std::string saveFolderFor(const std::string& name) {
         root = pathJoin(lad ? lad : "", "kenshi\\save");
     }
 #endif
-    return pathJoin(root, name);
+    return root;
+}
+
+std::string saveFolderFor(const std::string& name) {
+    return pathJoin(saveRoot(), name);
+}
+
+// Scratch space for a transfer must NEVER live inside Kenshi's save directory.
+// Kenshi enumerates every folder under save/ as a save game, and a PARTIAL one
+// poisons that scan: the Load Game list truncates, the Continue button
+// disappears, and clicking Load can hang outright.
+//
+// Field evidence 2026-08-06: a crash during XFER-BEGIN left "<name>__incoming"
+// behind. Kenshi then listed 1 of 27 saves with no Continue, and a later
+// re-stage produced "<name>__incoming__incoming". Moving those two folders out
+// of save/ restored the list, the Continue button and the dialog immediately -
+// nothing else was changed. The commit swap's "<name>__old" holding folder had
+// the same exposure, so it moves out here too.
+//
+// A SIBLING of save/ keeps this on the same volume (so the commit stays a cheap
+// rename, not a copy) while being invisible to Kenshi's scanner.
+std::string stagingFolderFor(const std::string& name) {
+    std::string root = saveRoot();
+    std::string::size_type slash = root.find_last_of("\\/");
+    // Trailing separator: step back past it before taking the parent.
+    if (slash != std::string::npos && slash + 1 == root.size()) {
+        root = root.substr(0, slash);
+        slash = root.find_last_of("\\/");
+    }
+    std::string parent = (slash == std::string::npos) ? root : root.substr(0, slash);
+    return pathJoin(pathJoin(parent, "KenshiCoop_staging"), name);
+}
+
+// Sweep transfer debris at startup. Two jobs:
+//
+//   1. our own staging root - anything still there is from a transfer that
+//      died mid-flight, and is worthless once the session is over;
+//   2. LEGACY, and the reason this exists: builds before 2026-08-06 staged
+//      INSIDE save/, so an interrupted transfer stranded "<name>__incoming"
+//      (or "<name>__old") exactly where Kenshi enumerates saves. That single
+//      folder truncates the Load Game list, removes the Continue button, and
+//      can hang the dialog - symptoms that point nowhere near a save transfer,
+//      which is why it went undiagnosed for a full evening. Anyone upgrading
+//      still has that debris on disk, so clear it for them rather than making
+//      them find it themselves.
+//
+// Only folders matching our own suffixes are touched; a real save is never a
+// candidate. Returns how many were removed.
+unsigned int purgeStaleStaging() {
+    unsigned int removed = 0;
+    std::string roots[2];
+    roots[0] = stagingFolderFor("");   // our staging root
+    roots[1] = saveRoot();             // legacy: debris left among real saves
+
+    for (int r = 0; r < 2; ++r) {
+        if (roots[r].empty()) continue;
+        WIN32_FIND_DATAA fd;
+        HANDLE h = FindFirstFileA(pathJoin(roots[r], "*").c_str(), &fd);
+        if (h == INVALID_HANDLE_VALUE) continue;
+        do {
+            if (!(fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) continue;
+            if (fd.cFileName[0] == '.') continue;
+            std::string nm(fd.cFileName);
+            // Suffix match only - "__incoming" anywhere in the name would also
+            // catch the double-staged "<name>__incoming__incoming" seen in the
+            // field, so test the tail rather than searching.
+            bool debris = false;
+            if (nm.size() >= 10 && nm.compare(nm.size() - 10, 10, "__incoming") == 0)
+                debris = true;
+            if (nm.size() >= 5 && nm.compare(nm.size() - 5, 5, "__old") == 0)
+                debris = true;
+            if (!debris) continue;
+            std::string full = pathJoin(roots[r], nm);
+            removeTree(full, 0);
+            ++removed;
+            char b[SAVE_PATH_MAX + 96];
+            _snprintf(b, sizeof(b) - 1,
+                      "[save] purged stale transfer folder '%s'%s", full.c_str(),
+                      r == 1 ? " (legacy: was inside save/, breaks Kenshi's load list)" : "");
+            b[sizeof(b) - 1] = '\0'; coop::logLine(b);
+        } while (FindNextFileA(h, &fd));
+        FindClose(h);
+    }
+    return removed;
 }
 
 bool folderInventory(const std::string& folder, unsigned int* outFiles,
@@ -599,7 +682,7 @@ void onSaveBegin(const SaveBeginPacket& b) {
     g_recvTotalBytes = b.totalBytes;
     g_recvBytes      = 0;
     g_recvStartTick  = GetTickCount();
-    g_recvStaging    = saveFolderFor(g_recvName + "__incoming");
+    g_recvStaging    = stagingFolderFor(g_recvName + "__incoming");
     g_recvCrcs.assign(b.fileCount, fnv1aInit());
     g_recvSeen.assign(b.fileCount, 0);
 
@@ -678,21 +761,28 @@ int onSaveDone(const SaveDoneHeader& d, const u32* crcs,
         // Commit: swap the staged folder over save/<name>/ - the previous
         // save is only removed AFTER the new one is in place.
         std::string finalDir = saveFolderFor(g_recvName);
-        std::string oldDir   = finalDir + "__old";
+        // Outside save/ as well: a crash mid-swap used to strand "<name>__old"
+        // where Kenshi's scanner would trip over it.
+        std::string oldDir   = stagingFolderFor(g_recvName + "__old");
         removeTree(oldDir, 0);
+        ensureParentDirs(pathJoin(oldDir, "x"));
         bool hadOld = false;
         if (GetFileAttributesA(finalDir.c_str()) != INVALID_FILE_ATTRIBUTES) {
             hadOld = (MoveFileExA(finalDir.c_str(), oldDir.c_str(),
-                                  MOVEFILE_WRITE_THROUGH) != 0);
+                                  MOVEFILE_WRITE_THROUGH |
+                                  MOVEFILE_COPY_ALLOWED) != 0);
             if (!hadOld) ok = false;
         }
         if (ok && !MoveFileExA(g_recvStaging.c_str(), finalDir.c_str(),
-                               MOVEFILE_WRITE_THROUGH)) {
+                               MOVEFILE_WRITE_THROUGH | MOVEFILE_COPY_ALLOWED)) {
             ok = false;
             if (hadOld) MoveFileExA(oldDir.c_str(), finalDir.c_str(),
-                                    MOVEFILE_WRITE_THROUGH); // restore
+                                    MOVEFILE_WRITE_THROUGH |
+                                    MOVEFILE_COPY_ALLOWED); // restore
         }
-        if (ok && hadOld) removeTree(oldDir, 0);
+        // Drop the holding copy either way - on success it is redundant, and on
+        // failure it must not be left lying around.
+        removeTree(oldDir, 0);
     }
     if (!ok) removeTree(g_recvStaging, 0); // never leave a half-written loadable save
 

@@ -2159,6 +2159,20 @@ void installEngineDetours() {
                 : "[save] save detour installed; save-edge logging ON");
         else
             coopLog("[save] FAILED to install save detour; coordinated save degraded");
+
+        // Clear transfer debris before anything can trip over it. A crash
+        // mid-transfer used to strand "<name>__incoming" inside save/, where
+        // Kenshi enumerates saves - that one folder truncates the Load Game
+        // list, removes the Continue button and can hang the dialog. Builds
+        // from 2026-08-06 stage outside save/, but anyone upgrading still has
+        // the old debris on disk, so sweep it here.
+        unsigned int purged = coop::savexfer::purgeStaleStaging();
+        if (purged) {
+            char b[96];
+            _snprintf(b, sizeof(b) - 1,
+                      "[save] cleared %u stale transfer folder(s) at startup", purged);
+            b[sizeof(b) - 1] = '\0'; coopLog(b);
+        }
     }
 
     // Coordinated load (protocol 32): detour SaveManager::load so every local
