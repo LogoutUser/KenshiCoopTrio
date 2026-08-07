@@ -1,0 +1,324 @@
+0.000 RE_Kenshi: RE_Kenshi 0.3.4
+0.000 RE_Kenshi: UEF registered successfully
+0.001 RE_Kenshi: Loading settings file...
+0.001 RE_Kenshi: Saving settings...
+0.001 KenshiLib: KenshiLib 0.4.0
+0.001 RE_Kenshi: Checking latest version...
+0.001 KenshiLib: RVAs loaded
+0.055 RE_Kenshi: VirtualAlloc2 found.
+0.198 RE_Kenshi: Shader cache load start
+0.204 RE_Kenshi: Shader cache loaded successfully, 203 cached shaders
+0.292 RE_Kenshi: Latest public release: v0.3.4
+0.292 RE_Kenshi: We are up to date.
+0.648 RE_Kenshi: Finished synchronous init stage
+0.649 RE_Kenshi: Waiting for mod setup.
+0.985 RE_Kenshi: Loading preload plugins...
+6.094 RE_Kenshi: First shader compile request
+6.338 RE_Kenshi: Queueing Boot_Up_Game event
+6.695 RE_Kenshi: Load mod hook
+6.695 RE_Kenshi: Loading post-load plugins...
+6.695 RE_Kenshi: KenshiCoop -> KenshiCoop.dll
+6.697 KenshiCoop: KenshiCoop loaded! (clean rebuild)
+6.697 KenshiCoop: KenshiCoop: build Aug  6 2026 21:32:36
+6.697 KenshiCoop: KenshiCoop: role=HOST proto=v46 port=27800 save=''
+6.697 KenshiCoop: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer,money] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
+6.725 KenshiCoop: KenshiCoop: ownership ranks = {0} (bidirectional presence)
+6.725 KenshiCoop: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
+6.749 KenshiCoop: [ai] periodicUpdate detour installed; AI-suspend ON (default)
+6.775 KenshiCoop: [dmg] hitByMeleeAttack detour installed; damage guard ON (host, driven peer-squad bodies)
+6.799 KenshiCoop: [wi] dropItem detour installed; query-free drop capture ON
+6.823 KenshiCoop: [recruit] recruit detour installed; recruitment sync ON
+6.850 KenshiCoop: [build] placeFinalPreviewBuilding detour installed; placement logging ON
+6.877 KenshiCoop: [build] dismantle detour installed; removal logging ON
+6.928 KenshiCoop: [fac] affectRelations detours installed; relation logging ON
+6.953 KenshiCoop: [save] save detour installed; coordinated save ON
+7.003 KenshiCoop: [load] load detour installed; coordinated load ON
+7.029 KenshiCoop: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
+7.029 KenshiCoop: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
+7.029 RE_Kenshi: KenshiRotate -> KenshiRotate.dll
+7.030 KenshiRotate: [KenshiRotate] Starting plugin...
+7.030 KenshiRotate: [KenshiRotate] Detected language: en_GB
+7.030 KenshiRotate: [KenshiRotate] No config file, using defaults
+7.030 KenshiRotate: [KenshiRotate] Rotation key: Middle Mouse
+7.030 KenshiRotate: [KenshiRotate] Secondary key: None
+7.057 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::_NV_update OK
+7.082 KenshiRotate: [KenshiRotate] Hooked InventoryIcon::_CONSTRUCTOR OK
+7.109 KenshiRotate: [KenshiRotate] Hooked InventorySectionGUI::getBestPositionSlot OK
+7.136 KenshiRotate: [KenshiRotate] Hooked Item::serialiseInInventory OK
+7.162 KenshiRotate: [KenshiRotate] Hooked Item::loadFromSerialiseInInventory OK
+7.188 KenshiRotate: [KenshiRotate] Hooked OptionsWindow::_NV_update OK
+7.214 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::placeItemFromMouse OK
+7.240 KenshiRotate: [KenshiRotate] Hooked InventoryItemBase::canStackWith OK
+7.264 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::takeCertainAmountFrom OK
+7.289 KenshiRotate: [KenshiRotate] Hooked InventoryItemBase::addQuantity OK
+7.313 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::sectionMouseButtonReleased OK
+7.313 KenshiRotate: [KenshiRotate] Plugin started successfully
+7.313 RE_Kenshi: Registering LoadingListener
+7.313 RE_Kenshi: Loading mod overrides from "KenshiCoop"...
+7.313 RE_Kenshi: Loading mod overrides from "KenshiRotate"...
+7.314 RE_Kenshi: Loading init bank Init.bnk 1
+7.332 RE_Kenshi: Force triggering Boot_Up_Game
+7.442 RE_Kenshi: Heightmap hooks installed...
+7.442 RE_Kenshi: Opening fast heightmap...
+7.452 RE_Kenshi: Fast heightmap mapped!
+8.477 RE_Kenshi: Main menu loaded.
+8.477 RE_Kenshi: Kenshi version: 1.0.65
+8.477 RE_Kenshi: Kenshi platform: Steam
+8.477 RE_Kenshi: Version supported.
+8.477 RE_Kenshi: Kenshi 1.0.65 - x64 (Newland)
+8.497 KenshiCoop: [boot] title-tick running=0 host=1 started=0 saveEmpty=1
+16.690 RE_Kenshi: In-game.
+20.915 KenshiCoop: KenshiCoop: gameplay started
+20.915 KenshiCoop: [load] 1 pre-gameplay load edge(s) discarded (title-screen auto-load)
+20.993 KenshiCoop: [speed] intent hooks installed (setGameSpeed/userPause/togglePause)
+26.548 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+26.548 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+26.548 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+26.548 KenshiCoop: KenshiCoop: starting as HOST
+28.439 KenshiCoop: handshake: peer present id=1 (local id=0)
+28.440 KenshiCoop: [boot] baking save 'DUO' to push to join on connect
+30.235 KenshiCoop: [save] QUIESCED kind=settled name='DUO' files=79 bytes=6338525 waitMs=1797
+30.391 KenshiCoop: [boot] GO->join id=1 name='DUO' fp=7bcf3b14 (push on connect)
+30.522 KenshiCoop: [load] NACK id=1 name='DUO' joinFp=c95085ee -> transfer after reload
+30.522 KenshiCoop: [load] starting fallback transfer name='DUO'
+Error 36.896 KenshiCoop: [save] XFER-ACK owner=1 id=1 ok=0 files=0 bytes=0 (1/1 joins)
+140.975 KenshiCoop: [coop-ui] disconnect
+141.330 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+141.330 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+141.330 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+141.330 KenshiCoop: KenshiCoop: starting as HOST
+150.276 KenshiCoop: handshake: peer present id=1 (local id=0)
+150.276 KenshiCoop: [boot] baking save 'DUO' to push to join on connect
+152.077 KenshiCoop: [save] QUIESCED kind=settled name='DUO' files=82 bytes=6382076 waitMs=1812
+152.238 KenshiCoop: [boot] GO->join id=2 name='DUO' fp=a4bc3666 (push on connect)
+152.623 KenshiCoop: [load] NACK id=2 name='DUO' joinFp=00000000 -> transfer after reload
+152.623 KenshiCoop: [load] starting fallback transfer name='DUO'
+159.188 KenshiCoop: [save] XFER-ACK owner=1 id=2 ok=1 files=82 bytes=6382076 (1/1 joins)
+159.188 KenshiCoop: [save] all joins hold this save - world is shared
+210.494 KenshiRotate: [KenshiRotate] Found MouseInventory singleton
+699.365 KenshiCoop: handshake: peer left id=1
+707.547 KenshiCoop: handshake: peer present id=1 (local id=0)
+707.547 KenshiCoop: [boot] baking save 'DUO' to push to join on connect
+709.577 KenshiCoop: [save] QUIESCED kind=settled name='DUO' files=119 bytes=8969804 waitMs=2031
+709.898 KenshiCoop: [boot] GO->join id=3 name='DUO' fp=2ee16c93 (push on connect)
+710.099 KenshiCoop: [load] NACK id=3 name='DUO' joinFp=a4bc3666 -> transfer after reload
+710.099 KenshiCoop: [load] starting fallback transfer name='DUO'
+Error 724.543 KenshiCoop: [save] XFER-ACK owner=1 id=3 ok=0 files=0 bytes=0 (1/1 joins)
+747.780 KenshiCoop: [coop-ui] disconnect
+748.189 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+748.189 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+748.189 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+748.189 KenshiCoop: KenshiCoop: starting as HOST
+754.888 KenshiCoop: handshake: peer present id=1 (local id=0)
+754.889 KenshiCoop: [boot] baking save 'DUO' to push to join on connect
+756.921 KenshiCoop: [save] QUIESCED kind=settled name='DUO' files=118 bytes=8929710 waitMs=2031
+757.178 KenshiCoop: [boot] GO->join id=4 name='DUO' fp=14937253 (push on connect)
+757.306 KenshiCoop: [load] NACK id=4 name='DUO' joinFp=a4bc3666 -> transfer after reload
+757.306 KenshiCoop: [load] starting fallback transfer name='DUO'
+Error 766.265 KenshiCoop: [save] XFER-ACK owner=1 id=4 ok=0 files=0 bytes=0 (1/1 joins)
+818.895 KenshiCoop: handshake: peer present id=2 (local id=0)
+818.895 KenshiCoop: [boot] baking save 'DUO' to push to join on connect
+820.924 KenshiCoop: [save] QUIESCED kind=settled name='DUO' files=118 bytes=8933384 waitMs=2031
+821.180 KenshiCoop: [boot] GO->join id=5 name='DUO' fp=fc6c9830 (push on connect)
+821.441 KenshiCoop: [load] NACK id=5 name='DUO' joinFp=00000000 -> transfer after reload
+821.441 KenshiCoop: [load] starting fallback transfer name='DUO'
+826.641 KenshiCoop: handshake: peer left id=1
+830.553 KenshiCoop: [save] XFER-ACK owner=2 id=5 ok=1 files=118 bytes=8933384 (1/1 joins)
+830.553 KenshiCoop: [save] all joins hold this save - world is shared
+982.111 KenshiCoop: handshake: peer left id=2
+1051.417 KenshiCoop: handshake: peer present id=1 (local id=0)
+1051.417 KenshiCoop: [boot] baking save 'DUO' to push to join on connect
+1053.455 KenshiCoop: [save] QUIESCED kind=settled name='DUO' files=118 bytes=8965499 waitMs=2047
+1053.711 KenshiCoop: [boot] GO->join id=6 name='DUO' fp=614ecb91 (push on connect)
+1054.264 KenshiCoop: [load] NACK id=6 name='DUO' joinFp=fc6c9830 -> transfer after reload
+1054.264 KenshiCoop: [load] starting fallback transfer name='DUO'
+Error 1063.407 KenshiCoop: [save] XFER-ACK owner=1 id=6 ok=0 files=0 bytes=0 (1/1 joins)
+1110.501 KenshiCoop: [coop-ui] disconnect
+1110.857 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+1110.857 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+1110.857 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+1110.857 KenshiCoop: KenshiCoop: starting as HOST
+1116.114 KenshiCoop: handshake: peer present id=1 (local id=0)
+1116.114 KenshiCoop: [boot] baking save 'DUO' to push to join on connect
+1118.157 KenshiCoop: [save] QUIESCED kind=settled name='DUO' files=117 bytes=8848863 waitMs=2046
+1118.408 KenshiCoop: [boot] GO->join id=7 name='DUO' fp=59761d8c (push on connect)
+1118.857 KenshiCoop: [load] NACK id=7 name='DUO' joinFp=00000000 -> transfer after reload
+1118.858 KenshiCoop: [load] starting fallback transfer name='DUO'
+1127.895 KenshiCoop: [save] XFER-ACK owner=1 id=7 ok=1 files=117 bytes=8848863 (1/1 joins)
+1127.895 KenshiCoop: [save] all joins hold this save - world is shared
+1768.563 KenshiCoop: [save] QUIESCED kind=settled name='autosave1' files=123 bytes=9438137 waitMs=2016
+Error 1779.287 KenshiCoop: [save] XFER-ACK owner=1 id=8 ok=0 files=0 bytes=0 (1/1 joins)
+2169.531 KenshiCoop: handshake: peer left id=1
+2172.156 KenshiCoop: [load] GO->join id=8 name='autosave1' fp=807443f2
+2172.601 KenshiCoop: [load] WORLD-SWAP begin (gameplay went non-live)
+2182.006 KenshiCoop: [load] WORLD-RELOAD swapMs=9406 hookTicksDuringSwap=2172
+2182.006 KenshiCoop: [load] inbound world-state queues flushed
+2207.899 KenshiCoop: handshake: peer present id=1 (local id=0)
+2207.899 KenshiCoop: [boot] baking save 'autosave1' to push to join on connect
+2209.892 KenshiCoop: [save] QUIESCED kind=settled name='autosave1' files=120 bytes=9258124 waitMs=2000
+2210.066 KenshiCoop: [boot] GO->join id=9 name='autosave1' fp=4821df6e (push on connect)
+2210.406 KenshiCoop: [load] NACK id=9 name='autosave1' joinFp=970a8032 -> transfer after reload
+2210.406 KenshiCoop: [load] starting fallback transfer name='autosave1'
+Error 2219.999 KenshiCoop: [save] XFER-ACK owner=1 id=9 ok=0 files=0 bytes=0 (1/1 joins)
+2223.188 KenshiCoop: [coop-ui] disconnect
+2223.582 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+2223.582 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+2223.582 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+2223.582 KenshiCoop: KenshiCoop: starting as HOST
+2228.904 KenshiCoop: [load] GO->join id=10 name='autosave1' fp=4821df6e
+2229.299 KenshiCoop: [load] WORLD-SWAP begin (gameplay went non-live)
+2232.721 KenshiCoop: handshake: peer present id=1 (local id=0)
+2232.721 KenshiCoop: [boot] baking save 'autosave1' to push to join on connect
+2239.725 KenshiCoop: [save] QUIESCED kind=settled name='autosave1' files=120 bytes=9130326 waitMs=7000
+2239.774 KenshiCoop: [boot] GO->join id=11 name='autosave1' fp=dd65f156 (push on connect)
+2240.062 KenshiCoop: [load] NACK id=11 name='autosave1' joinFp=970a8032 -> transfer after reload
+2254.884 KenshiCoop: [load] GO->join id=12 name='DUO' fp=59761d8c
+2261.239 KenshiCoop: [load] WORLD-RELOAD swapMs=31938 hookTicksDuringSwap=9269
+2261.239 KenshiCoop: [load] inbound world-state queues flushed
+2261.239 KenshiCoop: [load] starting fallback transfer name='autosave1'
+Error 2273.250 KenshiCoop: [save] XFER-ACK owner=1 id=10 ok=0 files=0 bytes=0 (1/1 joins)
+2281.209 KenshiCoop: [coop-ui] disconnect
+2281.688 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+2281.688 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+2281.688 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+2281.688 KenshiCoop: KenshiCoop: starting as HOST
+2291.559 KenshiCoop: handshake: peer present id=1 (local id=0)
+2291.559 KenshiCoop: [boot] baking save 'DUO' to push to join on connect
+2293.576 KenshiCoop: [save] QUIESCED kind=settled name='DUO' files=118 bytes=8990539 waitMs=2031
+2293.805 KenshiCoop: [boot] GO->join id=13 name='DUO' fp=68dacfe7 (push on connect)
+2294.164 KenshiCoop: [load] NACK id=13 name='DUO' joinFp=59761d8c -> transfer after reload
+2294.164 KenshiCoop: [load] starting fallback transfer name='DUO'
+Error 2317.608 KenshiCoop: [save] XFER-ACK owner=1 id=11 ok=0 files=0 bytes=0 (1/1 joins)
+2624.718 KenshiCoop: [save] QUIESCED kind=settled name='DUO 2' files=124 bytes=9066796 waitMs=2000
+2651.856 KenshiCoop: [save] XFER-ACK owner=1 id=12 ok=1 files=124 bytes=9066796 (1/1 joins)
+2651.856 KenshiCoop: [save] all joins hold this save - world is shared
+3083.269 KenshiCoop: [save] QUIESCED kind=settled name='DUO 3' files=131 bytes=9756456 waitMs=2000
+3108.863 KenshiCoop: [save] XFER-ACK owner=1 id=13 ok=1 files=131 bytes=9756456 (1/1 joins)
+3108.863 KenshiCoop: [save] all joins hold this save - world is shared
+3683.610 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=135 bytes=10006817 waitMs=2016
+Error 3710.492 KenshiCoop: [save] XFER-ACK owner=1 id=14 ok=0 files=0 bytes=0 (1/1 joins)
+4213.737 KenshiCoop: [load] GO->join id=14 name='autosave2' fp=befdb650
+4214.185 KenshiCoop: [load] WORLD-SWAP begin (gameplay went non-live)
+4218.419 KenshiCoop: [load] NACK id=14 name='autosave2' joinFp=39bc9911 -> transfer after reload
+4221.318 KenshiCoop: [load] WORLD-RELOAD swapMs=7141 hookTicksDuringSwap=1433
+4221.318 KenshiCoop: [load] inbound world-state queues flushed
+4221.319 KenshiCoop: [load] starting fallback transfer name='autosave2'
+4231.456 KenshiCoop: handshake: peer left id=1
+4244.989 KenshiCoop: handshake: peer present id=1 (local id=0)
+4244.989 KenshiCoop: [boot] baking save 'autosave2' to push to join on connect
+4246.752 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=138 bytes=10324153 waitMs=1765
+4246.954 KenshiCoop: [boot] GO->join id=15 name='autosave2' fp=83c29e49 (push on connect)
+4247.497 KenshiCoop: [load] NACK id=15 name='autosave2' joinFp=39bc9911 -> transfer after reload
+4247.497 KenshiCoop: [load] starting fallback transfer name='autosave2'
+Error 4263.520 KenshiCoop: [save] XFER-ACK owner=1 id=16 ok=0 files=0 bytes=0 (1/1 joins)
+4284.019 KenshiCoop: [coop-ui] disconnect
+4284.474 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+4284.474 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+4284.474 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+4284.474 KenshiCoop: KenshiCoop: starting as HOST
+4291.381 KenshiCoop: handshake: peer present id=1 (local id=0)
+4291.381 KenshiCoop: [boot] baking save 'autosave2' to push to join on connect
+4293.373 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=140 bytes=10463738 waitMs=2000
+4293.587 KenshiCoop: [boot] GO->join id=16 name='autosave2' fp=9516067c (push on connect)
+4294.265 KenshiCoop: [load] NACK id=16 name='autosave2' joinFp=00000000 -> transfer after reload
+4294.265 KenshiCoop: [load] starting fallback transfer name='autosave2'
+4304.639 KenshiCoop: [save] XFER-ACK owner=1 id=17 ok=1 files=140 bytes=10463738 (1/1 joins)
+4304.639 KenshiCoop: [save] all joins hold this save - world is shared
+4672.768 KenshiCoop: [save] QUIESCED kind=settled name='duo 4' files=208 bytes=17997815 waitMs=2235
+4676.977 KenshiCoop: [load] GO->join id=17 name='duo 4' fp=285504ab
+4677.775 KenshiCoop: [load] WORLD-SWAP begin (gameplay went non-live)
+4678.052 KenshiCoop: handshake: peer left id=1
+4684.611 KenshiCoop: handshake: peer present id=1 (local id=0)
+4684.611 KenshiCoop: [boot] baking save 'duo 4' to push to join on connect
+4686.858 KenshiCoop: [save] QUIESCED kind=settled name='duo 4' files=208 bytes=17800021 waitMs=2250
+4686.917 KenshiCoop: [boot] GO->join id=18 name='duo 4' fp=ad57887c (push on connect)
+4687.167 KenshiCoop: [load] NACK id=18 name='duo 4' joinFp=00000000 -> transfer after reload
+4698.531 KenshiCoop: [load] GO->join id=19 name='duo 4' fp=ad57887c
+4698.968 KenshiCoop: [load] NACK id=19 name='duo 4' joinFp=00000000 -> transfer after reload
+4722.742 KenshiCoop: [load] GO->join id=20 name='DUO 3' fp=4468523a
+4734.465 KenshiCoop: [load] WORLD-RELOAD swapMs=56687 hookTicksDuringSwap=10888
+4734.465 KenshiCoop: [load] inbound world-state queues flushed
+4734.465 KenshiCoop: [load] starting fallback transfer name='duo 4'
+4745.075 KenshiCoop: [load] GO->join id=21 name='duo 4' fp=ad57887c
+4745.495 KenshiCoop: [load] WORLD-SWAP begin (gameplay went non-live)
+4752.039 KenshiCoop: [save] XFER-ACK owner=1 id=19 ok=1 files=208 bytes=17800021 (1/1 joins)
+4752.039 KenshiCoop: [save] all joins hold this save - world is shared
+4760.655 KenshiCoop: handshake: peer left id=1
+4761.577 KenshiCoop: [load] GO->join id=22 name='autosave2' fp=9516067c
+4771.684 KenshiCoop: [load] WORLD-RELOAD swapMs=26187 hookTicksDuringSwap=5713
+4771.685 KenshiCoop: [load] inbound world-state queues flushed
+4786.766 KenshiCoop: [coop-ui] disconnect
+4787.095 KenshiCoop: [dmg] role re-armed: HOST (own swings land natively)
+4787.095 KenshiCoop: [coop-ui] connect: role=HOST transport=steam peer=76561198346257175 ownRanks={0} src=role
+4787.095 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+4787.095 KenshiCoop: KenshiCoop: starting as HOST
+4815.517 KenshiCoop: handshake: peer present id=1 (local id=0)
+4815.518 KenshiCoop: [boot] baking save 'autosave2' to push to join on connect
+4817.515 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=140 bytes=10502098 waitMs=2000
+4817.714 KenshiCoop: [boot] GO->join id=23 name='autosave2' fp=5a78e870 (push on connect)
+4817.969 KenshiCoop: [load] NACK id=23 name='autosave2' joinFp=9516067c -> transfer after reload
+4817.969 KenshiCoop: [load] starting fallback transfer name='autosave2'
+Error 4828.541 KenshiCoop: [save] XFER-ACK owner=1 id=20 ok=0 files=0 bytes=0 (1/1 joins)
+5080.301 KenshiCoop: handshake: peer present id=2 (local id=0)
+5080.301 KenshiCoop: [boot] baking save 'autosave2' to push to join on connect
+5082.300 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=139 bytes=10434384 waitMs=2000
+5082.495 KenshiCoop: [boot] GO->join id=24 name='autosave2' fp=a28d39f1 (push on connect)
+5082.965 KenshiCoop: [load] NACK id=24 name='autosave2' joinFp=00000000 -> transfer after reload
+5082.965 KenshiCoop: [load] starting fallback transfer name='autosave2'
+5084.270 KenshiCoop: handshake: peer left id=1
+5099.575 KenshiCoop: [save] XFER-ACK owner=2 id=21 ok=1 files=139 bytes=10434384 (1/1 joins)
+5099.575 KenshiCoop: [save] all joins hold this save - world is shared
+5685.709 KenshiCoop: handshake: peer left id=2
+5699.572 KenshiCoop: handshake: peer present id=1 (local id=0)
+5699.572 KenshiCoop: [boot] baking save 'autosave2' to push to join on connect
+5701.610 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=149 bytes=11137273 waitMs=2047
+5701.905 KenshiCoop: [boot] GO->join id=25 name='autosave2' fp=72d4753b (push on connect)
+5702.223 KenshiCoop: [load] NACK id=25 name='autosave2' joinFp=a28d39f1 -> transfer after reload
+5702.223 KenshiCoop: [load] starting fallback transfer name='autosave2'
+Error 5720.030 KenshiCoop: [save] XFER-ACK owner=1 id=22 ok=0 files=0 bytes=0 (1/1 joins)
+5765.971 KenshiCoop: handshake: peer present id=2 (local id=0)
+5765.971 KenshiCoop: [boot] baking save 'autosave2' to push to join on connect
+5767.599 KenshiCoop: handshake: peer left id=1
+5767.987 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=148 bytes=11025758 waitMs=2016
+5768.210 KenshiCoop: [boot] GO->join id=26 name='autosave2' fp=083247c6 (push on connect)
+5768.507 KenshiCoop: [load] NACK id=26 name='autosave2' joinFp=00000000 -> transfer after reload
+5768.507 KenshiCoop: [load] starting fallback transfer name='autosave2'
+5786.287 KenshiCoop: [save] XFER-ACK owner=2 id=23 ok=1 files=148 bytes=11025758 (1/1 joins)
+5786.287 KenshiCoop: [save] all joins hold this save - world is shared
+6409.782 KenshiCoop: [save] QUIESCED kind=settled name='autosave0' files=150 bytes=11349500 waitMs=2250
+6427.624 KenshiCoop: [save] XFER-ACK owner=2 id=24 ok=1 files=150 bytes=11349500 (1/1 joins)
+6427.624 KenshiCoop: [save] all joins hold this save - world is shared
+7069.364 KenshiCoop: [save] QUIESCED kind=settled name='autosave1' files=141 bytes=10089599 waitMs=2282
+7085.281 KenshiCoop: [save] XFER-ACK owner=2 id=25 ok=1 files=141 bytes=10089599 (1/1 joins)
+7085.281 KenshiCoop: [save] all joins hold this save - world is shared
+7128.908 KenshiCoop: [save] REQ from join id=1 name='duo 4' -> saving
+7131.285 KenshiCoop: [save] QUIESCED kind=settled name='duo 4' files=140 bytes=10057476 waitMs=2375
+Error 7147.420 KenshiCoop: [save] XFER-ACK owner=2 id=26 ok=0 files=0 bytes=0 (1/1 joins)
+7731.877 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=140 bytes=10089581 waitMs=2281
+Error 7747.605 KenshiCoop: [save] XFER-ACK owner=2 id=27 ok=0 files=0 bytes=0 (1/1 joins)
+7903.039 KenshiCoop: [load] GO->join id=27 name='autosave2' fp=40265f00
+7903.584 KenshiCoop: [load] WORLD-SWAP begin (gameplay went non-live)
+7903.584 KenshiCoop: [load] NACK id=27 name='autosave2' joinFp=083247c6 -> transfer after reload
+7905.547 KenshiCoop: [load] WORLD-RELOAD swapMs=1969 hookTicksDuringSwap=313
+7905.547 KenshiCoop: [load] inbound world-state queues flushed
+7905.548 KenshiCoop: [load] starting fallback transfer name='autosave2'
+Error 7923.119 KenshiCoop: [save] XFER-ACK owner=2 id=28 ok=0 files=0 bytes=0 (1/1 joins)
+7944.111 KenshiCoop: handshake: peer left id=2
+7947.238 KenshiCoop: handshake: peer present id=1 (local id=0)
+7947.238 KenshiCoop: [boot] baking save 'autosave2' to push to join on connect
+7949.236 KenshiCoop: [save] QUIESCED kind=settled name='autosave2' files=141 bytes=10292890 waitMs=2000
+7949.401 KenshiCoop: [boot] GO->join id=28 name='autosave2' fp=64dcd1a3 (push on connect)
+7949.569 KenshiCoop: [load] NACK id=28 name='autosave2' joinFp=083247c6 -> transfer after reload
+7949.569 KenshiCoop: [load] starting fallback transfer name='autosave2'
+Error 7966.559 KenshiCoop: [save] XFER-ACK owner=1 id=29 ok=0 files=0 bytes=0 (1/1 joins)
+8002.613 KenshiCoop: [load] GO->join id=29 name='autosave2' fp=64dcd1a3
+8003.069 KenshiCoop: [load] WORLD-SWAP begin (gameplay went non-live)
+8003.069 KenshiCoop: [load] NACK id=29 name='autosave2' joinFp=083247c6 -> transfer after reload
+8004.989 KenshiCoop: [load] WORLD-RELOAD swapMs=1922 hookTicksDuringSwap=308
+8004.989 KenshiCoop: [load] inbound world-state queues flushed
+8004.990 KenshiCoop: [load] starting fallback transfer name='autosave2'
+8021.299 KenshiCoop: [save] XFER-ACK owner=1 id=30 ok=1 files=141 bytes=10292890 (1/1 joins)
+8021.299 KenshiCoop: [save] all joins hold this save - world is shared
+8038.607 RE_Kenshi: Log manager destructor, probably crashing
+Error 8038.807 RE_Kenshi: Crash detected
+8044.233 RE_Kenshi: Unhandled Exception Filter called
