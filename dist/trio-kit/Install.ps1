@@ -111,18 +111,78 @@ $role = Read-Host "  Choose 1 or 2"
 
 # Pre-filled for THIS group so nobody has to retype a 17-digit number. Press
 # Enter to accept, or paste a different ID to override.
-$DEFAULT_HOST = '76561199417484463'   # Marsh (host)
-$DEFAULT_P1   = '76561198346257175'   # join 1
-$DEFAULT_P2   = '76561199025713332'   # join 2
+$DEFAULT_HOST = '76561199417484463'   # Marsh
+$DEFAULT_P1   = '76561198346257175'   # Evan
+$DEFAULT_P2   = '76561199025713332'   # Zach
+
+# Who is running this installer? A peer list must NEVER contain your own ID.
+# Field evidence 2026-08-06: Zach installed as HOST, accepted the pre-filled
+# defaults, and got himself as steamPeer2 - the plugin then opened a Steam P2P
+# tunnel to his own account. The session churned ("peer connected id=1" twice,
+# then "peer left id=1") and Evan could never hold a slot. The defaults were
+# written assuming Marsh hosts, so they list the two OTHER players; whoever is
+# not Marsh inherits a roster containing themselves and missing Marsh.
+#
+# SteamID64 = 76561197960265728 + ActiveUser (the 32-bit account id Steam keeps
+# in the registry for the logged-in user).
+function Get-LocalSteamId64 {
+    try {
+        $au = (Get-ItemProperty -Path 'HKCU:\Software\Valve\Steam\ActiveProcess' -ErrorAction Stop).ActiveUser
+        if ($au -and [uint64]$au -ne 0) {
+            return [string]([uint64]76561197960265728 + [uint64]$au)
+        }
+    } catch { }
+    return $null
+}
+
+$ME = Get-LocalSteamId64
+$NAMES = @{
+    '76561199417484463' = 'Marsh'
+    '76561198346257175' = 'Evan'
+    '76561199025713332' = 'Zach'
+}
+if ($ME) {
+    $who = $NAMES[$ME]
+    if (-not $who) { $who = 'unrecognised account' }
+    Ok "Detected this machine's Steam account: $ME ($who)"
+    # Re-point the defaults at the two people who are NOT you.
+    $others = @($DEFAULT_HOST, $DEFAULT_P1, $DEFAULT_P2) | Where-Object { $_ -ne $ME }
+    if ($others.Count -ge 2) { $DEFAULT_P1 = $others[0]; $DEFAULT_P2 = $others[1] }
+    if ($DEFAULT_HOST -eq $ME) { $DEFAULT_HOST = $others[0] }
+} else {
+    Warn "Couldn't read your Steam ID from the registry - skipping the self-peer check."
+    Warn "Make sure the IDs you enter are your FRIENDS', never your own."
+}
+
+# Reject an ID that is this machine's own account, and reject duplicates. Both
+# produce a session that looks connected and does not work.
+function Test-PeerId([string]$id, [string]$label, [string[]]$already) {
+    if (-not $id) { return $true }
+    if ($ME -and $id -eq $ME) {
+        Fail "$label is THIS machine's own Steam ID ($id)."
+        Say  "      A host must list its FRIENDS, never itself - a self-tunnel"
+        Say  "      makes joins connect and immediately drop."
+        return $false
+    }
+    if ($already -contains $id) {
+        Fail "$label repeats an ID already entered ($id)."
+        return $false
+    }
+    return $true
+}
 
 $confPath = Join-Path $dest 'coop_config.json'
 if ($role -eq '1') {
     Say ""
     Say "  Press Enter to accept the pre-filled ID, or paste a different one."
-    $p1 = (Read-Host "  Friend #1 SteamID64 [$DEFAULT_P1]").Trim()
-    if (-not $p1) { $p1 = $DEFAULT_P1 }
-    $p2 = (Read-Host "  Friend #2 SteamID64 [$DEFAULT_P2] (or '-' for 2-player)").Trim()
-    if (-not $p2) { $p2 = $DEFAULT_P2 }
+    do {
+        $p1 = (Read-Host "  Friend #1 SteamID64 [$DEFAULT_P1]").Trim()
+        if (-not $p1) { $p1 = $DEFAULT_P1 }
+    } until (Test-PeerId $p1 'Friend #1' @())
+    do {
+        $p2 = (Read-Host "  Friend #2 SteamID64 [$DEFAULT_P2] (or '-' for 2-player)").Trim()
+        if (-not $p2) { $p2 = $DEFAULT_P2 }
+    } until ($p2 -eq '-' -or (Test-PeerId $p2 'Friend #2' @($p1)))
     # 'role' matters beyond convenience: the plugin arms the combat-report role
     # and picks its log filename from this at LOAD. Without it every client boots
     # as host, and a join that only picks JOIN in the F2 panel used to stay
@@ -132,8 +192,10 @@ if ($role -eq '1') {
 } else {
     Say ""
     Say "  Press Enter to accept the host's ID below, or paste a different one."
-    $h = (Read-Host "  HOST's SteamID64 [$DEFAULT_HOST]").Trim()
-    if (-not $h) { $h = $DEFAULT_HOST }
+    do {
+        $h = (Read-Host "  HOST's SteamID64 [$DEFAULT_HOST]").Trim()
+        if (-not $h) { $h = $DEFAULT_HOST }
+    } until (Test-PeerId $h "The host's ID" @())
     # A join talks ONLY to the host; the host relays the other join's state.
     # role=join also makes the plugin arm combat reporting and write
     # KenshiCoop_join.log instead of masquerading as a host - see the host branch.
