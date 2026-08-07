@@ -280,13 +280,19 @@ std::string saveFolderFor(const std::string& name) {
 // rename, not a copy) while being invisible to Kenshi's scanner.
 std::string stagingFolderFor(const std::string& name) {
     std::string root = saveRoot();
-    std::string::size_type slash = root.find_last_of("\\/");
-    // Trailing separator: step back past it before taking the parent.
-    if (slash != std::string::npos && slash + 1 == root.size()) {
-        root = root.substr(0, slash);
-        slash = root.find_last_of("\\/");
+    // Strip ALL trailing separators before taking the parent. The engine hands
+    // back a path ending in "\/" (two of them - it shows up in Kenshi's own
+    // save.log as "save\/_current1"), and stripping just one left the parent
+    // computed as the save folder ITSELF. That put staging back inside save/,
+    // silently reintroducing the very bug this function exists to prevent.
+    while (!root.empty()) {
+        char c = root[root.size() - 1];
+        if (c != '\\' && c != '/') break;
+        root.erase(root.size() - 1);
     }
+    std::string::size_type slash = root.find_last_of("\\/");
     std::string parent = (slash == std::string::npos) ? root : root.substr(0, slash);
+    if (parent.empty()) parent = root; // degenerate path: better than "\"
     return pathJoin(pathJoin(parent, "KenshiCoop_staging"), name);
 }
 
@@ -304,7 +310,10 @@ std::string stagingFolderFor(const std::string& name) {
 //      them find it themselves.
 //
 // Only folders matching our own suffixes are touched; a real save is never a
-// candidate. Returns how many were removed.
+// candidate. Debris in our own staging root is deleted; debris found in the
+// USER'S save folder is MOVED OUT rather than deleted - getting it out of
+// Kenshi's scan is the whole fix, and a partial transfer folder can still hold
+// a complete world. Returns how many folders were dealt with.
 unsigned int purgeStaleStaging() {
     unsigned int removed = 0;
     std::string roots[2];
@@ -330,12 +339,39 @@ unsigned int purgeStaleStaging() {
                 debris = true;
             if (!debris) continue;
             std::string full = pathJoin(roots[r], nm);
-            removeTree(full, 0);
+            char b[SAVE_PATH_MAX + 160];
+            if (r == 0) {
+                // Our own staging root - this is scratch we created, so it is
+                // ours to delete.
+                removeTree(full, 0);
+                _snprintf(b, sizeof(b) - 1,
+                          "[save] purged stale transfer folder '%s'", full.c_str());
+            } else {
+                // Legacy debris sitting in the USER'S save folder. Getting it
+                // out of Kenshi's scan is the entire fix - deleting it is not
+                // required, and shipping code that silently removes anything
+                // from save/ is not a risk worth taking for zero benefit.
+                // A partial transfer folder can still hold a complete world
+                // (one found on 2026-08-06 held 229 platoons), so relocate it
+                // and let its owner decide.
+                std::string dest = stagingFolderFor(nm + ".recovered");
+                removeTree(dest, 0);
+                ensureParentDirs(pathJoin(dest, "x"));
+                if (!MoveFileExA(full.c_str(), dest.c_str(),
+                                 MOVEFILE_WRITE_THROUGH | MOVEFILE_COPY_ALLOWED)) {
+                    _snprintf(b, sizeof(b) - 1,
+                              "[save] FAILED to relocate stale transfer folder '%s' "
+                              "(err=%lu) - Kenshi's load list may still be broken",
+                              full.c_str(), (unsigned long)GetLastError());
+                    b[sizeof(b) - 1] = '\0'; coop::logErrLine(b);
+                    continue;
+                }
+                _snprintf(b, sizeof(b) - 1,
+                          "[save] moved stale transfer folder out of save/ -> '%s' "
+                          "(legacy debris; it was breaking Kenshi's load list)",
+                          dest.c_str());
+            }
             ++removed;
-            char b[SAVE_PATH_MAX + 96];
-            _snprintf(b, sizeof(b) - 1,
-                      "[save] purged stale transfer folder '%s'%s", full.c_str(),
-                      r == 1 ? " (legacy: was inside save/, breaks Kenshi's load list)" : "");
             b[sizeof(b) - 1] = '\0'; coop::logLine(b);
         } while (FindNextFileA(h, &fd));
         FindClose(h);
