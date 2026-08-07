@@ -573,6 +573,19 @@ void driveLoadSync(GameWorld* gw) {
             // A load supersedes any in-flight save coordination.
             coop::savexfer::abortAll();
             g_savePending.clear();
+            // ...including a fallback transfer still QUEUED from the previous
+            // load's NACK. g_loadXferPending holds a save NAME, and it only
+            // clears when the transfer actually starts (gameplayLive). A load
+            // edge that lands while one is queued leaves the old name armed,
+            // and the transfer then fires against the NEW world: the host runs
+            // save B while streaming save A to the join. The stale-NACK guard
+            // below compares loadId and cannot catch this - by then the name is
+            // already stored. Field evidence 2026-08-07 (logs-zach, host log
+            // 17:11:40-52): LOCAL-LOAD 'DUO 3' -> GO id=20 'DUO 3', then
+            // "starting fallback transfer name='duo 4'" from the id=19 NACK.
+            // The join held a world the host was not running, so every
+            // peer-owned unit froze on the host while moving on the join.
+            g_loadXferPending.clear();
             coop::LoadGoPacket go;
             memset(&go, 0, sizeof(go));
             go.type        = (coop::u8)coop::PKT_LOAD_GO;
