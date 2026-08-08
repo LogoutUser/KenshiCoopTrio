@@ -1,0 +1,118 @@
+[20:11:08.837] [JOIN] INFO: log opened (previous run preserved as *.log.prev)
+[20:11:08.837] [JOIN] INFO: KenshiCoop loaded! (clean rebuild)
+[20:11:08.837] [JOIN] INFO: KenshiCoop: build Aug  7 2026 20:01:48
+[20:11:08.837] [JOIN] INFO: KenshiCoop: role=JOIN proto=v46 port=27800 save=''
+[20:11:08.837] [JOIN] INFO: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer,money] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
+[20:11:08.867] [JOIN] INFO: [engine] CAPS saveload=1 savepath=1 hand_resolve=1 npc_stream=1 limb=1 stats=1 carry=1 furniture=1 chain=1 shackle=1 slave=1 stealth=1 camera=1 speed=1 quiet_speed=1 door=1 build=1 machine=1 time=1 wallet=1 faction=1 combat_escalate=1
+[20:11:08.867] [JOIN] INFO: KenshiCoop: ownership ranks = {1} (bidirectional presence)
+[20:11:08.867] [JOIN] INFO: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
+[20:11:08.897] [JOIN] INFO: [ai] periodicUpdate detour installed; AI-suspend ON (default)
+[20:11:08.897] [JOIN] INFO: [trust] divergence-gated authority ON (default; KENSHICOOP_GATE_AUTHORITY=0 disables)
+[20:11:08.927] [JOIN] INFO: [dmg] hitByMeleeAttack detour installed; damage guard ON + combat-hit report ON (join)
+[20:11:08.957] [JOIN] INFO: [wi] dropItem detour installed; query-free drop capture ON
+[20:11:08.988] [JOIN] INFO: [recruit] recruit detour installed; recruitment sync ON
+[20:11:09.018] [JOIN] INFO: [build] placeFinalPreviewBuilding detour installed; placement logging ON
+[20:11:09.052] [JOIN] INFO: [build] dismantle detour installed; removal logging ON
+[20:11:09.114] [JOIN] INFO: [fac] affectRelations detours installed; relation logging ON
+[20:11:09.144] [JOIN] INFO: [save] save detour installed; coordinated save ON
+[20:11:09.146] [JOIN] INFO: [save] purged stale transfer folder 'C:\Users\evanc\AppData\Local\kenshi\KenshiCoop_staging\duo 8__incoming'
+[20:11:09.146] [JOIN] INFO: [save] cleared 1 stale transfer folder(s) at startup
+[20:11:09.206] [JOIN] INFO: [load] load detour installed; coordinated load ON
+[20:11:09.235] [JOIN] INFO: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
+[20:11:09.236] [JOIN] INFO: [steam] id=76561198346257175 loggedOn=1 iface=SteamNetworking005
+[20:11:09.236] [JOIN] INFO: [invite] ready: mm=SteamMatchMaking009 friends=SteamFriends015 (in-panel friend picker armed)
+[20:11:09.236] [JOIN] INFO: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
+[20:11:10.552] [JOIN] INFO: [boot] title-tick running=0 host=0 started=0 saveEmpty=1
+[20:11:10.556] [JOIN] INFO: [coop-ui] gui ptr=00007FF70EDE2750
+[20:11:12.567] [JOIN] INFO: [coop-ui] panel opened
+[20:11:13.622] [JOIN] INFO: [coop-ui] connection -> ONLINE
+[20:11:13.622] [JOIN] INFO: [coop-ui] CONNECT role=JOIN transport=steam
+[20:11:13.622] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:11:13.623] [JOIN] INFO: [dmg] role re-armed: JOIN (combat-hit report ON)
+[20:11:13.623] [JOIN] INFO: [coop-ui] connect: role=JOIN transport=steam peer=76561199417484463 ownRanks={1} src=role
+[20:11:13.623] [JOIN] INFO: [steam] tunnel peer=76561199417484463 slot=0 addr=1.0.0.1 (session pre-accepted)
+[20:11:13.623] [JOIN] INFO: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+[20:11:13.623] [JOIN] INFO: KenshiCoop: starting as CLIENT
+[20:11:13.623] [JOIN] INFO: [steam] ENet socket hooks installed (tunnel on P2P channel 0)
+[20:11:13.623] [JOIN] INFO: [net] transport=steam (ENet tunnelled over Steam P2P)
+[20:11:13.623] [JOIN] INFO: [net] connecting
+[20:11:13.623] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=0
+[20:11:13.624] [JOIN] INFO: [boot] title-tick running=1 host=0 started=0 saveEmpty=1
+[20:11:28.624] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=4
+[20:11:34.628] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=0 relay=0 err=4
+[20:11:45.252] [JOIN] INFO: [net] disconnected from host
+[20:11:45.253] [JOIN] INFO: handshake: peer left id=4294967295
+[20:11:45.253] [JOIN] INFO: [save] JOIN save suppression OFF (last peer left)
+[20:11:45.253] [JOIN] INFO: [leave] cleared proxies=0
+[20:11:45.253] [JOIN] INFO: [leave] cleared worldProxies=0 (cleanup=0)
+[20:11:45.253] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:11:45.316] [JOIN] INFO: [net] reconnecting
+[20:11:45.628] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=4
+[20:12:05.625] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=0 relay=0 err=4
+[20:12:17.001] [JOIN] INFO: [net] disconnected from host
+[20:12:17.001] [JOIN] INFO: handshake: peer left id=4294967295
+[20:12:17.001] [JOIN] INFO: [save] JOIN save suppression OFF (last peer left)
+[20:12:17.001] [JOIN] INFO: [leave] cleared proxies=0
+[20:12:17.001] [JOIN] INFO: [leave] cleared worldProxies=0 (cleanup=0)
+[20:12:17.001] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:12:17.067] [JOIN] INFO: [net] reconnecting
+[20:12:17.629] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=4
+[20:12:37.630] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=0 relay=0 err=4
+[20:12:48.816] [JOIN] INFO: [net] disconnected from host
+[20:12:48.816] [JOIN] INFO: handshake: peer left id=4294967295
+[20:12:48.816] [JOIN] INFO: [save] JOIN save suppression OFF (last peer left)
+[20:12:48.816] [JOIN] INFO: [leave] cleared proxies=0
+[20:12:48.816] [JOIN] INFO: [leave] cleared worldProxies=0 (cleanup=0)
+[20:12:48.816] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:12:48.877] [JOIN] INFO: [net] reconnecting
+[20:12:49.675] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=4
+[20:13:09.676] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=0 relay=0 err=4
+[20:13:20.612] [JOIN] INFO: [net] disconnected from host
+[20:13:20.613] [JOIN] INFO: handshake: peer left id=4294967295
+[20:13:20.613] [JOIN] INFO: [save] JOIN save suppression OFF (last peer left)
+[20:13:20.613] [JOIN] INFO: [leave] cleared proxies=0
+[20:13:20.613] [JOIN] INFO: [leave] cleared worldProxies=0 (cleanup=0)
+[20:13:20.613] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:13:20.676] [JOIN] INFO: [net] reconnecting
+[20:13:21.678] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=0
+[20:13:36.674] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=4
+[20:13:38.817] [JOIN] INFO: [steam] accepted inbound session from 76561199025713332
+[20:13:40.677] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=0 relay=0 err=4
+[20:13:52.241] [JOIN] INFO: [net] disconnected from host
+[20:13:52.242] [JOIN] INFO: handshake: peer left id=4294967295
+[20:13:52.242] [JOIN] INFO: [save] JOIN save suppression OFF (last peer left)
+[20:13:52.242] [JOIN] INFO: [leave] cleared proxies=0
+[20:13:52.242] [JOIN] INFO: [leave] cleared worldProxies=0 (cleanup=0)
+[20:13:52.242] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:13:52.305] [JOIN] INFO: [net] reconnecting
+[20:13:52.727] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=4
+[20:14:12.723] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=0 relay=0 err=4
+[20:14:24.039] [JOIN] INFO: [net] disconnected from host
+[20:14:24.040] [JOIN] INFO: handshake: peer left id=4294967295
+[20:14:24.040] [JOIN] INFO: [save] JOIN save suppression OFF (last peer left)
+[20:14:24.040] [JOIN] INFO: [leave] cleared proxies=0
+[20:14:24.040] [JOIN] INFO: [leave] cleared worldProxies=0 (cleanup=0)
+[20:14:24.040] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:14:24.102] [JOIN] INFO: [net] reconnecting
+[20:14:24.726] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=4
+[20:14:44.729] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=0 relay=0 err=4
+[20:14:48.939] [JOIN] INFO: [coop-ui] connection -> OFFLINE
+[20:14:48.942] [JOIN] INFO: [coop-ui] DISCONNECT requested
+[20:14:48.942] [JOIN] INFO: [coop-ui] disconnect
+[20:14:48.984] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:14:48.985] [JOIN] INFO: [boot] title-tick running=0 host=0 started=0 saveEmpty=1
+[20:14:49.681] [JOIN] INFO: [coop-ui] connection -> ONLINE
+[20:14:49.681] [JOIN] INFO: [coop-ui] CONNECT role=JOIN transport=steam
+[20:14:49.681] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[20:14:49.681] [JOIN] INFO: [dmg] role re-armed: JOIN (combat-hit report ON)
+[20:14:49.681] [JOIN] INFO: [coop-ui] connect: role=JOIN transport=steam peer=76561199417484463 ownRanks={1} src=role
+[20:14:49.681] [JOIN] INFO: [steam] tunnel peer=76561199417484463 slot=0 addr=1.0.0.1 (session pre-accepted)
+[20:14:49.681] [JOIN] INFO: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+[20:14:49.681] [JOIN] INFO: KenshiCoop: starting as CLIENT
+[20:14:49.682] [JOIN] INFO: [steam] ENet socket hooks installed (tunnel on P2P channel 0)
+[20:14:49.682] [JOIN] INFO: [net] transport=steam (ENet tunnelled over Steam P2P)
+[20:14:49.682] [JOIN] INFO: [net] connecting
+[20:14:49.682] [JOIN] INFO: [boot] title-tick running=1 host=0 started=0 saveEmpty=1
+[20:14:49.741] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=0
+[20:15:04.740] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=1 relay=0 err=4
+[20:15:09.742] [JOIN] INFO: [steam] session peer=76561199417484463 active=0 connecting=0 relay=0 err=4

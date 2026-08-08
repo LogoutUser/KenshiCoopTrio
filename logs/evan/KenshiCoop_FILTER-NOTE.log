@@ -1,0 +1,41 @@
+NOTE ON THIS LOG BUNDLE — Evan, 2026-08-07
+==========================================
+
+Two deliberate changes were made to this bundle before pushing. Everything else
+is byte-for-byte as Kenshi wrote it.
+
+1. KenshiCoop_join.log.20260807-192520.prev.log WAS FILTERED.
+
+   Raw size 85.4 MB / 830,147 lines. 779,699 of those lines were a single
+   repeated shape:
+
+     [JOIN] INFO: SCENARIO PROXY hand=N,N,N,N,N pos=N.N,N.N,N.N
+
+   Only lines containing "SCENARIO PROXY" were removed. 50,448 lines kept,
+   file is now 5.2 MB. No [load], [save], XFER, GO, [net], [steam], [life],
+   [pose], [med] or [gate] lines were touched.
+
+   Reason: the unfiltered bundle was 113.6 MB, which would have gone
+   permanently into the shared repo's git history and be carried by every
+   future clone. Filtered bundle is 33.4 MB.
+
+   The unfiltered original is on Evan's machine and can be sent over Discord
+   if you need it — just ask.
+
+   If SCENARIO PROXY at that volume is not intentional, that is worth a look
+   on its own: it is 94% of that session's log by line count.
+
+2. KenshiCoop_join_20260806-212515_aug2-build-baseline.log IS A RENAMED COPY.
+
+   The original filename is KenshiCoop_join.log.prev — it is NOT collected by
+   ShareLog.ps1, because the glob is 'KenshiCoop_*.log' and that name ends in
+   '.prev'. It was copied to a .log name purely so the collector would pick it
+   up. Contents unmodified.
+
+   This file matters: it is the Aug 2 build (9BDEC6A2...) completing an
+   XFER-COMMIT over an existing DIVERGED save at 21:24 on Aug 6 — the baseline
+   that shows the Aug 6 build regressed.
+
+   ShareLog.ps1 on origin/main has the same glob, so this file is silently
+   missed on every player's machine, on every push. Suggested fix: add
+   'KenshiCoop_*.prev' to the pattern list in ShareLog.ps1 line ~55.

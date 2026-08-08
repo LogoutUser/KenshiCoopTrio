@@ -1,0 +1,435 @@
+[21:23:07.104] [JOIN] INFO: log opened (previous run preserved as *.log.prev)
+[21:23:07.104] [JOIN] INFO: KenshiCoop loaded! (clean rebuild)
+[21:23:07.104] [JOIN] INFO: KenshiCoop: build Aug  2 2026 20:15:47
+[21:23:07.104] [JOIN] INFO: KenshiCoop: role=JOIN proto=v46 port=27800 save=''
+[21:23:07.104] [JOIN] INFO: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer,money] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
+[21:23:07.152] [JOIN] INFO: [engine] CAPS saveload=1 savepath=1 hand_resolve=1 npc_stream=1 limb=1 stats=1 carry=1 furniture=1 chain=1 shackle=1 slave=1 stealth=1 camera=1 speed=1 quiet_speed=1 door=1 build=1 machine=1 time=1 wallet=1 faction=1 combat_escalate=1
+[21:23:07.152] [JOIN] INFO: KenshiCoop: ownership ranks = {1} (bidirectional presence)
+[21:23:07.152] [JOIN] INFO: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
+[21:23:07.196] [JOIN] INFO: [ai] periodicUpdate detour installed; AI-suspend ON (default)
+[21:23:07.196] [JOIN] INFO: [trust] divergence-gated authority ON (default; KENSHICOOP_GATE_AUTHORITY=0 disables)
+[21:23:07.240] [JOIN] INFO: [dmg] hitByMeleeAttack detour installed; damage guard ON + combat-hit report ON (join)
+[21:23:07.284] [JOIN] INFO: [wi] dropItem detour installed; query-free drop capture ON
+[21:23:07.329] [JOIN] INFO: [recruit] recruit detour installed; recruitment sync ON
+[21:23:07.371] [JOIN] INFO: [build] placeFinalPreviewBuilding detour installed; placement logging ON
+[21:23:07.414] [JOIN] INFO: [build] dismantle detour installed; removal logging ON
+[21:23:07.500] [JOIN] INFO: [fac] affectRelations detours installed; relation logging ON
+[21:23:07.543] [JOIN] INFO: [save] save detour installed; coordinated save ON
+[21:23:07.630] [JOIN] INFO: [load] load detour installed; coordinated load ON
+[21:23:07.673] [JOIN] INFO: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
+[21:23:07.673] [JOIN] INFO: [steam] id=76561198346257175 loggedOn=1 iface=SteamNetworking005
+[21:23:07.673] [JOIN] INFO: [invite] ready: mm=SteamMatchMaking009 friends=SteamFriends015 (in-panel friend picker armed)
+[21:23:07.673] [JOIN] INFO: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
+[21:23:09.148] [JOIN] INFO: [boot] title-tick running=0 host=0 started=0 saveEmpty=1
+[21:23:09.151] [JOIN] INFO: [coop-ui] gui ptr=00007FF732942750
+[21:23:15.440] [JOIN] INFO: [coop-ui] panel opened
+[21:23:26.656] [JOIN] INFO: [coop-ui] paste friend id=76561199025713332 ok=1
+[21:23:28.197] [JOIN] INFO: [coop-ui] connection -> ONLINE
+[21:23:28.197] [JOIN] INFO: [coop-ui] CONNECT role=JOIN transport=steam
+[21:23:28.197] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[21:23:28.198] [JOIN] INFO: [dmg] role re-armed: JOIN (combat-hit report ON)
+[21:23:28.198] [JOIN] INFO: [coop-ui] connect: role=JOIN transport=steam peer=76561199025713332 ownRanks={1} src=role
+[21:23:28.198] [JOIN] INFO: [steam] tunnel peer=76561199025713332 slot=0 addr=1.0.0.1 (session pre-accepted)
+[21:23:28.198] [JOIN] INFO: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+[21:23:28.198] [JOIN] INFO: KenshiCoop: starting as CLIENT
+[21:23:28.198] [JOIN] INFO: [steam] ENet socket hooks installed (tunnel on P2P channel 0)
+[21:23:28.198] [JOIN] INFO: [net] transport=steam (ENet tunnelled over Steam P2P)
+[21:23:28.198] [JOIN] INFO: [net] connecting
+[21:23:28.198] [JOIN] INFO: [steam] session peer=76561199025713332 active=1 connecting=0 relay=0 err=0
+[21:23:28.198] [JOIN] INFO: [boot] title-tick running=1 host=0 started=0 saveEmpty=1
+[21:23:59.886] [JOIN] INFO: [net] disconnected from host
+[21:23:59.887] [JOIN] INFO: handshake: peer left id=4294967295
+[21:23:59.887] [JOIN] INFO: [save] JOIN save suppression OFF (last peer left)
+[21:23:59.887] [JOIN] INFO: [leave] cleared proxies=0
+[21:23:59.887] [JOIN] INFO: [leave] cleared worldProxies=0 (cleanup=0)
+[21:23:59.887] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[21:23:59.949] [JOIN] INFO: [net] reconnecting
+[21:24:15.696] [JOIN] INFO: [steam] first tunnel packet received from peer
+[21:24:15.696] [JOIN] INFO: [net] connected to host; sent HELLO
+[21:24:15.754] [JOIN] INFO: [net] peer connected id=1 (proto v46) - received WELCOME
+[21:24:15.754] [JOIN] INFO: handshake: peer present id=0 (local id=1)
+[21:24:15.762] [JOIN] INFO: [latejoin] RESYNC place=0 remove=0 fac=0 door=0 bdoor=0 med=0 stats=0 money=0 inv=0 world=0 prod=0
+[21:24:15.762] [JOIN] INFO: [save] JOIN save suppression ON (host save is authoritative)
+[21:24:16.018] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=54 n=1
+[21:24:18.433] [JOIN] INFO: [load] GO id=1 name='duo EV' hostFp=dede454d localFp=0ea7044b DIVERGED -> NACK (transfer)
+[21:24:18.583] [JOIN] INFO: [save] XFER-RECV id=1 name='duo EV' files=36 bytes=4957939 staging='C:\Users\evanc\AppData\Local\kenshi\save\duo EV__incoming'
+[21:24:23.571] [JOIN] INFO: [save] XFER-COMMIT id=1 name='duo EV' files=36 bytes=4957939 badCrc=0 ms=4985
+[21:24:23.574] [JOIN] INFO: [load] transfer committed -> loading 'duo EV'
+[21:24:23.574] [JOIN] INFO: [load] LOCAL-LOAD name='duo EV' suppressed=0 bypass=1 via=name
+[21:24:23.625] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=54 n=2
+[21:24:28.813] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=52 n=5
+[21:24:29.950] [JOIN] INFO: KenshiCoop: gameplay started
+[21:24:30.054] [JOIN] INFO: [speed] intent hooks installed (setGameSpeed/userPause/togglePause)
+[21:24:30.054] [JOIN] INFO: [load] JOIN load suppression ON (host arbitrates loads)
+[21:24:30.055] [JOIN] INFO: [wi] BASELINE seeded=0 (save-native, never-stream)
+[21:24:30.055] [JOIN] INFO: [hitdbg] owner=1 attackers=0 driven=0 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:24:30.055] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:30.055] [JOIN] INFO: [stats] RECV hand=2,2692504832 ok=1 str=5.8 dex=37.2 tough=11.9 stealth=20.0 athl=7.9 xp=0
+[21:24:30.055] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:30.055] [JOIN] INFO: [stats] RECV hand=2,2692504832 ok=1 str=5.8 dex=37.2 tough=11.9 stealth=20.0 athl=7.9 xp=0
+[21:24:30.055] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:30.055] [JOIN] INFO: [stats] RECV hand=2,2692504832 ok=1 str=5.8 dex=37.2 tough=11.9 stealth=20.0 athl=7.9 xp=0
+[21:24:30.078] [JOIN] INFO: [r401] lever scan isKnown=00007ff73103e430 can=00007ff7310420d0 start=00007ff731043680
+[21:24:30.078] [JOIN] INFO: [r401] levers located by prologue scan
+[21:24:30.078] [JOIN] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[21:24:30.078] [JOIN] INFO: [speed] SET mult=1.00 paused=0 combat=0
+[21:24:30.078] [JOIN] INFO: [time] OFFSET off=0.1259gh slew=2.00 host=35.90937 local=35.78344
+[21:24:30.080] [JOIN] INFO: [life] hand=1,1,2021484416,1,1803832960 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,1,2021484416,2,2692504832 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=65535  agree=0/1 (0%)
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,1,532714848 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,2,328491200 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,3,3339111424 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,4,3676269568 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,5,3556884736 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,6,3240966912 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,7,3195922944 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,8,2267456000 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,9,2414062592 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,10,1632446336 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [life] hand=1,31,1705200256,11,2673950208 from=UNKNOWN to=HI reason=drive
+[21:24:30.080] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:30.080] [JOIN] INFO: [interp] lerp=0 extrap=0 clamp=0 seg=0 single=13 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=0 restFlip=0 delay=50 jit=0.0 starve=0 snapMid=0 restFlipMid=0
+[21:24:30.080] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:30.080] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:24:30.080] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,2,2692504832 items=8
+[21:24:30.080] [JOIN] INFO: [census] recv n=11 culls=0
+[21:24:30.080] [JOIN] INFO: [audit] exist near=0 wide=11 drv=11 cen=0 hid=0 ghost=0 supp=0 census=11 fresh=1 parks=0
+[21:24:30.080] [JOIN] INFO: [cam] center=-3859.6,699.7,-128562.2
+[21:24:30.114] [JOIN] INFO: [taskkey] key=141 desc='Following leader' repro=0 subject=1
+[21:24:30.114] [JOIN] INFO: [taskkey] key=1 desc='Moving' repro=0 subject=0
+[21:24:30.202] [JOIN] INFO: [taskkey] key=22 desc='Patrolling' repro=0 subject=0
+[21:24:30.348] [JOIN] INFO: [life] hand=1,31,1705200256,2,328491200 from=HI to=MID reason=drive
+[21:24:30.348] [JOIN] INFO: [life] hand=1,31,1705200256,3,3339111424 from=HI to=MID reason=drive
+[21:24:30.425] [JOIN] INFO: [life] hand=1,31,1705200256,4,3676269568 from=HI to=MID reason=drive
+[21:24:30.425] [JOIN] INFO: [life] hand=1,31,1705200256,7,3195922944 from=HI to=MID reason=drive
+[21:24:30.476] [JOIN] INFO: [life] hand=1,31,1705200256,10,1632446336 from=HI to=MID reason=drive
+[21:24:30.476] [JOIN] INFO: [life] hand=1,31,1705200256,11,2673950208 from=HI to=MID reason=drive
+[21:24:30.534] [JOIN] INFO: [life] hand=1,31,1705200256,6,3240966912 from=HI to=MID reason=drive
+[21:24:30.534] [JOIN] INFO: [life] hand=1,31,1705200256,9,2414062592 from=HI to=MID reason=drive
+[21:24:30.591] [JOIN] INFO: [life] hand=1,31,1705200256,1,532714848 from=HI to=MID reason=drive
+[21:24:30.591] [JOIN] INFO: [life] hand=1,31,1705200256,5,3556884736 from=HI to=MID reason=drive
+[21:24:30.712] [JOIN] INFO: [life] hand=1,31,1705200256,8,2267456000 from=HI to=MID reason=drive
+[21:24:30.835] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:30.835] [JOIN] INFO: [stats] RECV hand=2,2692504832 ok=1 str=5.8 dex=37.2 tough=11.9 stealth=20.0 athl=7.9 xp=0
+[21:24:30.838] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:24:30.838] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,2,2692504832 items=8
+[21:24:32.086] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=44/2652 (1%)
+[21:24:32.909] [JOIN] INFO: [snap] cover hand=3,3339111424 name='Scrawny Cannibal' gap=290.0 gate=96.2 srcVel=0.0 cSpeed=45.2 mult=1.00 slew=2.00 dest=1 skipped=0
+[21:24:33.086] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:33.086] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:33.314] [JOIN] INFO: [snap] mid hand=11,2673950208 name='Scrawny Cannibal' gap=312.3 gate=103.8 srcVel=23.8 cSpeed=44.9 mult=1.00 slew=2.00 dest=1 skipped=4
+[21:24:33.793] [JOIN] INFO: [snap] mid hand=4,3676269568 name='Scrawny Cannibal' gap=299.8 gate=99.7 srcVel=38.0 cSpeed=45.2 mult=1.00 slew=2.00 dest=1 skipped=1
+[21:24:33.925] [JOIN] INFO: [taskkey] key=6 desc='Equipping weapon' repro=0 subject=1
+[21:24:33.936] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=52 n=7
+[21:24:34.088] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=65535  agree=167/5237 (3%)
+[21:24:34.200] [JOIN] INFO: [fac] AFFECT-EV me='58701-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=0
+[21:24:34.258] [JOIN] INFO: [snap] mid hand=7,3195922944 name='Scrawny Cannibal' gap=308.9 gate=102.9 srcVel=23.4 cSpeed=46.8 mult=1.00 slew=2.00 dest=1 skipped=1
+[21:24:35.059] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:24:35.075] [JOIN] INFO: [cam] center=-3859.6,699.7,-128562.2
+[21:24:35.082] [JOIN] INFO: [interp] lerp=4417 extrap=3126 clamp=8 seg=122 single=179 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=164 restFlip=0 delay=200 jit=157.6 starve=0 snapMid=11 restFlipMid=0
+[21:24:35.082] [JOIN] INFO: [audit] exist near=0 wide=11 drv=11 cen=0 hid=0 ghost=0 supp=0 census=11 fresh=1 parks=0
+[21:24:35.678] [JOIN] INFO: [time] OFFSET off=0.0772gh slew=2.00 host=35.96447 local=35.88729
+[21:24:35.795] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:35.795] [JOIN] INFO: [stats] RECV hand=2,2692504832 ok=1 str=5.8 dex=37.2 tough=11.9 stealth=20.0 athl=7.9 xp=0
+[21:24:35.797] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:24:35.797] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,2,2692504832 items=8
+[21:24:36.092] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=65535  agree=394/7998 (4%)
+[21:24:36.092] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:36.092] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:38.099] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=523/10770 (4%)
+[21:24:38.959] [JOIN] INFO: [snap] mid hand=6,3240966912 name='Scrawny Cannibal' gap=72.6 gate=24.2 srcVel=0.0 cSpeed=42.8 mult=1.00 slew=2.00 dest=1 skipped=1
+[21:24:39.016] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=52 n=10
+[21:24:39.095] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:39.095] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:39.200] [JOIN] INFO: [fac] AFFECT-EV me='58701-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=6
+[21:24:40.062] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:24:40.082] [JOIN] INFO: [cam] center=-3904.4,708.9,-128601.6
+[21:24:40.090] [JOIN] INFO: [interp] lerp=9322 extrap=6374 clamp=8 seg=146 single=179 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=312 restFlip=0 delay=200 jit=129.6 starve=0 snapMid=12 restFlipMid=0
+[21:24:40.090] [JOIN] INFO: [audit] exist near=0 wide=15 drv=11 cen=0 hid=0 ghost=4 supp=0 census=11 fresh=1 parks=0
+[21:24:40.107] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=870/13575 (6%)
+[21:24:40.322] [JOIN] INFO: [life] hand=1,35,1880493184,16,612182592 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:40.322] [JOIN] INFO: [census] cull NPC hand=16,612182592 name='Scrawny Cannibal' pos=-5919,595,-130876 (census=11 wide=15 supp=1 culls=1)
+[21:24:40.552] [JOIN] INFO: [life] hand=1,35,1880493184,8,3357910272 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:40.552] [JOIN] INFO: [census] cull NPC hand=8,3357910272 name='Scrawny Cannibal' pos=-5942,593,-130867 (census=11 wide=16 supp=2 culls=2)
+[21:24:40.591] [JOIN] INFO: [life] hand=1,35,1880493184,10,737426752 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:40.591] [JOIN] INFO: [census] cull NPC hand=10,737426752 name='Scrawny Cannibal' pos=-5927,597,-130890 (census=11 wide=16 supp=3 culls=3)
+[21:24:40.623] [JOIN] INFO: [life] hand=1,35,1880493184,18,3562133760 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:40.623] [JOIN] INFO: [census] cull NPC hand=18,3562133760 name='Scrawny Cannibal' pos=-5904,595,-130903 (census=11 wide=16 supp=4 culls=4)
+[21:24:40.678] [JOIN] INFO: [time] OFFSET off=0.0314gh slew=1.94 host=36.01037 local=35.97897
+[21:24:40.680] [JOIN] INFO: [census] recv n=11 culls=4
+[21:24:40.803] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:40.803] [JOIN] INFO: [stats] RECV hand=2,2692504832 ok=1 str=5.8 dex=37.2 tough=11.9 stealth=20.0 athl=7.9 xp=0
+[21:24:40.806] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:24:40.806] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,2,2692504832 items=8
+[21:24:41.160] [JOIN] INFO: [life] hand=1,35,1880493184,17,999267584 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:41.160] [JOIN] INFO: [census] cull NPC hand=17,999267584 name='Scrawny Cannibal' pos=-5963,590,-130830 (census=11 wide=21 supp=5 culls=5)
+[21:24:41.433] [JOIN] INFO: [life] hand=1,35,1880493184,7,2350707968 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:41.433] [JOIN] INFO: [census] cull NPC hand=7,2350707968 name='Scrawny Cannibal' pos=-5963,591,-130839 (census=11 wide=23 supp=6 culls=6)
+[21:24:41.484] [JOIN] INFO: [life] hand=1,35,1880493184,1,1422241152 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:41.484] [JOIN] INFO: [census] cull NPC hand=1,1422241152 name='Scrawny Cannibal' pos=-5959,591,-130829 (census=11 wide=24 supp=7 culls=7)
+[21:24:41.594] [JOIN] INFO: [life] hand=1,35,1880493184,6,2163452160 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:41.594] [JOIN] INFO: [census] cull NPC hand=6,2163452160 name='Scrawny Cannibal' pos=-5942,592,-130862 (census=11 wide=24 supp=8 culls=8)
+[21:24:41.629] [JOIN] INFO: [life] hand=1,35,1880493184,11,2845214720 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:41.629] [JOIN] INFO: [census] cull NPC hand=11,2845214720 name='Scrawny Cannibal' pos=-5914,596,-130856 (census=11 wide=24 supp=9 culls=9)
+[21:24:41.694] [JOIN] INFO: [time] OFFSET off=0.0225gh slew=1.68 host=36.01957 local=35.99704
+[21:24:41.775] [JOIN] INFO: [life] hand=1,35,1880493184,3,597412096 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:41.775] [JOIN] INFO: [census] cull NPC hand=3,597412096 name='Scrawny Cannibal' pos=-6005,593,-130818 (census=11 wide=27 supp=10 culls=10)
+[21:24:41.919] [JOIN] INFO: [life] hand=1,35,1880493184,2,1329711872 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:41.919] [JOIN] INFO: [census] cull NPC hand=2,1329711872 name='Scrawny Cannibal' pos=-5978,594,-130804 (census=11 wide=28 supp=11 culls=11)
+[21:24:42.002] [JOIN] INFO: [life] hand=1,35,1880493184,9,559692352 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:42.002] [JOIN] INFO: [census] cull NPC hand=9,559692352 name='Scrawny Cannibal' pos=-5955,592,-130853 (census=11 wide=28 supp=12 culls=12)
+[21:24:42.056] [JOIN] INFO: [life] hand=1,35,1880493184,19,3815673856 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:42.056] [JOIN] INFO: [census] cull NPC hand=19,3815673856 name='Scrawny Cannibal' pos=-5913,595,-130872 (census=11 wide=28 supp=13 culls=13)
+[21:24:42.103] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:42.103] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:42.112] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=1140/16204 (7%)
+[21:24:42.219] [JOIN] INFO: [life] hand=1,35,1880493184,14,2008911104 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:42.219] [JOIN] INFO: [census] cull NPC hand=14,2008911104 name='Scrawny Cannibal' pos=-5965,593,-130862 (census=11 wide=28 supp=14 culls=14)
+[21:24:42.321] [JOIN] INFO: [life] hand=1,35,1880493184,5,244140 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:42.321] [JOIN] INFO: [census] cull NPC hand=5,244140 name='Scrawny Cannibal' pos=-5981,591,-130814 (census=11 wide=28 supp=15 culls=15)
+[21:24:42.321] [JOIN] INFO: [life] hand=1,35,1880493184,4,3310058496 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:42.321] [JOIN] INFO: [census] cull NPC hand=4,3310058496 name='Scrawny Cannibal' pos=-5935,591,-130854 (census=11 wide=28 supp=16 culls=16)
+[21:24:42.395] [JOIN] INFO: [life] hand=1,35,1880493184,12,2970703104 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:42.395] [JOIN] INFO: [census] cull NPC hand=12,2970703104 name='Scrawny Cannibal' pos=-5977,592,-130843 (census=11 wide=28 supp=17 culls=17)
+[21:24:42.701] [JOIN] INFO: [time] OFFSET off=0.0162gh slew=1.49 host=36.02873 local=36.01255
+[21:24:43.029] [JOIN] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=0
+[21:24:43.072] [JOIN] INFO: [life] hand=1,35,1880493184,15,2921142528 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:43.072] [JOIN] INFO: [census] cull NPC hand=15,2921142528 name='Scrawny Cannibal' pos=-6010,596,-130822 (census=11 wide=29 supp=18 culls=18)
+[21:24:43.149] [JOIN] INFO: [fac] AFFECT-EV me='518-gamedata.base' whom='56128-rebirth.mod' event=1 mult=0.025 after=-100.00 skipped=0
+[21:24:43.697] [JOIN] INFO: [time] OFFSET off=0.0118gh slew=1.35 host=36.03791 local=36.02611
+[21:24:43.712] [JOIN] INFO: [life] hand=1,35,1880493184,13,812011712 from=UNKNOWN to=CULLED reason=cull-wide
+[21:24:43.712] [JOIN] INFO: [census] cull NPC hand=13,812011712 name='Scrawny Cannibal' pos=-5989,595,-130851 (census=11 wide=30 supp=19 culls=19)
+[21:24:44.111] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=52 n=12
+[21:24:44.117] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=1477/19196 (7%)
+[21:24:44.681] [JOIN] INFO: [time] OFFSET off=0.0088gh slew=1.26 host=36.04711 local=36.03835
+[21:24:44.874] [JOIN] INFO: [life] hand=1,34,22094726,1,50048828 from=UNKNOWN to=RESOLVED reason=rekey
+[21:24:44.874] [JOIN] INFO: [squad] MEMBER new=1,34,22094726,1,50048828 insert=1 playerSquad=1 localHand=1,1,2021484416,2,2692504832 pinnedLocal=1 ownIt=0
+[21:24:44.874] [JOIN] INFO: [squad] REKEY old=1,1,2021484416,2,2692504832 new=1,34,22094726,1,50048828 ok=1 repaired=0 culled=-1
+[21:24:44.874] [JOIN] INFO: [event] RECV id=41 ev=11 owner=0 hand=1,1,2021484416,2,2692504832 actor=1,50048828
+[21:24:44.874] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:44.875] [JOIN] INFO: [life] hand=1,34,22094726,1,50048828 from=RESOLVED to=HI reason=drive
+[21:24:44.875] [JOIN] INFO: [wd] PICKUP-APPLY id=85 sid='2154-gamedata.base' owner=1,34,22094726,1,50048828 ref=0/0 moved=0 trackedLeft=0
+[21:24:44.875] [JOIN] INFO: [wd] PICKUP-APPLY id=86 sid='2164-gamedata.base' owner=1,34,22094726,1,50048828 ref=0/0 moved=0 trackedLeft=0
+[21:24:44.875] [JOIN] INFO: [wd] PICKUP-APPLY id=87 sid='2212-gamedata.base' owner=1,34,22094726,1,50048828 ref=0/0 moved=0 trackedLeft=0
+[21:24:44.875] [JOIN] INFO: [wd] PICKUP-APPLY id=88 sid='550-gamedata.base' owner=1,34,22094726,1,50048828 ref=0/0 moved=0 trackedLeft=0
+[21:24:44.875] [JOIN] INFO: [wd] PICKUP-APPLY id=89 sid='556-gamedata.base' owner=1,34,22094726,1,50048828 ref=0/0 moved=0 trackedLeft=0
+[21:24:44.875] [JOIN] INFO: [wd] PICKUP-APPLY id=90 sid='903-gamedata.base' owner=1,34,22094726,1,50048828 ref=0/0 moved=0 trackedLeft=0
+[21:24:44.893] [JOIN] INFO: [fac] AFFECT-EV me='518-gamedata.base' whom='58701-rebirth.mod' event=1 mult=0.025 after=-100.00 skipped=0
+[21:24:44.899] [JOIN] INFO: [fac] AFFECT-EV me='58701-rebirth.mod' whom='518-gamedata.base' event=0 mult=0.000 after=-100.00 skipped=0
+[21:24:45.063] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:24:45.078] [JOIN] INFO: [cam] center=-3904.4,708.9,-128601.6
+[21:24:45.094] [JOIN] INFO: [interp] lerp=14366 extrap=9692 clamp=8 seg=174 single=187 snapSq=0 snapNpc=0 reissueSq=0 reissueNpc=464 restFlip=0 delay=200 jit=125.1 starve=0 snapMid=12 restFlipMid=0
+[21:24:45.094] [JOIN] INFO: [audit] exist near=0 wide=30 drv=11 cen=0 hid=19 ghost=0 supp=19 census=11 fresh=1 parks=0
+[21:24:45.109] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:45.109] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:45.266] [JOIN] INFO: [inv] APPLY hand=1,34,22094726,1,50048828 items=8
+[21:24:45.378] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:45.678] [JOIN] INFO: [time] OFFSET off=0.0064gh slew=1.19 host=36.05630 local=36.04986
+[21:24:45.796] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:45.798] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:24:45.880] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:46.122] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=1641/22111 (7%)
+[21:24:46.386] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:46.424] [JOIN] INFO: [snap] mid hand=8,2267456000 name='Scrawny Cannibal' gap=60.9 gate=20.2 srcVel=18.0 cSpeed=16.8 mult=1.00 slew=1.19 dest=1 skipped=0
+[21:24:46.667] [JOIN] INFO: [time] OFFSET off=0.0048gh slew=1.14 host=36.06549 local=36.06069
+[21:24:46.889] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:47.392] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:47.667] [JOIN] INFO: [time] OFFSET off=0.0035gh slew=1.10 host=36.07467 local=36.07118
+[21:24:47.893] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:48.117] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:48.117] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:48.126] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=1740/24828 (7%)
+[21:24:48.399] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:48.579] [JOIN] INFO: [fac] AFFECT-EV me='518-gamedata.base' whom='56128-rebirth.mod' event=1 mult=0.025 after=-100.00 skipped=2
+[21:24:48.588] [JOIN] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=4
+[21:24:48.702] [JOIN] INFO: [time] OFFSET off=0.0022gh slew=1.07 host=36.08382 local=36.08164
+[21:24:48.763] [JOIN] INFO: [snap] mid hand=9,2414062592 name='Scrawny Cannibal' gap=51.3 gate=17.1 srcVel=15.0 cSpeed=15.8 mult=1.00 slew=1.07 dest=1 skipped=0
+[21:24:48.902] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:49.038] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:49.159] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=52 n=15
+[21:24:49.404] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:49.696] [JOIN] INFO: [time] OFFSET off=0.0020gh slew=1.00 host=36.09302 local=36.09105
+[21:24:49.874] [JOIN] INFO: [snap] squad hand=1,1803832960 name='Zach' gap=47.6 gate=47.1 srcVel=42.9 cSpeed=39.1 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:49.911] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:24:49.961] [JOIN] INFO: [taskkey] key=29 desc='Move order' repro=0 subject=0
+[21:24:50.066] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:24:50.083] [JOIN] INFO: [cam] center=-4734.4,718.4,-129354.8
+[21:24:50.099] [JOIN] INFO: [interp] lerp=19098 extrap=12708 clamp=8 seg=174 single=187 snapSq=1 snapNpc=0 reissueSq=24 reissueNpc=613 restFlip=0 delay=200 jit=127.0 starve=0 snapMid=14 restFlipMid=0
+[21:24:50.099] [JOIN] INFO: [audit] exist near=0 wide=26 drv=11 cen=0 hid=15 ghost=0 supp=19 census=11 fresh=1 parks=0
+[21:24:50.132] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=1867/27259 (6%)
+[21:24:50.133] [JOIN] INFO: [fac] AFFECT-EV me='58701-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=61
+[21:24:50.283] [JOIN] INFO: [inv] APPLY hand=1,34,22094726,1,50048828 items=8
+[21:24:50.413] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4733.90,706.58,-129354.47
+[21:24:50.814] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:24:50.920] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.35,706.36,-129355.07
+[21:24:51.119] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:51.119] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:51.254] [JOIN] INFO: [fac] AFFECT-EV me='518-gamedata.base' whom='58701-rebirth.mod' event=1 mult=0.025 after=-100.00 skipped=55
+[21:24:51.420] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.02,706.44,-129355.45
+[21:24:51.726] [JOIN] INFO: [census] recv n=11 culls=19
+[21:24:51.770] [JOIN] INFO: [snap] mid hand=9,2414062592 name='Scrawny Cannibal' gap=59.0 gate=14.8 srcVel=14.4 cSpeed=14.3 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:51.923] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.40,706.33,-129355.22
+[21:24:52.135] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=2587/30064 (8%)
+[21:24:52.424] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.52,706.28,-129355.23
+[21:24:52.676] [JOIN] INFO: [snap] mid hand=6,3240966912 name='Scrawny Cannibal' gap=47.2 gate=15.4 srcVel=14.6 cSpeed=14.9 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:52.726] [JOIN] INFO: [taskkey] key=7 desc='Sheathing weapon' repro=0 subject=0
+[21:24:52.927] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.59,706.27,-129355.05
+[21:24:53.429] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.66,706.30,-129354.55
+[21:24:53.634] [JOIN] INFO: [snap] mid hand=1,532714848 name='Scrawny Cannibal' gap=48.7 gate=15.7 srcVel=15.1 cSpeed=14.6 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:53.732] [JOIN] INFO: [fac] AFFECT-EV me='518-gamedata.base' whom='56128-rebirth.mod' event=1 mult=0.025 after=-100.00 skipped=5
+[21:24:53.931] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.27,-129354.88
+[21:24:54.069] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.7 xp=0
+[21:24:54.121] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:54.121] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:54.142] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=65535  agree=3611/32968 (10%)
+[21:24:54.221] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=52 n=17
+[21:24:54.437] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.27,-129354.86
+[21:24:54.541] [JOIN] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=6
+[21:24:54.939] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.27,706.32,-129355.66
+[21:24:55.066] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:24:55.077] [JOIN] INFO: [cam] center=-4734.3,718.3,-129355.7
+[21:24:55.100] [JOIN] INFO: [interp] lerp=24071 extrap=16159 clamp=8 seg=174 single=187 snapSq=1 snapNpc=0 reissueSq=24 reissueNpc=765 restFlip=0 delay=200 jit=126.9 starve=0 snapMid=17 restFlipMid=0
+[21:24:55.100] [JOIN] INFO: [audit] exist near=0 wide=27 drv=11 cen=0 hid=16 ghost=0 supp=19 census=11 fresh=1 parks=0
+[21:24:55.277] [JOIN] INFO: [inv] APPLY hand=1,34,22094726,1,50048828 items=8
+[21:24:55.443] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.25,706.35,-129355.48
+[21:24:55.680] [JOIN] INFO: [time] OFFSET off=0.0022gh slew=1.00 host=36.14815 local=36.14593
+[21:24:55.681] [JOIN] INFO: [snap] mid hand=6,3240966912 name='Scrawny Cannibal' gap=53.8 gate=16.4 srcVel=15.0 cSpeed=15.3 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:55.785] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:24:55.943] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.58,706.31,-129354.73
+[21:24:56.146] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=65535  agree=4377/35839 (12%)
+[21:24:56.447] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.96,706.22,-129354.29
+[21:24:56.522] [JOIN] INFO: [snap] mid hand=10,1632446336 name='Scrawny Cannibal' gap=50.1 gate=16.6 srcVel=15.3 cSpeed=14.9 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:56.955] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.42,706.32,-129355.22
+[21:24:57.127] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:24:57.127] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:24:57.456] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.43,706.33,-129355.05
+[21:24:57.829] [JOIN] INFO: [snap] mid hand=5,3556884736 name='Scrawny Cannibal' gap=24.2 gate=8.0 srcVel=3.8 cSpeed=3.7 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:57.962] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.42,706.39,-129354.62
+[21:24:58.152] [JOIN] INFO: [gate] hand=5,3556884736 host=141 local=1  agree=5455/38494 (14%)
+[21:24:58.464] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4735.07,705.99,-129355.90
+[21:24:58.637] [JOIN] INFO: [snap] mid hand=8,2267456000 name='Scrawny Cannibal' gap=50.4 gate=16.6 srcVel=15.3 cSpeed=14.8 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:58.966] [JOIN] INFO: [fac] AFFECT-EV me='518-gamedata.base' whom='56128-rebirth.mod' event=1 mult=0.025 after=-100.00 skipped=14
+[21:24:58.972] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.91,706.08,-129355.67
+[21:24:59.061] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.8 xp=0
+[21:24:59.279] [JOIN] INFO: [net] CLOCKSYNC offset=303 rtt=52 n=20
+[21:24:59.311] [JOIN] INFO: [snap] mid hand=2,328491200 name='Scrawny Cannibal' gap=49.9 gate=16.4 srcVel=15.0 cSpeed=15.3 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:24:59.477] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.36,706.25,-129355.97
+[21:24:59.977] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.64,706.26,-129354.95
+[21:25:00.045] [JOIN] INFO: [snap] mid hand=6,3240966912 name='Scrawny Cannibal' gap=62.2 gate=20.7 srcVel=19.5 cSpeed=18.5 mult=1.00 slew=1.00 dest=1 skipped=1
+[21:25:00.068] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:25:00.079] [JOIN] INFO: [cam] center=-4734.6,718.3,-129355.0
+[21:25:00.104] [JOIN] INFO: [interp] lerp=28725 extrap=19266 clamp=8 seg=174 single=187 snapSq=1 snapNpc=0 reissueSq=60 reissueNpc=922 restFlip=0 delay=200 jit=139.6 starve=0 snapMid=24 restFlipMid=0
+[21:25:00.104] [JOIN] INFO: [interp] worstZero hand=1,1803832960 zero=6 active=306 seg=62
+[21:25:00.104] [JOIN] INFO: [audit] exist near=0 wide=30 drv=11 cen=0 hid=19 ghost=0 supp=19 census=11 fresh=1 parks=0
+[21:25:00.130] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:25:00.130] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:25:00.155] [JOIN] INFO: [gate] hand=2,328491200 host=141 local=1  agree=6809/40977 (16%)
+[21:25:00.201] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.8 xp=0
+[21:25:00.314] [JOIN] INFO: [inv] APPLY hand=1,34,22094726,1,50048828 items=8
+[21:25:00.480] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.49,706.31,-129355.03
+[21:25:00.518] [JOIN] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=7
+[21:25:00.761] [JOIN] INFO: [time] OFFSET off=0.0016gh slew=1.00 host=36.19404 local=36.19249
+[21:25:00.821] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:25:00.835] [JOIN] INFO: [snap] mid hand=5,3556884736 name='Scrawny Cannibal' gap=150.3 gate=28.5 srcVel=27.7 cSpeed=25.6 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:25:00.987] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.48,706.32,-129355.04
+[21:25:01.126] [JOIN] INFO: [fac] AFFECT-EV me='58701-rebirth.mod' whom='518-gamedata.base' event=0 mult=0.000 after=-100.00 skipped=293
+[21:25:01.258] [JOIN] INFO: [speed] REQ mult=0.00 paused=1 combat=0
+[21:25:01.398] [JOIN] INFO: [speed] SET mult=0.00 paused=1 combat=0
+[21:25:01.491] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.46,706.32,-129355.06
+[21:25:01.535] [JOIN] INFO: [snap] mid hand=7,3195922944 name='Scrawny Cannibal' gap=43.7 gate=14.5 srcVel=9.4 cSpeed=14.6 mult=0.00 slew=1.00 dest=1 skipped=1
+[21:25:01.821] [JOIN] INFO: [snap] mid hand=3,3339111424 name='Scrawny Cannibal' gap=41.9 gate=13.9 srcVel=8.2 cSpeed=15.0 mult=0.00 slew=1.00 dest=1 skipped=1
+[21:25:01.998] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.46,706.32,-129355.06
+[21:25:02.051] [JOIN] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[21:25:02.156] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=6977/43858 (15%)
+[21:25:02.290] [JOIN] INFO: [speed] SET mult=1.00 paused=0 combat=0
+[21:25:02.314] [JOIN] INFO: [snap] mid hand=2,328491200 name='Scrawny Cannibal' gap=42.4 gate=8.0 srcVel=0.0 cSpeed=14.9 mult=1.00 slew=1.00 dest=1 skipped=2
+[21:25:02.501] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.45,706.32,-129355.07
+[21:25:02.734] [JOIN] INFO: [census] recv n=11 culls=19
+[21:25:03.002] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.43,706.33,-129355.07
+[21:25:03.131] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:25:03.131] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:25:03.509] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.41,706.34,-129355.08
+[21:25:04.018] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.38,706.35,-129355.09
+[21:25:04.143] [JOIN] INFO: [fac] AFFECT-EV me='518-gamedata.base' whom='56128-rebirth.mod' event=1 mult=0.025 after=-100.00 skipped=11
+[21:25:04.163] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=7655/46828 (16%)
+[21:25:04.330] [JOIN] INFO: [net] CLOCKSYNC offset=305 rtt=52 n=22
+[21:25:04.522] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.36,706.35,-129355.11
+[21:25:05.022] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.35,706.36,-129355.11
+[21:25:05.069] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:25:05.078] [JOIN] INFO: [cam] center=-4734.3,718.4,-129355.1
+[21:25:05.110] [JOIN] INFO: [interp] lerp=33950 extrap=22686 clamp=8 seg=174 single=187 snapSq=1 snapNpc=0 reissueSq=70 reissueNpc=1074 restFlip=0 delay=200 jit=123.5 starve=0 snapMid=33 restFlipMid=0
+[21:25:05.110] [JOIN] INFO: [interp] worstZero hand=1,1803832960 zero=6 active=394 seg=60
+[21:25:05.110] [JOIN] INFO: [audit] exist near=0 wide=30 drv=11 cen=0 hid=19 ghost=0 supp=19 census=11 fresh=1 parks=0
+[21:25:05.180] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.8 xp=0
+[21:25:05.349] [JOIN] INFO: [inv] APPLY hand=1,34,22094726,1,50048828 items=8
+[21:25:05.522] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.33,706.36,-129355.12
+[21:25:05.768] [JOIN] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=7
+[21:25:05.834] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:25:06.027] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.30,706.37,-129355.13
+[21:25:06.043] [JOIN] INFO: [snap] mid hand=10,1632446336 name='Scrawny Cannibal' gap=52.7 gate=17.5 srcVel=15.2 cSpeed=14.8 mult=1.00 slew=1.00 dest=1 skipped=1
+[21:25:06.139] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:25:06.139] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:25:06.171] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=8536/49699 (17%)
+[21:25:06.533] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.28,706.38,-129355.15
+[21:25:06.721] [JOIN] INFO: [time] OFFSET off=0.0021gh slew=1.00 host=36.24098 local=36.23890
+[21:25:07.039] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.26,706.39,-129355.16
+[21:25:07.540] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.24,706.39,-129355.16
+[21:25:08.041] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.21,706.40,-129355.19
+[21:25:08.176] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=9199/52570 (17%)
+[21:25:08.548] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.19,706.41,-129355.20
+[21:25:08.766] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=9.9 xp=0
+[21:25:09.047] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.16,706.41,-129355.23
+[21:25:09.145] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:25:09.145] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:25:09.251] [JOIN] INFO: [snap] mid hand=8,2267456000 name='Scrawny Cannibal' gap=60.9 gate=19.0 srcVel=17.4 cSpeed=15.7 mult=1.00 slew=1.00 dest=1 skipped=1
+[21:25:09.328] [JOIN] INFO: [net] CLOCKSYNC offset=305 rtt=52 n=25
+[21:25:09.558] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4734.03,706.48,-129355.08
+[21:25:09.779] [JOIN] INFO: [speed] REQ mult=0.00 paused=1 combat=0
+[21:25:09.978] [JOIN] INFO: [fac] AFFECT-EV me='518-gamedata.base' whom='56128-rebirth.mod' event=1 mult=0.025 after=-100.00 skipped=16
+[21:25:10.058] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4721.67,709.48,-129341.76
+[21:25:10.076] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:25:10.077] [JOIN] INFO: [cam] center=-4732.4,716.6,-129353.0
+[21:25:10.116] [JOIN] INFO: [interp] lerp=38678 extrap=26044 clamp=8 seg=174 single=187 snapSq=1 snapNpc=0 reissueSq=126 reissueNpc=1222 restFlip=0 delay=200 jit=126.1 starve=0 snapMid=36 restFlipMid=0
+[21:25:10.116] [JOIN] INFO: [interp] worstZero hand=1,1803832960 zero=7 active=762 seg=64
+[21:25:10.116] [JOIN] INFO: [audit] exist near=0 wide=30 drv=11 cen=0 hid=19 ghost=0 supp=19 census=11 fresh=1 parks=0
+[21:25:10.143] [JOIN] INFO: [speed] SET mult=0.00 paused=1 combat=0
+[21:25:10.184] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=9517/55155 (17%)
+[21:25:10.259] [JOIN] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[21:25:10.260] [JOIN] INFO: [inv] APPLY hand=1,34,22094726,1,50048828 items=8
+[21:25:10.561] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4717.58,710.90,-129337.54
+[21:25:10.577] [JOIN] INFO: [speed] SET mult=1.00 paused=0 combat=0
+[21:25:10.800] [JOIN] INFO: [inv] APPLY hand=1,1,2021484416,1,1803832960 items=7
+[21:25:11.065] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4692.88,711.51,-129312.35
+[21:25:11.192] [JOIN] INFO: [stats] RECV hand=1,1803832960 ok=1 str=6.5 dex=26.5 tough=10.9 stealth=1.0 athl=10.0 xp=0
+[21:25:11.569] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4667.00,708.00,-129285.93
+[21:25:11.588] [JOIN] INFO: [fac] AFFECT-EV me='56128-rebirth.mod' whom='518-gamedata.base' event=1 mult=0.000 after=-100.00 skipped=1
+[21:25:11.729] [JOIN] INFO: [time] OFFSET off=0.0024gh slew=1.00 host=36.28311 local=36.28073
+[21:25:11.796] [JOIN] INFO: [fac] AFFECT-EV me='58701-rebirth.mod' whom='518-gamedata.base' event=0 mult=0.000 after=-100.00 skipped=45
+[21:25:12.070] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4642.43,709.63,-129260.79
+[21:25:12.148] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:25:12.148] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0
+[21:25:12.188] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=9811/57850 (16%)
+[21:25:12.570] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4617.50,720.07,-129237.91
+[21:25:12.755] [JOIN] INFO: [census] recv n=11 culls=19
+[21:25:13.072] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4594.18,724.84,-129215.50
+[21:25:13.241] [JOIN] INFO: [snap] mid hand=8,2267456000 name='Scrawny Cannibal' gap=53.7 gate=17.2 srcVel=15.6 cSpeed=13.8 mult=1.00 slew=1.00 dest=1 skipped=0
+[21:25:13.575] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4575.34,725.70,-129204.36
+[21:25:13.875] [JOIN] INFO: [speed] REQ mult=0.00 paused=1 combat=0
+[21:25:14.019] [JOIN] INFO: [speed] SET mult=0.00 paused=1 combat=0
+[21:25:14.080] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4554.88,727.72,-129178.95
+[21:25:14.192] [JOIN] INFO: [gate] hand=1,532714848 host=22 local=1  agree=10626/60765 (17%)
+[21:25:14.232] [JOIN] INFO: [snap] mid hand=1,532714848 name='Scrawny Cannibal' gap=53.9 gate=17.8 srcVel=6.6 cSpeed=18.1 mult=0.00 slew=1.00 dest=1 skipped=0
+[21:25:14.375] [JOIN] INFO: [net] CLOCKSYNC offset=305 rtt=52 n=27
+[21:25:14.486] [JOIN] INFO: [snap] squad hand=1,50048828 name='Evan' gap=36.6 gate=32.2 srcVel=0.0 cSpeed=73.4 mult=0.00 slew=1.00 dest=0 skipped=15
+[21:25:14.580] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4554.88,727.72,-129178.95
+[21:25:14.735] [JOIN] INFO: [snap] squad hand=1,50048828 name='Evan' gap=36.6 gate=23.2 srcVel=0.0 cSpeed=73.4 mult=0.00 slew=1.00 dest=0 skipped=31
+[21:25:14.988] [JOIN] INFO: [snap] squad hand=1,50048828 name='Evan' gap=36.6 gate=16.6 srcVel=0.0 cSpeed=73.4 mult=0.00 slew=1.00 dest=0 skipped=32
+[21:25:15.081] [JOIN] INFO: [hitdbg] owner=1 attackers=2 driven=13 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[21:25:15.081] [JOIN] INFO: SCENARIO PROXY hand=1,50048828,1,34,22094726 pos=-4554.88,727.72,-129178.95
+[21:25:15.084] [JOIN] INFO: [cam] center=-4562.0,739.1,-129187.5
+[21:25:15.122] [JOIN] INFO: [interp] lerp=43569 extrap=29460 clamp=8 seg=174 single=187 snapSq=96 snapNpc=0 reissueSq=206 reissueNpc=1360 restFlip=0 delay=200 jit=115.8 starve=0 snapMid=41 restFlipMid=0
+[21:25:15.122] [JOIN] INFO: [interp] worstZero hand=1,1803832960 zero=214 active=1116 seg=68
+[21:25:15.122] [JOIN] INFO: [audit] exist near=0 wide=11 drv=11 cen=0 hid=0 ghost=0 supp=19 census=11 fresh=1 parks=0
+[21:25:15.151] [JOIN] INFO: [ai] suspended=13 driven=13
+[21:25:15.151] [JOIN] INFO: [trust] trusted=0 driven=13 grants=0 revokes=0

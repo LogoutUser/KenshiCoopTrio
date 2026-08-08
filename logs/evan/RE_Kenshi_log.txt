@@ -1,0 +1,95 @@
+0.000 RE_Kenshi: RE_Kenshi 0.3.4
+0.000 RE_Kenshi: UEF registered successfully
+0.001 RE_Kenshi: Loading settings file...
+0.001 RE_Kenshi: Saving settings...
+0.001 KenshiLib: KenshiLib 0.4.0
+0.002 RE_Kenshi: Checking latest version...
+0.002 KenshiLib: RVAs loaded
+0.068 RE_Kenshi: VirtualAlloc2 found.
+0.119 RE_Kenshi: Latest public release: v0.3.4
+0.119 RE_Kenshi: We are up to date.
+0.232 RE_Kenshi: Shader cache load start
+0.237 RE_Kenshi: Shader cache loaded successfully, 208 cached shaders
+0.763 RE_Kenshi: Finished synchronous init stage
+0.763 RE_Kenshi: Waiting for mod setup.
+1.122 RE_Kenshi: Loading preload plugins...
+2.787 RE_Kenshi: First shader compile request
+3.056 RE_Kenshi: Queueing Boot_Up_Game event
+3.423 RE_Kenshi: Load mod hook
+3.423 RE_Kenshi: Loading post-load plugins...
+3.423 RE_Kenshi: KenshiCoop -> KenshiCoop.dll
+3.443 KenshiCoop: KenshiCoop loaded! (clean rebuild)
+3.443 KenshiCoop: KenshiCoop: build Aug  7 2026 20:01:48
+3.443 KenshiCoop: KenshiCoop: role=JOIN proto=v46 port=27800 save=''
+3.443 KenshiCoop: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer,money] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
+3.473 KenshiCoop: KenshiCoop: ownership ranks = {1} (bidirectional presence)
+3.473 KenshiCoop: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
+3.502 KenshiCoop: [ai] periodicUpdate detour installed; AI-suspend ON (default)
+3.502 KenshiCoop: [trust] divergence-gated authority ON (default; KENSHICOOP_GATE_AUTHORITY=0 disables)
+3.532 KenshiCoop: [dmg] hitByMeleeAttack detour installed; damage guard ON + combat-hit report ON (join)
+3.563 KenshiCoop: [wi] dropItem detour installed; query-free drop capture ON
+3.594 KenshiCoop: [recruit] recruit detour installed; recruitment sync ON
+3.624 KenshiCoop: [build] placeFinalPreviewBuilding detour installed; placement logging ON
+3.657 KenshiCoop: [build] dismantle detour installed; removal logging ON
+3.720 KenshiCoop: [fac] affectRelations detours installed; relation logging ON
+3.750 KenshiCoop: [save] save detour installed; coordinated save ON
+3.752 KenshiCoop: [save] cleared 1 stale transfer folder(s) at startup
+3.812 KenshiCoop: [load] load detour installed; coordinated load ON
+3.841 KenshiCoop: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
+3.842 KenshiCoop: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
+3.843 RE_Kenshi: KenshiRotate -> KenshiRotate.dll
+3.843 KenshiRotate: [KenshiRotate] Starting plugin...
+3.843 KenshiRotate: [KenshiRotate] Detected language: en_GB
+3.843 KenshiRotate: [KenshiRotate] No config file, using defaults
+3.843 KenshiRotate: [KenshiRotate] Rotation key: Middle Mouse
+3.843 KenshiRotate: [KenshiRotate] Secondary key: None
+3.874 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::_NV_update OK
+3.904 KenshiRotate: [KenshiRotate] Hooked InventoryIcon::_CONSTRUCTOR OK
+3.936 KenshiRotate: [KenshiRotate] Hooked InventorySectionGUI::getBestPositionSlot OK
+3.967 KenshiRotate: [KenshiRotate] Hooked Item::serialiseInInventory OK
+3.997 KenshiRotate: [KenshiRotate] Hooked Item::loadFromSerialiseInInventory OK
+4.027 KenshiRotate: [KenshiRotate] Hooked OptionsWindow::_NV_update OK
+4.057 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::placeItemFromMouse OK
+4.089 KenshiRotate: [KenshiRotate] Hooked InventoryItemBase::canStackWith OK
+4.119 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::takeCertainAmountFrom OK
+4.149 KenshiRotate: [KenshiRotate] Hooked InventoryItemBase::addQuantity OK
+4.179 KenshiRotate: [KenshiRotate] Hooked InventoryGUI::sectionMouseButtonReleased OK
+4.179 KenshiRotate: [KenshiRotate] Plugin started successfully
+4.180 RE_Kenshi: Registering LoadingListener
+4.180 RE_Kenshi: Loading mod overrides from "KenshiCoop"...
+4.180 RE_Kenshi: Loading mod overrides from "KenshiRotate"...
+4.180 RE_Kenshi: Loading init bank Init.bnk 1
+4.204 RE_Kenshi: Force triggering Boot_Up_Game
+4.376 RE_Kenshi: Heightmap hooks installed...
+4.376 RE_Kenshi: Opening fast heightmap...
+4.389 RE_Kenshi: Fast heightmap mapped!
+5.146 RE_Kenshi: Main menu loaded.
+5.146 RE_Kenshi: Kenshi version: 1.0.65
+5.146 RE_Kenshi: Kenshi platform: Steam
+5.146 RE_Kenshi: Version supported.
+5.147 RE_Kenshi: Kenshi 1.0.65 - x64 (Newland)
+5.158 KenshiCoop: [boot] title-tick running=0 host=0 started=0 saveEmpty=1
+8.229 KenshiCoop: [dmg] role re-armed: JOIN (combat-hit report ON)
+8.229 KenshiCoop: [coop-ui] connect: role=JOIN transport=steam peer=76561199417484463 ownRanks={1} src=role
+8.229 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+8.229 KenshiCoop: KenshiCoop: starting as CLIENT
+8.230 KenshiCoop: [boot] title-tick running=1 host=0 started=0 saveEmpty=1
+39.858 KenshiCoop: handshake: peer left id=4294967295
+39.858 KenshiCoop: [save] JOIN save suppression OFF (last peer left)
+71.607 KenshiCoop: handshake: peer left id=4294967295
+71.607 KenshiCoop: [save] JOIN save suppression OFF (last peer left)
+103.422 KenshiCoop: handshake: peer left id=4294967295
+103.422 KenshiCoop: [save] JOIN save suppression OFF (last peer left)
+135.218 KenshiCoop: handshake: peer left id=4294967295
+135.218 KenshiCoop: [save] JOIN save suppression OFF (last peer left)
+166.847 KenshiCoop: handshake: peer left id=4294967295
+166.847 KenshiCoop: [save] JOIN save suppression OFF (last peer left)
+198.646 KenshiCoop: handshake: peer left id=4294967295
+198.646 KenshiCoop: [save] JOIN save suppression OFF (last peer left)
+223.547 KenshiCoop: [coop-ui] disconnect
+223.590 KenshiCoop: [boot] title-tick running=0 host=0 started=0 saveEmpty=1
+224.286 KenshiCoop: [dmg] role re-armed: JOIN (combat-hit report ON)
+224.286 KenshiCoop: [coop-ui] connect: role=JOIN transport=steam peer=76561199417484463 ownRanks={1} src=role
+224.286 KenshiCoop: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+224.286 KenshiCoop: KenshiCoop: starting as CLIENT
+224.287 KenshiCoop: [boot] title-tick running=1 host=0 started=0 saveEmpty=1

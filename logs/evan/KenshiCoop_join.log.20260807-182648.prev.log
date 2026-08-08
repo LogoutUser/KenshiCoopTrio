@@ -1,0 +1,720 @@
+[18:05:19.543] [JOIN] INFO: log opened (previous run preserved as *.log.prev)
+[18:05:19.543] [JOIN] INFO: KenshiCoop loaded! (clean rebuild)
+[18:05:19.543] [JOIN] INFO: KenshiCoop: build Aug  6 2026 21:32:36
+[18:05:19.543] [JOIN] INFO: KenshiCoop: role=JOIN proto=v46 port=27800 save=''
+[18:05:19.543] [JOIN] INFO: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer,money] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
+[18:05:19.571] [JOIN] INFO: [engine] CAPS saveload=1 savepath=1 hand_resolve=1 npc_stream=1 limb=1 stats=1 carry=1 furniture=1 chain=1 shackle=1 slave=1 stealth=1 camera=1 speed=1 quiet_speed=1 door=1 build=1 machine=1 time=1 wallet=1 faction=1 combat_escalate=1
+[18:05:19.571] [JOIN] INFO: KenshiCoop: ownership ranks = {1} (bidirectional presence)
+[18:05:19.573] [JOIN] INFO: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
+[18:05:19.601] [JOIN] INFO: [ai] periodicUpdate detour installed; AI-suspend ON (default)
+[18:05:19.601] [JOIN] INFO: [trust] divergence-gated authority ON (default; KENSHICOOP_GATE_AUTHORITY=0 disables)
+[18:05:19.629] [JOIN] INFO: [dmg] hitByMeleeAttack detour installed; damage guard ON + combat-hit report ON (join)
+[18:05:19.657] [JOIN] INFO: [wi] dropItem detour installed; query-free drop capture ON
+[18:05:19.686] [JOIN] INFO: [recruit] recruit detour installed; recruitment sync ON
+[18:05:19.714] [JOIN] INFO: [build] placeFinalPreviewBuilding detour installed; placement logging ON
+[18:05:19.744] [JOIN] INFO: [build] dismantle detour installed; removal logging ON
+[18:05:19.800] [JOIN] INFO: [fac] affectRelations detours installed; relation logging ON
+[18:05:19.829] [JOIN] INFO: [save] save detour installed; coordinated save ON
+[18:05:19.887] [JOIN] INFO: [load] load detour installed; coordinated load ON
+[18:05:19.915] [JOIN] INFO: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
+[18:05:19.916] [JOIN] INFO: [steam] id=76561198346257175 loggedOn=1 iface=SteamNetworking005
+[18:05:19.916] [JOIN] INFO: [invite] ready: mm=SteamMatchMaking009 friends=SteamFriends015 (in-panel friend picker armed)
+[18:05:19.916] [JOIN] INFO: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
+[18:05:21.212] [JOIN] INFO: [boot] title-tick running=0 host=0 started=0 saveEmpty=1
+[18:05:21.217] [JOIN] INFO: [coop-ui] gui ptr=00007FF70EDE2750
+[18:05:23.301] [JOIN] INFO: [coop-ui] panel opened
+[18:05:24.179] [JOIN] INFO: [coop-ui] connection -> ONLINE
+[18:05:24.180] [JOIN] INFO: [coop-ui] CONNECT role=JOIN transport=steam
+[18:05:24.180] [JOIN] INFO: [load] session reset: pointer caches, session maps, change gates cleared
+[18:05:24.180] [JOIN] INFO: [dmg] role re-armed: JOIN (combat-hit report ON)
+[18:05:24.180] [JOIN] INFO: [coop-ui] connect: role=JOIN transport=steam peer=76561199025713332 ownRanks={1} src=role
+[18:05:24.180] [JOIN] INFO: [steam] tunnel peer=76561199025713332 slot=0 addr=1.0.0.1 (session pre-accepted)
+[18:05:24.180] [JOIN] INFO: [steam] transport=steam armed, 1 tunnel peer(s) (connect by SteamID; no port forwarding)
+[18:05:24.180] [JOIN] INFO: KenshiCoop: starting as CLIENT
+[18:05:24.180] [JOIN] INFO: [steam] ENet socket hooks installed (tunnel on P2P channel 0)
+[18:05:24.180] [JOIN] INFO: [net] transport=steam (ENet tunnelled over Steam P2P)
+[18:05:24.180] [JOIN] INFO: [net] connecting
+[18:05:24.180] [JOIN] INFO: [steam] session peer=76561199025713332 active=1 connecting=0 relay=0 err=0
+[18:05:24.181] [JOIN] INFO: [steam] first tunnel packet received from peer
+[18:05:24.181] [JOIN] INFO: [boot] title-tick running=1 host=0 started=0 saveEmpty=1
+[18:05:24.269] [JOIN] INFO: [net] connected to host; sent HELLO
+[18:05:24.362] [JOIN] INFO: [net] peer connected id=1 (proto v46) - received WELCOME
+[18:05:24.363] [JOIN] INFO: handshake: peer present id=0 (local id=1)
+[18:05:24.363] [JOIN] INFO: [latejoin] RESYNC place=0 remove=0 fac=0 door=0 bdoor=0 med=0 stats=0 money=0 inv=0 world=0 prod=0
+[18:05:24.363] [JOIN] INFO: [save] JOIN save suppression ON (host save is authoritative)
+[18:05:24.792] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=92 n=1
+[18:05:26.566] [JOIN] INFO: [load] GO id=28 name='autosave2' hostFp=64dcd1a3 localFp=083247c6 DIVERGED -> NACK (transfer)
+[18:05:26.758] [JOIN] INFO: [save] XFER-RECV id=29 name='autosave2' files=141 bytes=10292890 staging='C:\Users\evanc\AppData\Local\kenshi\KenshiCoop_staging\autosave2__incoming'
+[18:05:30.087] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=92 n=3
+[18:05:36.713] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=92 n=4
+[18:05:41.827] [JOIN] INFO: [net] CLOCKSYNC offset=465 rtt=87 n=6
+[18:05:43.354] [JOIN] ERROR: [save] XFER-FAILED id=29 name='autosave2' files=141 bytes=10292890 badCrc=0 ms=16610
+[18:05:46.888] [JOIN] INFO: [net] CLOCKSYNC offset=465 rtt=87 n=8
+[18:05:51.891] [JOIN] INFO: [net] CLOCKSYNC offset=465 rtt=87 n=11
+[18:05:56.954] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=13
+[18:06:01.967] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=15
+[18:06:06.999] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=18
+[18:06:12.061] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=20
+[18:06:17.206] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=23
+[18:06:19.776] [JOIN] INFO: [load] GO id=29 name='autosave2' hostFp=64dcd1a3 localFp=083247c6 DIVERGED -> NACK (transfer)
+[18:06:22.134] [JOIN] INFO: [save] XFER-RECV id=30 name='autosave2' files=141 bytes=10292890 staging='C:\Users\evanc\AppData\Local\kenshi\KenshiCoop_staging\autosave2__incoming'
+[18:06:22.343] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=25
+[18:06:38.107] [JOIN] INFO: [save] XFER-COMMIT id=30 name='autosave2' files=141 bytes=10292890 badCrc=0 ms=15969
+[18:06:38.109] [JOIN] INFO: [load] transfer committed -> loading 'autosave2'
+[18:06:38.109] [JOIN] INFO: [load] LOCAL-LOAD name='autosave2' suppressed=0 bypass=1 via=name
+[18:06:38.330] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=26
+[18:06:43.377] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=29
+[18:06:45.420] [JOIN] INFO: KenshiCoop: gameplay started
+[18:06:45.528] [JOIN] INFO: [speed] intent hooks installed (setGameSpeed/userPause/togglePause)
+[18:06:45.528] [JOIN] INFO: [load] JOIN load suppression ON (host arbitrates loads)
+[18:06:45.528] [JOIN] INFO: [wi] BASELINE seeded=4 (save-native, never-stream)
+[18:06:45.528] [JOIN] INFO: [med] SEND hand=1,1962646528 npc=0 blood=130.9 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[18:06:45.528] [JOIN] INFO: [med] SEND hand=2,818237312 npc=0 blood=88.5 bleed=0.00 fl=100.0,100.0,100.0,100.0 bd=0.0,0.0,0.0,0.0 flags=0 nparts=7 pmin=100.0 smin=0.0 ls=0,0,0,0
+[18:06:45.529] [JOIN] INFO: [hitdbg] owner=1 attackers=0 driven=0 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[18:06:45.529] [JOIN] INFO: [stats] SEND hand=1,1962646528 str=74.6 dex=51.7 tough=77.5 stealth=61.0 athl=80.5 xp=0 fap=0
+[18:06:45.529] [JOIN] INFO: [stats] SEND hand=2,818237312 str=18.0 dex=30.6 tough=26.5 stealth=18.0 athl=21.4 xp=0 fap=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.3 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.3 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.3 athl=79.3 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.3 athl=79.3 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.3 athl=79.3 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.3 athl=79.3 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.3 athl=79.3 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.529] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:45.552] [JOIN] INFO: [r401] lever scan isKnown=00007ff70d4de430 can=00007ff70d4e20d0 start=00007ff70d4e3680
+[18:06:45.552] [JOIN] INFO: [r401] levers located by prologue scan
+[18:06:45.553] [JOIN] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[18:06:45.553] [JOIN] INFO: [speed] SET mult=1.00 paused=0 combat=0
+[18:06:45.553] [JOIN] INFO: [speed] SET mult=0.00 paused=1 combat=1
+[18:06:45.553] [JOIN] INFO: [speed] SET mult=1.00 paused=0 combat=0
+[18:06:45.553] [JOIN] INFO: [time] OFFSET off=0.2115gh slew=2.00 host=698.77830 local=698.56681
+[18:06:45.555] [JOIN] INFO: [sneak] APPLY hand=1,1913818368 on=0 ok=1
+[18:06:45.555] [JOIN] INFO: [life] hand=1,1,3629760768,1,1913818368 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [snap] squad hand=1,1913818368 name='Zach' gap=849.5 gate=8.0 srcVel=0.0 cSpeed=97.7 mult=1.00 slew=2.00 dest=0 skipped=0
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,180,3951416064,1,3535766528 pos=18009.8,401.0,48021.4
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,181,538696320,1,2614013696 pos=18324.6,401.0,48198.5
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,181,538696320,2,3604736256 pos=18312.2,401.0,48349.6
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,181,538696320,3,2951293952 pos=18323.2,401.0,48239.7
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,182,3829711872,1,1364502016 pos=18261.7,401.0,48193.7
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,182,3829711872,2,1645629824 pos=18051.2,401.0,48100.7
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,182,3829711872,3,165405280 pos=18254.8,401.0,48189.5
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,182,3829711872,4,912475584 pos=18395.0,401.0,48280.8
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,182,3829711872,5,1209838848 pos=18275.8,401.0,48212.6
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,182,3829711872,6,3712402432 pos=18793.8,140.3,47691.9
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,184,2115722624,1,2134765568 pos=18227.7,429.5,48862.7
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,185,3256957952,2,1729492224 pos=18319.4,401.0,48192.7
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,185,3256957952,3,3628418048 pos=18321.5,401.0,48193.7
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,185,3256957952,4,433471680 pos=18301.1,401.0,48180.3
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,187,1228027392,2,2880493056 pos=18045.2,492.5,48400.9
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,187,1228027392,3,2305908224 pos=18116.1,426.0,48301.0
+[18:06:45.555] [JOIN] INFO: [spawn] unresolved hand=1,190,2980224512,1,2242553600 pos=18185.9,429.5,48775.0
+[18:06:45.555] [JOIN] INFO: [life] hand=1,195,3864745984,1,506347648 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [pose] rest re-arm task 65535 -> 98
+[18:06:45.555] [JOIN] INFO: [pose] applyOrder hand=1,506347648 task=98 subj=271,520996096,0 det=1 r=2 try=0
+[18:06:45.555] [JOIN] INFO: [life] hand=1,195,3864745984,2,3119628800 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [pose] rest re-arm task 65535 -> 98
+[18:06:45.555] [JOIN] INFO: [pose] applyOrder hand=2,3119628800 task=98 subj=272,3520385792,0 det=1 r=2 try=0
+[18:06:45.555] [JOIN] INFO: [combat] order hand=1,3621459968 tgt=1,1913818368 localFight=0 r=2 wait=1 n=1
+[18:06:45.555] [JOIN] INFO: [gate] hand=2,3320190464 host=35 local=65535  agree=2/3 (66%)
+[18:06:45.555] [JOIN] INFO: [life] hand=1,196,2610229504,2,3320190464 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,196,2610229504,4,2471801856 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [combat] order hand=5,1182006784 tgt=1,1913818368 localFight=0 r=2 wait=0 n=1
+[18:06:45.555] [JOIN] INFO: [combat] snap hand=5,1182006784 drift=1127.0 srcVel=0.0 localFight=0 wrongTgt=0 arming=1 wait=0 seg=0 n=1
+[18:06:45.555] [JOIN] INFO: [combat] order hand=6,3469116160 tgt=1,1913818368 localFight=0 r=2 wait=1 n=1
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,1,2055664000 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,2,2604003840 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,3,550415040 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,4,2828735232 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,5,3317504768 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,6,3382812416 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,7,2046875008 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,8,3186889728 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,9,3055175680 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,10,2134887680 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,11,913452160 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,385,1293457024,12,797973632 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,1,2733642496 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,2,3586059520 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,3,1273803648 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,4,1891113344 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,5,1565795840 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,6,38818360 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,7,679687488 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,8,956665024 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,9,2237793024 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,10,1017578112 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,391,3640869120,11,904052736 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,393,400146496,1,1695678720 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,393,400146496,2,841430656 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,393,400146496,3,1743652352 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,393,400146496,4,3274047744 from=UNKNOWN to=HI reason=drive
+[18:06:45.555] [JOIN] INFO: [life] hand=1,393,400146496,6,1721679744 from=UNKNOWN to=HI reason=drive
+[18:06:45.556] [JOIN] INFO: [life] hand=1,393,400146496,8,1264038144 from=UNKNOWN to=HI reason=drive
+[18:06:45.556] [JOIN] INFO: [life] hand=1,393,400146496,9,3018676736 from=UNKNOWN to=HI reason=drive
+[18:06:45.556] [JOIN] INFO: [life] hand=1,393,400146496,10,2446899456 from=UNKNOWN to=HI reason=drive
+[18:06:45.556] [JOIN] INFO: [life] hand=1,393,400146496,11,2922119168 from=UNKNOWN to=HI reason=drive
+[18:06:45.556] [JOIN] INFO: [life] hand=1,393,400146496,12,2004760704 from=UNKNOWN to=HI reason=drive
+[18:06:45.556] [JOIN] INFO: [ai] suspended=38 driven=58
+[18:06:45.556] [JOIN] INFO: [interp] lerp=0 extrap=0 clamp=0 seg=0 single=58 snapSq=1 snapNpc=0 reissueSq=0 reissueNpc=0 restFlip=0 delay=50 jit=0.0 starve=0 snapMid=0 restFlipMid=0
+[18:06:45.556] [JOIN] INFO: [combat] stats snap=1 slide=2 softWalk=2 order=3 wrongTgt=0 armed=3 maxPersist=1
+[18:06:45.556] [JOIN] INFO: [trust] trusted=0 driven=58 grants=0 revokes=0
+[18:06:45.556] [JOIN] INFO: [wd] APPLY id=21 sid='549-gamedata.base' owner=1,1,3629760768,1,1913818368 moved=1 pos=18599.21,490.11,48512.19 tracked=1
+[18:06:45.556] [JOIN] INFO: [wd] APPLY id=22 sid='549-gamedata.base' owner=1,1,3629760768,1,1913818368 moved=0 pos=18599.21,490.11,48512.19 tracked=1
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=153 sid='556-gamedata.base' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=0 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=154 sid='2150-gamedata.base' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=0 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=155 sid='2200-gamedata.base' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=0 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=156 sid='2211-gamedata.base' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=0 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=157 sid='53299-rebirth.mod' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=0 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=158 sid='5346-armor_otto.mod' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=0 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=159 sid='549-gamedata.base' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=1 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=160 sid='902-gamedata.base' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=0 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [wd] PICKUP-APPLY id=161 sid='556-gamedata.base' owner=1,1,3629760768,1,1913818368 ref=0/0 moved=0 trackedLeft=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,1650,11111,35,668823232 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,1650,11111,45,76660160 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2724,11111,48,1182495104 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2724,11111,979,3076171776 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,299,3590942464 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,300,2435058688 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,301,2975341824 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,302,3849487360 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,304,1744018560 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,308,403198240 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,309,256225584 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,310,2069458048 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,311,2145874048 items=18
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,312,1044799808 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,313,3079101440 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,314,339965824 items=1
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,315,683959936 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,316,899291968 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,317,976684544 items=0
+[18:06:45.556] [JOIN] INFO: [inv] APPLY hand=1,1,3629760768,1,1913818368 items=12
+[18:06:45.557] [JOIN] INFO: [census] recv n=112 culls=0
+[18:06:45.557] [JOIN] INFO: [taskkey] key=98 desc='Sleeping' repro=1 subject=1
+[18:06:45.557] [JOIN] INFO: [seatres] HOST task=98 npc=2,3119628800 subj=272,3520385792 ok=1 npcpos=18664.1,48585.9 subjpos=18664.1,48585.9 d=0.0
+[18:06:45.557] [JOIN] INFO: [audit] exist near=2 wide=60 drv=40 cen=20 hid=0 ghost=0 supp=0 census=112 fresh=1 parks=0
+[18:06:45.557] [JOIN] INFO: [cam] center=18602.5,490.1,48529.4
+[18:06:45.565] [JOIN] INFO: [life] hand=1,180,3951416064,1,3535766528 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,181,538696320,1,2614013696 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,181,538696320,2,3604736256 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,181,538696320,3,2951293952 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,182,3829711872,1,1364502016 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,182,3829711872,2,1645629824 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,182,3829711872,3,165405280 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,182,3829711872,4,912475584 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,182,3829711872,5,1209838848 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,182,3829711872,6,3712402432 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,183,3091552768,1,2203735296 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,183,3091552768,1,2203735296 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,184,2115722624,1,2134765568 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,185,3256957952,2,1729492224 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,185,3256957952,3,3628418048 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,185,3256957952,4,433471680 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,186,325805664,1,3322998016 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,186,325805664,1,3322998016 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,186,325805664,2,1922607360 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,186,325805664,2,1922607360 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,186,325805664,3,3793579008 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,186,325805664,3,3793579008 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,187,1228027392,1,1207275392 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,187,1228027392,1,1207275392 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,187,1228027392,2,2880493056 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,187,1228027392,3,2305908224 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [life] hand=1,187,1228027392,4,2491454976 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,187,1228027392,4,2491454976 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,189,3703491328,1,1054809600 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,189,3703491328,1,1054809600 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,189,3703491328,2,554199232 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,189,3703491328,2,554199232 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,189,3703491328,3,2197631744 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,189,3703491328,3,2197631744 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,189,3703491328,4,3522583040 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,189,3703491328,4,3522583040 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,189,3703491328,5,3454101504 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.565] [JOIN] INFO: [spawn] census-missing hand=1,189,3703491328,5,3454101504 (no local body)
+[18:06:45.565] [JOIN] INFO: [life] hand=1,189,3703491328,6,816528320 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,189,3703491328,6,816528320 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,190,2980224512,1,2242553600 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [life] hand=1,190,2980224512,2,533325184 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,190,2980224512,2,533325184 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,192,2728393472,1,2997070336 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,192,2728393472,1,2997070336 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,192,2728393472,2,2971801856 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,192,2728393472,2,2971801856 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,192,2728393472,3,2374755840 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,192,2728393472,3,2374755840 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,192,2728393472,4,2883666944 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,192,2728393472,4,2883666944 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,192,2728393472,5,1598022400 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,192,2728393472,5,1598022400 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,192,2728393472,6,3107665920 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,192,2728393472,6,3107665920 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,192,2728393472,7,2085693312 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,192,2728393472,7,2085693312 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,193,776611328,1,2727294976 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,193,776611328,1,2727294976 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,193,776611328,2,3621337856 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,193,776611328,2,3621337856 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,194,3132080128,1,1145141632 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,194,3132080128,1,1145141632 (no local body)
+[18:06:45.566] [JOIN] INFO: [life] hand=1,194,3132080128,2,2063476608 from=UNKNOWN to=DISCOVERED reason=census-miss
+[18:06:45.566] [JOIN] INFO: [spawn] census-missing hand=1,194,3132080128,2,2063476608 (no local body)
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,180,3951416064,1,3535766528 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,181,538696320,1,2614013696 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,181,538696320,2,3604736256 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,181,538696320,3,2951293952 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,182,3829711872,1,1364502016 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,182,3829711872,2,1645629824 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,182,3829711872,3,165405280 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,182,3829711872,4,912475584 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,182,3829711872,5,1209838848 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,182,3829711872,6,3712402432 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,183,3091552768,1,2203735296 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,184,2115722624,1,2134765568 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,185,3256957952,2,1729492224 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,185,3256957952,3,3628418048 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,185,3256957952,4,433471680 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,186,325805664,1,3322998016 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,186,325805664,2,1922607360 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,186,325805664,3,3793579008 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,187,1228027392,1,1207275392 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,187,1228027392,2,2880493056 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,187,1228027392,3,2305908224 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,187,1228027392,4,2491454976 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,189,3703491328,1,1054809600 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,189,3703491328,2,554199232 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,189,3703491328,3,2197631744 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,189,3703491328,4,3522583040 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,189,3703491328,5,3454101504 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,189,3703491328,6,816528320 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,190,2980224512,1,2242553600 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,190,2980224512,2,533325184 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,192,2728393472,1,2997070336 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,192,2728393472,2,2971801856 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,192,2728393472,3,2374755840 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,192,2728393472,4,2883666944 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,192,2728393472,5,1598022400 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,192,2728393472,6,3107665920 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,192,2728393472,7,2085693312 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,193,776611328,1,2727294976 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,193,776611328,2,3621337856 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,194,3132080128,1,1145141632 send=1
+[18:06:45.566] [JOIN] INFO: [spawn] REQ hand=1,194,3132080128,2,2063476608 send=1
+[18:06:45.571] [JOIN] INFO: [seatres] HOST task=98 npc=1,1825561472 subj=271,520996096 ok=1 npcpos=18636.3,48603.4 subjpos=18636.3,48603.4 d=0.0
+[18:06:45.571] [JOIN] INFO: [taskkey] key=121 desc='Moving to gate' repro=0 subject=1
+[18:06:45.571] [JOIN] INFO: [taskkey] key=141 desc='Following leader' repro=0 subject=1
+[18:06:45.582] [JOIN] INFO: [taskkey] key=53 desc='Travelling' repro=0 subject=0
+[18:06:45.582] [JOIN] INFO: [taskkey] key=1 desc='Moving' repro=0 subject=0
+[18:06:45.591] [JOIN] INFO: [taskkey] key=175 desc='Sleeping on ground' repro=1 subject=0
+[18:06:45.591] [JOIN] INFO: [seatres] HOST task=175 npc=5,1959350528 subj=0,0 ok=0 npcpos=77861.3,-28380.1 subjpos=0.0,0.0 d=-1.0
+[18:06:45.599] [JOIN] INFO: [seatres] HOST task=175 npc=12,1406738304 subj=0,0 ok=0 npcpos=77095.3,-31788.8 subjpos=0.0,0.0 d=-1.0
+[18:06:45.599] [JOIN] INFO: [seatres] HOST task=175 npc=10,1761474560 subj=0,0 ok=0 npcpos=77243.7,-31830.6 subjpos=0.0,0.0 d=-1.0
+[18:06:45.599] [JOIN] INFO: [seatres] HOST task=175 npc=1,3372680704 subj=0,0 ok=0 npcpos=77932.9,-28473.6 subjpos=0.0,0.0 d=-1.0
+[18:06:45.599] [JOIN] INFO: [seatres] HOST task=175 npc=2,3359863296 subj=0,0 ok=0 npcpos=77729.8,-28549.7 subjpos=0.0,0.0 d=-1.0
+[18:06:45.612] [JOIN] INFO: [taskkey] key=36 desc='Patrolling town' repro=0 subject=0
+[18:06:45.612] [JOIN] INFO: [seatres] HOST task=175 npc=4,2164428800 subj=0,0 ok=0 npcpos=77113.6,-31643.5 subjpos=0.0,0.0 d=-1.0
+[18:06:45.612] [JOIN] INFO: [seatres] HOST task=175 npc=3,1528930688 subj=0,0 ok=0 npcpos=77246.0,-31875.0 subjpos=0.0,0.0 d=-1.0
+[18:06:45.620] [JOIN] INFO: [seatres] HOST task=175 npc=6,552978496 subj=0,0 ok=0 npcpos=77859.8,-28410.9 subjpos=0.0,0.0 d=-1.0
+[18:06:45.628] [JOIN] INFO: [seatres] HOST task=175 npc=8,1646728576 subj=0,0 ok=0 npcpos=77014.2,-31637.0 subjpos=0.0,0.0 d=-1.0
+[18:06:45.644] [JOIN] INFO: [seatres] HOST task=175 npc=9,1942260736 subj=0,0 ok=0 npcpos=77006.1,-31618.8 subjpos=0.0,0.0 d=-1.0
+[18:06:45.671] [JOIN] INFO: [seatres] HOST task=175 npc=13,71289064 subj=0,0 ok=0 npcpos=77177.3,-31855.4 subjpos=0.0,0.0 d=-1.0
+[18:06:45.698] [JOIN] INFO: [seatres] HOST task=175 npc=7,2649902336 subj=0,0 ok=0 npcpos=76989.3,-31614.9 subjpos=0.0,0.0 d=-1.0
+[18:06:45.707] [JOIN] INFO: [taskkey] key=67 desc='Running' repro=0 subject=1
+[18:06:45.829] [JOIN] INFO: [life] hand=1,196,2610229504,2,3320190464 from=HI to=MID reason=drive
+[18:06:45.829] [JOIN] INFO: [life] hand=1,196,2610229504,4,2471801856 from=HI to=MID reason=drive
+[18:06:45.829] [JOIN] INFO: [life] hand=1,393,400146496,9,3018676736 from=HI to=MID reason=drive
+[18:06:45.861] [JOIN] INFO: [taskkey] key=6 desc='Equipping weapon' repro=0 subject=1
+[18:06:45.883] [JOIN] INFO: [inv] SEND hand=1,2,1484619136,1,1962646528 kind=0 key=1,2,1484619136,1,1962646528 items=7 hash=1382585938
+[18:06:45.883] [JOIN] INFO: [inv] SEND hand=1,2,1484619136,2,818237312 kind=0 key=1,2,1484619136,2,818237312 items=8 hash=262764757
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,180,3951416064,1,3535766528 dist=924 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,181,538696320,1,2614013696 dist=1201 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,181,538696320,2,3604736256 dist=1078 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,181,538696320,3,2951293952 dist=1165 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,182,3829711872,1,1364502016 dist=1254 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,182,3829711872,2,1645629824 dist=1237 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,182,3829711872,3,165405280 dist=1248 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,182,3829711872,4,912475584 dist=1233 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,182,3829711872,5,1209838848 dist=1226 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,182,3829711872,6,3712402432 dist=1238 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,183,3091552768,1,2203735296 dist=1338 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,184,2115722624,1,2134765568 dist=1305 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,185,3256957952,2,1729492224 dist=1209 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,185,3256957952,3,3628418048 dist=1206 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,185,3256957952,4,433471680 dist=1223 mint=600 cen=1
+[18:06:45.911] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,186,325805664,1,3322998016 dist=1066 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,186,325805664,2,1922607360 dist=1022 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,186,325805664,3,3793579008 dist=1085 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,187,1228027392,1,1207275392 dist=1135 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,187,1228027392,2,2880493056 dist=1121 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,187,1228027392,3,2305908224 dist=1318 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,187,1228027392,4,2491454976 dist=1308 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,189,3703491328,1,1054809600 dist=1330 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,189,3703491328,2,554199232 dist=1361 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,189,3703491328,3,2197631744 dist=1330 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,189,3703491328,4,3522583040 dist=635 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,189,3703491328,5,3454101504 dist=631 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,189,3703491328,6,816528320 dist=630 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,190,2980224512,1,2242553600 dist=1284 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,190,2980224512,2,533325184 dist=1365 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,192,2728393472,1,2997070336 dist=1264 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,192,2728393472,2,2971801856 dist=1278 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,192,2728393472,3,2374755840 dist=1260 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,192,2728393472,4,2883666944 dist=714 mint=600 cen=1
+[18:06:45.919] [JOIN] INFO: [life] hand=1,192,2728393472,5,1598022400 from=DISCOVERED to=RESOLVED reason=mint
+[18:06:45.919] [JOIN] INFO: [spawn] proxy BOUND hand=1,192,2728393472,5,1598022400 sid='44861-rebirth.mod' fac='1233-gamedata.base' dead=0 age=1.00 pos=18801.6,403.1,48054.0 mintDist=379 cen=1 (proxies=1)
+[18:06:45.920] [JOIN] INFO: [life] hand=1,192,2728393472,6,3107665920 from=DISCOVERED to=RESOLVED reason=mint
+[18:06:45.920] [JOIN] INFO: [spawn] proxy BOUND hand=1,192,2728393472,6,3107665920 sid='44861-rebirth.mod' fac='1233-gamedata.base' dead=0 age=1.00 pos=18671.1,403.1,47833.8 mintDist=446 cen=1 (proxies=2)
+[18:06:45.920] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,192,2728393472,7,2085693312 dist=1080 mint=600 cen=1
+[18:06:45.920] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,193,776611328,1,2727294976 dist=1293 mint=600 cen=1
+[18:06:45.920] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,193,776611328,2,3621337856 dist=1311 mint=600 cen=1
+[18:06:45.920] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,194,3132080128,1,1145141632 dist=1307 mint=600 cen=1
+[18:06:45.920] [JOIN] INFO: [spawn] INFO deferred (far) hand=1,194,3132080128,2,2063476608 dist=1232 mint=600 cen=1
+[18:06:45.920] [JOIN] INFO: SCENARIO PROXY hand=5,1598022400,1,192,2728393472 pos=18801.58,402.50,48054.03
+[18:06:45.920] [JOIN] INFO: SCENARIO PROXY hand=6,3107665920,1,192,2728393472 pos=18671.13,402.73,47833.77
+[18:06:45.920] [JOIN] INFO: [life] hand=1,393,400146496,8,1264038144 from=HI to=MID reason=drive
+[18:06:45.956] [JOIN] INFO: [taskkey] key=61 desc='Attacking target unprovoked' repro=0 subject=1
+[18:06:46.093] [JOIN] INFO: [life] hand=1,385,1293457024,2,2604003840 from=HI to=MID reason=drive
+[18:06:46.093] [JOIN] INFO: [life] hand=1,385,1293457024,6,3382812416 from=HI to=MID reason=drive
+[18:06:46.093] [JOIN] INFO: [life] hand=1,391,3640869120,6,38818360 from=HI to=MID reason=drive
+[18:06:46.093] [JOIN] INFO: [life] hand=1,391,3640869120,8,956665024 from=HI to=MID reason=drive
+[18:06:46.093] [JOIN] INFO: [life] hand=1,393,400146496,6,1721679744 from=HI to=MID reason=drive
+[18:06:46.243] [JOIN] INFO: [life] hand=1,385,1293457024,5,3317504768 from=HI to=MID reason=drive
+[18:06:46.243] [JOIN] INFO: [life] hand=1,391,3640869120,1,2733642496 from=HI to=MID reason=drive
+[18:06:46.243] [JOIN] INFO: [life] hand=1,391,3640869120,2,3586059520 from=HI to=MID reason=drive
+[18:06:46.243] [JOIN] INFO: [life] hand=1,391,3640869120,5,1565795840 from=HI to=MID reason=drive
+[18:06:46.340] [JOIN] INFO: [life] hand=1,391,3640869120,3,1273803648 from=HI to=MID reason=drive
+[18:06:46.340] [JOIN] INFO: [life] hand=1,393,400146496,1,1695678720 from=HI to=MID reason=drive
+[18:06:46.340] [JOIN] INFO: [life] hand=1,393,400146496,3,1743652352 from=HI to=MID reason=drive
+[18:06:46.340] [JOIN] INFO: [life] hand=1,393,400146496,4,3274047744 from=HI to=MID reason=drive
+[18:06:46.422] [JOIN] INFO: SCENARIO PROXY hand=5,1598022400,1,192,2728393472 pos=18801.58,403.09,48054.03
+[18:06:46.422] [JOIN] INFO: SCENARIO PROXY hand=6,3107665920,1,192,2728393472 pos=18671.13,403.08,47833.77
+[18:06:46.559] [JOIN] INFO: [sneak] APPLY hand=1,1913818368 on=1 ok=1
+[18:06:46.733] [JOIN] INFO: [trust] grant hand=1,506347648 streak=150
+[18:06:46.733] [JOIN] INFO: [trust] grant hand=2,3119628800 streak=150
+[18:06:46.773] [JOIN] INFO: [trust] grant hand=11,904052736 streak=150
+[18:06:46.810] [JOIN] INFO: [trust] grant hand=10,1017578112 streak=150
+[18:06:46.831] [JOIN] INFO: [trust] grant hand=12,797973632 streak=150
+[18:06:46.926] [JOIN] INFO: SCENARIO PROXY hand=5,1598022400,1,192,2728393472 pos=18801.58,403.09,48054.03
+[18:06:46.926] [JOIN] INFO: SCENARIO PROXY hand=6,3107665920,1,192,2728393472 pos=18671.13,403.08,47833.77
+[18:06:47.004] [JOIN] INFO: [trust] grant hand=11,913452160 streak=150
+[18:06:47.150] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:47.274] [JOIN] INFO: [combat] order hand=5,1182006784 tgt=1,1913818368 localFight=0 r=2 wait=0 n=2 seatbrk=1
+[18:06:47.359] [JOIN] INFO: [life] hand=1,393,400146496,2,841430656 from=HI to=MID reason=drive
+[18:06:47.410] [JOIN] INFO: [census] park hand=7,133544920 name='Caravan Drone' d=125 local=18315,401,48831 host=18195,429,48815 (parks=1)
+[18:06:47.410] [JOIN] INFO: [census] FREEZE hand=7,133544920 name='Caravan Drone' d=125 (frozen=1)
+[18:06:47.429] [JOIN] INFO: SCENARIO PROXY hand=5,1598022400,1,192,2728393472 pos=18801.58,403.09,48054.03
+[18:06:47.429] [JOIN] INFO: SCENARIO PROXY hand=6,3107665920,1,192,2728393472 pos=18671.13,403.08,47833.77
+[18:06:47.533] [JOIN] INFO: [life] hand=1,391,3640869120,11,904052736 from=HI to=PARKED reason=census-local
+[18:06:47.560] [JOIN] INFO: [sneak] APPLY hand=1,1913818368 on=1 ok=1
+[18:06:47.575] [JOIN] INFO: [snap] mid hand=5,3317504768 name='Caravan Drone' gap=327.5 gate=108.1 srcVel=33.0 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=0
+[18:06:47.595] [JOIN] INFO: [inv] APPLY hand=0,1650,11111,45,76660160 items=0
+[18:06:47.595] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,299,3590942464 items=0
+[18:06:47.595] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,302,3849487360 items=0
+[18:06:47.595] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,304,1744018560 items=0
+[18:06:47.595] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,310,2069458048 items=0
+[18:06:47.595] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,314,339965824 items=1
+[18:06:47.641] [JOIN] INFO: [gate] hand=9,3018676736 host=1 local=65535  agree=7348/10458 (70%)
+[18:06:47.661] [JOIN] INFO: [census] FREEZE hand=7,133544920 name='Caravan Drone' d=28 (frozen=2)
+[18:06:47.827] [JOIN] INFO: [snap] mid hand=2,3586059520 name='Caravan Drone' gap=613.5 gate=203.2 srcVel=30.7 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=1
+[18:06:47.849] [JOIN] INFO: [life] hand=1,185,3256957952,2,1729492224 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.849] [JOIN] INFO: [census] park hand=2,1729492224 name='Lungrot' d=538 local=18325,401,48214 host=17829,428,48007 (parks=3)
+[18:06:47.849] [JOIN] INFO: [life] hand=1,185,3256957952,3,3628418048 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.849] [JOIN] INFO: [life] hand=1,185,3256957952,4,433471680 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.872] [JOIN] INFO: [seatres] HOST task=98 npc=2,554199232 subj=1149,1155761664 ok=1 npcpos=18163.4,48886.1 subjpos=18163.4,48886.1 d=0.0
+[18:06:47.872] [JOIN] INFO: [seatres] HOST task=98 npc=3,2197631744 subj=1148,3847534080 ok=1 npcpos=18189.5,48867.2 subjpos=18189.5,48867.2 d=0.0
+[18:06:47.872] [JOIN] INFO: [life] hand=1,189,3703491328,1,1054809600 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.872] [JOIN] INFO: [life] hand=1,189,3703491328,2,554199232 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.872] [JOIN] INFO: [life] hand=1,189,3703491328,3,2197631744 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.872] [JOIN] INFO: [life] hand=1,189,3703491328,4,3522583040 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.872] [JOIN] INFO: [life] hand=1,189,3703491328,5,3454101504 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.872] [JOIN] INFO: [life] hand=1,189,3703491328,6,816528320 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.882] [JOIN] INFO: [life] hand=1,183,3091552768,1,2203735296 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.882] [JOIN] INFO: [life] hand=1,187,1228027392,1,1207275392 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.882] [JOIN] INFO: [life] hand=1,187,1228027392,4,2491454976 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.882] [JOIN] INFO: [life] hand=1,187,1228027392,2,2880493056 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.882] [JOIN] INFO: [life] hand=1,187,1228027392,3,2305908224 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.890] [JOIN] INFO: [seatres] HOST task=98 npc=1,3322998016 subj=960,2680419840 ok=1 npcpos=18022.1,47934.2 subjpos=18022.1,47934.2 d=0.0
+[18:06:47.890] [JOIN] INFO: [seatres] HOST task=98 npc=3,3793579008 subj=969,1291992192 ok=1 npcpos=17999.9,47893.9 subjpos=17999.9,47893.9 d=0.0
+[18:06:47.890] [JOIN] INFO: [seatres] HOST task=98 npc=2,1922607360 subj=968,2637695232 ok=1 npcpos=18067.3,47901.8 subjpos=18067.3,47901.8 d=0.0
+[18:06:47.890] [JOIN] INFO: [life] hand=1,186,325805664,1,3322998016 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.890] [JOIN] INFO: [life] hand=1,186,325805664,3,3793579008 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.890] [JOIN] INFO: [life] hand=1,186,325805664,2,1922607360 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.890] [JOIN] INFO: [life] hand=1,184,2115722624,1,2134765568 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.900] [JOIN] INFO: [seatres] HOST task=98 npc=1,2997070336 subj=1251,1773193344 ok=1 npcpos=17842.5,48152.7 subjpos=17842.5,48152.7 d=0.0
+[18:06:47.900] [JOIN] INFO: [seatres] HOST task=98 npc=3,2374755840 subj=1257,3044311552 ok=1 npcpos=17827.4,48037.1 subjpos=17827.4,48037.1 d=0.0
+[18:06:47.900] [JOIN] INFO: [seatres] HOST task=98 npc=2,2971801856 subj=1258,1186645504 ok=1 npcpos=17810.1,48048.3 subjpos=17810.1,48048.3 d=0.0
+[18:06:47.900] [JOIN] INFO: [life] hand=1,192,2728393472,6,3107665920 from=RESOLVED to=PARKED reason=census-local
+[18:06:47.900] [JOIN] INFO: [life] hand=1,192,2728393472,5,1598022400 from=RESOLVED to=PARKED reason=census-local
+[18:06:47.900] [JOIN] INFO: [life] hand=1,192,2728393472,7,2085693312 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.900] [JOIN] INFO: [life] hand=1,192,2728393472,1,2997070336 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.900] [JOIN] INFO: [life] hand=1,192,2728393472,3,2374755840 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.900] [JOIN] INFO: [life] hand=1,192,2728393472,2,2971801856 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.900] [JOIN] INFO: [life] hand=1,192,2728393472,4,2883666944 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.918] [JOIN] INFO: [census] FREEZE hand=4,2491454976 name='Mercenary' d=0 (frozen=8)
+[18:06:47.918] [JOIN] INFO: [life] hand=1,182,3829711872,1,1364502016 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.918] [JOIN] INFO: [life] hand=1,182,3829711872,2,1645629824 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.918] [JOIN] INFO: [life] hand=1,182,3829711872,3,165405280 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.918] [JOIN] INFO: [life] hand=1,182,3829711872,4,912475584 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.918] [JOIN] INFO: [life] hand=1,182,3829711872,5,1209838848 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.918] [JOIN] INFO: [life] hand=1,182,3829711872,6,3712402432 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.918] [JOIN] INFO: [life] hand=1,190,2980224512,1,2242553600 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.918] [JOIN] INFO: [life] hand=1,190,2980224512,2,533325184 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.929] [JOIN] INFO: [destroy] npc  ptr=000000007F6956E0
+[18:06:47.929] [JOIN] INFO: [spawn] proxy DUPE-HEAL hand=1,192,2728393472,5,1598022400 (original resolved; proxy destroyed, proxies=1)
+[18:06:47.929] [JOIN] INFO: [life] hand=1,192,2728393472,5,1598022400 from=PARKED to=RESOLVED reason=dupe-heal
+[18:06:47.929] [JOIN] INFO: [destroy] npc  ptr=00000001913CBE50
+[18:06:47.929] [JOIN] INFO: [spawn] proxy DUPE-HEAL hand=1,192,2728393472,6,3107665920 (original resolved; proxy destroyed, proxies=0)
+[18:06:47.929] [JOIN] INFO: [life] hand=1,192,2728393472,6,3107665920 from=PARKED to=RESOLVED reason=dupe-heal
+[18:06:47.931] [JOIN] INFO: [life] hand=1,192,2728393472,6,3107665920 from=RESOLVED to=PARKED reason=census-local
+[18:06:47.931] [JOIN] INFO: [life] hand=1,192,2728393472,5,1598022400 from=RESOLVED to=PARKED reason=census-local
+[18:06:47.939] [JOIN] INFO: [life] hand=1,180,3951416064,1,3535766528 from=DISCOVERED to=MID reason=drive
+[18:06:47.947] [JOIN] INFO: [life] hand=1,181,538696320,1,2614013696 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.947] [JOIN] INFO: [life] hand=1,181,538696320,2,3604736256 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.947] [JOIN] INFO: [life] hand=1,181,538696320,3,2951293952 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.956] [JOIN] INFO: [seatres] HOST task=98 npc=1,1145141632 subj=1288,2667602432 ok=1 npcpos=17977.2,48620.9 subjpos=17977.2,48620.9 d=0.0
+[18:06:47.956] [JOIN] INFO: [seatres] HOST task=98 npc=2,2063476608 subj=1309,3771362304 ok=1 npcpos=18080.5,48602.3 subjpos=18080.5,48602.3 d=0.0
+[18:06:47.956] [JOIN] INFO: [taskkey] key=146 desc='Turret gunner' repro=0 subject=1
+[18:06:47.956] [JOIN] INFO: [life] hand=1,194,3132080128,1,1145141632 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.956] [JOIN] INFO: [life] hand=1,194,3132080128,2,2063476608 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.969] [JOIN] INFO: [life] hand=1,193,776611328,1,2727294976 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:47.969] [JOIN] INFO: [life] hand=1,193,776611328,2,3621337856 from=DISCOVERED to=PARKED reason=census-wide
+[18:06:48.081] [JOIN] INFO: [snap] cover hand=3,1743652352 name='Caravan Drone' gap=580.8 gate=184.1 srcVel=53.3 cSpeed=15.0 mult=1.00 slew=2.00 dest=0 skipped=8
+[18:06:48.104] [JOIN] INFO: [taskkey] key=51 desc='Stand at node' repro=0 subject=1
+[18:06:48.175] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=0 (frozen=17)
+[18:06:48.265] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,301,2975341824 items=0
+[18:06:48.339] [JOIN] INFO: [snap] cover hand=6,38818360 name='Caravan Drone' gap=423.1 gate=104.4 srcVel=64.8 cSpeed=15.0 mult=1.00 slew=2.00 dest=0 skipped=48
+[18:06:48.427] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=33 (frozen=17)
+[18:06:48.660] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=31
+[18:06:48.814] [JOIN] INFO: [snap] cover hand=2,2604003840 name='Caravan Drone' gap=459.1 gate=148.7 srcVel=0.0 cSpeed=15.0 mult=1.00 slew=2.00 dest=0 skipped=7
+[18:06:48.814] [JOIN] INFO: [ai] suspended=20 driven=58
+[18:06:48.814] [JOIN] INFO: [trust] trusted=6 driven=52 grants=6 revokes=0
+[18:06:48.814] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=33 (frozen=17)
+[18:06:48.814] [JOIN] INFO: [census] park hand=5,2779296768 name='Caravan Drone' d=134 local=18283,430,48755 host=18170,429,48826 (parks=18)
+[18:06:48.968] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,312,1044799808 items=0
+[18:06:48.968] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,313,3079101440 items=0
+[18:06:48.999] [JOIN] INFO: [inv] APPLY hand=1,1,3629760768,1,1913818368 items=12
+[18:06:49.083] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=33 (frozen=18)
+[18:06:49.125] [JOIN] INFO: [snap] cover hand=6,1721679744 name='Caravan Drone' gap=260.3 gate=86.6 srcVel=51.8 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=8
+[18:06:49.341] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=61 (frozen=18)
+[18:06:49.492] [JOIN] INFO: [snap] cover hand=4,2471801856 name='Nanashi' gap=434.4 gate=142.1 srcVel=0.0 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=2
+[18:06:49.594] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,309,256225584 items=0
+[18:06:49.594] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=61 (frozen=18)
+[18:06:49.642] [JOIN] INFO: [gate] hand=2,2604003840 host=36 local=1  agree=10135/13616 (74%)
+[18:06:49.796] [JOIN] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[18:06:49.866] [JOIN] INFO: [life] hand=1,196,2610229504,6,3469116160 from=UNKNOWN to=HI reason=drive
+[18:06:49.866] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=61 (frozen=18)
+[18:06:49.877] [JOIN] INFO: [life] hand=1,196,2610229504,6,3469116160 from=HI to=MID reason=drive
+[18:06:50.025] [JOIN] INFO: [taskkey] key=87 desc='Operating machine' repro=1 subject=1
+[18:06:50.025] [JOIN] INFO: [seatres] HOST task=87 npc=1,2134765568 subj=1123,1894043008 ok=1 npcpos=18187.1,48842.9 subjpos=18182.1,48840.5 d=5.6
+[18:06:50.117] [JOIN] INFO: [snap] cover hand=4,2471801856 name='Nanashi' gap=291.9 gate=81.6 srcVel=50.7 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=20
+[18:06:50.117] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=61 (frozen=18)
+[18:06:50.371] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=90 (frozen=18)
+[18:06:50.533] [JOIN] INFO: [hitdbg] owner=1 attackers=3 driven=22 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[18:06:50.557] [JOIN] INFO: [interp] lerp=5905 extrap=6112 clamp=8 seg=257 single=10042 snapSq=2 snapNpc=0 reissueSq=59 reissueNpc=299 restFlip=1 delay=200 jit=188.2 starve=36 snapMid=134 restFlipMid=0
+[18:06:50.557] [JOIN] INFO: [combat] stats snap=1 slide=4 softWalk=4 order=4 wrongTgt=0 armed=2 maxPersist=1
+[18:06:50.557] [JOIN] INFO: [audit] exist near=2 wide=101 drv=21 cen=78 hid=0 ghost=2 supp=0 census=112 fresh=1 parks=18
+[18:06:50.557] [JOIN] INFO: [cam] center=78387.9,226.6,-30307.4
+[18:06:50.620] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=90 (frozen=18)
+[18:06:50.865] [JOIN] INFO: [taskkey] key=180 desc='Gate guard' repro=0 subject=1
+[18:06:50.872] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=90 (frozen=18)
+[18:06:50.921] [JOIN] INFO: [snap] cover hand=9,3018676736 name='Caravan Drone' gap=177.6 gate=45.3 srcVel=46.1 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=33
+[18:06:51.123] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=90 (frozen=18)
+[18:06:51.210] [JOIN] INFO: [time] OFFSET off=0.1684gh slew=2.00 host=698.83338 local=698.66495
+[18:06:51.212] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,315,683959936 items=0
+[18:06:51.212] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,316,899291968 items=0
+[18:06:51.376] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=116 (frozen=18)
+[18:06:51.483] [JOIN] INFO: [snap] cover hand=2,2604003840 name='Caravan Drone' gap=89.5 gate=21.1 srcVel=0.0 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=20
+[18:06:51.594] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,308,403198240 items=0
+[18:06:51.631] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=116 (frozen=18)
+[18:06:51.646] [JOIN] INFO: [gate] hand=2,3320190464 host=1 local=121  agree=14372/19266 (74%)
+[18:06:51.753] [JOIN] INFO: [speed] REQ mult=1.00 paused=0 combat=0
+[18:06:51.817] [JOIN] INFO: [ai] suspended=20 driven=58
+[18:06:51.817] [JOIN] INFO: [trust] trusted=6 driven=52 grants=6 revokes=0
+[18:06:51.863] [JOIN] INFO: [taskkey] key=29 desc='Move order' repro=0 subject=0
+[18:06:51.880] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=116 (frozen=18)
+[18:06:51.912] [JOIN] INFO: [snap] mid hand=8,1264038144 name='Caravan Drone' gap=112.4 gate=37.1 srcVel=29.6 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=21
+[18:06:51.970] [JOIN] INFO: [census] park hand=1,2203735296 name='Rei' d=126 local=17843,428,47990 host=17732,428,48048 (parks=19)
+[18:06:52.130] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=116 (frozen=19)
+[18:06:52.192] [JOIN] INFO: [stats] RECV hand=1,1913818368 ok=1 str=82.5 dex=31.0 tough=69.8 stealth=90.2 athl=79.2 xp=0
+[18:06:52.206] [JOIN] INFO: [snap] mid hand=8,956665024 name='Caravan Drone' gap=209.0 gate=65.2 srcVel=29.6 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=0
+[18:06:52.265] [JOIN] INFO: [census] park hand=3,2951293952 name='Ribs' d=145 local=17865,420,47973 host=17804,428,48105 (parks=20)
+[18:06:52.383] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=0 (frozen=19)
+[18:06:52.547] [JOIN] INFO: [fac] AFFECT-EV me='1233-gamedata.base' whom='18000-gamedata.base' event=0 mult=0.030 after=0.00 skipped=0
+[18:06:52.553] [JOIN] INFO: [taskkey] key=4 desc='Attacking' repro=0 subject=1
+[18:06:52.583] [JOIN] INFO: [taskkey] key=210 desc='Investigating' repro=0 subject=0
+[18:06:52.618] [JOIN] INFO: [trust] revoke hand=1,506347648 reason=task drift=0.0
+[18:06:52.618] [JOIN] INFO: [pose] applyOrder hand=1,506347648 task=98 subj=271,520996096,0 det=1 r=2 try=0
+[18:06:52.640] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:52.697] [JOIN] INFO: [trust] revoke hand=2,3119628800 reason=task drift=12.2
+[18:06:52.697] [JOIN] INFO: [pose] applyOrder hand=2,3119628800 task=98 subj=272,3520385792,0 det=1 r=2 try=0
+[18:06:52.697] [JOIN] INFO: [taskkey] key=208 desc='Getting out of bed!' repro=0 subject=0
+[18:06:52.705] [JOIN] INFO: [inv] APPLY hand=0,1650,11111,45,76660160 items=0
+[18:06:52.705] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,302,3849487360 items=0
+[18:06:52.705] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,304,1744018560 items=0
+[18:06:52.892] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:53.015] [JOIN] INFO: [snap] mid hand=2,841430656 name='Caravan Drone' gap=33.3 gate=9.9 srcVel=0.0 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=0
+[18:06:53.144] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:53.227] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,301,2975341824 items=0
+[18:06:53.255] [JOIN] INFO: [taskkey] key=209 desc='Investigating' repro=0 subject=0
+[18:06:53.262] [JOIN] INFO: [life] hand=1,19,3081787136,1,68603512 from=UNKNOWN to=CULLED reason=suppress
+[18:06:53.262] [JOIN] INFO: [authority] suppress NPC hand=1,68603512 name='Vashu' (streamed=22 local=3 supp=1 churn=1/0)
+[18:06:53.399] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:53.585] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,312,1044799808 items=0
+[18:06:53.585] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,313,3079101440 items=0
+[18:06:53.585] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,317,976684544 items=0
+[18:06:53.647] [JOIN] INFO: [gate] hand=1,506347648 host=98 local=65535  agree=17874/25218 (70%)
+[18:06:53.655] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:53.722] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=34
+[18:06:53.892] [JOIN] INFO: [inv] APPLY hand=1,1,3629760768,1,1913818368 items=12
+[18:06:53.910] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:54.166] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:54.420] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:54.463] [JOIN] INFO: [snap] cover hand=6,3382812416 name='Caravan Drone' gap=217.9 gate=54.0 srcVel=55.8 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=21
+[18:06:54.676] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=27 (frozen=19)
+[18:06:54.716] [JOIN] INFO: [snap] cover hand=2,3320190464 name='Knife' gap=107.0 gate=31.9 srcVel=33.3 cSpeed=15.0 mult=1.00 slew=2.00 dest=0 skipped=43
+[18:06:54.820] [JOIN] INFO: [ai] suspended=21 driven=58
+[18:06:54.820] [JOIN] INFO: [trust] trusted=4 driven=54 grants=6 revokes=2
+[18:06:54.835] [JOIN] INFO: [inv] APPLY hand=0,2725,11111,309,256225584 items=0
+[18:06:54.850] [JOIN] INFO: [life] hand=1,195,3864745984,1,506347648 from=HI to=PARKED reason=mid-rest
+[18:06:54.850] [JOIN] INFO: [life] hand=1,195,3864745984,2,3119628800 from=HI to=PARKED reason=mid-rest
+[18:06:54.903] [JOIN] INFO: [life] hand=1,195,3864745984,1,506347648 from=PARKED to=MID reason=drive
+[18:06:54.903] [JOIN] INFO: [pose] rest re-arm task 65535 -> 98
+[18:06:54.903] [JOIN] INFO: [pose] applyOrder hand=1,506347648 task=98 subj=271,520996096,0 det=1 r=2 try=0
+[18:06:54.903] [JOIN] INFO: [life] hand=1,195,3864745984,2,3119628800 from=PARKED to=MID reason=drive
+[18:06:54.903] [JOIN] INFO: [pose] rest re-arm task 65535 -> 98
+[18:06:54.903] [JOIN] INFO: [pose] applyOrder hand=2,3119628800 task=98 subj=272,3520385792,0 det=1 r=2 try=0
+[18:06:54.928] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=27 (frozen=19)
+[18:06:55.003] [JOIN] INFO: [snap] mid hand=4,2471801856 name='Nanashi' gap=138.0 gate=34.7 srcVel=27.7 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=33
+[18:06:55.105] [JOIN] INFO: [stats] SEND hand=2,818237312 str=18.0 dex=30.6 tough=26.5 stealth=18.0 athl=21.4 xp=0 fap=0
+[18:06:55.177] [JOIN] INFO: [census] FREEZE hand=4,912475584 name='Mercenary' d=111 (frozen=19)
+[18:06:55.278] [JOIN] INFO: [snap] mid hand=5,3317504768 name='Caravan Drone' gap=211.9 gate=35.7 srcVel=35.2 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=0
+[18:06:55.428] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=19)
+[18:06:55.534] [JOIN] INFO: [life] hand=1,391,3640869120,7,679687488 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [census] park hand=7,679687488 name='Caravan Drone' d=962 local=17858,412,47977 host=18262,429,48850 (parks=25)
+[18:06:55.534] [JOIN] INFO: [life] hand=1,391,3640869120,4,1891113344 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,391,3640869120,9,2237793024 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,385,1293457024,10,2134887680 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,385,1293457024,1,2055664000 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,393,400146496,12,2004760704 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,393,400146496,10,2446899456 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,391,3640869120,10,1017578112 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,385,1293457024,11,913452160 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,385,1293457024,4,2828735232 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,385,1293457024,7,2046875008 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,385,1293457024,3,550415040 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,393,400146496,11,2922119168 from=HI to=PARKED reason=census-wide
+[18:06:55.534] [JOIN] INFO: [life] hand=1,385,1293457024,9,3055175680 from=HI to=PARKED reason=census-wide
+[18:06:55.535] [JOIN] INFO: [life] hand=1,385,1293457024,8,3186889728 from=HI to=PARKED reason=census-wide
+[18:06:55.535] [JOIN] INFO: [life] hand=1,385,1293457024,12,797973632 from=HI to=PARKED reason=census-wide
+[18:06:55.540] [JOIN] INFO: [hitdbg] owner=1 attackers=3 driven=20 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[18:06:55.555] [JOIN] INFO: [cam] center=78468.8,208.9,-30262.1
+[18:06:55.565] [JOIN] INFO: [interp] lerp=13532 extrap=13787 clamp=8 seg=257 single=10042 snapSq=2 snapNpc=0 reissueSq=105 reissueNpc=584 restFlip=2 delay=200 jit=203.8 starve=38 snapMid=281 restFlipMid=0
+[18:06:55.565] [JOIN] INFO: [combat] stats snap=1 slide=4 softWalk=4 order=4 wrongTgt=0 armed=2 maxPersist=1
+[18:06:55.565] [JOIN] INFO: [audit] exist near=3 wide=93 drv=19 cen=71 hid=1 ghost=2 supp=1 census=112 fresh=1 parks=40
+[18:06:55.637] [JOIN] INFO: [life] hand=1,15,1644775424,1,1210449280 from=UNKNOWN to=CULLED reason=cull-wide
+[18:06:55.637] [JOIN] INFO: [census] cull NPC hand=1,1210449280 name='Vashu' pos=18934,186,47919 (census=112 wide=93 supp=2 culls=1)
+[18:06:55.651] [JOIN] INFO: [gate] hand=1,506347648 host=98 local=65535  agree=20839/30851 (67%)
+[18:06:55.678] [JOIN] INFO: [census] FREEZE hand=7,679687488 name='Caravan Drone' d=962 (frozen=34)
+[18:06:55.753] [JOIN] INFO: [seatres] HOST task=87 npc=8,3186889728 subj=1191,1477661184 ok=1 npcpos=17745.4,48015.7 subjpos=17745.4,48015.7 d=0.0
+[18:06:55.861] [JOIN] INFO: [snap] cover hand=1,2733642496 name='Hive Caravan Boss' gap=49.1 gate=8.0 srcVel=0.0 cSpeed=0.0 mult=1.00 slew=2.00 dest=1 skipped=0
+[18:06:55.930] [JOIN] INFO: [census] FREEZE hand=7,679687488 name='Caravan Drone' d=2 (frozen=34)
+[18:06:55.991] [JOIN] INFO: [taskkey] key=7 desc='Sheathing weapon' repro=0 subject=0
+[18:06:56.097] [JOIN] INFO: [pose] rest re-arm task 65535 -> 87
+[18:06:56.097] [JOIN] INFO: [pose] applyOrder hand=1,2733642496 task=87 subj=1125,1053588864,0 det=1 r=2 try=0
+[18:06:56.178] [JOIN] INFO: [snap] squad hand=1,1913818368 name='Zach' gap=12.9 gate=12.9 srcVel=0.0 cSpeed=0.0 mult=1.00 slew=2.00 dest=1 skipped=31
+[18:06:56.185] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=34)
+[18:06:56.322] [JOIN] INFO: [seatres] HOST task=87 npc=1,3954223616 subj=1125,1053588864 ok=1 npcpos=18165.1,48861.3 subjpos=18160.0,48853.1 d=9.7
+[18:06:56.335] [JOIN] INFO: [life] hand=1,393,400146496,3,1743652352 from=MID to=PARKED reason=mid-rest
+[18:06:56.431] [JOIN] INFO: [snap] cover hand=1,3535766528 name='UC Pacifier' gap=169.8 gate=37.2 srcVel=37.5 cSpeed=15.0 mult=1.00 slew=2.00 dest=0 skipped=53
+[18:06:56.438] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=34)
+[18:06:56.693] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=34)
+[18:06:56.949] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=34)
+[18:06:57.126] [JOIN] INFO: [snap] cover hand=1,3535766528 name='UC Pacifier' gap=132.0 gate=37.2 srcVel=37.5 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=75
+[18:06:57.202] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=34)
+[18:06:57.390] [JOIN] INFO: [life] hand=1,195,3864745984,2,3119628800 from=MID to=PARKED reason=census-local
+[18:06:57.455] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=34)
+[18:06:57.656] [JOIN] INFO: [gate] hand=2,3320190464 host=1 local=180  agree=22327/34985 (63%)
+[18:06:57.708] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=34)
+[18:06:57.824] [JOIN] INFO: [ai] suspended=4 driven=58
+[18:06:57.824] [JOIN] INFO: [trust] trusted=4 driven=54 grants=6 revokes=2
+[18:06:57.881] [JOIN] INFO: [life] hand=1,12,1177001984,1,1825561472 from=UNKNOWN to=CULLED reason=suppress
+[18:06:57.881] [JOIN] INFO: [authority] suppress NPC hand=1,1825561472 name='Ronin Armour Trader' (streamed=3 local=3 supp=3 churn=3/0)
+[18:06:57.930] [JOIN] INFO: [snap] mid hand=2,3320190464 name='Knife' gap=181.2 gate=51.9 srcVel=28.6 cSpeed=15.0 mult=1.00 slew=2.00 dest=1 skipped=12
+[18:06:57.961] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=34)
+[18:06:58.054] [JOIN] INFO: [census] park hand=10,2134887680 name='Caravan Drone' d=121 local=17775,428,48048 host=17867,420,47971 (parks=41)
+[18:06:58.214] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=35)
+[18:06:58.366] [JOIN] INFO: [life] hand=1,391,3640869120,3,1273803648 from=MID to=PARKED reason=census-wide
+[18:06:58.366] [JOIN] INFO: [census] park hand=3,1273803648 name='Caravan Drone' d=860 local=18033,401,48040 host=18191,429,48885 (parks=42)
+[18:06:58.464] [JOIN] INFO: [census] FREEZE hand=3,2951293952 name='Ribs' d=9 (frozen=36)
+[18:06:58.717] [JOIN] INFO: [census] FREEZE hand=10,2134887680 name='Caravan Drone' d=8 (frozen=36)
+[18:06:58.836] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=36
+[18:06:58.969] [JOIN] INFO: [census] FREEZE hand=10,2134887680 name='Caravan Drone' d=3 (frozen=36)
+[18:06:59.220] [JOIN] INFO: [census] FREEZE hand=10,2134887680 name='Caravan Drone' d=3 (frozen=36)
+[18:06:59.472] [JOIN] INFO: [census] FREEZE hand=10,2134887680 name='Caravan Drone' d=3 (frozen=36)
+[18:06:59.727] [JOIN] INFO: [census] FREEZE hand=10,2134887680 name='Caravan Drone' d=3 (frozen=36)
+[18:06:59.981] [JOIN] INFO: [census] FREEZE hand=10,2134887680 name='Caravan Drone' d=3 (frozen=36)
+[18:07:00.233] [JOIN] INFO: [census] FREEZE hand=10,2134887680 name='Caravan Drone' d=3 (frozen=36)
+[18:07:00.545] [JOIN] INFO: [hitdbg] owner=1 attackers=3 driven=0 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[18:07:00.551] [JOIN] INFO: [cam] center=78504.7,191.7,-30172.7
+[18:07:00.570] [JOIN] INFO: [interp] lerp=13548 extrap=19107 clamp=8 seg=257 single=10042 snapSq=3 snapNpc=0 reissueSq=107 reissueNpc=588 restFlip=8 delay=0 jit=0.0 starve=22 snapMid=456 restFlipMid=1
+[18:07:00.570] [JOIN] INFO: [combat] stats snap=1 slide=4 softWalk=4 order=4 wrongTgt=0 armed=2 maxPersist=1
+[18:07:00.570] [JOIN] INFO: [audit] exist near=3 wide=0 drv=0 cen=0 hid=2 ghost=1 supp=3 census=112 fresh=0 parks=42
+[18:07:00.692] [JOIN] INFO: [life] hand=1,195,3864745984,2,3119628800 from=PARKED to=CULLED reason=suppress
+[18:07:00.692] [JOIN] INFO: [authority] suppress NPC hand=2,3119628800 name='Shop Guard' (streamed=0 local=3 supp=4 churn=4/0)
+[18:07:00.831] [JOIN] INFO: [ai] suspended=1 driven=58
+[18:07:00.831] [JOIN] INFO: [trust] trusted=4 driven=54 grants=6 revokes=2
+[18:07:03.835] [JOIN] INFO: [ai] suspended=1 driven=58
+[18:07:03.835] [JOIN] INFO: [trust] trusted=4 driven=54 grants=6 revokes=2
+[18:07:03.865] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=38
+[18:07:04.430] [JOIN] INFO: [steam] session peer=76561199025713332 active=0 connecting=1 relay=0 err=0
+[18:07:05.546] [JOIN] INFO: [hitdbg] owner=1 attackers=3 driven=0 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[18:07:05.548] [JOIN] INFO: [fac] AFFECT-EV me='1233-gamedata.base' whom='1214-gamedata.base' event=0 mult=0.030 after=0.00 skipped=0
+[18:07:05.553] [JOIN] INFO: [cam] center=78504.7,191.7,-30172.7
+[18:07:05.573] [JOIN] INFO: [interp] lerp=13548 extrap=19107 clamp=8 seg=257 single=10042 snapSq=3 snapNpc=0 reissueSq=107 reissueNpc=588 restFlip=8 delay=0 jit=0.0 starve=19 snapMid=456 restFlipMid=1
+[18:07:05.573] [JOIN] INFO: [combat] stats snap=1 slide=4 softWalk=4 order=4 wrongTgt=0 armed=2 maxPersist=1
+[18:07:05.573] [JOIN] INFO: [audit] exist near=3 wide=0 drv=0 cen=0 hid=3 ghost=0 supp=4 census=112 fresh=0 parks=42
+[18:07:06.341] [JOIN] INFO: [inv] SEND hand=1,2,1484619136,1,1962646528 kind=0 key=1,2,1484619136,1,1962646528 items=7 hash=267471199
+[18:07:06.839] [JOIN] INFO: [ai] suspended=1 driven=58
+[18:07:06.839] [JOIN] INFO: [trust] trusted=4 driven=54 grants=6 revokes=2
+[18:07:08.242] [JOIN] INFO: [net] disconnected from host
+[18:07:08.245] [JOIN] INFO: handshake: peer left id=4294967295
+[18:07:08.245] [JOIN] INFO: [furn] SWEEP EXIT occ=1,506347648 kind=1 ok=1
+[18:07:08.245] [JOIN] INFO: [furn] SWEEP EXIT occ=2,3119628800 kind=1 ok=1
+[18:07:08.245] [JOIN] INFO: [leave] owner=4294967295 scoped sweep: proxies=0 worldProxies=0 kept=58
+[18:07:08.306] [JOIN] INFO: [net] reconnecting
+[18:07:08.864] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=38
+[18:07:09.313] [JOIN] INFO: [stats] SEND hand=2,818237312 str=18.0 dex=30.6 tough=26.5 stealth=18.0 athl=21.5 xp=0 fap=0
+[18:07:09.844] [JOIN] INFO: [ai] suspended=1 driven=58
+[18:07:09.844] [JOIN] INFO: [trust] trusted=4 driven=54 grants=6 revokes=2
+[18:07:10.003] [JOIN] INFO: [stats] SEND hand=1,1962646528 str=74.6 dex=51.7 tough=77.5 stealth=61.0 athl=80.5 xp=0 fap=0
+[18:07:10.333] [JOIN] INFO: [stats] SEND hand=2,818237312 str=18.0 dex=30.6 tough=26.5 stealth=18.0 athl=21.6 xp=0 fap=0
+[18:07:10.547] [JOIN] INFO: [hitdbg] owner=1 attackers=3 driven=0 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[18:07:10.555] [JOIN] INFO: [cam] center=78502.6,157.9,-29585.4
+[18:07:10.575] [JOIN] INFO: [interp] lerp=13548 extrap=19107 clamp=8 seg=257 single=10042 snapSq=3 snapNpc=0 reissueSq=107 reissueNpc=588 restFlip=8 delay=0 jit=0.0 starve=8 snapMid=456 restFlipMid=1
+[18:07:10.575] [JOIN] INFO: [combat] stats snap=1 slide=4 softWalk=4 order=4 wrongTgt=0 armed=2 maxPersist=1
+[18:07:10.575] [JOIN] INFO: [audit] exist near=4 wide=0 drv=0 cen=0 hid=3 ghost=1 supp=4 census=112 fresh=0 parks=42
+[18:07:10.832] [JOIN] INFO: [life] hand=1,182,3829711872,3,165405280 from=PARKED to=CULLED reason=suppress
+[18:07:10.832] [JOIN] INFO: [authority] suppress NPC hand=3,165405280 name='Mercenary' (streamed=0 local=4 supp=5 churn=5/0)
+[18:07:12.122] [JOIN] INFO: [fac] AFFECT-EV me='1233-gamedata.base' whom='1214-gamedata.base' event=0 mult=0.030 after=-0.00 skipped=4
+[18:07:12.648] [JOIN] INFO: [stats] SEND hand=2,818237312 str=18.0 dex=30.6 tough=26.5 stealth=18.0 athl=21.7 xp=0 fap=0
+[18:07:12.851] [JOIN] INFO: [ai] suspended=1 driven=58
+[18:07:12.851] [JOIN] INFO: [trust] trusted=4 driven=54 grants=6 revokes=2
+[18:07:13.652] [JOIN] INFO: [stats] SEND hand=2,818237312 str=18.0 dex=30.6 tough=26.5 stealth=18.0 athl=21.8 xp=0 fap=0
+[18:07:13.868] [JOIN] INFO: [net] CLOCKSYNC offset=463 rtt=80 n=38
+[18:07:15.551] [JOIN] INFO: [hitdbg] owner=1 attackers=3 driven=0 drained=0 skipSquad=0 zero=0 staged=0 sent=0 pending=0
+[18:07:15.558] [JOIN] INFO: [cam] center=78445.6,153.5,-29380.2
+[18:07:15.579] [JOIN] INFO: [interp] lerp=13548 extrap=19107 clamp=8 seg=257 single=10042 snapSq=3 snapNpc=0 reissueSq=107 reissueNpc=588 restFlip=8 delay=0 jit=0.0 starve=0 snapMid=456 restFlipMid=1
+[18:07:15.579] [JOIN] INFO: [combat] stats snap=1 slide=4 softWalk=4 order=4 wrongTgt=0 armed=0 maxPersist=0
+[18:07:15.579] [JOIN] INFO: [audit] exist near=4 wide=0 drv=0 cen=0 hid=4 ghost=0 supp=5 census=112 fresh=0 parks=42
+[18:07:15.774] [JOIN] INFO: [speed] REQ mult=0.00 paused=1 combat=0
+[18:07:15.854] [JOIN] INFO: [ai] suspended=0 driven=23
+[18:07:15.854] [JOIN] INFO: [trust] trusted=0 driven=23 grants=6 revokes=2
