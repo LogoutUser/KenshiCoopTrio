@@ -800,8 +800,22 @@ int onSaveDone(const SaveDoneHeader& d, const u32* crcs,
         // Outside save/ as well: a crash mid-swap used to strand "<name>__old"
         // where Kenshi's scanner would trip over it.
         std::string oldDir   = stagingFolderFor(g_recvName + "__old");
-        removeTree(oldDir, 0);
-        ensureParentDirs(pathJoin(oldDir, "x"));
+        // Create the staging ROOT only - never oldDir itself. ensureParentDirs
+        // creates every prefix ending in a separator, so "<oldDir>\x" created
+        // oldDir too, and MoveFileEx REFUSES to rename a directory onto an
+        // existing one. The destination was deleted and then immediately
+        // recreated, so the swap below could not succeed.
+        //
+        // This only bites when the destination save already exists, which is
+        // why it looked so specific in the field (logs-evan 2026-08-07): every
+        // DIVERGED transfer failed - 18 of 18, always badCrc=0 with all bytes
+        // intact - while every MISSING one committed, because the MISSING path
+        // skips this block entirely. The join sat on "Preparing host world..."
+        // forever. Regression introduced the same day by moving staging out of
+        // save/; the old code let oldDir sit beside finalDir and never had to
+        // create a parent at all.
+        ensureParentDirs(oldDir);
+        removeTree(oldDir, 0); // the rename destination MUST NOT exist
         bool hadOld = false;
         if (GetFileAttributesA(finalDir.c_str()) != INVALID_FILE_ATTRIBUTES) {
             hadOld = (MoveFileExA(finalDir.c_str(), oldDir.c_str(),
