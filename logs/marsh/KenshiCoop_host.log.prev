@@ -1,0 +1,26 @@
+[21:17:18.427] [HOST] INFO: log opened (previous run preserved as *.log.prev)
+[21:17:18.427] [HOST] INFO: KenshiCoop loaded! (clean rebuild)
+[21:17:18.427] [HOST] INFO: KenshiCoop: build Aug  2 2026 20:15:47
+[21:17:18.427] [HOST] INFO: KenshiCoop: role=HOST proto=v46 port=27800 save=''
+[21:17:18.427] [HOST] INFO: KenshiCoop: effective cfg scenario='' transport=steam on=[inv,xfer,world,med,speed,stats,carry,furn,chain,stealth,spawn,recruit,faction,time,door,build,bdoor,hunger,save,load,prod,research,store,squad,latejoin,aiSuspend,gateAuth,camInterest,censusFreezeAi] off=[blockXfer,money] censusR=2000 mintR=600 park=120 snap=8.0/0.75s armMs=45000
+[21:17:18.464] [HOST] INFO: [engine] CAPS saveload=1 savepath=1 hand_resolve=1 npc_stream=1 limb=1 stats=1 carry=1 furniture=1 chain=1 shackle=1 slave=1 stealth=1 camera=1 speed=1 quiet_speed=1 door=1 build=1 machine=1 time=1 wallet=1 faction=1 combat_escalate=1
+[21:17:18.464] [HOST] INFO: KenshiCoop: ownership ranks = {0} (bidirectional presence)
+[21:17:18.464] [HOST] INFO: KenshiCoop: interp delay=50-200ms extrap=250ms stale=2000ms snap=50u drive catchupK=2.00 snapDist=8.0u snapSec=0.75 sendStamp=1 census=2000u mint=600u park=120u starveHold=10000ms
+[21:17:18.500] [HOST] INFO: [ai] periodicUpdate detour installed; AI-suspend ON (default)
+[21:17:18.537] [HOST] INFO: [dmg] hitByMeleeAttack detour installed; damage guard ON (host, driven peer-squad bodies)
+[21:17:18.573] [HOST] INFO: [wi] dropItem detour installed; query-free drop capture ON
+[21:17:18.610] [HOST] INFO: [recruit] recruit detour installed; recruitment sync ON
+[21:17:18.647] [HOST] INFO: [build] placeFinalPreviewBuilding detour installed; placement logging ON
+[21:17:18.683] [HOST] INFO: [build] dismantle detour installed; removal logging ON
+[21:17:18.755] [HOST] INFO: [fac] affectRelations detours installed; relation logging ON
+[21:17:18.792] [HOST] INFO: [save] save detour installed; coordinated save ON
+[21:17:18.865] [HOST] INFO: [load] load detour installed; coordinated load ON
+[21:17:18.902] [HOST] INFO: KenshiCoop: title hook armed (F2 panel + push-on-connect at menu; no auto-load save)
+[21:17:18.902] [HOST] INFO: [steam] id=76561199417484463 loggedOn=1 iface=SteamNetworking005
+[21:17:18.902] [HOST] INFO: [invite] ready: mm=SteamMatchMaking009 friends=SteamFriends015 (in-panel friend picker armed)
+[21:17:18.902] [HOST] INFO: KenshiCoop: session DEFERRED - press F2 in-game to pick role/transport, enter the friend's Steam ID, and check CONNECTED
+[21:17:19.973] [HOST] INFO: [boot] title-tick running=0 host=1 started=0 saveEmpty=1
+[21:17:19.980] [HOST] INFO: [steam] accepted inbound session from 76561198346257175
+[21:17:19.980] [HOST] INFO: [steam] accepted inbound session from 76561198346257175
+[21:17:19.980] [HOST] INFO: [coop-ui] gui ptr=00007FF7DDCD2750
+[21:19:31.962] [HOST] INFO: [steam] accepted inbound session from 76561199025713332
