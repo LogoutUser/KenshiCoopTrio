@@ -58,7 +58,7 @@ Replicator::Replicator()
       speedMyCombat_(false), speedLastSet_(-1.0f),
       speedSeqOut_(1),
       speedLastSendMs_(0), speedCombatSampleMs_(0), speedCombatHoldMs_(0),
-      spawnSync_(false), spawnPosLogMs_(0),
+      spawnSync_(false), proxyTelemetry_(false), spawnPosLogMs_(0),
       spawnMintRadius_(0.0f), censusScanMs_(0),
       moneySync_(true), recruitSync_(true),
       squadSync_(true),

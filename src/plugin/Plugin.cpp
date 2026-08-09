@@ -1957,6 +1957,10 @@ void configureReplicator() {
     // local proxy bodies for host runtime spawns it cannot resolve by hand.
     // KENSHICOOP_SPAWN_SYNC=0 is the A/B escape hatch (spawn_probe forces off).
     g_repl.setSpawnSync(g_cfg.spawnSync);
+    // Proxy position telemetry is oracle instrumentation for spawn_sync. Only
+    // arm it when a scenario is actually running - in a player session it is
+    // pure noise, and at ~2 Hz per proxy it drowned a real log 94% to 6%.
+    g_repl.setProxyTelemetry(!g_cfg.scenario.empty());
 
     // AI-gating probe (join side): recruit diverged NPCs to test the inhabit lever.
     if (!g_cfg.isHost && g_cfg.probeRecruit) g_repl.setProbeRecruit(true);

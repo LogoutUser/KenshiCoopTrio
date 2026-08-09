@@ -52,7 +52,13 @@ $stage = Join-Path $env:TEMP "kclogs-$stamp"
 New-Item -ItemType Directory -Force -Path $stage | Out-Null
 
 $found = 0
-foreach ($pat in @('KenshiCoop_*.log','RE_Kenshi_log.txt')) {
+# 'KenshiCoop_*.prev' is listed separately on purpose. Older builds archived the
+# previous run as "<log>.prev", which the '*.log' glob does NOT match - so that
+# file was silently skipped on every player's machine, on every push. Spotted by
+# Evan 2026-08-07, who had to rename one by hand to get it collected; it turned
+# out to be the baseline proving a regression. Current builds archive as
+# "<log>.<timestamp>.prev.log" and are caught by the first pattern.
+foreach ($pat in @('KenshiCoop_*.log','KenshiCoop_*.prev','RE_Kenshi_log.txt')) {
     Get-ChildItem -Path $kenshi -Filter $pat -ErrorAction SilentlyContinue | ForEach-Object {
         Copy-Item $_.FullName (Join-Path $stage $_.Name) -Force
         Ok "collected $($_.Name)  ($([math]::Round($_.Length/1KB)) KB)"

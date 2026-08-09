@@ -533,7 +533,12 @@ void Replicator::syncSpawns(GameWorld* gw, Inbound& in, NetLink& net, u32 ownerI
     // proxy body's ACTUAL local position, in the SCENARIO series shape (hand
     // order i,s,t,c,cs like MEMBER/RECV lines) so the spawn_sync oracle can
     // time-pair it with the host's MEMBER series per hand.
-    if (!proxyByKey_.empty() && (now - spawnPosLogMs_) >= 500) {
+    // Scenario-only: this is oracle instrumentation, and it was ungated, so it
+    // ran in shipped player builds at ~2 Hz PER LIVE PROXY. logs-evan
+    // 2026-08-07 caught it at 779,699 of 830,147 lines in one join session -
+    // 94% of the log, 85.4 MB raw. It buried every useful line and made the
+    // bundle too large to share without hand-filtering.
+    if (proxyTelemetry_ && !proxyByKey_.empty() && (now - spawnPosLogMs_) >= 500) {
         spawnPosLogMs_ = now;
         for (std::map<Key, Character*>::iterator it = proxyByKey_.begin();
              it != proxyByKey_.end(); ++it) {

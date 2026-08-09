@@ -157,6 +157,15 @@ public:
     // forces it off to baseline the failure modes).
     void setSpawnSync(bool v) { spawnSync_ = v; }
 
+    // Per-proxy position telemetry ("SCENARIO PROXY" lines, ~2 Hz per live
+    // proxy). Oracle instrumentation for the spawn_sync scenario ONLY - it was
+    // ungated and therefore ran in shipped player builds too. Field evidence
+    // 2026-08-07 (logs-evan): 779,699 of 830,147 lines in a single join session
+    // were this one line - 94% of the log, 85.4 MB raw - burying real signal and
+    // making a log push impractical to share. Default OFF; the Plugin turns it
+    // on only when a scenario is actually running.
+    void setProxyTelemetry(bool v) { proxyTelemetry_ = v; }
+
     // BEFORE engine (protocol 21 -> 23, both clients): the describe/mint channel,
     // BIDIRECTIONAL since protocol 23 (a join RECRUIT of a runtime-born NPC mints
     // a hand the host cannot resolve). Each side both:
@@ -1672,6 +1681,7 @@ private:
 
     // Protocol 21 runtime-spawn proxy replication state.
     bool spawnSync_;
+    bool proxyTelemetry_; // scenario-only "SCENARIO PROXY" position spam
     // JOIN: streamed hand -> locally-minted proxy body. Checked at the
     // applyTargets resolve choke point when engine::resolve fails, so a bound
     // proxy inherits the ENTIRE world-NPC drive path (AI-suspend, damage
